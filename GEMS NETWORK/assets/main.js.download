@@ -1,0 +1,69 @@
+
+
+$(window).on('scroll', function(){
+  var sticky = $('header'),
+      scroll = $(window).scrollTop();
+
+  if (scroll >= 30) sticky.addClass('headerbg');
+  else sticky.removeClass('headerbg');
+});
+
+$(".ham").on('click', function(){
+  $(".mobile-menu").addClass("showmbmenu");
+});
+
+$(".close-items").on('click', function(){
+  $(".mobile-menu").removeClass("showmbmenu");
+});
+
+// Mobile dropdown toggle for Journeys
+$(document).on('click', '.mob-list_nav_menu.mbdrp > a, .toggle-sub', function(e){
+  e.preventDefault();
+  var sub = $(this).closest('.mob-list_nav_menu').find('.bxsublist-mob');
+  var caret = $(this).closest('.mob-list_nav_menu').find('.toggle-sub');
+  caret.toggleClass('active');
+  sub.slideToggle(250);
+});
+
+
+
+$(document).ready(function () {
+  if ($(window).width() <= 1143) {
+    $(".drparent").click(function (e) {
+      // Prevent default anchor behavior
+
+      // Find the submenu inside the clicked .drparent
+      let submenu = $(this).children(".sub-menu");
+
+      // Close all other submenus except the one being clicked
+      $(".sub-menu").not(submenu).slideUp();
+
+      // Toggle the clicked submenu
+      submenu.slideToggle();
+    });
+  }
+});
+
+
+$(document).ready(function () {
+$(".srv-home-content").addClass("activeanime");
+$(".srv-imgbs").addClass("activeanime");
+$(".srv-home-content").addClass("activeanime");
+$(".listothrsrv").addClass("activeanime");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const heading = document.querySelector(".srv-home-content h3");
+    if (!heading) return;
+
+    const headingText = heading.textContent.trim().toLowerCase();
+
+    document.querySelectorAll(".listothrsrv ul li a").forEach(link => {
+        const itemText = link.textContent.trim().toLowerCase();
+
+        // Partial match: if heading contains the list item title
+        if (headingText.includes(itemText)) {
+            link.parentElement.classList.add("active-service");
+        }
+    });
+});

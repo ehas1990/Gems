@@ -9676,20 +9676,216 @@ body {
         padding: 20px 10px 16px 10px;
         min-height: 160px;
     }
+
     .trusted-cat-icon {
         width: 52px;
         height: 52px;
         font-size: 20px;
         margin-bottom: 12px;
     }
+
     .trusted-cat-title {
         font-size: 13.5px;
     }
+
     .trusted-network-headline {
         font-size: 28px;
     }
+
     .partner-slider-intro::before,
     .partner-slider-intro::after {
         display: none;
+    }
+}
+
+/* ==========================================================================
+   SECTION 9 - FOOTER STYLES (UPDATED CONTENT & CLEAN DESIGN)
+   ========================================================================== */
+
+.footer-col-gems {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-col-title {
+    color: #edbd75;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 12px;
+}
+
+.footer-links-list li a {
+    color: #e2e8f0;
+    font-family: 'Nanum Gothic', 'Inter Tight', sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    transition: all 0.25s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.footer-links-list li a:hover {
+    color: #edbd75;
+    transform: translateX(4px);
+}
+
+.footer-social-links {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-social-links li {
+    margin-bottom: 0;
+}
+
+.footer-social-item {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 0;
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+}
+
+.footer-social-item:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(237, 189, 117, 0.5);
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+i.fab {
+    color: #ffffff;
+}
+
+.social-icon-fb {
+    color: #1877f2;
+    font-size: 20px;
+}
+
+.social-icon-li {
+    color: #0a66c2;
+    font-size: 20px;
+}
+
+.social-icon-wa {
+    color: #25d366;
+    font-size: 21px;
+}
+
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 5px;
+}
+
+.footer-bottom-tagline {
+    font-family: 'Nanum Gothic', 'Inter Tight', sans-serif;
+    color: #edbd75;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.footer-bottom-copy p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 13.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-bottom-legal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-bottom-legal a {
+    color: #94a3b8;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-legal a:hover {
+    color: #ffffff;
+}
+
+.legal-bullet {
+    color: #64748b;
+    font-size: 12px;
+}
+
+@media (min-width: 992px) {
+    .pdl-custom {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .row-footer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row-footer>.col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .pdl-custom {
+        padding-left: 0px;
+    }
+
+    .footer-bottom-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-col-title {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+
+    .footer-links-list li a {
+        font-size: 14px;
+    }
+
+    .footer-social-item {
+        padding: 6px 10px;
+        font-size: 13.5px;
+    }
+
+    .ftrlogo img {
+        max-width: 140px;
     }
 }

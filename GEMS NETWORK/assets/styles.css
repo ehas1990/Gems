@@ -9889,3 +9889,202 @@ i.fab {
         max-width: 140px;
     }
 }
+
+/* ==========================================================================
+   FINAL HOMEPAGE CTA STYLES
+   ========================================================================== */
+
+.final-homepage-cta {
+    position: relative;
+    background-image: url('cta_eagle_sunrise.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 130px 0;
+    overflow: hidden;
+}
+
+.final-homepage-cta .cta-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 4, 34, 0.72) 0%,
+        rgba(15, 6, 48, 0.6) 45%,
+        rgba(21, 1, 82, 0.88) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.final-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.final-cta-headline {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 46px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.final-cta-supporting {
+    font-family: 'Nanum Gothic', 'Inter Tight', sans-serif;
+    font-size: 20px;
+    color: #f1f5f9;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.final-cta-signature {
+    margin-bottom: 42px;
+}
+
+.final-cta-signature .sig-line-1 {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.final-cta-signature .sig-line-2 {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #edbd75;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0;
+    text-shadow: 0 0 20px rgba(237, 189, 117, 0.4);
+}
+
+.final-cta-buttons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: linear-gradient(135deg, #edbd75 0%, #d49e4e 100%);
+    color: #0e0529 !important;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none !important;
+    box-shadow: 0 8px 24px rgba(237, 189, 117, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-cta:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(237, 189, 117, 0.55);
+    background: linear-gradient(135deg, #fcd598 0%, #e2ab5b 100%);
+    color: #000000 !important;
+}
+
+.btn-primary-cta i {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+}
+
+.btn-primary-cta:hover i {
+    transform: translateX(4px);
+}
+
+.btn-secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 34px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff !important;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50px;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary-cta:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: #edbd75;
+    color: #edbd75 !important;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 991px) {
+    .final-homepage-cta {
+        padding: 90px 0;
+    }
+    .final-cta-headline {
+        font-size: 36px;
+    }
+    .final-cta-supporting {
+        font-size: 18px;
+    }
+    .final-cta-signature .sig-line-1 {
+        font-size: 18px;
+    }
+    .final-cta-signature .sig-line-2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 576px) {
+    .final-homepage-cta {
+        padding: 70px 0;
+    }
+    .final-cta-headline {
+        font-size: 28px;
+    }
+    .final-cta-supporting {
+        font-size: 15.5px;
+        margin-bottom: 24px;
+    }
+    .final-cta-signature {
+        margin-bottom: 30px;
+    }
+    .final-cta-signature .sig-line-1 {
+        font-size: 16px;
+    }
+    .final-cta-signature .sig-line-2 {
+        font-size: 22px;
+    }
+    .final-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 14px;
+    }
+    .btn-primary-cta,
+    .btn-secondary-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+}

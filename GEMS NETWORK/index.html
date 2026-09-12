@@ -23,31 +23,32 @@
         type="image/png">
     <link rel="apple-touch-icon" sizes="194x194"
         href="https://globalenrollment.us/assets/images/tab_icon.png?v=1785475963" type="image/png">
-    <link rel="stylesheet" href="./assets/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="./assets/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./assets/lgx6ubb.css">
-    <link rel="stylesheet" href="./assets/styles.css" type="text/css">
-    <link rel="stylesheet" href="./assets/style.css" type="text/css">
-    <link rel="stylesheet" href="./assets/animate.min.css">
-    <link rel="stylesheet" href="./assets/swiper-bundle(1).min.css">
-    <link rel="stylesheet" href="./assets/all.min.css">
-    <link rel="stylesheet" href="./assets/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/lgx6ubb.css">
+    <link rel="stylesheet" href="./assets/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/animate.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle(1).min.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="./assets/aa09da2cac.js.download" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./assets/style(1).css">
-    <link rel="stylesheet" type="text/css" href="./assets/style(2).css">
+    <script src="./assets/js/aa09da2cac.js.download" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style(1).css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style(2).css">
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
 
 <body cz-shortcut-listen="true">
 
-    <div class="mobile-menu">
+    <nav class="mobile-menu" aria-label="Mobile Navigation">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
                 <a href="https://globalenrollment.us/home">
-                    <img src="./assets/GEMS_Network_Logo.png" alt="GEMS Network Logo">
+                    <img src="./assets/img/GEMS_Network_NEW.png" alt="GEMS Network Logo">
                 </a>
             </div>
             <div class="close-items"><i class="fa-solid fa-xmark"></i></div>
@@ -95,7 +96,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </nav>
 
     <header>
         <div class="container-port-xl">
@@ -103,12 +104,12 @@
                 <!-- LEFT: GEMS Eagle Logo -->
                 <div class="lognm">
                     <a href="https://globalenrollment.us/home" class="logo-link">
-                        <img class="logo-gems-eagle" src="./assets/GEMS_Network_Logo.png" alt="GEMS Network Logo">
+                        <img class="logo-gems-eagle" src="./assets/img/GEMS_Network_NEW.png" alt="GEMS Network Logo">
                     </a>
                 </div>
 
                 <!-- CENTER / MAIN NAV -->
-                <div class="navigation_lists">
+                <nav class="navigation_lists" aria-label="Main Navigation">
                     <div class="wrpflx">
                         <ul class="main_nav_menu">
                             <li class="list_nav_menu">
@@ -148,7 +149,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </nav>
 
                 <!-- RIGHT: Member Sign In / My Journey & Start Here -->
                 <div class="chat_flex_box">
@@ -161,13 +162,13 @@
                         <div class="user-trigger">
                             <div class="user-info">
                                 <h4>My Journey</h4>
-                                <img src="./assets/user-default.jpg" alt="Student Photo">
+                                <img src="./assets/img/user-default.jpg" alt="Student Photo">
                             </div>
                         </div>
 
                         <div class="user-panel">
                             <div class="panel-header">
-                                <img src="./assets/user-default.jpg" alt="Student Photo">
+                                <img src="./assets/img/user-default.jpg" alt="Student Photo">
                                 <p></p>
                                 <p></p>
                             </div>
@@ -224,7 +225,7 @@
         <div class="loginbx">
 
             <!-- CLOSE -->
-            <span class="close-popup">×</span>
+            <span class="close-popup">Ã—</span>
 
             <!-- HEADER -->
             <div class="headerlg">
@@ -341,7 +342,7 @@
 
 
     </style>
-    <script src="./assets/jquery-3.5.1.min.js.download"></script>
+    <script src="./assets/js/jquery-3.5.1.min.js.download"></script>
 
 
     <script>
@@ -357,7 +358,7 @@
     </script>
 
 
-    <div class="main">
+    <main class="main" id="main-content">
         <div class="bx">
             <!-- CINEMATIC STORYTELLING HERO SECTION -->
             <section class="cinematic-hero-section" id="heroSection">
@@ -365,23 +366,28 @@
                 <div class="hero-slider-container">
                     <!-- Slide 1: Student walking on campus -->
                     <div class="hero-slide active" data-slide="0">
-                        <div class="hero-slide-bg" style="background-image: url('./assets/hero_slide_1.jpg');"></div>
+                        <div class="hero-slide-bg" style="background-image: url('./assets/img/hero_slide_1.jpg');">
+                        </div>
                     </div>
                     <!-- Slide 2: Student graduation / academic success -->
                     <div class="hero-slide" data-slide="1">
-                        <div class="hero-slide-bg" style="background-image: url('./assets/hero_slide_2.jpg');"></div>
+                        <div class="hero-slide-bg" style="background-image: url('./assets/img/hero_slide_2.jpg');">
+                        </div>
                     </div>
                     <!-- Slide 3: Professional overlooking city skyline -->
                     <div class="hero-slide" data-slide="2">
-                        <div class="hero-slide-bg" style="background-image: url('./assets/hero_slide_3.jpg');"></div>
+                        <div class="hero-slide-bg" style="background-image: url('./assets/img/hero_slide_3.jpg');">
+                        </div>
                     </div>
                     <!-- Slide 4: Entrepreneurs building together -->
                     <div class="hero-slide" data-slide="3">
-                        <div class="hero-slide-bg" style="background-image: url('./assets/hero_slide_4.jpg');"></div>
+                        <div class="hero-slide-bg" style="background-image: url('./assets/img/hero_slide_4.jpg');">
+                        </div>
                     </div>
                     <!-- Slide 5: Family beginning a new chapter -->
                     <div class="hero-slide" data-slide="4">
-                        <div class="hero-slide-bg" style="background-image: url('./assets/hero_slide_5.jpg');"></div>
+                        <div class="hero-slide-bg" style="background-image: url('./assets/img/hero_slide_5.jpg');">
+                        </div>
                     </div>
                 </div>
 
@@ -389,9 +395,9 @@
                 <div class="hero-overlay-dark"></div>
 
                 <!-- Subtle Eagle Watermark -->
-                <div class="hero-eagle-watermark">
-                    <img src="./assets/GEMS_Network_Icon.png" alt="GEMS Eagle">
-                </div>
+                <!-- <div class="hero-eagle-watermark">
+                    <img src="./assets/img/GEMS_Network_Icon.png" alt="GEMS Eagle">
+                </div> -->
 
                 <!-- Fixed Content & Dynamic Question -->
                 <div class="hero-content-wrapper">
@@ -400,20 +406,23 @@
 
                             <!-- Dynamic Storytelling Questions (Fade between slides) -->
                             <div class="hero-question-area">
-                                <h3 class="hero-question active" data-question="0">“What are you dreaming of?”</h3>
-                                <h3 class="hero-question" data-question="1">“Where will learning take you?”</h3>
-                                <h3 class="hero-question" data-question="2">“Where will your career take you?”</h3>
-                                <h3 class="hero-question" data-question="3">“Where will your business grow next?”</h3>
-                                <h3 class="hero-question" data-question="4">“Where will life take you next?”</h3>
+                                <h3 class="hero-question active" data-question="0">What are you dreaming of?</h3>
+                                <h3 class="hero-question" data-question="1">Where will learning take you?</h3>
+                                <h3 class="hero-question" data-question="2">Where will your career take you?</h3>
+                                <h3 class="hero-question" data-question="3">Where will your business grow next?
+                                </h3>
+                                <h3 class="hero-question" data-question="4">Where will life take you next?</h3>
                             </div>
 
                             <!-- Fixed Headline -->
-                            <h1 class="hero-fixed-headline" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+                            <h1 class="hero-fixed-headline" data-aos="fade-up" data-aos-duration="900"
+                                data-aos-delay="200">
                                 Every Journey Begins Somewhere.
                             </h1>
 
                             <!-- Fixed Brand Statement -->
-                            <p class="hero-brand-statement" data-aos="fade-up" data-aos-duration="900" data-aos-delay="350">
+                            <p class="hero-brand-statement" data-aos="fade-up" data-aos-duration="900"
+                                data-aos-delay="350">
                                 No Matter What Journey You Begin...<br>
                                 <strong>Start with GEMS.</strong>
                             </p>
@@ -451,7 +460,7 @@
                 </div> -->
             </section>
         </div>
-    </div>
+    </main>
 
     <!-- Cinematic Hero Slideshow Script -->
     <script>
@@ -523,19 +532,19 @@
                 <!-- Card 1: Educational Journey -->
                 <div class="journey-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="journey-card-image-wrap">
-                        <img src="./assets/journey_educational.jpg" alt="Educational Journey"
+                        <img src="./assets/img/journey_educational.jpg" alt="Educational Journey"
                             class="journey-card-image">
                         <div class="journey-card-overlay"></div>
                     </div>
                     <div class="journey-card-feather">
-                        <img src="./assets/GEMS_Network_Icon.png" alt="Eagle Feather Watermark">
+                        <img src="./assets/img/GEMS_Network_Icon.png" alt="Eagle Feather Watermark">
                     </div>
                     <div class="journey-card-body">
                         <span class="journey-category-label">
                             <i class="fa-solid fa-graduation-cap"></i> Education
                         </span>
                         <h3 class="journey-card-title">Educational Journey</h3>
-                        <p class="journey-card-desc">“Building your future through learning.”</p>
+                        <p class="journey-card-desc">Building your future through learning.</p>
                         <a href="https://globalenrollment.us/services/students" class="journey-card-cta">
                             <span>Explore Educational Path</span>
                             <i class="fa-solid fa-arrow-right"></i>
@@ -546,18 +555,18 @@
                 <!-- Card 2: Career Journey -->
                 <div class="journey-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
                     <div class="journey-card-image-wrap">
-                        <img src="./assets/journey_career.jpg" alt="Career Journey" class="journey-card-image">
+                        <img src="./assets/img/journey_career.jpg" alt="Career Journey" class="journey-card-image">
                         <div class="journey-card-overlay"></div>
                     </div>
                     <div class="journey-card-feather">
-                        <img src="./assets/GEMS_Network_Icon.png" alt="Eagle Feather Watermark">
+                        <img src="./assets/img/GEMS_Network_Icon.png" alt="Eagle Feather Watermark">
                     </div>
                     <div class="journey-card-body">
                         <span class="journey-category-label">
                             <i class="fa-solid fa-briefcase"></i> Career
                         </span>
                         <h3 class="journey-card-title">Career Journey</h3>
-                        <p class="journey-card-desc">“Growing your opportunities with confidence.”</p>
+                        <p class="journey-card-desc">Growing your opportunities with confidence.</p>
                         <a href="https://globalenrollment.us/services/professionals" class="journey-card-cta">
                             <span>Explore Career Path</span>
                             <i class="fa-solid fa-arrow-right"></i>
@@ -568,18 +577,18 @@
                 <!-- Card 3: Growth Journey -->
                 <div class="journey-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
                     <div class="journey-card-image-wrap">
-                        <img src="./assets/journey_growth.jpg" alt="Growth Journey" class="journey-card-image">
+                        <img src="./assets/img/journey_growth.jpg" alt="Growth Journey" class="journey-card-image">
                         <div class="journey-card-overlay"></div>
                     </div>
                     <div class="journey-card-feather">
-                        <img src="./assets/GEMS_Network_Icon.png" alt="Eagle Feather Watermark">
+                        <img src="./assets/img/GEMS_Network_Icon.png" alt="Eagle Feather Watermark">
                     </div>
                     <div class="journey-card-body">
                         <span class="journey-category-label">
                             <i class="fa-solid fa-chart-line"></i> Business & Growth
                         </span>
                         <h3 class="journey-card-title">Growth Journey</h3>
-                        <p class="journey-card-desc">“Helping organizations build what's next.”</p>
+                        <p class="journey-card-desc">Helping organizations build what's next.</p>
                         <a href="https://globalenrollment.us/services/business" class="journey-card-cta">
                             <span>Explore Growth Path</span>
                             <i class="fa-solid fa-arrow-right"></i>
@@ -599,7 +608,7 @@
                 <!-- Left Column: Storytelling Line by Line Reveal -->
                 <div class="why-gems-content" data-aos="fade-right" data-aos-duration="800">
                     <span class="why-gems-header-badge">The Trusted Companion</span>
-                    <h2 class="why-gems-headline">“Every successful journey has someone who believed in you.”</h2>
+                    <h2 class="why-gems-headline">Every successful journey has someone who believed in you.</h2>
 
                     <!-- Line-by-line visual reveal -->
                     <div class="reveal-lines-list" id="whyRevealList">
@@ -628,7 +637,7 @@
                     <!-- Final Brand Conclusion Box -->
                     <div class="trusted-companion-box" id="trustedCompanionBox">
                         <p class="companion-statement">
-                            “At <strong>StartWithGEMS</strong>, we strive to become that trusted companion.”
+                            At <strong>StartWithGEMS</strong>, we strive to become that trusted companion.
                         </p>
                         <div class="companion-actions">
                             <a href="https://globalenrollment.us/about" class="companion-btn">
@@ -642,7 +651,7 @@
                 <!-- Right Column: Cinematic Visual (Eagle overlooking winding path) -->
                 <div class="why-gems-visual-col" data-aos="fade-left" data-aos-duration="800">
                     <div class="why-gems-visual-wrap">
-                        <img src="./assets/why_gems_eagle_path.jpg"
+                        <img src="./assets/img/why_gems_eagle_path.jpg"
                             alt="Eagle overlooking winding path through landscapes" class="why-gems-visual-img">
                         <div class="why-gems-visual-caption">
                             <i class="fa-solid fa-compass"></i>
@@ -693,7 +702,7 @@
     </script>
 
     <!-- ================================================== -->
-    <!-- SECTION 5 — OUR GUIDING PRINCIPLES                 -->
+    <!-- SECTION 5 â€” OUR GUIDING PRINCIPLES                 -->
     <!-- ================================================== -->
     <section class="guiding-principles-section" id="guidingPrinciples">
         <div class="container-port-xl">
@@ -798,7 +807,7 @@
     </section>
 
     <!-- ================================================== -->
-    <!-- SECTION 6 — MEMBERSHIP TIERS                       -->
+    <!-- SECTION 6 â€” MEMBERSHIP TIERS                       -->
     <!-- ================================================== -->
     <section class="membership-tiers-section" id="membershipTiers">
         <div class="container-port-xl">
@@ -841,7 +850,8 @@
                 </div>
 
                 <!-- Tier 2: Companion (Highlighted) -->
-                <div class="member-tier-card highlighted-tier" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <div class="member-tier-card highlighted-tier" data-aos="fade-up" data-aos-delay="200"
+                    data-aos-duration="800">
                     <div class="tier-popular-ribbon">
                         <i class="fa-solid fa-star"></i>
                         <span>Most Popular</span>
@@ -893,7 +903,7 @@
             <!-- Section Header -->
             <div class="trusted-network-header" data-aos="fade-up" data-aos-duration="800">
                 <span class="trusted-network-badge">Verified Ecosystem</span>
-                <h2 class="trusted-network-headline">“Trusted people make every journey easier.”</h2>
+                <h2 class="trusted-network-headline">Trusted people make every journey easier.</h2>
                 <p class="trusted-network-subtitle">
                     We connect you with vetted institutions, licensed professionals, and top organizations across every
                     stage of your path.
@@ -901,7 +911,8 @@
             </div>
 
             <!-- Category Swiper Slider with Offset Right -->
-            <div class="trusted-categories-slider-wrapper" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+            <div class="trusted-categories-slider-wrapper" data-aos="fade-up" data-aos-delay="150"
+                data-aos-duration="800">
                 <div class="swiper trustedCategorySwiper">
                     <div class="swiper-wrapper">
                         <!-- 1. Education -->
@@ -1273,9 +1284,12 @@
         <div class="cta-overlay-gradient"></div>
         <div class="container-port position-relative">
             <div class="final-cta-content text-center">
-                <h2 class="final-cta-headline" data-aos="fade-up" data-aos-delay="100">“Your journey is uniquely yours.”</h2>
-                <p class="final-cta-supporting" data-aos="fade-up" data-aos-delay="200">The path ahead may be unfamiliar. You don't have to walk it alone.</p>
-                
+                <h2 class="final-cta-headline" data-aos="fade-up" data-aos-delay="100">Your journey is uniquely
+                    yours.
+                </h2>
+                <p class="final-cta-supporting" data-aos="fade-up" data-aos-delay="200">The path ahead may be
+                    unfamiliar. You don't have to walk it alone.</p>
+
                 <div class="final-cta-signature" data-aos="fade-up" data-aos-delay="300">
                     <p class="sig-line-1">No Matter What Journey You Begin...</p>
                     <p class="sig-line-2">Start with GEMS.</p>
@@ -1295,7 +1309,7 @@
     </section>
 
     <footer>
-        <!-- <div class="footertxt"><img src="./assets/logo.jpg" alt=""></div> -->
+        <!-- <div class="footertxt"><img src="./assets/img/logo.jpg" alt=""></div> -->
         <div class="container-port-ftr">
             <div class="row row-footer">
 
@@ -1378,12 +1392,12 @@
                     No Matter What Journey You Begin... Start with GEMS.
                 </div>
                 <div class="footer-bottom-copy">
-                    <p>© 2026 StartWithGEMS. All Rights Reserved. Developed by <a href="https://webglobal.in/"
-                            target="_blank"><img src="./assets/webgbl-logo.png" alt="WebGlobal"></a></p>
+                    <p>Â© 2026 StartWithGEMS. All Rights Reserved. Developed by <a href="https://webglobal.in/"
+                            target="_blank"><img src="./assets/img/webgbl-logo.png" alt="WebGlobal"></a></p>
                 </div>
                 <div class="footer-bottom-legal">
                     <a href="#privacy-policy">Privacy Policy</a>
-                    <span class="legal-bullet">•</span>
+                    <span class="legal-bullet">¢</span>
                     <a href="#terms-of-use">Terms of Use</a>
                 </div>
             </div>
@@ -1587,18 +1601,18 @@
 
     <!-- ends -->
     <!-- script -->
-    <script src="./assets/jquery-3.5.1.min.js.download"></script>
-    <script src="./assets/popper.min.js.download"
+    <script src="./assets/js/jquery-3.5.1.min.js.download"></script>
+    <script src="./assets/js/popper.min.js.download"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="./assets/bootstrap.min.js.download"></script>
-    <script src="./assets/plugins.js.download"></script>
-    <script src="./assets/main.js.download"></script>
-    <script src="./assets/swiper-bundle.min.js.download"></script>
-    <script src="./assets/slick-animation.min.js.download"></script>
-    <script src="./assets/jquery.fancybox.min.js.download"></script>
-    <script src="./assets/swiper-bundle.min(1).js.download"></script>
-    <script src="./assets/gsap.min.js.download"></script>
+    <script src="./assets/js/bootstrap.min.js.download"></script>
+    <script src="./assets/js/plugins.js.download"></script>
+    <script src="./assets/js/main.js.download"></script>
+    <script src="./assets/js/swiper-bundle.min.js.download"></script>
+    <script src="./assets/js/slick-animation.min.js.download"></script>
+    <script src="./assets/js/jquery.fancybox.min.js.download"></script>
+    <script src="./assets/js/swiper-bundle.min(1).js.download"></script>
+    <script src="./assets/js/gsap.min.js.download"></script>
     <!-- AOS JS CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
@@ -3457,4 +3471,5 @@ $("#subscribeBtn")
         </template>
     </div>
 </body>
+
 </html>

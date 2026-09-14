@@ -1,0 +1,1085 @@
+/**
+ * ==========================================================================
+ * GEMS Network - Journeys (Educational Journey) Stylesheet
+ * ==========================================================================
+ * Strictly scoped under .journeys-page to avoid conflicts with other pages.
+ * Fully inherits global tokens, responsive scales, and typography.
+ */
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.journeys-page .journeys-hero {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 110px 0;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 580px;
+}
+
+.journeys-page .journeys-hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.journeys-page .journeys-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.28;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.journeys-page .journeys-hero:hover .journeys-hero-bg {
+    transform: scale(1.06);
+}
+
+.journeys-page .journeys-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.72) 0%, rgba(7, 27, 53, 0.94) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.journeys-page .journeys-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.journeys-page .journeys-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 185, 66, 0.15);
+    border: 1px solid rgba(244, 185, 66, 0.4);
+    color: var(--color-gold, #f4b942);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.journeys-page .journeys-hero-title {
+    color: #ffffff;
+    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.18;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+}
+
+.journeys-page .journeys-hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.journeys-page .journeys-tagline-badge {
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 36px;
+    position: relative;
+    padding: 0 16px;
+}
+
+.journeys-page .journeys-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.journeys-page .btn-gems-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+    min-height: 48px;
+}
+
+.journeys-page .btn-gems-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(244, 185, 66, 0.5);
+    color: var(--color-navy-deep, #071b35);
+    background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%);
+}
+
+.journeys-page .btn-gems-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    min-height: 48px;
+}
+
+.journeys-page .btn-gems-secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   2. INTRO SECTION
+   ========================================================================== */
+.journeys-page .journeys-intro-section {
+    padding: 90px 0 50px 0;
+    background-color: var(--color-surface, #f7f9fc);
+    text-align: center;
+    position: relative;
+}
+
+.journeys-page .journeys-intro-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.journeys-page .journeys-intro-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.journeys-page .journeys-intro-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 1.12rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   3. FOUR-STAGE CONNECTED JOURNEY TIMELINE (CORE SECTION)
+   ========================================================================== */
+.journeys-page .journeys-stages-section {
+    padding: 60px 0 110px 0;
+    background-color: var(--color-surface, #f7f9fc);
+    position: relative;
+}
+
+/* Horizontal track container for desktop */
+.journeys-page .stages-timeline-container {
+    position: relative;
+    margin-top: 40px;
+}
+
+/* Connecting Line Across Stages */
+.journeys-page .stages-connector-line {
+    position: absolute;
+    top: 52px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, #0f1681 0%, #3b82f6 50%, #f4b942 100%);
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.journeys-page .stages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Single Stage Card */
+.journeys-page .stage-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 36px 24px 30px 24px;
+    box-shadow: 0 10px 32px rgba(7, 27, 53, 0.06);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.journeys-page .stage-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 22, 129, 0.12);
+    border-color: rgba(15, 22, 129, 0.2);
+}
+
+/* Stage Node / Step Circle */
+.journeys-page .stage-node-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.journeys-page .stage-node-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-navy-deep, #071b35) 0%, var(--color-primary, #0f1681) 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    box-shadow: 0 6px 18px rgba(15, 22, 129, 0.28);
+    border: 4px solid #ffffff;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.journeys-page .stage-card:hover .stage-node-circle {
+    background: #be9f5c;
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px #be9f5c;
+}
+
+.journeys-page .stage-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.journeys-page .stage-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--color-primary, #0f1681);
+    background: rgba(15, 22, 129, 0.08);
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.journeys-page .stage-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.journeys-page .stage-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+/* Service List */
+.journeys-page .stage-services-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-muted, #6c757d);
+    margin-bottom: 12px;
+    border-top: 1px solid var(--color-border, #e5e5e5);
+    padding-top: 16px;
+}
+
+.journeys-page .stage-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    flex-grow: 1;
+}
+
+.journeys-page .stage-services-list li {
+    position: relative;
+    padding-left: 40px;
+    font-size: 0.92rem;
+    color: #333333;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.journeys-page .stage-services-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 26px;
+    height: 26px;
+    background-image: url('../img/list.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.journeys-page .stage-services-list li:hover {
+    transform: none;
+}
+
+.journeys-page .stage-services-list li:hover::before {
+    transform: none;
+}
+
+.journeys-page .stage-cta-wrap {
+    margin-top: auto;
+    text-align: center;
+}
+
+.journeys-page .stage-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #f0f4fc;
+    color: var(--color-primary, #0f1681);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(15, 22, 129, 0.12);
+    min-height: 44px;
+}
+
+.journeys-page .stage-cta-btn:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+    box-shadow: 0 6px 16px rgba(15, 22, 129, 0.25);
+}
+
+
+/* ==========================================================================
+   4. GEMS ROLE SECTION (4 PILLARS)
+   ========================================================================== */
+.journeys-page .journeys-role-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.journeys-page .journeys-role-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 60px auto;
+}
+
+.journeys-page .journeys-role-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.22;
+    margin-bottom: 20px;
+}
+
+.journeys-page .journeys-role-subtitle {
+    color: var(--color-text, #726d7b);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.journeys-page .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.journeys-page .pillar-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 24px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.04);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+}
+
+.journeys-page .pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(15, 22, 129, 0.1);
+    border-color: rgba(15, 22, 129, 0.2);
+}
+
+.journeys-page .pillar-icon-wrap {
+    width: 68px;
+    height: 68px;
+    border-radius: 16px;
+    background: rgba(15, 22, 129, 0.06);
+    color: var(--color-primary, #0f1681);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    margin: 0 auto 24px auto;
+    transition: all 0.3s ease;
+}
+
+.journeys-page .pillar-card:hover .pillar-icon-wrap {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    transform: rotate(6deg) scale(1.05);
+}
+
+.journeys-page .pillar-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.journeys-page .pillar-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.journeys-page .pillar-disclaimer {
+    margin-top: 50px;
+    background: #f8fafc;
+    border-left: 4px solid var(--color-primary, #0f1681);
+    padding: 16px 24px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.journeys-page .pillar-disclaimer p {
+    margin: 0;
+    color: var(--color-text, #726d7b);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+
+/* ==========================================================================
+   5. MEMBERSHIP SECTION
+   ========================================================================== */
+.journeys-page .journeys-membership-section {
+    padding: 100px 0;
+    background-color: var(--color-surface, #f7f9fc);
+    position: relative;
+}
+
+.journeys-page .journeys-membership-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 60px auto;
+}
+
+.journeys-page .journeys-membership-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.22;
+    margin-bottom: 20px;
+}
+
+.journeys-page .journeys-membership-subtitle {
+    color: var(--color-text, #726d7b);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.journeys-page .membership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1080px;
+    margin: 0 auto 50px auto;
+}
+
+.journeys-page .membership-tier-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 44px 32px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journeys-page .membership-tier-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(15, 22, 129, 0.12);
+    border-color: rgba(15, 22, 129, 0.2);
+}
+
+.journeys-page .membership-tier-card.featured {
+    border: 2px solid var(--color-gold, #f4b942);
+    box-shadow: 0 12px 36px rgba(244, 185, 66, 0.2);
+}
+
+.journeys-page .membership-featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+}
+
+.journeys-page .membership-tier-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(15, 22, 129, 0.06);
+    color: var(--color-primary, #0f1681);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 20px auto;
+}
+
+.journeys-page .membership-tier-name {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.journeys-page .membership-tier-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+.journeys-page .membership-cta-wrap {
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   6. TRUSTED NETWORK SECTION
+   ========================================================================== */
+.journeys-page .journeys-network-section {
+    padding: 100px 0;
+    background: #ffffff;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.journeys-page .journeys-network-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.journeys-page .journeys-network-content {
+    text-align: left;
+}
+
+.journeys-page .journeys-network-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 185, 66, 0.15);
+    border: 1px solid rgba(244, 185, 66, 0.4);
+    color: var(--color-gold, #f4b942);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+
+.journeys-page .journeys-network-title {
+    color: #0d1b2a;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 22px;
+}
+
+.journeys-page .journeys-network-desc {
+    color: #4a5568;
+    font-size: 1.12rem;
+    line-height: 1.65;
+    margin-bottom: 32px;
+    max-width: 580px;
+}
+
+.journeys-page .journeys-network-cta-wrap {
+    display: flex;
+    align-items: center;
+}
+
+/* Image Column & Smooth Hover Zoom */
+.journeys-page .journeys-network-image-col {
+    position: relative;
+}
+
+.journeys-page .journeys-network-image-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    aspect-ratio: 4 / 3;
+}
+
+.journeys-page .journeys-network-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journeys-page .journeys-network-image-card:hover .journeys-network-img {
+    transform: scale(1.08);
+}
+
+
+/* ==========================================================================
+   7. FINAL CTA SECTION
+   ========================================================================== */
+.journeys-page .journeys-final-cta {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 120px 0;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.journeys-page .journeys-final-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.journeys-page .journeys-final-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.25;
+    filter: saturate(1.2) brightness(0.8);
+}
+
+.journeys-page .journeys-final-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(15, 22, 129, 0.7) 0%, rgba(7, 27, 53, 0.95) 100%);
+    z-index: 1;
+}
+
+.journeys-page .journeys-final-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.journeys-page .journeys-final-title {
+    color: #ffffff;
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.journeys-page .journeys-final-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+}
+
+.journeys-page .journeys-final-tagline {
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.journeys-page .journeys-final-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptop / Medium Desktop (992px - 1199px) */
+@media (max-width: 1199px) {
+    .journeys-page .stages-timeline-container {
+        max-width: 960px;
+    }
+
+    .journeys-page .stages-grid {
+        gap: 14px;
+    }
+
+    .journeys-page .stage-card {
+        padding: 26px 14px 22px 14px;
+        border-radius: 16px;
+    }
+
+    .journeys-page .stage-title {
+        font-size: 1.2rem;
+    }
+
+    .journeys-page .stage-desc {
+        font-size: 0.86rem;
+    }
+
+    .journeys-page .stage-services-list li {
+        font-size: 0.86rem;
+        padding-left: 36px;
+    }
+
+    .journeys-page .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+    .journeys-page .journeys-hero {
+        padding: 130px 0 80px 0;
+        min-height: 480px;
+    }
+
+    .journeys-page .stages-connector-line {
+        display: none;
+    }
+
+    .journeys-page .stages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .journeys-page .membership-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .journeys-page .membership-tier-card {
+        padding: 32px 20px;
+    }
+
+    .journeys-page .journeys-network-grid {
+        gap: 36px;
+    }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+    .journeys-page .journeys-hero {
+        padding: 120px 0 70px 0;
+        min-height: auto;
+    }
+
+    .journeys-page .journeys-hero-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .journeys-page .btn-gems-primary,
+    .journeys-page .btn-gems-secondary {
+        width: 100%;
+    }
+
+    /* Vertical Journey Stack on Mobile */
+    .journeys-page .stages-connector-line {
+        display: none;
+    }
+
+    .journeys-page .stages-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        position: relative;
+    }
+
+    /* Vertical connector line on mobile */
+    .journeys-page .stages-grid::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        bottom: 40px;
+        left: 32px;
+        width: 3px;
+        background: linear-gradient(180deg, #0f1681 0%, #3b82f6 50%, #f4b942 100%);
+        z-index: 1;
+        border-radius: 3px;
+    }
+
+    .journeys-page .stage-card {
+        padding: 28px 20px 24px 20px;
+        margin-left: 10px;
+    }
+
+    .journeys-page .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .journeys-page .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* Trusted Network on Mobile */
+    .journeys-page .journeys-network-section {
+        padding: 70px 0;
+    }
+
+    .journeys-page .journeys-network-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .journeys-page .journeys-network-image-card {
+        aspect-ratio: 16 / 10;
+        max-height: 280px;
+    }
+
+    .journeys-page .journeys-final-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .journeys-page .journeys-hero-bg {
+        transition: none !important;
+        transform: none !important;
+    }
+
+    .journeys-page .stage-card,
+    .journeys-page .pillar-card,
+    .journeys-page .membership-tier-card,
+    .journeys-page .btn-gems-primary,
+    .journeys-page .btn-gems-secondary,
+    .membership-cardq .wrapsrvhm,
+    .membership-cardq .bxpicsrv img {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   Scoped 4-Card Section (.membership-cardq)
+   ========================================================================== */
+.membership-cardq {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.membership-cardq .box-philosophy-gems {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.membership-cardq .wrapsrvhm {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #071b35;
+    text-decoration: none !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.membership-cardq:hover .wrapsrvhm {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+}
+
+.membership-cardq .bxpicsrv {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.membership-cardq .bxpicsrv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.membership-cardq:hover .bxpicsrv img {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.membership-cardq .bx-ddpt {
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 20px;
+    height: 100%;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(7, 27, 53, 0.35) 0%, rgba(7, 27, 53, 0.78) 45%, rgba(7, 27, 53, 0.94) 100%);
+}
+
+.membership-cardq .bx-ddpt h3 {
+    color: #ffffff;
+    font-family: var(--font-family-primary, 'Dubai', sans-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+    position: relative;
+    padding-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.membership-cardq .bx-ddpt h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 2px;
+    background: var(--color-gold, #F4B942);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.membership-cardq:hover .bx-ddpt h3::after {
+    width: 48px;
+}
+
+.membership-cardq .bx-ddpt p {
+    color: #ffffff;
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+    opacity: 1;
+    max-width: 100%;
+    text-align: center;
+}
+
+.journeys-page .pillardisclaimer {
+    margin-top: 50px;
+    background: #ebf3fc;
+    border-left: 4px solid var(--color-primary, #0f1681);
+    padding: 16px 24px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.whygems-section {
+    background-color: #ffffff;
+    padding: 110px 0 120px 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+}

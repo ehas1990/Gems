@@ -854,7 +854,7 @@
 /* Mobile (<= 767px) */
 @media (max-width: 767px) {
     .journeys-page .journeys-hero {
-        padding: 120px 0 70px 0;
+        padding: 160px 0 70px 0;
         min-height: auto;
     }
 
@@ -885,11 +885,24 @@
         position: absolute;
         top: 40px;
         bottom: 40px;
-        left: 32px;
+        left: 152px;
         width: 3px;
         background: linear-gradient(180deg, #0f1681 0%, #3b82f6 50%, #f4b942 100%);
-        z-index: 1;
+        z-index: -11;
         border-radius: 3px;
+    }
+
+    .journeys-page .stage-services-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0px;
+        width: 20px;
+        height: 20px;
+        background-image: url('../img/list.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
     }
 
     .journeys-page .stage-card {

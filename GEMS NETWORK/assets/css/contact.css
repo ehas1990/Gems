@@ -55,6 +55,8 @@
     position: relative;
     z-index: 10;
     max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .contact-page .contact-eyebrow {
@@ -88,7 +90,7 @@
     color: rgba(255, 255, 255, 0.9);
     font-size: clamp(1rem, 1.6vw, 1.2rem);
     line-height: 1.65;
-    margin-bottom: 24px;
+    margin: 0 auto 24px auto;
     max-width: 680px;
     font-weight: 400;
 }

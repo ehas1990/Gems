@@ -1257,8 +1257,8 @@
 
 @media (max-width: 768px) {
     .membership-page .membership-hero {
-        padding: 130px 0 80px 0;
         min-height: auto;
+        padding: 180px 0px 80px;
     }
 
     .membership-page .journey-selection-section,

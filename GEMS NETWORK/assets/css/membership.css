@@ -220,18 +220,137 @@
 }
 
 .membership-page .journey-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
     margin-top: 10px;
+    position: relative;
+}
+
+/* Desktop: Keep standard 3-card grid (min-width: 1025px) */
+@media (min-width: 1025px) {
+    .membership-page .journey-cards-grid {
+        display: block;
+    }
+
+    .membership-page .journey-cards-grid .journey-cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        transform: none !important;
+        width: 100% !important;
+    }
+
+    .membership-page .journey-cards-grid .journey-card {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .membership-page .journey-slider-controls,
+    .membership-page .journey-swiper-pagination,
+    .membership-page .journey-swiper-prev,
+    .membership-page .journey-swiper-next {
+        display: none !important;
+    }
+}
+
+/* Tablet & Mobile: Swiper (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .membership-page .journey-cards-grid.journey-cards-swiper {
+        overflow: hidden;
+        max-width: 580px;
+        margin: 10px auto 0 auto;
+        padding-bottom: 12px;
+        position: relative;
+    }
+
+    .membership-page .journey-cards-grid .journey-cards-wrapper {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .membership-page .journey-cards-grid .journey-card.swiper-slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        opacity: 1 !important;
+    }
+
+    /* Slider Controls: Centered Navigation Arrows & Pagination */
+    .membership-page .journey-slider-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        margin-top: 24px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .membership-page .journey-swiper-prev,
+    .membership-page .journey-swiper-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 1px solid rgba(15, 22, 129, 0.14);
+        color: var(--color-navy-deep, #071b35);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(7, 27, 53, 0.08);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        outline: none;
+        padding: 0;
+        font-size: 0.95rem;
+    }
+
+    .membership-page .journey-swiper-prev:hover,
+    .membership-page .journey-swiper-next:hover {
+        background: var(--color-primary, #0f1681);
+        color: #ffffff;
+        border-color: var(--color-primary, #0f1681);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(15, 22, 129, 0.22);
+    }
+
+    .membership-page .journey-swiper-pagination {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: static;
+        width: auto;
+        margin: 0;
+    }
+
+    .membership-page .journey-swiper-pagination .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: #cbd5e1;
+        opacity: 1;
+        border-radius: 50%;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+        margin: 0 !important;
+    }
+
+    .membership-page .journey-swiper-pagination .swiper-pagination-bullet-active {
+        background: var(--color-primary, #0f1681);
+        width: 24px;
+        border-radius: 12px;
+    }
 }
 
 .membership-page .journey-card {
-    background: #ffffff;
+    background-color: #071b35;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 20px;
     padding: 36px 30px 32px 30px;
-    border: 2px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.12);
     cursor: pointer;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
@@ -239,22 +358,58 @@
     flex-direction: column;
     text-align: left;
     outline: none;
+    overflow: hidden;
+}
+
+/* Individual Journey Card Background Images */
+.membership-page .journey-cards-grid #journeyCard-edu,
+.membership-page .journey-cards-grid [data-journey="educational"] {
+    background-image: url('../img/journey_educational.jpg');
+}
+
+.membership-page .journey-cards-grid #journeyCard-career,
+.membership-page .journey-cards-grid [data-journey="career"] {
+    background-image: url('../img/journey_career.jpg');
+}
+
+.membership-page .journey-cards-grid #journeyCard-growth,
+.membership-page .journey-cards-grid [data-journey="growth"] {
+    background-image: url('../img/journey_growth.jpg');
+}
+
+/* Subtle elegant overlay for optimal contrast and text readability */
+.membership-page .journey-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 68%);
+    border-radius: inherit;
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.35s ease;
+}
+
+.membership-page .journey-card:hover::before {
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.membership-page .journey-card.active::before {
+    background: rgba(0, 0, 0, 0.42);
 }
 
 .membership-page .journey-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(15, 22, 129, 0.25);
-    box-shadow: 0 18px 40px rgba(15, 22, 129, 0.09);
+    /* border-color: rgba(255, 255, 255, 0.5); */
+
 }
 
 .membership-page .journey-card.active {
-    border-color: var(--color-primary, #0f1681);
-    background: linear-gradient(180deg, #ffffff 0%, #f7f9fe 100%);
-    box-shadow: 0 20px 45px rgba(15, 22, 129, 0.12);
+    border-color: var(--color-gold, #f4b942);
+
     transform: translateY(-4px);
 }
 
-.membership-page .journey-card.active::before {
+.membership-page .journey-card.active::after {
     content: "";
     position: absolute;
     top: -2px;
@@ -263,6 +418,13 @@
     height: 4px;
     background: linear-gradient(90deg, var(--color-primary, #0f1681), var(--color-gold, #f4b942));
     border-radius: 4px 4px 0 0;
+    z-index: 3;
+}
+
+/* Ensure card content elements stay cleanly above the overlay */
+.membership-page .journey-card>* {
+    position: relative;
+    z-index: 2;
 }
 
 .membership-page .journey-card-header {
@@ -276,23 +438,27 @@
     width: 60px;
     height: 60px;
     border-radius: 16px;
-    background: #f1f5f9;
+    background: rgba(255, 255, 255, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.85rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .membership-page .journey-card.active .journey-card-icon {
-    background: rgba(15, 22, 129, 0.1);
+    background: #ffffff;
     transform: scale(1.06);
 }
 
 .membership-page .journey-audience-badge {
     display: inline-block;
-    background: #f1f5f9;
-    color: var(--color-navy-deep, #071b35);
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -303,24 +469,27 @@
 }
 
 .membership-page .journey-card.active .journey-audience-badge {
-    background: rgba(15, 22, 129, 0.12);
-    color: var(--color-primary, #0f1681);
+    background: rgba(244, 185, 66, 0.25);
+    border-color: var(--color-gold, #f4b942);
+    color: var(--color-gold, #f4b942);
 }
 
 .membership-page .journey-card-title {
     font-size: 1.45rem;
     font-weight: 800;
-    color: var(--color-navy-deep, #071b35);
+    color: #ffffff;
     margin-bottom: 12px;
     line-height: 1.3;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .membership-page .journey-card-desc {
-    color: var(--color-text, #726d7b);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 0.98rem;
     line-height: 1.6;
     margin-bottom: 24px;
     flex-grow: 1;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .membership-page .journey-card-cta {
@@ -329,15 +498,15 @@
     gap: 8px;
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--color-primary, #0f1681);
+    color: var(--color-gold, #f4b942);
     text-decoration: none;
     transition: gap 0.25s ease, color 0.25s ease;
 }
 
 .membership-page .journey-card:hover .journey-card-cta,
 .membership-page .journey-card.active .journey-card-cta {
+    color: #ffffff;
     gap: 12px;
-    color: var(--color-gold-hover, #e0a52d);
 }
 
 /* ==========================================================================
@@ -1068,7 +1237,6 @@
    ========================================================================== */
 @media (max-width: 1024px) {
 
-    .membership-page .journey-cards-grid,
     .membership-page .membership-grid,
     .membership-page .positioning-grid {
         grid-template-columns: 1fr;

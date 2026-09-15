@@ -273,60 +273,73 @@
                     </p>
                 </div>
 
-                <div class="journey-cards-grid">
-                    <!-- CARD 1: Educational Journey -->
-                    <div class="journey-card active" id="journeyCard-edu" data-journey="educational" data-aos="fade-up"
-                        data-aos-delay="100" role="button" tabindex="0" aria-label="Select Educational Journey">
-                        <div class="journey-card-header">
-                            <div class="journey-card-icon">
-                                🎓
+                <!-- Journey Cards Grid / Swiper for Tablet & Mobile -->
+                <div class="journey-cards-grid journey-cards-swiper swiper-container">
+                    <div class="journey-cards-wrapper swiper-wrapper">
+                        <!-- CARD 1: Educational Journey -->
+                        <div class="journey-card swiper-slide active" id="journeyCard-edu" data-journey="educational" data-aos="fade-up"
+                            data-aos-delay="100" role="button" tabindex="0" aria-label="Select Educational Journey">
+                            <div class="journey-card-header">
+                                <div class="journey-card-icon">
+                                    🎓
+                                </div>
+                                <span class="journey-audience-badge">For Students</span>
                             </div>
-                            <span class="journey-audience-badge">For Students</span>
+                            <h3 class="journey-card-title">Educational Journey</h3>
+                            <p class="journey-card-desc">
+                                Education, preparation, planning, and support throughout the student's journey.
+                            </p>
+                            <div class="journey-card-cta">
+                                <span>Explore Educational Journey</span> &rarr;
+                            </div>
                         </div>
-                        <h3 class="journey-card-title">Educational Journey</h3>
-                        <p class="journey-card-desc">
-                            Education, preparation, planning, and support throughout the student's journey.
-                        </p>
-                        <div class="journey-card-cta">
-                            <span>Explore Educational Journey</span> &rarr;
+
+                        <!-- CARD 2: Career Journey -->
+                        <div class="journey-card swiper-slide" id="journeyCard-career" data-journey="career" data-aos="fade-up"
+                            data-aos-delay="200" role="button" tabindex="0" aria-label="Select Career Journey">
+                            <div class="journey-card-header">
+                                <div class="journey-card-icon">
+                                    💼
+                                </div>
+                                <span class="journey-audience-badge">For Professionals</span>
+                            </div>
+                            <h3 class="journey-card-title">Career Journey</h3>
+                            <p class="journey-card-desc">
+                                Career development, relocation, licensing, professional planning, and international
+                                opportunities.
+                            </p>
+                            <div class="journey-card-cta">
+                                <span>Explore Career Journey</span> &rarr;
+                            </div>
+                        </div>
+
+                        <!-- CARD 3: Growth Journey -->
+                        <div class="journey-card swiper-slide" id="journeyCard-growth" data-journey="growth" data-aos="fade-up"
+                            data-aos-delay="300" role="button" tabindex="0" aria-label="Select Growth Journey">
+                            <div class="journey-card-header">
+                                <div class="journey-card-icon">
+                                    🚀
+                                </div>
+                                <span class="journey-audience-badge">For Businesses</span>
+                            </div>
+                            <h3 class="journey-card-title">Growth Journey</h3>
+                            <p class="journey-card-desc">
+                                Workforce solutions, trusted connections, business support, and longer-term growth.
+                            </p>
+                            <div class="journey-card-cta">
+                                <span>Explore Growth Journey</span> &rarr;
+                            </div>
                         </div>
                     </div>
-
-                    <!-- CARD 2: Career Journey -->
-                    <div class="journey-card" id="journeyCard-career" data-journey="career" data-aos="fade-up"
-                        data-aos-delay="200" role="button" tabindex="0" aria-label="Select Career Journey">
-                        <div class="journey-card-header">
-                            <div class="journey-card-icon">
-                                💼
-                            </div>
-                            <span class="journey-audience-badge">For Professionals</span>
-                        </div>
-                        <h3 class="journey-card-title">Career Journey</h3>
-                        <p class="journey-card-desc">
-                            Career development, relocation, licensing, professional planning, and international
-                            opportunities.
-                        </p>
-                        <div class="journey-card-cta">
-                            <span>Explore Career Journey</span> &rarr;
-                        </div>
-                    </div>
-
-                    <!-- CARD 3: Growth Journey -->
-                    <div class="journey-card" id="journeyCard-growth" data-journey="growth" data-aos="fade-up"
-                        data-aos-delay="300" role="button" tabindex="0" aria-label="Select Growth Journey">
-                        <div class="journey-card-header">
-                            <div class="journey-card-icon">
-                                🚀
-                            </div>
-                            <span class="journey-audience-badge">For Businesses</span>
-                        </div>
-                        <h3 class="journey-card-title">Growth Journey</h3>
-                        <p class="journey-card-desc">
-                            Workforce solutions, trusted connections, business support, and longer-term growth.
-                        </p>
-                        <div class="journey-card-cta">
-                            <span>Explore Growth Journey</span> &rarr;
-                        </div>
+                    <!-- Swiper Controls: Previous, Pagination, Next (Active on Tablet & Mobile only) -->
+                    <div class="journey-slider-controls">
+                        <button type="button" class="journey-swiper-prev" aria-label="Previous Journey">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <div class="journey-swiper-pagination"></div>
+                        <button type="button" class="journey-swiper-next" aria-label="Next Journey">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1105,6 +1118,21 @@
     </footer>
 
     <!-- ==========================================================================
+         JAVASCRIPT LIBRARIES & SCRIPTS
+         ========================================================================== -->
+    <script src="./assets/js/jquery-3.5.1.min.js.download"></script>
+    <script src="./assets/js/popper.min.js.download"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.min.js.download"></script>
+    <script src="./assets/js/plugins.js.download"></script>
+    <script src="./assets/js/main.js.download"></script>
+    <!-- Swiper JS Library -->
+    <script src="./assets/js/swiper-bundle.min.js.download"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- ==========================================================================
          INTERACTIVE SCRIPTS (JOURNEY SWITCHER + BILLING TOGGLE + AOS)
          ========================================================================== -->
     <script>
@@ -1140,40 +1168,113 @@
             /* =====================================================
                JOURNEY SELECTION TABS INTERACTION
                ===================================================== */
-            const journeyCards = document.querySelectorAll(".journey-card");
             const planPanes = {
                 educational: document.getElementById("pane-educational"),
                 career: document.getElementById("pane-career"),
                 growth: document.getElementById("pane-growth")
             };
 
-            journeyCards.forEach(function (card) {
-                card.addEventListener("click", function () {
-                    const selectedJourney = this.getAttribute("data-journey");
+            function selectJourney(journeyKey) {
+                if (!journeyKey) return;
 
-                    // Update active state on cards
-                    journeyCards.forEach(function (c) { c.classList.remove("active"); });
-                    this.classList.add("active");
-
-                    // Show selected pane
-                    Object.keys(planPanes).forEach(function (key) {
-                        if (planPanes[key]) {
-                            planPanes[key].classList.remove("active-pane");
-                        }
-                    });
-
-                    if (planPanes[selectedJourney]) {
-                        planPanes[selectedJourney].classList.add("active-pane");
+                // Update active state across all journey cards (including any clones)
+                document.querySelectorAll(".journey-card").forEach(function (c) {
+                    if (c.getAttribute("data-journey") === journeyKey) {
+                        c.classList.add("active");
+                    } else {
+                        c.classList.remove("active");
                     }
                 });
 
-                // Keyboard accessibility (Enter or Space)
-                card.addEventListener("keydown", function (e) {
+                // Show selected pane
+                Object.keys(planPanes).forEach(function (key) {
+                    if (planPanes[key]) {
+                        planPanes[key].classList.remove("active-pane");
+                    }
+                });
+
+                if (planPanes[journeyKey]) {
+                    planPanes[journeyKey].classList.add("active-pane");
+                }
+
+                // Preserve current billing mode in newly selected pane
+                if (typeof setBillingMode === "function") {
+                    setBillingMode(currentBillingMode);
+                }
+            }
+
+            // Event delegation on journey selection section
+            const journeySection = document.querySelector(".journey-selection-section");
+            if (journeySection) {
+                journeySection.addEventListener("click", function (e) {
+                    const card = e.target.closest(".journey-card");
+                    if (card) {
+                        const journey = card.getAttribute("data-journey");
+                        selectJourney(journey);
+                    }
+                });
+
+                journeySection.addEventListener("keydown", function (e) {
                     if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        this.click();
+                        const card = e.target.closest(".journey-card");
+                        if (card) {
+                            e.preventDefault();
+                            const journey = card.getAttribute("data-journey");
+                            selectJourney(journey);
+                        }
                     }
                 });
+            }
+
+            /* =====================================================
+               JOURNEY CARDS RESPONSIVE SWIPER (TABLET & MOBILE ONLY: <= 1024px)
+               ===================================================== */
+            let journeySwiper = null;
+            let resizeTimer = null;
+
+            function initJourneySwiper() {
+                const screenWidth = window.innerWidth;
+                const swiperContainer = document.querySelector('.journey-cards-swiper');
+
+                if (!swiperContainer || typeof Swiper === "undefined") return;
+
+                if (screenWidth <= 1024) {
+                    if (!journeySwiper) {
+                        journeySwiper = new Swiper('.journey-cards-swiper', {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                            speed: 700,
+                            loop: true,
+                            grabCursor: true,
+                            observer: true,
+                            observeParents: true,
+                            autoplay: {
+                                delay: 3500,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true
+                            },
+                            navigation: {
+                                nextEl: '.journey-swiper-next',
+                                prevEl: '.journey-swiper-prev'
+                            },
+                            pagination: {
+                                el: '.journey-swiper-pagination',
+                                clickable: true
+                            }
+                        });
+                    }
+                } else {
+                    if (journeySwiper) {
+                        journeySwiper.destroy(true, true);
+                        journeySwiper = null;
+                    }
+                }
+            }
+
+            initJourneySwiper();
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(initJourneySwiper, 150);
             });
 
             /* =====================================================
@@ -1275,13 +1376,6 @@
                     }
                 });
             }
-
-            // Keep billing state consistent when switching journeys
-            journeyCards.forEach(function (card) {
-                card.addEventListener("click", function () {
-                    setBillingMode(currentBillingMode);
-                });
-            });
         });
     </script>
 

@@ -440,71 +440,75 @@
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Slider Controls (Pagination & Arrows) */
-.career-journey-page .slider-controls-wrap {
+/* Slider Controls (Pagination & Arrows - Centered Layout) */
+.career-journey-page .slider-controls-wrap,
+.gems-role-section .slider-controls-wrap {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 24px;
-    padding: 0 6px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 36px;
+    padding: 0;
     position: relative;
     z-index: 10;
 }
 
-.career-journey-page .gems-role-pagination {
+.career-journey-page .gems-role-pagination,
+.gems-role-section .gems-role-pagination {
     position: static;
     width: auto;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
-.career-journey-page .gems-role-pagination .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
+.career-journey-page .gems-role-pagination .swiper-pagination-bullet,
+.gems-role-section .gems-role-pagination .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
     background: #cbd5e1;
     opacity: 1;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     margin: 0 !important;
 }
 
-.career-journey-page .gems-role-pagination .swiper-pagination-bullet-active {
-    width: 28px;
-    background: linear-gradient(135deg, var(--color-primary, #0f1681) 0%, #2563eb 100%);
+.career-journey-page .gems-role-pagination .swiper-pagination-bullet-active,
+.gems-role-section .gems-role-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+    height: 6px;
+    border-radius: 4px;
+    background: var(--color-navy-deep, #071b35);
 }
 
-.career-journey-page .slider-nav-arrows {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.career-journey-page .slider-arrow {
-    width: 44px;
-    height: 44px;
+.career-journey-page .slider-arrow,
+.gems-role-section .slider-arrow {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #ffffff;
-    border: 1px solid rgba(15, 22, 129, 0.15);
+    border: 1px solid rgba(15, 22, 129, 0.12);
     color: var(--color-navy-deep, #071b35);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(7, 27, 53, 0.06);
+    box-shadow: 0 2px 8px rgba(7, 27, 53, 0.05);
 }
 
-.career-journey-page .slider-arrow:hover {
+.career-journey-page .slider-arrow:hover,
+.gems-role-section .slider-arrow:hover {
     background: var(--color-primary, #0f1681);
     color: #ffffff;
     border-color: var(--color-primary, #0f1681);
-    box-shadow: 0 6px 18px rgba(15, 22, 129, 0.25);
-    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(15, 22, 129, 0.2);
+    transform: scale(1.06);
 }
 
-.career-journey-page .slider-arrow.swiper-button-disabled {
+.career-journey-page .slider-arrow.swiper-button-disabled,
+.gems-role-section .slider-arrow.swiper-button-disabled {
     opacity: 0.35;
     cursor: not-allowed;
     transform: none;
@@ -543,7 +547,7 @@
 
 .career-journey-page .career-dual-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 35% 1fr;
     gap: 36px;
     align-items: stretch;
 }
@@ -661,7 +665,7 @@
     border: 1px solid rgba(15, 22, 129, 0.08);
     box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 50% 50%;
     height: 100%;
 }
 
@@ -685,6 +689,7 @@
     position: relative;
     height: 100%;
     min-height: 320px;
+    overflow: hidden;
 }
 
 .career-journey-page .trust-img {
@@ -693,6 +698,11 @@
     object-fit: cover;
     object-position: center 25%;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.career-journey-page .trust-image-side:hover .trust-img {
+    transform: scale(1.05);
 }
 
 

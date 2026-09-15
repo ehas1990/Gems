@@ -863,7 +863,23 @@
         width: 100%;
     }
 
-    .journeys-page .btn-gems-primary,
+    .journeys-page .btn-gems-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+        color: var(--color-navy-deep, #071b35);
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+        min-height: 48px;
+    }
+
     .journeys-page .btn-gems-secondary {
         width: 100%;
     }

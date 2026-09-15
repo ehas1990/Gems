@@ -821,7 +821,7 @@
 /* Tablet (max-width: 991px) */
 @media (max-width: 991px) {
     .contact-page .contact-layout-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
         gap: 40px;
     }
 

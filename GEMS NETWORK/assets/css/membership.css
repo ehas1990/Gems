@@ -1,0 +1,1116 @@
+/**
+ * ==========================================================================
+ * GEMS Network - Membership Levels Stylesheet (membership.css)
+ * ==========================================================================
+ * Scoped under .membership-page to avoid style collisions.
+ * Faithfully extends GEMS design tokens, typography, gradients, and cards.
+ */
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.membership-page .membership-hero {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 110px 0;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 560px;
+}
+
+.membership-page .membership-hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.membership-page .membership-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    opacity: 0.30;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.membership-page .membership-hero:hover .membership-hero-bg {
+    transform: scale(1.05);
+}
+
+.membership-page .membership-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.72) 0%, rgba(7, 27, 53, 0.94) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.membership-page .membership-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.membership-page .membership-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 185, 66, 0.15);
+    border: 1px solid rgba(244, 185, 66, 0.4);
+    color: var(--color-gold, #f4b942);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.membership-page .membership-hero-title {
+    color: #ffffff;
+    font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+}
+
+.membership-page .membership-hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+    line-height: 1.65;
+    margin-bottom: 22px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.membership-page .membership-tagline-badge {
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 32px;
+    position: relative;
+    padding: 0 16px;
+}
+
+.membership-page .membership-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.membership-page .btn-gems-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35) !important;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+    min-height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
+.membership-page .btn-gems-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(244, 185, 66, 0.5);
+    color: var(--color-navy-deep, #071b35) !important;
+    background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%);
+}
+
+.membership-page .btn-gems-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff !important;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
+    min-height: 48px;
+    cursor: pointer;
+}
+
+.membership-page .btn-gems-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #ffffff;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. SECTION SHARED STYLES (EYEBROW, TITLES, SUBTITLES)
+   ========================================================================== */
+.membership-page .section-header-center {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 48px auto;
+}
+
+.membership-page .section-eyebrow-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 22, 129, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.15);
+    color: var(--color-primary, #0f1681);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.membership-page .section-main-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+}
+
+.membership-page .section-main-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 1.08rem;
+    line-height: 1.68;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   3. JOURNEY SELECTION SECTION
+   ========================================================================== */
+.membership-page .journey-selection-section {
+    padding: 90px 0 60px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.membership-page .journey-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.membership-page .journey-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 36px 30px 32px 30px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    outline: none;
+}
+
+.membership-page .journey-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(15, 22, 129, 0.25);
+    box-shadow: 0 18px 40px rgba(15, 22, 129, 0.09);
+}
+
+.membership-page .journey-card.active {
+    border-color: var(--color-primary, #0f1681);
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fe 100%);
+    box-shadow: 0 20px 45px rgba(15, 22, 129, 0.12);
+    transform: translateY(-4px);
+}
+
+.membership-page .journey-card.active::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary, #0f1681), var(--color-gold, #f4b942));
+    border-radius: 4px 4px 0 0;
+}
+
+.membership-page .journey-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.membership-page .journey-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.85rem;
+    transition: all 0.3s ease;
+}
+
+.membership-page .journey-card.active .journey-card-icon {
+    background: rgba(15, 22, 129, 0.1);
+    transform: scale(1.06);
+}
+
+.membership-page .journey-audience-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    color: var(--color-navy-deep, #071b35);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.membership-page .journey-card.active .journey-audience-badge {
+    background: rgba(15, 22, 129, 0.12);
+    color: var(--color-primary, #0f1681);
+}
+
+.membership-page .journey-card-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.membership-page .journey-card-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.membership-page .journey-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary, #0f1681);
+    text-decoration: none;
+    transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.membership-page .journey-card:hover .journey-card-cta,
+.membership-page .journey-card.active .journey-card-cta {
+    gap: 12px;
+    color: var(--color-gold-hover, #e0a52d);
+}
+
+/* ==========================================================================
+   4. MEMBERSHIP OPTIONS AREA & STEP INDICATOR
+   ========================================================================== */
+.membership-page .membership-plans-section {
+    padding: 70px 0 100px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.membership-page .journey-steps-indicator {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 22, 129, 0.1);
+    box-shadow: 0 4px 16px rgba(7, 27, 53, 0.04);
+    padding: 10px 24px;
+    border-radius: 50px;
+    margin: 0 auto 36px auto;
+}
+
+.membership-page .journey-step-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text, #726d7b);
+}
+
+.membership-page .journey-step-item.active {
+    color: var(--color-primary, #0f1681);
+    font-weight: 700;
+}
+
+.membership-page .journey-step-num {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    background: rgba(15, 22, 129, 0.08);
+    color: var(--color-primary, #0f1681);
+    padding: 2px 7px;
+    border-radius: 6px;
+}
+
+.membership-page .journey-step-item.active .journey-step-num {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+}
+
+.membership-page .journey-step-arrow {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   5. BILLING TOGGLE (MONTHLY | ANNUAL)
+   ========================================================================== */
+.membership-page .billing-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.membership-page .billing-toggle-container {
+    display: inline-flex;
+    align-items: center;
+    background: #e2e8f0;
+    border-radius: 50px;
+    padding: 4px;
+    position: relative;
+    user-select: none;
+}
+
+.membership-page .toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 9px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-navy-deep, #071b35);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    outline: none;
+    z-index: 2;
+}
+
+.membership-page .toggle-btn.active {
+    background: #ffffff;
+    color: var(--color-primary, #0f1681);
+    box-shadow: 0 4px 12px rgba(7, 27, 53, 0.1);
+    font-weight: 700;
+}
+
+.membership-page .annual-savings-pill {
+    display: inline-flex;
+    align-items: center;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #047857;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.membership-page .annual-savings-pill:hover {
+    background: #d1fae5;
+    border-color: #6ee7b7;
+    transform: translateY(-1px);
+}
+
+.membership-page .annual-savings-pill.active {
+    background: #047857;
+    border-color: #047857;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(4, 120, 87, 0.25);
+    transform: translateY(-1px);
+}
+
+.membership-page .plan-savings-badge {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 10px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #047857;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+    animation: fadeInPane 0.3s ease-out;
+}
+
+/* ==========================================================================
+   6. MEMBERSHIP CARDS (3 TIERS)
+   ========================================================================== */
+.membership-page .membership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.membership-page .plan-pane {
+    display: none;
+}
+
+.membership-page .plan-pane.active-pane {
+    display: block;
+    animation: fadeInPane 0.4s ease-out forwards;
+}
+
+@keyframes fadeInPane {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.membership-page .plan-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 38px 32px 34px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.membership-page .plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(15, 22, 129, 0.09);
+    border-color: rgba(15, 22, 129, 0.18);
+}
+
+/* Specific Tier Subtle Hierarchy */
+.membership-page .plan-card.tier-explorer {
+    background: #ffffff;
+}
+
+.membership-page .plan-card.tier-companion {
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+    border: 1.5px solid rgba(15, 22, 129, 0.16);
+    box-shadow: 0 12px 35px rgba(15, 22, 129, 0.06);
+}
+
+.membership-page .plan-card.tier-navigator {
+    background: linear-gradient(180deg, #ffffff 0%, #f4f7fe 100%);
+    border: 2px solid rgba(15, 22, 129, 0.3);
+    box-shadow: 0 18px 45px rgba(15, 22, 129, 0.1);
+    position: relative;
+}
+
+
+
+/* Card Header */
+.membership-page .plan-card-header {
+    margin-bottom: 20px;
+}
+
+.membership-page .plan-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+    transition: transform 0.3s ease;
+}
+
+.membership-page .plan-card:hover .plan-icon-wrap {
+    transform: scale(1.08);
+}
+
+.membership-page .tier-companion .plan-icon-wrap {
+    background: rgba(15, 22, 129, 0.08);
+}
+
+.membership-page .tier-navigator .plan-icon-wrap {
+    background: rgba(244, 185, 66, 0.2);
+}
+
+.membership-page .plan-card-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 8px;
+}
+
+.membership-page .plan-card-positioning {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-primary, #0f1681);
+    line-height: 1.45;
+    margin-bottom: 18px;
+    min-height: 40px;
+}
+
+.membership-page .plan-card-desc {
+    color: var(--color-text, #726d7b);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf2f7;
+    min-height: 88px;
+}
+
+.membership-page .plan-best-for {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 22px;
+    border-left: 3px solid var(--color-gold, #f4b942);
+}
+
+.membership-page .plan-best-for-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 4px;
+}
+
+.membership-page .plan-best-for-text {
+    font-size: 0.88rem;
+    color: var(--color-text, #726d7b);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Feature List */
+.membership-page .plan-includes-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 14px;
+}
+
+.membership-page .plan-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    flex-grow: 1;
+}
+
+.membership-page .plan-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    color: #475569;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
+}
+
+.membership-page .plan-features-list li i {
+    color: var(--color-primary, #0f1681);
+    font-size: 0.88rem;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.membership-page .tier-navigator .plan-features-list li i {
+    color: #d97706;
+}
+
+/* Pricing Display (Consistent across Explorer, Companion, and Navigator) */
+.membership-page .plan-pricing-box {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(7, 27, 53, 0.02);
+    transition: all 0.25s ease;
+}
+
+.membership-page .plan-pricing-box:hover {
+    border-color: rgba(15, 22, 129, 0.16);
+    box-shadow: 0 4px 12px rgba(15, 22, 129, 0.04);
+}
+
+.membership-page .plan-price-amount {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    line-height: 1.15;
+    margin-bottom: 2px;
+}
+
+.membership-page .plan-price-subtext {
+    font-size: 0.84rem;
+    color: var(--color-muted, #6c757d);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.membership-page .plan-savings-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    margin-top: 0;
+    padding: 3px 10px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #047857;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    border-radius: 20px;
+    white-space: nowrap;
+    animation: fadeInPane 0.3s ease-out;
+}
+
+/* Card CTA */
+.membership-page .plan-card-cta {
+    width: 100%;
+    text-align: center;
+}
+
+.membership-page .btn-plan-action {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    text-align: center;
+    border: 1.5px solid transparent;
+}
+
+.membership-page .tier-explorer .btn-plan-action {
+    background: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+    color: var(--color-primary, #0f1681);
+}
+
+.membership-page .tier-explorer .btn-plan-action:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.membership-page .tier-companion .btn-plan-action {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(15, 22, 129, 0.2);
+}
+
+.membership-page .tier-companion .btn-plan-action:hover {
+    background: #090e5b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(15, 22, 129, 0.3);
+}
+
+.membership-page .tier-navigator .btn-plan-action {
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35);
+    box-shadow: 0 6px 20px rgba(244, 185, 66, 0.3);
+}
+
+.membership-page .tier-navigator .btn-plan-action:hover {
+    background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(244, 185, 66, 0.45);
+    color: var(--color-navy-deep, #071b35);
+}
+
+/* ==========================================================================
+   7. BUSINESS RETAINER SECTION
+   ========================================================================== */
+.membership-page .business-retainer-section {
+    margin-top: 50px;
+    background: linear-gradient(135deg, #071b35 0%, #0f1681 100%);
+    border-radius: 24px;
+    padding: 48px 44px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(7, 27, 53, 0.15);
+}
+
+.membership-page .retainer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.membership-page .retainer-info {
+    max-width: 680px;
+}
+
+.membership-page .retainer-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 185, 66, 0.15);
+    border: 1px solid rgba(244, 185, 66, 0.35);
+    color: var(--color-gold, #f4b942);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.membership-page .retainer-title {
+    color: #ffffff;
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.membership-page .retainer-desc {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.membership-page .retainer-clarification {
+    color: rgba(244, 185, 66, 0.92);
+    font-size: 0.92rem;
+    font-style: italic;
+    margin-bottom: 6px;
+}
+
+.membership-page .retainer-pricing-text {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.membership-page .retainer-action {
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   8. MEMBERSHIP POSITIONING SECTION (EDITORIAL COMPARISON)
+   ========================================================================== */
+.membership-page .membership-positioning-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.membership-page .positioning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.membership-page .positioning-card {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 38px 30px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    transition: all 0.35s ease;
+}
+
+.membership-page .positioning-card:hover {
+    transform: translateY(-6px);
+    background: #ffffff;
+    border-color: rgba(15, 22, 129, 0.2);
+    box-shadow: 0 16px 36px rgba(15, 22, 129, 0.08);
+}
+
+.membership-page .positioning-icon {
+    font-size: 2.6rem;
+    margin-bottom: 18px;
+    display: inline-block;
+}
+
+.membership-page .positioning-card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 12px;
+}
+
+.membership-page .positioning-statement {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary, #0f1681);
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.membership-page .positioning-detail {
+    color: var(--color-text, #726d7b);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   9. TRUST & SERVICE BOUNDARIES (CALM DISCLAIMER)
+   ========================================================================== */
+.membership-page .trust-boundary-section {
+    padding: 70px 0;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.membership-page .trust-boundary-box {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 36px 40px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.03);
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.membership-page .trust-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(15, 22, 129, 0.08);
+    color: var(--color-primary, #0f1681);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.membership-page .trust-boundary-content h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+
+.membership-page .trust-boundary-content p {
+    color: var(--color-text, #726d7b);
+    font-size: 0.95rem;
+    line-height: 1.68;
+    margin-bottom: 10px;
+}
+
+.membership-page .trust-boundary-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   10. FINAL CALL TO ACTION (CINEMATIC)
+   ========================================================================== */
+.membership-page .membership-final-cta {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 120px 0;
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.membership-page .membership-final-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.membership-page .membership-final-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    opacity: 0.28;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.membership-page .membership-final-cta:hover .membership-final-bg {
+    transform: scale(1.05);
+}
+
+.membership-page .membership-final-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(15, 22, 129, 0.78) 0%, rgba(7, 27, 53, 0.96) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.membership-page .membership-final-content {
+    position: relative;
+    z-index: 10;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.membership-page .membership-final-title {
+    color: #ffffff;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1.22;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.membership-page .membership-final-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.membership-page .membership-final-additional {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.membership-page .membership-final-tagline {
+    color: var(--color-gold, #f4b942);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 34px;
+}
+
+.membership-page .membership-final-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+
+    .membership-page .journey-cards-grid,
+    .membership-page .membership-grid,
+    .membership-page .positioning-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .membership-page .retainer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .membership-page .retainer-info {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .membership-page .membership-hero {
+        padding: 130px 0 80px 0;
+        min-height: auto;
+    }
+
+    .membership-page .journey-selection-section,
+    .membership-page .membership-plans-section,
+    .membership-page .membership-positioning-section,
+    .membership-page .membership-final-cta {
+        padding: 60px 0;
+    }
+
+    .membership-page .business-retainer-section {
+        padding: 36px 24px;
+    }
+
+    .membership-page .trust-boundary-box {
+        flex-direction: column;
+        padding: 28px 22px;
+    }
+
+    .membership-page .journey-steps-indicator {
+        border-radius: 16px;
+        padding: 12px 18px;
+    }
+}

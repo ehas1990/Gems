@@ -1,0 +1,797 @@
+/**
+ * ==========================================================================
+ * GEMS Network - Career Journey Stylesheet
+ * ==========================================================================
+ * Strictly scoped under .career-journey-page to avoid conflicts.
+ * Extends and harmonizes with journeys.css and global.css design tokens.
+ */
+
+/* ==========================================================================
+   1. HERO SECTION CUSTOMIZATIONS
+   ========================================================================== */
+.career-journey-page .journeys-hero {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 110px 0;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 580px;
+}
+
+.career-journey-page .journeys-hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.career-journey-page .journeys-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.32;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.career-journey-page .journeys-hero:hover .journeys-hero-bg {
+    transform: scale(1.06);
+}
+
+.career-journey-page .journeys-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.72) 0%, rgba(7, 27, 53, 0.94) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   2. FOUR CONNECTED CAREER STAGES
+   ========================================================================== */
+.career-journey-page .career-stages-section {
+    padding: 80px 0 100px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.career-journey-page .career-stages-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 50px auto;
+}
+
+.career-journey-page .career-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 22, 129, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.15);
+    color: var(--color-primary, #0f1681);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.career-journey-page .career-section-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.career-journey-page .career-section-desc {
+    color: var(--color-text, #64748b);
+    font-size: 1.08rem;
+    line-height: 1.68;
+    margin-bottom: 0;
+}
+
+/* Connecting Line Across Stages */
+.career-journey-page .career-timeline-container {
+    position: relative;
+    margin-top: 50px;
+}
+
+.career-journey-page .career-connector-line {
+    position: absolute;
+    top: 32px;
+    left: 12%;
+    right: 12%;
+    height: 3px;
+    background: linear-gradient(90deg, #0f62fe 0%, #0d9488 35%, #7c3aed 70%, #d97706 100%);
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.career-journey-page .career-stages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Stage Card */
+.career-journey-page .career-stage-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 0 22px 28px 22px;
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.05);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.career-journey-page .career-stage-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 22, 129, 0.12);
+    border-color: rgba(15, 22, 129, 0.2);
+}
+
+/* Node circle with Stage-specific colors */
+.career-journey-page .career-stage-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -32px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 3;
+}
+
+.career-journey-page .career-node-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    border: 4px solid #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Colors for each stage */
+.career-journey-page .stage-1 .career-node-icon {
+    background: linear-gradient(135deg, #0f62fe 0%, #2563eb 100%);
+}
+
+.career-journey-page .stage-2 .career-node-icon {
+    background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+}
+
+.career-journey-page .stage-3 .career-node-icon {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.career-journey-page .stage-4 .career-node-icon {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+}
+
+.career-journey-page .career-stage-card:hover .career-node-icon {
+    transform: scale(1.1);
+}
+
+.career-journey-page .career-stage-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.career-journey-page .career-stage-desc {
+    color: var(--color-text, #64748b);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+/* Service List */
+.career-journey-page .career-services-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 14px;
+}
+
+.career-journey-page .career-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    flex-grow: 1;
+}
+
+.career-journey-page .career-services-list li {
+    position: relative;
+    padding-left: 38px;
+    font-size: 0.92rem;
+    color: #334155;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.career-journey-page .career-services-list li + li {
+    margin-top: 14px;
+}
+
+.career-journey-page .career-services-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 26px;
+    height: 26px;
+    background-image: url('../img/list.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Custom Stage CTA buttons */
+.career-journey-page .career-stage-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    border: none;
+}
+
+.career-journey-page .stage-1 .career-stage-btn {
+    background: #0f62fe;
+    color: #ffffff;
+}
+
+.career-journey-page .stage-1 .career-stage-btn:hover {
+    background: #0947c2;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(15, 98, 254, 0.35);
+}
+
+.career-journey-page .stage-2 .career-stage-btn {
+    background: #0d9488;
+    color: #ffffff;
+}
+
+.career-journey-page .stage-2 .career-stage-btn:hover {
+    background: #0a7369;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(13, 148, 136, 0.35);
+}
+
+.career-journey-page .stage-3 .career-stage-btn {
+    background: #7c3aed;
+    color: #ffffff;
+}
+
+.career-journey-page .stage-3 .career-stage-btn:hover {
+    background: #6324cc;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35);
+}
+
+.career-journey-page .stage-4 .career-stage-btn {
+    background: #d97706;
+    color: #ffffff;
+}
+
+.career-journey-page .stage-4 .career-stage-btn:hover {
+    background: #b45309;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
+}
+
+
+/* ==========================================================================
+   3. THE GEMS ROLE SECTION (SWIPER OFFSET CARD SLIDER)
+   ========================================================================== */
+.career-journey-page .gems-role-section {
+    padding: 90px 0 100px 0;
+    background-color: #ffffff;
+    position: relative;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    overflow: hidden;
+}
+
+.career-journey-page .gems-role-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 50px auto;
+}
+
+/* Swiper Slider Container & Overflow */
+.career-journey-page .career-cards-slider {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.career-journey-page .career-cards-slider .swiper {
+    width: 100%;
+    padding: 10px 4px 20px 4px;
+    overflow: visible;
+}
+
+.career-journey-page .career-cards-slider .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+/* Modern Image-Based Role Card */
+.career-journey-page .role-slider-card {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--color-navy-deep, #071b35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 32px rgba(7, 27, 53, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    cursor: grab;
+}
+
+.career-journey-page .role-slider-card:active {
+    cursor: grabbing;
+}
+
+.career-journey-page .role-slider-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(7, 27, 53, 0.18);
+    border-color: rgba(244, 185, 66, 0.35);
+}
+
+/* Full Background Image */
+.career-journey-page .role-card-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.02);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.career-journey-page .role-slider-card:hover .role-card-bg {
+    transform: scale(1.08);
+}
+
+/* Gradient Overlay for Readability */
+.career-journey-page .role-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 27, 53, 0.55) 0%, rgba(7, 27, 53, 0.85) 50%, rgba(7, 27, 53, 0.96) 100%);
+    z-index: 2;
+    transition: background 0.4s ease;
+}
+
+.career-journey-page .role-slider-card:hover .role-card-overlay {
+    background: linear-gradient(180deg, rgba(15, 22, 129, 0.45) 0%, rgba(7, 27, 53, 0.82) 50%, rgba(7, 27, 53, 0.98) 100%);
+}
+
+/* Centered Content Container */
+.career-journey-page .role-card-content {
+    position: relative;
+    z-index: 5;
+    padding: 36px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.career-journey-page .gems-role-title {
+    color: #ffffff;
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.career-journey-page .gems-role-desc {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Slider Controls (Pagination & Arrows) */
+.career-journey-page .slider-controls-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding: 0 6px;
+    position: relative;
+    z-index: 10;
+}
+
+.career-journey-page .gems-role-pagination {
+    position: static;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.career-journey-page .gems-role-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #cbd5e1;
+    opacity: 1;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin: 0 !important;
+}
+
+.career-journey-page .gems-role-pagination .swiper-pagination-bullet-active {
+    width: 28px;
+    background: linear-gradient(135deg, var(--color-primary, #0f1681) 0%, #2563eb 100%);
+}
+
+.career-journey-page .slider-nav-arrows {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.career-journey-page .slider-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(15, 22, 129, 0.15);
+    color: var(--color-navy-deep, #071b35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(7, 27, 53, 0.06);
+}
+
+.career-journey-page .slider-arrow:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+    box-shadow: 0 6px 18px rgba(15, 22, 129, 0.25);
+    transform: scale(1.05);
+}
+
+.career-journey-page .slider-arrow.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.career-journey-page .role-disclaimer {
+    margin-top: 35px;
+    background: #f8fafc;
+    border-left: 4px solid var(--color-primary, #0f1681);
+    padding: 14px 22px;
+    border-radius: 6px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.career-journey-page .role-disclaimer p {
+    margin: 0;
+    color: var(--color-text, #64748b);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+
+/* ==========================================================================
+   4. TWO-COLUMN SPLIT: MEMBERSHIP & TRUST/REASSURANCE
+   ========================================================================== */
+.career-journey-page .career-dual-section {
+    padding: 90px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.career-journey-page .career-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: stretch;
+}
+
+/* Left Card: Membership Connection */
+.career-journey-page .dual-col-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 36px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.career-journey-page .dual-header {
+    margin-bottom: 24px;
+}
+
+.career-journey-page .dual-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f1681);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.career-journey-page .dual-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.28;
+    margin-bottom: 12px;
+}
+
+.career-journey-page .dual-desc {
+    color: var(--color-text, #64748b);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* 3 Compact Tier Rows */
+.career-journey-page .membership-compact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+.career-journey-page .membership-mini-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    transition: all 0.25s ease;
+}
+
+.career-journey-page .membership-mini-item:hover {
+    background: #ffffff;
+    border-color: rgba(15, 22, 129, 0.18);
+    box-shadow: 0 6px 16px rgba(15, 22, 129, 0.06);
+    transform: translateY(-2px);
+}
+
+.career-journey-page .mini-tier-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.career-journey-page .mini-tier-explorer .mini-tier-icon {
+    background: linear-gradient(135deg, #0f62fe, #2563eb);
+}
+
+.career-journey-page .mini-tier-companion .mini-tier-icon {
+    background: linear-gradient(135deg, #0d9488, #10b981);
+}
+
+.career-journey-page .mini-tier-navigator .mini-tier-icon {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+}
+
+.career-journey-page .mini-tier-content h4 {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.career-journey-page .mini-tier-content p {
+    color: var(--color-text, #64748b);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Right Card: Trust & Confidence (With Photo Split) */
+.career-journey-page .trust-card-wrap {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    height: 100%;
+}
+
+.career-journey-page .trust-content-side {
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.career-journey-page .trust-tagline {
+    color: var(--color-gold, #f4b942);
+    font-weight: 700;
+    font-size: 0.98rem;
+    font-style: italic;
+    margin-top: 14px;
+    margin-bottom: 24px;
+}
+
+.career-journey-page .trust-image-side {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+}
+
+.career-journey-page .trust-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+}
+
+
+/* ==========================================================================
+   5. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptop / Desktop <= 1199px */
+@media (max-width: 1199px) {
+    .career-journey-page .career-stages-grid {
+        gap: 14px;
+    }
+
+    .career-journey-page .career-stage-card {
+        padding: 0 16px 24px 16px;
+    }
+
+    .career-journey-page .career-stage-title {
+        font-size: 1.18rem;
+    }
+
+    .career-journey-page .career-stage-desc {
+        font-size: 0.86rem;
+    }
+
+    .career-journey-page .gems-role-grid {
+        gap: 14px;
+    }
+
+    .career-journey-page .gems-role-card {
+        padding: 22px 12px;
+    }
+
+    .career-journey-page .gems-role-title {
+        font-size: 1.05rem;
+    }
+
+    .career-journey-page .trust-card-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .career-journey-page .trust-image-side {
+        min-height: 240px;
+        max-height: 280px;
+    }
+}
+
+/* Tablet <= 991px */
+@media (max-width: 991px) {
+    .career-journey-page .career-connector-line {
+        display: none;
+    }
+
+    .career-journey-page .career-stages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+
+    .career-journey-page .gems-role-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .career-journey-page .career-dual-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Mobile <= 767px */
+@media (max-width: 767px) {
+    .career-journey-page .career-stages-section {
+        padding: 60px 0 70px 0;
+    }
+
+    .career-journey-page .career-timeline-container {
+        margin-top: 35px;
+    }
+
+    .career-journey-page .career-stages-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .career-journey-page .gems-role-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .career-journey-page .dual-col-card,
+    .career-journey-page .trust-content-side {
+        padding: 26px 20px;
+    }
+
+    .career-journey-page .trust-card-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .career-journey-page .trust-image-side {
+        min-height: 220px;
+    }
+}

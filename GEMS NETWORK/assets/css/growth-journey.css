@@ -599,26 +599,45 @@
 }
 
 /* ==========================================================================
-   5. HOW GEMS SUPPORTS GROWTH (5-STEP PROCESS)
+   5. HOW GEMS SUPPORTS GROWTH (SWIPER OFFSET CARD SLIDER - PIC 2 REFERENCE)
    ========================================================================== */
 .growth-journey-page .growth-process-section {
-    padding: 95px 0 105px 0;
-    background-color: #f8fafc;
+    padding: 90px 0 100px 0;
+    background-color: #ffffff;
     position: relative;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    overflow: hidden;
 }
 
-.growth-journey-page .process-slider-container {
-    margin-top: 45px;
+.growth-journey-page .growth-section-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 50px auto;
 }
 
-.growth-journey-page .process-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-}
-
-.growth-journey-page .process-step-card {
+/* Swiper Slider Container & Overflow */
+.growth-journey-page .growth-process-cards-slider {
     position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.growth-journey-page .growth-process-cards-slider .swiper {
+    width: 100%;
+    padding: 10px 4px 20px 4px;
+    overflow: visible;
+}
+
+.growth-journey-page .growth-process-cards-slider .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+/* Modern Image-Based Role / Process Card */
+.growth-journey-page .process-slider-card {
+    position: relative;
+    width: 100%;
     min-height: 380px;
     height: 100%;
     border-radius: 20px;
@@ -630,14 +649,20 @@
     box-shadow: 0 12px 32px rgba(7, 27, 53, 0.08);
     border: 1px solid rgba(15, 22, 129, 0.1);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    cursor: grab;
 }
 
-.growth-journey-page .process-step-card:hover {
+.growth-journey-page .process-slider-card:active {
+    cursor: grabbing;
+}
+
+.growth-journey-page .process-slider-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 45px rgba(7, 27, 53, 0.18);
     border-color: rgba(244, 185, 66, 0.35);
 }
 
+/* Full Background Image */
 .growth-journey-page .process-card-bg {
     position: absolute;
     inset: 0;
@@ -651,10 +676,11 @@
     z-index: 1;
 }
 
-.growth-journey-page .process-step-card:hover .process-card-bg {
+.growth-journey-page .process-slider-card:hover .process-card-bg {
     transform: scale(1.08);
 }
 
+/* Gradient Overlay for Readability */
 .growth-journey-page .process-card-overlay {
     position: absolute;
     inset: 0;
@@ -663,52 +689,108 @@
     transition: background 0.4s ease;
 }
 
-.growth-journey-page .process-step-card:hover .process-card-overlay {
+.growth-journey-page .process-slider-card:hover .process-card-overlay {
     background: linear-gradient(180deg, rgba(15, 22, 129, 0.45) 0%, rgba(7, 27, 53, 0.82) 50%, rgba(7, 27, 53, 0.98) 100%);
 }
 
+/* Centered Content Container */
 .growth-journey-page .process-card-content {
     position: relative;
     z-index: 5;
-    padding: 30px 20px;
+    padding: 36px 28px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
-.growth-journey-page .process-step-num {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(244, 185, 66, 0.2);
-    border: 1px solid rgba(244, 185, 66, 0.5);
-    color: var(--color-gold, #f4b942);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.82rem;
+.growth-journey-page .growth-process-title {
+    color: #ffffff;
+    font-size: 1.45rem;
     font-weight: 800;
     margin-bottom: 14px;
-}
-
-.growth-journey-page .process-step-title {
-    color: #ffffff;
-    font-size: 1.35rem;
-    font-weight: 800;
-    margin-bottom: 12px;
     letter-spacing: 0.3px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.growth-journey-page .process-step-desc {
+.growth-journey-page .growth-process-desc {
     color: rgba(255, 255, 255, 0.92);
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin-bottom: 0;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Slider Controls (Pagination & Arrows - Centered Layout) */
+.growth-journey-page .growth-process-section .slider-controls-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 36px;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.growth-journey-page .growth-process-section .growth-process-pagination {
+    position: static;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.growth-journey-page .growth-process-section .growth-process-pagination .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #cbd5e1;
+    opacity: 1;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin: 0 !important;
+}
+
+.growth-journey-page .growth-process-section .growth-process-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+    height: 6px;
+    border-radius: 4px;
+    background: var(--color-navy-deep, #071b35);
+}
+
+.growth-journey-page .growth-process-section .slider-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(15, 22, 129, 0.12);
+    color: var(--color-navy-deep, #071b35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(7, 27, 53, 0.05);
+}
+
+.growth-journey-page .growth-process-section .slider-arrow:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+    box-shadow: 0 4px 14px rgba(15, 22, 129, 0.2);
+    transform: scale(1.06);
+}
+
+.growth-journey-page .growth-process-section .slider-arrow.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 /* ==========================================================================

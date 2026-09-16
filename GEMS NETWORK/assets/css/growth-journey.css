@@ -411,6 +411,10 @@
 }
 
 .growth-journey-page .compass-center-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 130px;
     height: 130px;
     border-radius: 50%;

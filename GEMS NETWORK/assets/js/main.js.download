@@ -66,4 +66,39 @@ document.addEventListener("DOMContentLoaded", function () {
             link.parentElement.classList.add("active-service");
         }
     });
+
+    /* =====================================================
+       GLOBAL BACK TO TOP BUTTON LOGIC
+       ===================================================== */
+    (function initGemsBackToTop() {
+        let bttBtn = document.getElementById('gemsBackToTop');
+        if (!bttBtn) {
+            bttBtn = document.createElement('button');
+            bttBtn.id = 'gemsBackToTop';
+            bttBtn.setAttribute('type', 'button');
+            bttBtn.setAttribute('aria-label', 'Back to top');
+            bttBtn.setAttribute('title', 'Back to top');
+            bttBtn.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+            document.body.appendChild(bttBtn);
+        }
+
+        const toggleBttVisibility = function () {
+            if (window.scrollY > 320) {
+                bttBtn.classList.add('gems-btt-visible');
+            } else {
+                bttBtn.classList.remove('gems-btt-visible');
+            }
+        };
+
+        window.addEventListener('scroll', toggleBttVisibility, { passive: true });
+        toggleBttVisibility();
+
+        bttBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    })();
 });

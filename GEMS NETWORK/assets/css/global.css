@@ -201,3 +201,127 @@ p {
 span, li, a {
   font-family: var(--font-family-secondary);
 }
+
+/* ==========================================================================
+   4. GLOBAL TEXT SELECTION STYLE
+   ========================================================================== */
+::selection {
+  background-color: #172B4E !important;
+  color: #C4A35B !important;
+}
+
+::-moz-selection {
+  background-color: #172B4E !important;
+  color: #C4A35B !important;
+}
+
+/* ==========================================================================
+   5. GLOBAL CUSTOM SPARROW CURSOR
+   ========================================================================== */
+:root {
+  --cursor-sparrow-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2 13 C5 10 9 6 14 5 C15 3 17 2 19 2 C21 2 23 3.2 24.5 5 C24.8 5.4 25.5 5.2 26 5 C25.5 6.2 24.5 7 23.5 7.5 C24.5 10.5 23 14 20 16.5 C16.5 19.5 11 20 6.5 18 C5.2 21 3.5 23.5 1.5 25 C2.2 22 2.5 18.5 2.2 16 C1.8 14.8 1.5 13.8 2 13 Z' fill='%23071B35' stroke='%23C4A35B' stroke-width='1.2' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M8 14 C12 12 16 12 19 14.5' fill='none' stroke='%23C4A35B' stroke-width='1' stroke-linecap='round'/%3E%3Ccircle cx='20.5' cy='5.2' r='0.9' fill='%23FFFFFF'/%3E%3C/svg%3E") 2 2, auto;
+  --cursor-sparrow-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2 13 C5 10 9 6 14 5 C15 3 17 2 19 2 C21 2 23 3.2 24.5 5 C24.8 5.4 25.5 5.2 26 5 C25.5 6.2 24.5 7 23.5 7.5 C24.5 10.5 23 14 20 16.5 C16.5 19.5 11 20 6.5 18 C5.2 21 3.5 23.5 1.5 25 C2.2 22 2.5 18.5 2.2 16 C1.8 14.8 1.5 13.8 2 13 Z' fill='%230F1681' stroke='%23F4B942' stroke-width='1.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M8 14 C12 12 16 12 19 14.5' fill='none' stroke='%23F4B942' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='20.5' cy='5.2' r='1' fill='%23FFFFFF'/%3E%3C/svg%3E") 2 2, pointer;
+}
+
+html,
+body {
+  cursor: var(--cursor-sparrow-default);
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+label,
+.btn,
+.nav-link,
+[role="button"],
+.swiper-button-prev,
+.swiper-button-next,
+.slider-arrow,
+.swiper-pagination-bullet,
+.membership-tier-card,
+.role-slider-card,
+.process-slider-card,
+.growth-area-card,
+.compass-node-btn,
+.ham,
+.close-items {
+  cursor: var(--cursor-sparrow-pointer) !important;
+}
+
+/* ==========================================================================
+   6. GLOBAL BACK-TO-TOP BUTTON
+   ========================================================================== */
+#gemsBackToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #071b35;
+  color: #ffffff;
+  border: 1.5px solid rgba(244, 185, 66, 0.4);
+  box-shadow: 0 8px 24px rgba(7, 27, 53, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s ease,
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  cursor: var(--cursor-sparrow-pointer) !important;
+  text-decoration: none !important;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+#gemsBackToTop.gems-btt-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#gemsBackToTop:hover {
+  background: #0f1681;
+  color: #f4b942;
+  border-color: #f4b942;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(15, 22, 129, 0.35);
+}
+
+#gemsBackToTop:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+#gemsBackToTop i,
+#gemsBackToTop svg {
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+#gemsBackToTop:hover i,
+#gemsBackToTop:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  #gemsBackToTop {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+}

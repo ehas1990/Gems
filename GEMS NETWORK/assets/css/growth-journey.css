@@ -1053,8 +1053,8 @@
    8. RESPONSIVE BREAKPOINTS
    ========================================================================== */
 
-/* Laptop / Desktop <= 1199px */
-@media (max-width: 1199px) {
+/* Laptop / Desktop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
     .growth-journey-page .growth-glance-grid {
         gap: 12px;
     }
@@ -1091,6 +1091,41 @@
     .growth-journey-page .cnode-4 { bottom: 10px; left: calc(50% - 32px); }
     .growth-journey-page .cnode-5 { bottom: 80px; left: 15px; }
     .growth-journey-page .cnode-6 { top: 80px; left: 15px; }
+}
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+
+    .growth-journey-page .cnode-1 {
+        top: -30px;
+        left: calc(50% - 32px);
+    }
+
+    .growth-journey-page .cnode-2 {
+        top: 80px;
+        right: -15px;
+    }
+
+    .growth-journey-page .cnode-3 {
+        bottom: 80px;
+        right: -13px;
+    }
+
+    .growth-journey-page .cnode-4 {
+        bottom: -25px;
+        left: calc(50% - 32px);
+    }
+
+    .growth-journey-page .cnode-5 {
+        bottom: 80px;
+        left: -14px;
+    }
+
+    .growth-journey-page .cnode-6 {
+        top: 80px;
+        left: -13px;
+    }
+
 }
 
 /* Tablet <= 991px */

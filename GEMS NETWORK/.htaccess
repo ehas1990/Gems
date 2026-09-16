@@ -1,0 +1,16 @@
+# ==============================================================================
+# GEMS Network - Server Configuration & 404 Error Routing
+# ==============================================================================
+
+# Serve 404.html for any non-existing page or broken URL with proper HTTP 404 status
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # If the requested resource does not exist as a file or directory, serve 404.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ 404.html [L]
+</IfModule>

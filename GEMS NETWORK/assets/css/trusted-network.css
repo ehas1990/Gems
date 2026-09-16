@@ -1,0 +1,1395 @@
+/**
+ * ==========================================================================
+ * GEMS Network - Trusted Network Stylesheet (trusted-network.css)
+ * ==========================================================================
+ * Strictly scoped under .trusted-network-page to prevent global leakage.
+ * Harmonized with GEMS Network design language (journeys.css & global.css).
+ */
+
+.trusted-network-page {
+    overflow-x: clip;
+}
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.trust-logo {
+    width: 25%;
+}
+
+.trust-logo-t {
+    width: 60%;
+}
+
+.trusted-network-page .journeys-hero {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 110px 0;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 580px;
+}
+
+.trusted-network-page .journeys-hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.trusted-network-page .journeys-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.32;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.trusted-network-page .journeys-hero:hover .journeys-hero-bg {
+    transform: scale(1.06);
+}
+
+.trusted-network-page .journeys-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.72) 0%, rgba(7, 27, 53, 0.94) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.trusted-network-page .journeys-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trusted-network-page .journeys-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 185, 66, 0.15);
+    border: 1px solid rgba(244, 185, 66, 0.4);
+    color: var(--color-gold, #f4b942);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+
+.trusted-network-page .journeys-hero-title {
+    color: #ffffff;
+    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.18;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+}
+
+.trusted-network-page .journeys-hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.trusted-network-page .journeys-tagline-badge {
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 36px;
+    position: relative;
+    padding: 0 16px;
+}
+
+.trusted-network-page .journeys-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.trusted-network-page .btn-gems-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+    min-height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
+.trusted-network-page .btn-gems-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(244, 185, 66, 0.5);
+    color: var(--color-navy-deep, #071b35);
+    background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%);
+}
+
+.trusted-network-page .btn-gems-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    min-height: 48px;
+    cursor: pointer;
+}
+
+.trusted-network-page .btn-gems-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Common Section Badge */
+.trusted-network-page .section-badge-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 22, 129, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.15);
+    color: var(--color-primary, #0f1681);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   2. DIRECTORY & SEARCH SECTION
+   ========================================================================== */
+.trusted-network-page .partner-directory-section {
+    padding: 85px 0 95px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.trusted-network-page .partner-directory-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.trusted-network-page .directory-title-area {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trusted-network-page .directory-heading {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.trusted-network-page .directory-desc {
+    color: var(--color-text, #64748b);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Functional Search Box */
+.trusted-network-page .partner-search-wrapper {
+    position: relative;
+    min-width: 320px;
+    max-width: 440px;
+    width: 100%;
+}
+
+.trusted-network-page .partner-search-input {
+    width: 100%;
+    height: 52px;
+    background: #ffffff;
+    border: 1.5px solid rgba(15, 22, 129, 0.12);
+    border-radius: 50px;
+    padding: 0 48px 0 48px;
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: 0.95rem;
+    color: var(--color-navy-deep, #071b35);
+    box-shadow: 0 4px 16px rgba(7, 27, 53, 0.04);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.trusted-network-page .partner-search-input:focus {
+    border-color: var(--color-primary, #0f1681);
+    box-shadow: 0 8px 24px rgba(15, 22, 129, 0.12);
+}
+
+.trusted-network-page .partner-search-wrapper .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.trusted-network-page .search-clear-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    border: none;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.trusted-network-page .search-clear-btn:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+}
+
+/* Category Filter Bar */
+.trusted-network-page .category-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 36px;
+}
+
+.trusted-network-page .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #475569;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+}
+
+.trusted-network-page .filter-btn:hover {
+    color: var(--color-primary, #0f1681);
+    border-color: rgba(15, 22, 129, 0.3);
+    background: #f1f5f9;
+}
+
+.trusted-network-page .filter-btn.active {
+    background: var(--color-navy-deep, #071b35);
+    color: #ffffff;
+    border-color: var(--color-navy-deep, #071b35);
+    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.15);
+}
+
+/* Partner Cards Grid */
+.trusted-network-page .partner-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.trusted-network-page .partner-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px 24px 24px 24px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    height: 100%;
+}
+
+.trusted-network-page .partner-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(15, 22, 129, 0.1);
+    border-color: rgba(15, 22, 129, 0.22);
+}
+
+.trusted-network-page .partner-card-header {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+}
+
+/* Card Logo Typography Styling */
+.trusted-network-page .partner-logo-svg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trusted-network-page .maritime-logo {
+    color: #0284c7;
+    font-size: 1.8rem;
+}
+
+.trusted-network-page .maritime-logo .logo-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #071b35;
+    line-height: 1;
+}
+
+.trusted-network-page .maritime-logo .logo-text span {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+.trusted-network-page .business-logo .logo-text-bold {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #0f1681;
+    letter-spacing: -0.5px;
+}
+
+.trusted-network-page .business-logo .highlight-x {
+    color: #ea580c;
+}
+
+.trusted-network-page .travel-logo .brand-num {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #dc2626;
+    margin-right: 4px;
+}
+
+.trusted-network-page .travel-logo .brand-word {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f1681;
+}
+
+.trusted-network-page .prof-logo {
+    color: #071b35;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+}
+
+.trusted-network-page .prof-logo .prof-text .p-top {
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+
+.trusted-network-page .prof-logo .prof-text .p-sub {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.trusted-network-page .aviation-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d97706;
+    font-size: 1.6rem;
+}
+
+.trusted-network-page .aviation-logo .avi-text .avi-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #071b35;
+    display: block;
+    line-height: 1;
+}
+
+.trusted-network-page .aviation-logo .avi-text .avi-sub {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #d97706;
+    letter-spacing: 1px;
+}
+
+.trusted-network-page .edu-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7c3aed;
+    font-size: 1.6rem;
+}
+
+.trusted-network-page .edu-logo .edu-text .edu-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #071b35;
+    display: block;
+    line-height: 1;
+}
+
+.trusted-network-page .edu-logo .edu-text .edu-sub {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #7c3aed;
+    letter-spacing: 1px;
+}
+
+.trusted-network-page .career-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4338ca;
+    font-size: 1.6rem;
+}
+
+.trusted-network-page .career-logo .car-text .car-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #071b35;
+    display: block;
+    line-height: 1;
+}
+
+.trusted-network-page .career-logo .car-text .car-sub {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #4338ca;
+    letter-spacing: 1px;
+}
+
+/* Category Badges */
+.trusted-network-page .category-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.trusted-network-page .badge-maritime {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.trusted-network-page .badge-business {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.trusted-network-page .badge-travel {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.trusted-network-page .badge-prof {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.trusted-network-page .badge-aviation {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.trusted-network-page .badge-edu {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.trusted-network-page .badge-career {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.trusted-network-page .partner-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 8px;
+}
+
+.trusted-network-page .partner-card-desc {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.trusted-network-page .partner-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 18px;
+}
+
+.trusted-network-page .partner-location i {
+    color: var(--color-gold, #f4b942);
+}
+
+.trusted-network-page .partner-visit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    background: transparent;
+    color: #003b6d !important;
+    border: 1.5px solid #003b6d;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.trusted-network-page .partner-visit-btn:hover {
+    background: #003b6d;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 59, 109, 0.2);
+}
+
+/* No Results Box */
+.trusted-network-page .no-partners-found {
+    text-align: center;
+    padding: 60px 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px dashed rgba(15, 22, 129, 0.15);
+    margin-top: 30px;
+}
+
+.trusted-network-page .no-partners-found i {
+    font-size: 2.5rem;
+    color: #94a3b8;
+    margin-bottom: 14px;
+}
+
+.trusted-network-page .no-partners-found h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 6px;
+}
+
+.trusted-network-page .no-partners-found p {
+    color: #64748b;
+    margin-bottom: 18px;
+}
+
+.trusted-network-page .btn-reset-filters {
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Featured Partners Banner Card (Middle Section) */
+.trusted-network-page .featured-partner-banner-wrapper {
+    margin-top: 50px;
+}
+
+.trusted-network-page .featured-partner-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 45px rgba(7, 27, 53, 0.06);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    min-height: 420px;
+    height: 420px;
+    align-items: stretch;
+}
+
+.trusted-network-page .featured-partner-content {
+    padding: 45px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.trusted-network-page .featured-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f1681);
+    margin-bottom: 12px;
+}
+
+.trusted-network-page .featured-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    min-height: 2.5em;
+    display: flex;
+    align-items: center;
+}
+
+.trusted-network-page .featured-desc {
+    color: var(--color-text, #64748b);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    min-height: 3.2em;
+}
+
+.trusted-network-page .btn-featured-action {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-navy-deep, #071b35);
+    color: #ffffff !important;
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.trusted-network-page .btn-featured-action:hover {
+    background: var(--color-primary, #0f1681);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 22, 129, 0.25);
+}
+
+.trusted-network-page .featured-partner-image-box {
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.trusted-network-page .featured-partner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    transform: scale(1);
+    will-change: transform, opacity;
+}
+
+.trusted-network-page .featured-partner-card:hover .featured-partner-img,
+.trusted-network-page .featured-partner-image-box:hover .featured-partner-img {
+    transform: scale(1.05);
+}
+
+.trusted-network-page .featured-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(7, 27, 53, 0.2) 100%);
+    pointer-events: none;
+}
+
+/* Pagination Bar */
+.trusted-network-page .partner-pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 36px;
+}
+
+.trusted-network-page .page-arrow-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.trusted-network-page .page-arrow-btn:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+}
+
+.trusted-network-page .page-num-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.trusted-network-page .page-num-btn.active {
+    background: var(--color-navy-deep, #071b35);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   3. GLOBAL NETWORK / CONNECTED FUTURE SECTION
+   ========================================================================== */
+.trusted-network-page .global-network-section {
+    padding: 100px 0;
+    background-image: url('../img/why_gems_eagle_path.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.trusted-network-page .global-network-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(6 6 6 / 45%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.trusted-network-page .global-network-section .container-port-xl {
+    position: relative;
+    z-index: 2;
+}
+
+.trusted-network-page .global-network-row {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 40px;
+    align-items: center;
+}
+
+.trusted-network-page .network-narrative {
+    max-width: 480px;
+}
+
+.trusted-network-page .global-network-section .section-badge-small {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+}
+
+.trusted-network-page .network-headline {
+    color: #ffffff;
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.trusted-network-page .network-body {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 32px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Network Constellation Visualization */
+.trusted-network-page .network-constellation {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trusted-network-page .constellation-canvas {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 420px;
+    border-radius: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trusted-network-page .gems-hub-core {
+    position: absolute;
+    left: 65%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.trusted-network-page .hub-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #071b35 0%, #0f1681 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(7, 27, 53, 0.35);
+    border: 3px solid #f4b942;
+    animation: hubPulse 4s infinite ease-in-out;
+}
+
+@keyframes hubPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 12px 30px rgba(7, 27, 53, 0.35);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 16px 36px rgba(15, 22, 129, 0.45);
+    }
+}
+
+.trusted-network-page .gems-brand-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+/* Orbit Nodes */
+.trusted-network-page .orbit-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+
+.trusted-network-page .orbit-node:hover {
+    transform: scale(1.12);
+}
+
+.trusted-network-page .node-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #0f1681;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    box-shadow: 0 8px 20px rgba(15, 22, 129, 0.25);
+    border: 2.5px solid #ffffff;
+}
+
+.trusted-network-page .node-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-navy-deep, #071b35);
+    background: #ffffff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Relative Positioning of Orbit Nodes */
+.trusted-network-page .node-education {
+    top: 20px;
+    left: 50%;
+}
+
+.trusted-network-page .node-career {
+    top: 20px;
+    right: 20%;
+}
+
+.trusted-network-page .node-business {
+    top: 145px;
+    right: 8%;
+}
+
+.trusted-network-page .node-aviation {
+    bottom: 65px;
+    right: 15%;
+}
+
+.trusted-network-page .node-maritime {
+    bottom: 20px;
+    right: 45%;
+}
+
+.trusted-network-page .node-professional {
+    bottom: 35px;
+    left: 20%;
+}
+
+.trusted-network-page .node-travel {
+    top: 145px;
+    left: 15%;
+}
+
+.trusted-network-page .constellation-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   4. TRUST METRICS STRIP
+   ========================================================================== */
+.trusted-network-page .trust-metrics-section {
+    padding: 65px 0;
+    background: linear-gradient(135deg, #071b35 0%, #0c2340 100%);
+    color: #ffffff;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trusted-network-page .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+}
+
+.trusted-network-page .metric-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+}
+
+.trusted-network-page .metric-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.trusted-network-page .metric-icon-box {
+    font-size: 1.6rem;
+    color: var(--color-gold, #f4b942);
+    margin-bottom: 12px;
+}
+
+.trusted-network-page .metric-number {
+    font-size: clamp(2rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.trusted-network-page .metric-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 4px;
+}
+
+.trusted-network-page .metric-sub {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. BECOME A PARTNER SECTION
+   ========================================================================== */
+.trusted-network-page .become-partner-section {
+    padding: 95px 0 110px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.trusted-network-page .partner-cta-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 16px 45px rgba(7, 27, 53, 0.06);
+    display: grid;
+    grid-template-columns: 28% 44% 28%;
+    align-items: center;
+}
+
+.trusted-network-page .partner-cta-image-col {
+    height: 100%;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.trusted-network-page .cta-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.trusted-network-page .cta-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(7, 27, 53, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+}
+
+.trusted-network-page .partner-cta-main-col {
+    padding: 50px 40px;
+}
+
+.trusted-network-page .partner-cta-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f1681);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.trusted-network-page .partner-cta-heading {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.22;
+    margin-bottom: 14px;
+}
+
+.trusted-network-page .partner-cta-body {
+    color: var(--color-text, #64748b);
+    font-size: 0.96rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* Feature Pillars Column */
+.trusted-network-page .partner-cta-features-col {
+    padding: 40px 36px;
+    background: #f8fafc;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    border-left: 1px solid #edf2f7;
+}
+
+.trusted-network-page .feature-pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.trusted-network-page .pillar-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(15, 22, 129, 0.12);
+    color: var(--color-primary, #0f1681);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(7, 27, 53, 0.04);
+}
+
+.trusted-network-page .pillar-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-navy-deep, #071b35);
+    margin-bottom: 2px;
+}
+
+.trusted-network-page .pillar-text {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .trusted-network-page .partner-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .trusted-network-page .partner-cta-card {
+        grid-template-columns: 26% 44% 30%;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .trusted-network-page .partner-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .trusted-network-page .featured-partner-card {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: auto;
+    }
+
+    .trusted-network-page .featured-partner-image-box {
+        min-height: 240px;
+    }
+
+    .trusted-network-page .global-network-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .trusted-network-page .network-narrative {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .trusted-network-page .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 36px;
+    }
+
+    .trusted-network-page .metric-card:nth-child(2)::after {
+        display: none;
+    }
+
+    .trusted-network-page .partner-cta-card {
+        grid-template-columns: 1fr;
+    }
+
+    .trusted-network-page .partner-cta-image-col {
+        min-height: 220px;
+    }
+
+    .trusted-network-page .partner-cta-features-col {
+        border-left: none;
+        border-top: 1px solid #edf2f7;
+    }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+    .trusted-network-page .journeys-hero {
+        padding: 130px 0 80px 0;
+        min-height: auto;
+    }
+
+    .trusted-network-page .partner-directory-section,
+    .trusted-network-page .global-network-section,
+    .trusted-network-page .become-partner-section {
+        padding: 60px 0;
+    }
+
+    .trusted-network-page .partner-directory-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .trusted-network-page .partner-search-wrapper {
+        max-width: 100%;
+    }
+
+    .trusted-network-page .partner-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .trusted-network-page .featured-partner-card {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: auto;
+    }
+
+    .trusted-network-page .featured-partner-content {
+        padding: 32px 24px;
+    }
+
+    .trusted-network-page .featured-partner-image-box {
+        min-height: 200px;
+    }
+
+    .trusted-network-page .global-network-row {
+        grid-template-columns: 1fr;
+    }
+
+    .trusted-network-page .network-narrative {
+        text-align: center;
+    }
+
+    .trusted-network-page .constellation-canvas {
+        height: 380px;
+    }
+
+    .trusted-network-page .hub-circle {
+        width: 85px;
+        height: 85px;
+    }
+
+    .trusted-network-page .gems-brand-name {
+        font-size: 0.95rem;
+    }
+
+    .trusted-network-page .node-icon-circle {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    .trusted-network-page .node-label {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+
+    .trusted-network-page .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 28px;
+    }
+
+    .trusted-network-page .metric-card::after {
+        display: none !important;
+    }
+
+    .trusted-network-page .partner-cta-card {
+        grid-template-columns: 1fr;
+    }
+
+    .trusted-network-page .partner-cta-image-col {
+        min-height: 180px;
+    }
+
+    .trusted-network-page .partner-cta-main-col {
+        padding: 36px 24px;
+    }
+
+    .trusted-network-page .partner-cta-features-col {
+        padding: 32px 24px;
+        border-left: none;
+        border-top: 1px solid #edf2f7;
+    }
+}
+
+.final-homepage-cta ul.about-Cta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.final-homepage-cta ul.about-Cta-list li {
+    list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.final-homepage-cta ul.about-Cta-list svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}

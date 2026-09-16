@@ -483,36 +483,34 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-/* Positioning 6 points on 440px circle (radius = 175px) */
-/* Angle 0 deg (Top): Personal */
 .growth-journey-page .cnode-1 {
-    top: 15px;
-    left: calc(50% - 36px);
+    top: -30px;
+    left: calc(50% - 32px);
 }
-/* Angle 60 deg (Top Right): Professional */
+
 .growth-journey-page .cnode-2 {
-    top: 95px;
-    right: 25px;
+    top: 80px;
+    right: -10px;
 }
-/* Angle 120 deg (Bottom Right): Financial */
+
 .growth-journey-page .cnode-3 {
-    bottom: 95px;
-    right: 25px;
+    bottom: 80px;
+    right: -14px;
 }
-/* Angle 180 deg (Bottom): Network */
+
 .growth-journey-page .cnode-4 {
-    bottom: 15px;
-    left: calc(50% - 36px);
+    bottom: -25px;
+    left: calc(50% - 32px);
 }
-/* Angle 240 deg (Bottom Left): Entrepreneurship */
+
 .growth-journey-page .cnode-5 {
-    bottom: 95px;
-    left: 25px;
+    bottom: 80px;
+    left: -16px;
 }
-/* Angle 300 deg (Top Left): Long-Term Planning */
+
 .growth-journey-page .cnode-6 {
-    top: 95px;
-    left: 25px;
+    top: 80px;
+    left: -14px;
 }
 
 .growth-journey-page .compass-node-btn:hover,

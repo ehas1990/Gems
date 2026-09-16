@@ -422,7 +422,7 @@
                     <div class="col-12 p-0-mobile">
                         <div class="swiper philosophy-swiper">
                             <div class="swiper-wrapper row-to-swiper">
-                                <div class="swiper-slide col-lg-6 col-md-6 membership-cardq" data-aos="fade-up" data-aos-delay="0"
+                                <div class="swiper-slide membership-cardq" data-aos="fade-up" data-aos-delay="0"
                                     data-aos-duration="900">
                                     <div class="box-philosophy-gems">
                                         <a href="https://globalenrollment.us/adhoc_services" class="wrapsrvhm">
@@ -434,7 +434,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide col-lg-6 col-md-6 membership-cardq" data-aos="fade-up" data-aos-delay="100"
+                                <div class="swiper-slide membership-cardq" data-aos="fade-up" data-aos-delay="100"
                                     data-aos-duration="900">
                                     <div class="box-philosophy-gems">
                                         <a href="https://globalenrollment.us/financial_planning" class="wrapsrvhm">
@@ -449,7 +449,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide col-lg-6 col-md-6 membership-cardq" data-aos="fade-up" data-aos-delay="200"
+                                <div class="swiper-slide membership-cardq" data-aos="fade-up" data-aos-delay="200"
                                     data-aos-duration="900">
                                     <div class="box-philosophy-gems">
                                         <a href="https://globalenrollment.us/legal_assistance" class="wrapsrvhm">
@@ -462,7 +462,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide col-lg-6 col-md-6 membership-cardq" data-aos="fade-up" data-aos-delay="300"
+                                <div class="swiper-slide membership-cardq" data-aos="fade-up" data-aos-delay="300"
                                     data-aos-duration="900">
                                     <div class="box-philosophy-gems">
                                         <a href="https://globalenrollment.us/onboarding_assistance" class="wrapsrvhm">
@@ -787,13 +787,22 @@
                 const swiperEl = document.querySelector('.philosophy-swiper');
                 if (!swiperEl || typeof Swiper === "undefined") return;
 
-                if (window.innerWidth <= 767) {
+                const isMobile = window.innerWidth <= 767;
+
+                if (isMobile) {
                     if (!philosophySwiper) {
                         philosophySwiper = new Swiper('.philosophy-swiper', {
                             slidesPerView: 1,
+                            slidesPerGroup: 1,
                             spaceBetween: 16,
-                            speed: 500,
+                            speed: 400,
                             grabCursor: true,
+                            watchOverflow: true,
+                            observer: true,
+                            observeParents: true,
+                            touchRatio: 1,
+                            touchAngle: 45,
+                            resistanceRatio: 0.85,
                             pagination: {
                                 el: '.philosophy-pagination',
                                 clickable: true,
@@ -803,6 +812,8 @@
                                 prevEl: '.philosophy-prev',
                             }
                         });
+                    } else {
+                        philosophySwiper.update();
                     }
                 } else {
                     if (philosophySwiper) {
@@ -813,7 +824,12 @@
             }
 
             initPhilosophySwiper();
-            window.addEventListener('resize', initPhilosophySwiper);
+            
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(initPhilosophySwiper, 150);
+            });
 
             /* =====================================================
                HEADER SCROLL BACKGROUND BEHAVIOR (TRANSPARENT -> WHITE)

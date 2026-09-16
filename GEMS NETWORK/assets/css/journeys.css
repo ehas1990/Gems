@@ -1113,7 +1113,7 @@
     border-bottom: 1px solid #edf2f7;
 }
 
-/* Desktop & Laptop default for philosophy-swiper */
+/* Desktop & Laptop default for philosophy-swiper (2x2 grid preserved exactly) */
 .philosophy-swiper {
     overflow: visible;
 }
@@ -1121,6 +1121,16 @@
 .philosophy-swiper .row-to-swiper {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.philosophy-swiper .membership-cardq.swiper-slide {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
 }
 
 .philosophy-slider-controls {
@@ -1144,8 +1154,8 @@
     .philosophy-swiper .row-to-swiper.swiper-wrapper {
         display: flex !important;
         flex-wrap: nowrap !important;
-        width: 100%;
-        box-sizing: content-box;
+        width: 100% !important;
+        box-sizing: content-box !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
@@ -1158,7 +1168,7 @@
         margin-bottom: 0 !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
     }
 
     .philosophy-swiper .wrapsrvhm {

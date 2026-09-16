@@ -1,0 +1,1163 @@
+/**
+ * ==========================================================================
+ * GEMS Network - Growth Journey Stylesheet (growth-journey.css)
+ * ==========================================================================
+ * Strictly scoped under .growth-journey-page to avoid any conflicts.
+ * Extends and harmonizes with journeys.css and global.css design tokens.
+ */
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.growth-journey-page .journeys-hero {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 110px 0;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 580px;
+}
+
+.growth-journey-page .journeys-hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.growth-journey-page .journeys-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.32;
+    filter: saturate(1.15) brightness(0.85);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.growth-journey-page .journeys-hero:hover .journeys-hero-bg {
+    transform: scale(1.06);
+}
+
+.growth-journey-page .journeys-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.72) 0%, rgba(7, 27, 53, 0.94) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   2. AT A GLANCE (6 CONNECTED GROWTH NODES)
+   ========================================================================== */
+.growth-journey-page .growth-glance-section {
+    padding: 85px 0 95px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.growth-journey-page .growth-section-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 50px auto;
+}
+
+.growth-journey-page .growth-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 22, 129, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.15);
+    color: var(--color-primary, #0f1681);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.growth-journey-page .growth-section-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.growth-journey-page .growth-section-desc {
+    color: var(--color-text, #64748b);
+    font-size: 1.08rem;
+    line-height: 1.68;
+    margin-bottom: 0;
+}
+
+.growth-journey-page .growth-glance-timeline {
+    position: relative;
+    margin-top: 50px;
+}
+
+.growth-journey-page .growth-connector-line {
+    position: absolute;
+    top: 36px;
+    left: 8%;
+    right: 8%;
+    height: 3px;
+    background: linear-gradient(90deg, #0f62fe 0%, #0d9488 20%, #eab308 40%, #ec4899 60%, #8b5cf6 80%, #06b6d4 100%);
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.growth-journey-page .growth-glance-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.growth-journey-page .growth-glance-node {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 14px 20px 14px;
+    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.05);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    color: inherit;
+}
+
+.growth-journey-page .growth-glance-node:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(15, 22, 129, 0.12);
+    border-color: rgba(15, 22, 129, 0.22);
+}
+
+.growth-journey-page .node-icon-circle {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    border: 4px solid #ffffff;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+}
+
+.growth-journey-page .growth-glance-node:hover .node-icon-circle {
+    transform: scale(1.12);
+}
+
+.growth-journey-page .node-personal .node-icon-circle {
+    background: linear-gradient(135deg, #0f62fe 0%, #2563eb 100%);
+}
+
+.growth-journey-page .node-professional .node-icon-circle {
+    background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+}
+
+.growth-journey-page .node-financial .node-icon-circle {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+}
+
+.growth-journey-page .node-network .node-icon-circle {
+    background: linear-gradient(135deg, #db2777 0%, #f43f5e 100%);
+}
+
+.growth-journey-page .node-entrepreneurship .node-icon-circle {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.growth-journey-page .node-planning .node-icon-circle {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+}
+
+.growth-journey-page .growth-glance-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* ==========================================================================
+   3. SIX GROWTH AREAS (DETAILED CARDS)
+   ========================================================================== */
+.growth-journey-page .growth-areas-section {
+    padding: 90px 0 100px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.growth-journey-page .growth-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.growth-journey-page .growth-area-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 0 24px 28px 24px;
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.05);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.growth-journey-page .growth-area-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 22, 129, 0.12);
+    border-color: rgba(15, 22, 129, 0.2);
+}
+
+.growth-journey-page .growth-card-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.growth-journey-page .growth-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    border: 4px solid #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.growth-journey-page .growth-area-card:hover .growth-card-icon {
+    transform: scale(1.1);
+}
+
+.growth-journey-page .card-personal .growth-card-icon {
+    background: linear-gradient(135deg, #0f62fe 0%, #2563eb 100%);
+}
+
+.growth-journey-page .card-professional .growth-card-icon {
+    background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+}
+
+.growth-journey-page .card-financial .growth-card-icon {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+}
+
+.growth-journey-page .card-network .growth-card-icon {
+    background: linear-gradient(135deg, #db2777 0%, #f43f5e 100%);
+}
+
+.growth-journey-page .card-entrepreneurship .growth-card-icon {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.growth-journey-page .card-planning .growth-card-icon {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+}
+
+.growth-journey-page .growth-card-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.32rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+
+.growth-journey-page .growth-card-desc {
+    color: var(--color-text, #64748b);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+}
+
+.growth-journey-page .growth-services-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 14px;
+}
+
+.growth-journey-page .growth-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    flex-grow: 1;
+}
+
+.growth-journey-page .growth-services-list li {
+    position: relative;
+    padding-left: 36px;
+    font-size: 0.92rem;
+    color: #334155;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.growth-journey-page .growth-services-list li + li {
+    margin-top: 12px;
+}
+
+.growth-journey-page .growth-services-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/list.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.growth-journey-page .growth-card-cta {
+    margin-top: auto;
+}
+
+.growth-journey-page .tier-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-height: 44px;
+}
+
+.growth-journey-page .tier-btn-outline {
+    background: #f0f4fc;
+    color: var(--color-primary, #0f1681);
+    border: 1px solid rgba(15, 22, 129, 0.12);
+}
+
+.growth-journey-page .tier-btn-outline:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+    box-shadow: 0 6px 16px rgba(15, 22, 129, 0.22);
+}
+
+/* ==========================================================================
+   4. THE GROWTH COMPASS (SIGNATURE INTERACTIVE SECTION)
+   ========================================================================== */
+.growth-journey-page .growth-compass-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.growth-journey-page .compass-interactive-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Compass Device */
+.growth-journey-page .compass-visual-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.growth-journey-page .compass-circle-outer {
+    position: relative;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    border: 2px dashed rgba(15, 22, 129, 0.2);
+    background: radial-gradient(circle, rgba(15, 22, 129, 0.02) 0%, rgba(248, 250, 252, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 40px rgba(7, 27, 53, 0.06);
+}
+
+.growth-journey-page .compass-center-hub {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #071b35 0%, #0f1681 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 10px 25px rgba(7, 27, 53, 0.35);
+    z-index: 5;
+    border: 3px solid #f4b942;
+}
+
+.growth-journey-page .compass-center-hub i {
+    font-size: 1.7rem;
+    color: var(--color-gold, #f4b942);
+    margin-bottom: 4px;
+}
+
+.growth-journey-page .compass-center-hub span {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* 6 Orbiting Compass Nodes */
+.growth-journey-page .compass-node-btn {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid rgba(15, 22, 129, 0.15);
+    box-shadow: 0 8px 20px rgba(7, 27, 53, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 6;
+    padding: 0;
+}
+
+.growth-journey-page .compass-node-btn i {
+    font-size: 1.3rem;
+    color: var(--color-primary, #0f1681);
+    transition: all 0.3s ease;
+}
+
+.growth-journey-page .compass-node-btn .compass-label {
+    position: absolute;
+    bottom: -22px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-navy-deep, #071b35);
+    white-space: nowrap;
+    background: #ffffff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(15, 22, 129, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Positioning 6 points on 440px circle (radius = 175px) */
+/* Angle 0 deg (Top): Personal */
+.growth-journey-page .cnode-1 {
+    top: 15px;
+    left: calc(50% - 36px);
+}
+/* Angle 60 deg (Top Right): Professional */
+.growth-journey-page .cnode-2 {
+    top: 95px;
+    right: 25px;
+}
+/* Angle 120 deg (Bottom Right): Financial */
+.growth-journey-page .cnode-3 {
+    bottom: 95px;
+    right: 25px;
+}
+/* Angle 180 deg (Bottom): Network */
+.growth-journey-page .cnode-4 {
+    bottom: 15px;
+    left: calc(50% - 36px);
+}
+/* Angle 240 deg (Bottom Left): Entrepreneurship */
+.growth-journey-page .cnode-5 {
+    bottom: 95px;
+    left: 25px;
+}
+/* Angle 300 deg (Top Left): Long-Term Planning */
+.growth-journey-page .cnode-6 {
+    top: 95px;
+    left: 25px;
+}
+
+.growth-journey-page .compass-node-btn:hover,
+.growth-journey-page .compass-node-btn.active {
+    border-color: var(--color-gold, #f4b942);
+    background: var(--color-primary, #0f1681);
+    transform: scale(1.15);
+    box-shadow: 0 12px 28px rgba(15, 22, 129, 0.3);
+}
+
+.growth-journey-page .compass-node-btn:hover i,
+.growth-journey-page .compass-node-btn.active i {
+    color: var(--color-gold, #f4b942);
+}
+
+.growth-journey-page .compass-node-btn.active .compass-label {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-gold, #f4b942);
+}
+
+/* Compass Detail Panel */
+.growth-journey-page .compass-detail-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 12px 36px rgba(7, 27, 53, 0.06);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.growth-journey-page .compass-detail-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f1681);
+    margin-bottom: 12px;
+}
+
+.growth-journey-page .compass-detail-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.growth-journey-page .compass-detail-desc {
+    color: var(--color-text, #64748b);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+
+.growth-journey-page .compass-detail-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.growth-journey-page .compass-detail-highlights li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 0.9rem;
+    color: #334155;
+    font-weight: 600;
+}
+
+.growth-journey-page .compass-detail-highlights li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #10b981;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   5. HOW GEMS SUPPORTS GROWTH (5-STEP PROCESS)
+   ========================================================================== */
+.growth-journey-page .growth-process-section {
+    padding: 95px 0 105px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.growth-journey-page .process-slider-container {
+    margin-top: 45px;
+}
+
+.growth-journey-page .process-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.growth-journey-page .process-step-card {
+    position: relative;
+    min-height: 380px;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--color-navy-deep, #071b35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 32px rgba(7, 27, 53, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.growth-journey-page .process-step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(7, 27, 53, 0.18);
+    border-color: rgba(244, 185, 66, 0.35);
+}
+
+.growth-journey-page .process-card-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.02);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.growth-journey-page .process-step-card:hover .process-card-bg {
+    transform: scale(1.08);
+}
+
+.growth-journey-page .process-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 27, 53, 0.55) 0%, rgba(7, 27, 53, 0.85) 50%, rgba(7, 27, 53, 0.96) 100%);
+    z-index: 2;
+    transition: background 0.4s ease;
+}
+
+.growth-journey-page .process-step-card:hover .process-card-overlay {
+    background: linear-gradient(180deg, rgba(15, 22, 129, 0.45) 0%, rgba(7, 27, 53, 0.82) 50%, rgba(7, 27, 53, 0.98) 100%);
+}
+
+.growth-journey-page .process-card-content {
+    position: relative;
+    z-index: 5;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.growth-journey-page .process-step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(244, 185, 66, 0.2);
+    border: 1px solid rgba(244, 185, 66, 0.5);
+    color: var(--color-gold, #f4b942);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.growth-journey-page .process-step-title {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.growth-journey-page .process-step-desc {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   6. TRUSTED NETWORK & MEMBERSHIP CONNECTION (DUAL SECTION)
+   ========================================================================== */
+.growth-journey-page .growth-dual-section {
+    padding: 95px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.growth-journey-page .growth-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 35%;
+    gap: 36px;
+    align-items: stretch;
+}
+
+/* Left: Trust Section */
+.growth-journey-page .trust-card-wrap {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    display: grid;
+    grid-template-columns: 52% 48%;
+    height: 100%;
+}
+
+.growth-journey-page .trust-content-side {
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.growth-journey-page .trust-tagline {
+    color: var(--color-gold, #f4b942);
+    font-weight: 700;
+    font-size: 0.98rem;
+    font-style: italic;
+    margin-top: 14px;
+    margin-bottom: 24px;
+}
+
+.growth-journey-page .trust-image-side {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+    overflow: hidden;
+}
+
+.growth-journey-page .trust-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.growth-journey-page .trust-image-side:hover .trust-img {
+    transform: scale(1.05);
+}
+
+/* Right: Membership Connection */
+.growth-journey-page .dual-col-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 36px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.growth-journey-page .dual-header {
+    margin-bottom: 20px;
+}
+
+.growth-journey-page .dual-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f1681);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.growth-journey-page .dual-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1.28;
+    margin-bottom: 10px;
+}
+
+.growth-journey-page .dual-desc {
+    color: var(--color-text, #64748b);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+.growth-journey-page .membership-compact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.growth-journey-page .membership-mini-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    transition: all 0.25s ease;
+}
+
+.growth-journey-page .membership-mini-item:hover {
+    background: #ffffff;
+    border-color: rgba(15, 22, 129, 0.18);
+    box-shadow: 0 6px 16px rgba(15, 22, 129, 0.06);
+    transform: translateY(-2px);
+}
+
+.growth-journey-page .mini-tier-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.growth-journey-page .mini-tier-explorer .mini-tier-icon {
+    background: linear-gradient(135deg, #0f62fe, #2563eb);
+}
+
+.growth-journey-page .mini-tier-companion .mini-tier-icon {
+    background: linear-gradient(135deg, #0d9488, #10b981);
+}
+
+.growth-journey-page .mini-tier-navigator .mini-tier-icon {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+}
+
+.growth-journey-page .mini-tier-content h4 {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.growth-journey-page .mini-tier-content p {
+    color: var(--color-text, #64748b);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* ==========================================================================
+   7. PRACTICAL GROWTH RESOURCES PREVIEW
+   ========================================================================== */
+.growth-journey-page .growth-resources-section {
+    padding: 95px 0 105px 0;
+    background-color: #f8fafc;
+    position: relative;
+}
+
+.growth-journey-page .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.growth-journey-page .resource-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 22px;
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+}
+
+.growth-journey-page .resource-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(15, 22, 129, 0.1);
+    border-color: rgba(15, 22, 129, 0.2);
+}
+
+.growth-journey-page .resource-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(15, 22, 129, 0.06);
+    color: var(--color-primary, #0f1681);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.growth-journey-page .resource-card:hover .resource-icon-wrap {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    transform: rotate(6deg) scale(1.05);
+}
+
+.growth-journey-page .resource-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.growth-journey-page .resource-desc {
+    color: var(--color-text, #64748b);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.growth-journey-page .resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary, #0f1681);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.growth-journey-page .resource-link:hover {
+    color: var(--color-gold, #f4b942);
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptop / Desktop <= 1199px */
+@media (max-width: 1199px) {
+    .growth-journey-page .growth-glance-grid {
+        gap: 12px;
+    }
+
+    .growth-journey-page .growth-areas-grid {
+        gap: 20px;
+    }
+
+    .growth-journey-page .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .growth-journey-page .process-cards-grid {
+        gap: 14px;
+    }
+
+    .growth-journey-page .compass-interactive-wrapper {
+        gap: 30px;
+    }
+
+    .growth-journey-page .compass-circle-outer {
+        width: 380px;
+        height: 380px;
+    }
+
+    .growth-journey-page .compass-node-btn {
+        width: 64px;
+        height: 64px;
+    }
+
+    .growth-journey-page .cnode-1 { top: 10px; left: calc(50% - 32px); }
+    .growth-journey-page .cnode-2 { top: 80px; right: 15px; }
+    .growth-journey-page .cnode-3 { bottom: 80px; right: 15px; }
+    .growth-journey-page .cnode-4 { bottom: 10px; left: calc(50% - 32px); }
+    .growth-journey-page .cnode-5 { bottom: 80px; left: 15px; }
+    .growth-journey-page .cnode-6 { top: 80px; left: 15px; }
+}
+
+/* Tablet <= 991px */
+@media (max-width: 991px) {
+    .growth-journey-page .growth-connector-line {
+        display: none;
+    }
+
+    .growth-journey-page .growth-glance-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .growth-journey-page .growth-areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .growth-journey-page .compass-interactive-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .growth-journey-page .compass-visual-col {
+        order: 1;
+    }
+
+    .growth-journey-page .compass-detail-panel {
+        order: 2;
+    }
+
+    .growth-journey-page .process-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .growth-journey-page .growth-dual-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .growth-journey-page .trust-card-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .growth-journey-page .trust-image-side {
+        min-height: 240px;
+        max-height: 300px;
+    }
+}
+
+/* Mobile <= 767px */
+@media (max-width: 767px) {
+    .growth-journey-page .growth-glance-section,
+    .growth-journey-page .growth-areas-section,
+    .growth-journey-page .growth-compass-section,
+    .growth-journey-page .growth-process-section,
+    .growth-journey-page .growth-dual-section,
+    .growth-journey-page .growth-resources-section {
+        padding: 60px 0;
+    }
+
+    .growth-journey-page .growth-glance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .growth-journey-page .growth-areas-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Mobile Compass conversion to clean stacked navigation */
+    .growth-journey-page .compass-circle-outer {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .growth-journey-page .compass-center-hub {
+        display: none;
+    }
+
+    .growth-journey-page .compass-node-btn {
+        position: static;
+        width: 100%;
+        height: 75px;
+        border-radius: 14px;
+        transform: none !important;
+    }
+
+    .growth-journey-page .compass-node-btn .compass-label {
+        position: static;
+        margin-top: 4px;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        color: inherit;
+        font-size: 0.75rem;
+    }
+
+    .growth-journey-page .compass-node-btn.active .compass-label {
+        background: transparent;
+        color: #ffffff;
+    }
+
+    .growth-journey-page .compass-detail-panel {
+        padding: 24px 20px;
+    }
+
+    .growth-journey-page .compass-detail-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .growth-journey-page .process-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .growth-journey-page .process-step-card {
+        min-height: 280px;
+    }
+
+    .growth-journey-page .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .growth-journey-page .trust-content-side,
+    .growth-journey-page .dual-col-card {
+        padding: 26px 20px;
+    }
+
+    .growth-journey-page .trust-image-side {
+        min-height: 200px;
+    }
+}
+
+/* Very Small Mobile <= 480px */
+@media (max-width: 480px) {
+    .growth-journey-page .growth-glance-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .growth-journey-page .compass-circle-outer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

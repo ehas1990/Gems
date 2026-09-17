@@ -1200,6 +1200,10 @@ header.headerbg .ham span {
 /* ==========================================================================
    17. PHILOSOPHY GEMS CARDS (Equal Height, Full Visibility & Smooth Image Zoom)
    ========================================================================== */
+.aboutus-sectin-home {
+    overflow: hidden;
+}
+
 .why-gems-section .row {
     display: flex;
     flex-wrap: wrap;
@@ -1942,6 +1946,10 @@ header.headerbg .ham span {
     }
 }
 
+ul.about-Cta-list {
+    display: grid;
+}
+
 ul.about-Cta-list svg {
     width: 20px;
 }
@@ -1949,6 +1957,24 @@ ul.about-Cta-list svg {
 ul.about-Cta-list li {
     display: inline-flex;
     gap: 20px;
+    padding-top: 20px;
+}
 
+@media (max-width: 767px) {
+    ul.about-Cta-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-left: 0;
+        margin: 0 auto;
+        width: 100%;
+    }
 
+    ul.about-Cta-list li {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 14px;
+        padding-top: 16px;
+        word-break: break-word;
+    }
 }

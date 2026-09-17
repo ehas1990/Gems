@@ -2072,6 +2072,66 @@
         gap: 18px;
     }
 
+    /* Section 5: Navigator Access Mobile Enhancements */
+    .trusted-network-page .navigator-detail-box {
+        padding: 36px 20px;
+        border-radius: 20px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .trusted-network-page .navigator-detail-header {
+        margin-bottom: 24px;
+    }
+
+    .trusted-network-page .navigator-main-title {
+        font-size: 1.6rem;
+        line-height: 1.25;
+        margin-bottom: 12px;
+        word-break: break-word;
+    }
+
+    .trusted-network-page .navigator-desc-lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .trusted-network-page .navigator-benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .trusted-network-page .navigator-benefit-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .trusted-network-page .navigator-benefit-card.highlight-benefit {
+        grid-column: span 1 !important;
+    }
+
+    .trusted-network-page .navigator-benefit-card h4 {
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+    }
+
+    .trusted-network-page .navigator-benefit-card p {
+        font-size: 0.88rem;
+        line-height: 1.55;
+    }
+
+    .trusted-network-page .benefit-icon-box {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        margin-bottom: 14px;
+    }
+
     .trusted-network-page .profile-card-topbar,
     .trusted-network-page .profile-card-content {
         padding: 24px 20px;
@@ -2165,5 +2225,22 @@
 @media (max-width: 480px) {
     .journeys-hero .container-port-xl {
         padding: 25px 15px;
+    }
+
+    .trusted-network-page .navigator-detail-box {
+        padding: 28px 16px;
+        border-radius: 16px;
+    }
+
+    .trusted-network-page .navigator-main-title {
+        font-size: 1.45rem;
+    }
+
+    .trusted-network-page .navigator-desc-lead {
+        font-size: 0.88rem;
+    }
+
+    .trusted-network-page .navigator-benefit-card {
+        padding: 18px 14px;
     }
 }

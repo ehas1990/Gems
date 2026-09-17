@@ -1174,222 +1174,274 @@
     gap: 14px;
 }
 
-.trusted-network-page .pillar-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 1px solid rgba(15, 22, 129, 0.12);
-    color: var(--color-primary, #0f1681);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(7, 27, 53, 0.04);
-}
-
-.trusted-network-page .pillar-title {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--color-navy-deep, #071b35);
-    margin-bottom: 2px;
-}
-
-.trusted-network-page .pillar-text {
-    font-size: 0.82rem;
-    color: #64748b;
-    margin: 0;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
 }
 
 /* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
+   MODAL: REQUEST AN INTRODUCTION / PARTNER DETAILS
+   ========================================================================== */
+.trusted-network-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 27, 53, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 99999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.trusted-network-modal {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 36px 32px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: #f1f5f9;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #475569;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+/* ==========================================================================
+   FINAL CTA SECTION (PRESERVED)
+   ========================================================================== */
+.trusted-network-page .final-homepage-cta {
+    position: relative;
+    background: linear-gradient(180deg, #071b35 0%, #0c274a 100%);
+    padding: 100px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.trusted-network-page .final-homepage-cta ul.about-Cta-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px auto 36px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.trusted-network-page .final-homepage-cta ul.about-Cta-list li {
+    list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.trusted-network-page .final-homepage-cta ul.about-Cta-list svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.trusted-network-page .btn-primary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+}
+
+.trusted-network-page .btn-primary-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(244, 185, 66, 0.5);
+    color: var(--color-navy-deep, #071b35);
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (NO HORIZONTAL OVERFLOW ACROSS VIEWPORTS)
    ========================================================================== */
 
 /* Laptop (1024px - 1199px) */
 @media (min-width: 1024px) and (max-width: 1199px) {
+    .trusted-network-page .categories-cards-grid,
+    .trusted-network-page .access-tiers-grid,
+    .trusted-network-page .navigator-benefits-grid,
+    .trusted-network-page .editorial-sections-grid,
     .trusted-network-page .partner-cards-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-    }
-
-    .trusted-network-page .partner-cta-card {
-        grid-template-columns: 26% 44% 30%;
     }
 }
 
 /* Tablet (768px - 1023px) */
 @media (max-width: 1023px) and (min-width: 768px) {
+    .trusted-network-page .categories-cards-grid,
+    .trusted-network-page .navigator-benefits-grid,
     .trusted-network-page .partner-cards-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
-    .trusted-network-page .featured-partner-card {
+    .trusted-network-page .access-tiers-grid,
+    .trusted-network-page .editorial-sections-grid {
         grid-template-columns: 1fr;
-        height: auto;
-        min-height: auto;
+        gap: 24px;
     }
 
-    .trusted-network-page .featured-partner-image-box {
-        min-height: 240px;
+    .trusted-network-page .companion-flow-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
-    .trusted-network-page .global-network-row {
+    .trusted-network-page .editorial-pillars-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .trusted-network-page .network-narrative {
-        max-width: 100%;
-        text-align: center;
+        gap: 16px;
     }
 
     .trusted-network-page .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 36px;
+        row-gap: 32px;
     }
 
-    .trusted-network-page .metric-card:nth-child(2)::after {
-        display: none;
+    .trusted-network-page .workflow-steps-bar {
+        flex-direction: column;
+        gap: 24px;
     }
 
-    .trusted-network-page .partner-cta-card {
-        grid-template-columns: 1fr;
-    }
-
-    .trusted-network-page .partner-cta-image-col {
-        min-height: 220px;
-    }
-
-    .trusted-network-page .partner-cta-features-col {
-        border-left: none;
-        border-top: 1px solid #edf2f7;
+    .trusted-network-page .workflow-connector-arrow {
+        transform: rotate(90deg);
+        margin: 0;
     }
 }
 
 /* Mobile (<= 767px) */
 @media (max-width: 767px) {
     .trusted-network-page .journeys-hero {
-        padding: 130px 0 80px 0;
+        padding: 130px 0 70px 0;
         min-height: auto;
     }
 
+    .trusted-network-page .more-than-directory-section,
+    .trusted-network-page .network-categories-section,
+    .trusted-network-page .membership-access-section,
+    .trusted-network-page .companion-access-section,
+    .trusted-network-page .navigator-access-section,
+    .trusted-network-page .partner-profile-section,
+    .trusted-network-page .how-network-works-section,
+    .trusted-network-page .member-workflow-section,
     .trusted-network-page .partner-directory-section,
-    .trusted-network-page .global-network-section,
-    .trusted-network-page .become-partner-section {
-        padding: 60px 0;
+    .trusted-network-page .final-homepage-cta {
+        padding: 55px 0;
     }
 
-    .trusted-network-page .partner-directory-header {
+    .trusted-network-page .editorial-intro-card {
+        padding: 32px 20px;
+    }
+
+    .trusted-network-page .editorial-pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .trusted-network-page .categories-cards-grid,
+    .trusted-network-page .access-tiers-grid,
+    .trusted-network-page .companion-flow-grid,
+    .trusted-network-page .navigator-benefits-grid,
+    .trusted-network-page .editorial-sections-grid,
+    .trusted-network-page .partner-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .trusted-network-page .profile-card-topbar,
+    .trusted-network-page .profile-card-content {
+        padding: 24px 20px;
+    }
+
+    .trusted-network-page .profile-fields-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .trusted-network-page .profile-action-row {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: stretch;
+    }
+
+    .trusted-network-page .workflow-steps-bar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .trusted-network-page .workflow-connector-arrow {
+        transform: rotate(90deg);
+        margin: 0;
     }
 
     .trusted-network-page .partner-search-wrapper {
         max-width: 100%;
     }
 
-    .trusted-network-page .partner-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+    .trusted-network-page .category-filter-bar {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .trusted-network-page .featured-partner-card {
-        grid-template-columns: 1fr;
-        height: auto;
-        min-height: auto;
-    }
-
-    .trusted-network-page .featured-partner-content {
-        padding: 32px 24px;
-    }
-
-    .trusted-network-page .featured-partner-image-box {
-        min-height: 200px;
-    }
-
-    .trusted-network-page .global-network-row {
-        grid-template-columns: 1fr;
-    }
-
-    .trusted-network-page .network-narrative {
-        text-align: center;
-    }
-
-    .trusted-network-page .constellation-canvas {
-        height: 380px;
-    }
-
-    .trusted-network-page .hub-circle {
-        width: 85px;
-        height: 85px;
-    }
-
-    .trusted-network-page .gems-brand-name {
-        font-size: 0.95rem;
-    }
-
-    .trusted-network-page .node-icon-circle {
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
-    }
-
-    .trusted-network-page .node-label {
-        font-size: 0.7rem;
-        padding: 2px 6px;
+    .trusted-network-page .filter-btn {
+        flex-shrink: 0;
+        font-size: 0.82rem;
+        padding: 6px 14px;
     }
 
     .trusted-network-page .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 28px;
+        row-gap: 24px;
+        column-gap: 16px;
     }
 
-    .trusted-network-page .metric-card::after {
-        display: none !important;
+    .trusted-network-page .metric-number {
+        font-size: 1.85rem;
     }
-
-    .trusted-network-page .partner-cta-card {
-        grid-template-columns: 1fr;
-    }
-
-    .trusted-network-page .partner-cta-image-col {
-        min-height: 180px;
-    }
-
-    .trusted-network-page .partner-cta-main-col {
-        padding: 36px 24px;
-    }
-
-    .trusted-network-page .partner-cta-features-col {
-        padding: 32px 24px;
-        border-left: none;
-        border-top: 1px solid #edf2f7;
-    }
-}
-
-.final-homepage-cta ul.about-Cta-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.final-homepage-cta ul.about-Cta-list li {
-    list-style-type: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.final-homepage-cta ul.about-Cta-list svg {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
 }

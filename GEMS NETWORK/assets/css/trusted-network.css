@@ -990,14 +990,57 @@
     margin-bottom: 0;
 }
 
-.trusted-network-page .profile-action-row {
+.trusted-network-page .profile-action-row,
+.trusted-network-page .trusted-network-actions {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 16px;
+    width: 100%;
     margin-bottom: 28px;
     padding-bottom: 28px;
     border-bottom: 1px solid #edf2f7;
+}
+
+.trusted-network-page .profile-action-row .btn-gems-primary,
+.trusted-network-page .profile-action-row .btn-tier-primary,
+.trusted-network-page .profile-action-row .btn-tier-outline,
+.trusted-network-page .trusted-network-actions .btn-gems-primary,
+.trusted-network-page .trusted-network-actions .btn-tier-primary,
+.trusted-network-page .trusted-network-actions .btn-tier-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    min-height: 48px;
+    padding: 13px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1.5px solid transparent;
+}
+
+.trusted-network-page .profile-action-row .btn-tier-primary,
+.trusted-network-page .trusted-network-actions .btn-tier-primary {
+    background: var(--color-navy-deep, #071b35);
+    border-color: var(--color-navy-deep, #071b35);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(7, 27, 53, 0.2);
+}
+
+.trusted-network-page .profile-action-row .btn-tier-primary:hover,
+.trusted-network-page .trusted-network-actions .btn-tier-primary:hover {
+    background: var(--color-primary, #0f1681);
+    border-color: var(--color-primary, #0f1681);
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .trusted-network-page .profile-legal-disclaimer {
@@ -2012,9 +2055,14 @@
         gap: 18px;
     }
 
-    .trusted-network-page .profile-action-row {
-        flex-direction: column;
-        align-items: stretch;
+    .trusted-network-page .profile-action-row,
+    .trusted-network-page .trusted-network-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 16px;
     }
 
     .trusted-network-page .workflow-steps-bar {
@@ -2052,5 +2100,24 @@
 
     .trusted-network-page .metric-number {
         font-size: 1.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .trusted-network-page .profile-action-row,
+    .trusted-network-page .trusted-network-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .trusted-network-page .profile-action-row .btn-gems-primary,
+    .trusted-network-page .profile-action-row .btn-tier-primary,
+    .trusted-network-page .profile-action-row .btn-tier-outline,
+    .trusted-network-page .trusted-network-actions .btn-gems-primary,
+    .trusted-network-page .trusted-network-actions .btn-tier-primary,
+    .trusted-network-page .trusted-network-actions .btn-tier-outline {
+        width: 100%;
+        white-space: normal;
     }
 }

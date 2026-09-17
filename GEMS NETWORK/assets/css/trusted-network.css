@@ -2188,6 +2188,63 @@
     .trusted-network-page .metric-number {
         font-size: 1.85rem;
     }
+
+    /* Featured Partners Mobile 2-Row Layout (Image Row 1, Content Row 2) */
+    .trusted-network-page .featured-partner-banner-wrapper {
+        margin-top: 40px;
+    }
+
+    .trusted-network-page .featured-partner-card {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .trusted-network-page .featured-partner-image-box {
+        order: 1;
+        width: 100%;
+        height: 240px;
+        min-height: 240px;
+        max-height: 260px;
+    }
+
+    .trusted-network-page .featured-partner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .trusted-network-page .featured-partner-content {
+        order: 2;
+        padding: 30px 22px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .trusted-network-page .featured-title {
+        font-size: 1.55rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    .trusted-network-page .featured-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
+    }
+
+    .trusted-network-page .btn-featured-action {
+        align-self: flex-start;
+        padding: 12px 26px;
+        font-size: 0.92rem;
+    }
+
+    .trusted-network-page .partner-pagination-bar {
+        margin-top: 24px;
+        gap: 8px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -2242,5 +2299,26 @@
 
     .trusted-network-page .navigator-benefit-card {
         padding: 18px 14px;
+    }
+
+    .trusted-network-page .featured-partner-card {
+        border-radius: 16px;
+    }
+
+    .trusted-network-page .featured-partner-image-box {
+        height: 200px;
+        min-height: 200px;
+    }
+
+    .trusted-network-page .featured-partner-content {
+        padding: 24px 16px;
+    }
+
+    .trusted-network-page .featured-title {
+        font-size: 1.35rem;
+    }
+
+    .trusted-network-page .featured-desc {
+        font-size: 0.9rem;
     }
 }

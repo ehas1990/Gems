@@ -21,6 +21,10 @@
     min-height: 580px;
 }
 
+.journeys-hero .container-port-xl {
+    padding: 50px 10px;
+}
+
 .journeys-page .journeys-hero-bg-wrap {
     position: absolute;
     inset: 0;
@@ -1236,5 +1240,24 @@
     .philosophy-slider-controls .slider-arrow.swiper-button-disabled {
         opacity: 0.3;
         cursor: not-allowed;
+    }
+}
+
+/* Hero Container Responsive Paddings */
+@media (max-width: 1024px) {
+    .journeys-hero .container-port-xl {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .journeys-hero .container-port-xl {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .journeys-hero .container-port-xl {
+        padding: 25px 15px;
     }
 }

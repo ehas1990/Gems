@@ -1897,10 +1897,33 @@
    ========================================================================== */
 .trusted-network-page .final-homepage-cta {
     position: relative;
-    background: linear-gradient(180deg, #071b35 0%, #0c274a 100%);
-    padding: 100px 0;
+    background-image: url('../img/cta_eagle_sunrise.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 110px 0;
     color: #ffffff;
     text-align: center;
+    overflow: hidden;
+}
+
+.trusted-network-page .final-homepage-cta .cta-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+            rgba(7, 27, 53, 0.82) 0%,
+            rgba(15, 22, 129, 0.72) 45%,
+            rgba(7, 27, 53, 0.92) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.trusted-network-page .final-homepage-cta .container-port {
+    position: relative;
+    z-index: 2;
 }
 
 .trusted-network-page .final-homepage-cta ul.about-Cta-list {

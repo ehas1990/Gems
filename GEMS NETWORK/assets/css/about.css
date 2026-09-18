@@ -1947,7 +1947,7 @@ header.headerbg .ham span {
 }
 
 ul.about-Cta-list {
-    display: grid;
+    display: contents;
 }
 
 ul.about-Cta-list svg {

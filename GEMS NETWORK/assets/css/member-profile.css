@@ -12,7 +12,8 @@ body.member-profile-page {
     color: #f1f5f9;
     font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     min-height: 100vh;
-    overflow-x: hidden !important;
+    overflow-x: clip;
+    overflow-y: visible !important;
     position: relative;
     width: 100%;
     margin: 0;

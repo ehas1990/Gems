@@ -216,44 +216,7 @@ span, li, a {
 }
 
 /* ==========================================================================
-   5. GLOBAL CUSTOM SPARROW CURSOR
-   ========================================================================== */
-:root {
-  --cursor-sparrow-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2 13 C5 10 9 6 14 5 C15 3 17 2 19 2 C21 2 23 3.2 24.5 5 C24.8 5.4 25.5 5.2 26 5 C25.5 6.2 24.5 7 23.5 7.5 C24.5 10.5 23 14 20 16.5 C16.5 19.5 11 20 6.5 18 C5.2 21 3.5 23.5 1.5 25 C2.2 22 2.5 18.5 2.2 16 C1.8 14.8 1.5 13.8 2 13 Z' fill='%23071B35' stroke='%23C4A35B' stroke-width='1.2' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M8 14 C12 12 16 12 19 14.5' fill='none' stroke='%23C4A35B' stroke-width='1' stroke-linecap='round'/%3E%3Ccircle cx='20.5' cy='5.2' r='0.9' fill='%23FFFFFF'/%3E%3C/svg%3E") 2 2, auto;
-  --cursor-sparrow-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M2 13 C5 10 9 6 14 5 C15 3 17 2 19 2 C21 2 23 3.2 24.5 5 C24.8 5.4 25.5 5.2 26 5 C25.5 6.2 24.5 7 23.5 7.5 C24.5 10.5 23 14 20 16.5 C16.5 19.5 11 20 6.5 18 C5.2 21 3.5 23.5 1.5 25 C2.2 22 2.5 18.5 2.2 16 C1.8 14.8 1.5 13.8 2 13 Z' fill='%230F1681' stroke='%23F4B942' stroke-width='1.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M8 14 C12 12 16 12 19 14.5' fill='none' stroke='%23F4B942' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='20.5' cy='5.2' r='1' fill='%23FFFFFF'/%3E%3C/svg%3E") 2 2, pointer;
-}
-
-html,
-body {
-  cursor: var(--cursor-sparrow-default);
-}
-
-a,
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-select,
-label,
-.btn,
-.nav-link,
-[role="button"],
-.swiper-button-prev,
-.swiper-button-next,
-.slider-arrow,
-.swiper-pagination-bullet,
-.membership-tier-card,
-.role-slider-card,
-.process-slider-card,
-.growth-area-card,
-.compass-node-btn,
-.ham,
-.close-items {
-  cursor: var(--cursor-sparrow-pointer) !important;
-}
-
-/* ==========================================================================
-   6. GLOBAL BACK-TO-TOP BUTTON
+   5. GLOBAL BACK-TO-TOP BUTTON
    ========================================================================== */
 #gemsBackToTop {
   position: fixed;
@@ -280,7 +243,7 @@ label,
               background 0.3s ease,
               border-color 0.3s ease,
               box-shadow 0.3s ease;
-  cursor: var(--cursor-sparrow-pointer) !important;
+  cursor: pointer !important;
   text-decoration: none !important;
   outline: none;
   padding: 0;
@@ -324,4 +287,40 @@ label,
     height: 42px;
     font-size: 1rem;
   }
+}
+
+/* ==========================================================================
+   6. GLOBAL VERTICAL SCROLLBAR STYLING (SHADOW REMOVAL)
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.5) !important;
+  border-radius: 8px;
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 116, 139, 0.8) !important;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+* {
+  scrollbar-width: thin;
 }

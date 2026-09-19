@@ -969,24 +969,46 @@
 
             const updatePartnershipScrollSequence = function () {
                 if (!pathsTrack || !sceneCollab || !sceneStrat) return;
-                if (window.innerWidth <= 991) return;
+                // Desktop handler (window.innerWidth > 991)
+                if (window.innerWidth > 991) {
+                    const headerH = headerEl ? headerEl.offsetHeight : 90;
+                    const rect = pathsTrack.getBoundingClientRect();
+                    const trackTop = headerH - rect.top;
+                    const totalScrollable = rect.height - (window.innerHeight - headerH);
 
-                const headerH = headerEl ? headerEl.offsetHeight : 90;
-                const rect = pathsTrack.getBoundingClientRect();
-                const trackTop = headerH - rect.top;
-                const totalScrollable = rect.height - (window.innerHeight - headerH);
+                    if (totalScrollable <= 0) return;
 
-                if (totalScrollable <= 0) return;
+                    const progress = Math.min(1, Math.max(0, trackTop / totalScrollable));
 
-                const progress = Math.min(1, Math.max(0, trackTop / totalScrollable));
+                    if (progress < 0.48) {
+                        // Sequence 1: Collaborative (Content Left | Image Right)
+                        sceneCollab.classList.remove("scene-past");
+                        sceneCollab.classList.add("active");
+                        sceneStrat.classList.remove("active");
+                    } else {
+                        // Sequence 2: Strategic (Image Left | Content Right)
+                        sceneCollab.classList.remove("active");
+                        sceneCollab.classList.add("scene-past");
+                        sceneStrat.classList.add("active");
+                    }
+                    return;
+                }
 
-                if (progress < 0.48) {
-                    // Sequence 1: Collaborative (Content Left | Image Right)
+                // Tablet & Mobile Dedicated Handler (window.innerWidth <= 991)
+                const mobileHeaderH = headerEl ? headerEl.offsetHeight : 70;
+                const mobRect = pathsTrack.getBoundingClientRect();
+                const mobTrackTop = mobileHeaderH - mobRect.top;
+                const mobTotalScrollable = mobRect.height - (window.innerHeight - mobileHeaderH);
+
+                if (mobTotalScrollable <= 0) return;
+
+                const mobProgress = Math.min(1, Math.max(0, mobTrackTop / mobTotalScrollable));
+
+                if (mobProgress < 0.48) {
                     sceneCollab.classList.remove("scene-past");
                     sceneCollab.classList.add("active");
                     sceneStrat.classList.remove("active");
                 } else {
-                    // Sequence 2: Strategic (Image Left | Content Right)
                     sceneCollab.classList.remove("active");
                     sceneCollab.classList.add("scene-past");
                     sceneStrat.classList.add("active");
@@ -995,6 +1017,7 @@
 
             window.addEventListener("scroll", updatePartnershipScrollSequence, { passive: true });
             window.addEventListener("resize", updatePartnershipScrollSequence);
+            window.addEventListener("orientationchange", updatePartnershipScrollSequence);
             updatePartnershipScrollSequence();
 
             // Card CTAs click handler

@@ -1063,93 +1063,200 @@
     }
 }
 
-/* Tablet Portrait & Mobile: Unlock sticky sequence into smooth vertical storytelling */
+/* Tablet & Mobile Cinematic Sequence Adaptations */
 @media (max-width: 991px) {
     .partner-paths-section {
         padding: 50px 0 30px 0;
     }
 
     .partner-paths-scroll-track {
-        height: auto !important;
-        min-height: auto !important;
+        height: 200vh;
+        min-height: 200vh;
     }
 
     .partner-paths-sticky-stage {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        overflow: visible !important;
-        padding: 0 !important;
+        padding: 10px 0;
     }
 
     .partner-paths-stage-inner {
-        height: auto !important;
         padding: 0 15px;
     }
 
-    .partner-sequence-nav {
-        display: none !important;
+    .partner-scenes-viewport {
+        max-height: calc(100vh - var(--header-height, 80px) - 20px);
+    }
+
+    .scene-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        max-height: 480px;
+    }
+
+    .scene-media-frame {
+        max-height: 480px;
+        border-radius: 14px;
+    }
+
+    .partner-path-card {
+        padding: 20px 20px 18px 20px;
+        max-height: 480px;
+    }
+
+    .path-card-title {
+        font-size: 1.22rem;
+    }
+
+    .path-card-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .path-description-list {
+        margin: 0 0 14px 0;
+        gap: 6px;
+    }
+
+    .path-description-list li {
+        font-size: 0.82rem;
+        line-height: 1.35;
+    }
+
+    .path-examples-block {
+        margin: 0 0 14px 0;
+    }
+
+    .path-examples-title {
+        font-size: 0.82rem;
+        margin-bottom: 6px;
+    }
+
+    .path-examples-grid {
+        gap: 6px 10px;
+    }
+
+    .path-example-item {
+        font-size: 0.78rem;
+    }
+
+    .btn-path-cta {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .partner-hero-section {
+        padding: 120px 0 60px 0;
+    }
+
+    .partner-paths-scroll-track {
+        height: 200vh;
+        min-height: 200vh;
+    }
+
+    .partner-paths-sticky-stage {
+        padding: 8px 0;
     }
 
     .partner-scenes-viewport {
-        position: relative !important;
-        height: auto !important;
-        min-height: auto !important;
-        display: block !important;
-    }
-
-    .partnership-scene {
-        position: relative !important;
-        inset: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        opacity: 1 !important;
-        transform: none !important;
-        pointer-events: auto !important;
-        display: block !important;
-        margin-bottom: 48px !important;
-    }
-
-    .partnership-scene.scene-past {
-        opacity: 1 !important;
-        transform: none !important;
-        pointer-events: auto !important;
+        max-height: calc(100vh - var(--header-height, 75px) - 15px);
     }
 
     .scene-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
-        height: auto !important;
+        gap: 10px !important;
+        max-height: none !important;
+        height: 100% !important;
     }
 
-    /* Mobile ordering: Image on top, Content underneath for both scenes */
+    /* Scene column ordering for mobile */
     .scene-media-col {
         order: 1 !important;
-        height: auto !important;
+        height: 140px !important;
+        min-height: 120px !important;
+        max-height: 150px !important;
+        flex: 0 0 auto !important;
     }
 
     .scene-content-col {
         order: 2 !important;
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
         height: auto !important;
     }
 
     .scene-media-frame {
         width: 100% !important;
-        height: 260px !important;
-        min-height: 240px !important;
-        max-height: 280px !important;
-        border-radius: 16px !important;
+        height: 100% !important;
+        min-height: 120px !important;
+        max-height: 150px !important;
+        border-radius: 12px !important;
+    }
+
+    .scene-media-badge {
+        bottom: 8px;
+        left: 8px;
+        padding: 4px 10px;
+        font-size: 0.72rem;
     }
 
     .partner-path-card {
-        width: 100% !important;
-        height: auto !important;
-        min-height: auto !important;
+        padding: 14px 16px !important;
+        border-radius: 14px !important;
+        height: 100% !important;
         max-height: none !important;
-        padding: 28px 24px !important;
+    }
+
+    .path-header {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .path-icon-badge {
+        width: 36px;
+        height: 36px;
+        font-size: 1.05rem;
+    }
+
+    .path-card-title {
+        font-size: 1.1rem;
+    }
+
+    .path-card-subtitle {
+        font-size: 0.76rem;
+    }
+
+    .path-description-list {
+        margin: 0 0 10px 0;
+        gap: 4px;
+    }
+
+    .path-description-list li {
+        font-size: 0.78rem;
+        line-height: 1.3;
+    }
+
+    .path-examples-block {
+        margin: 0 0 10px 0;
+    }
+
+    .path-examples-title {
+        font-size: 0.78rem;
+        margin-bottom: 4px;
+    }
+
+    .path-examples-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3px 8px;
+    }
+
+    .path-example-item {
+        font-size: 0.74rem;
+    }
+
+    .btn-path-cta {
+        padding: 7px 16px;
+        font-size: 0.78rem;
     }
 }
 

@@ -270,17 +270,17 @@
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faq-page .faq-radio-label input[type="radio"]:checked + .faq-custom-radio {
+.faq-page .faq-radio-label input[type="radio"]:checked+.faq-custom-radio {
     border-color: var(--color-navy-deep, #071b35);
     background: #ffffff;
 }
 
-.faq-page .faq-radio-label input[type="radio"]:checked + .faq-custom-radio::after {
+.faq-page .faq-radio-label input[type="radio"]:checked+.faq-custom-radio::after {
     opacity: 1;
     transform: scale(1);
 }
 
-.faq-page .faq-radio-label input[type="radio"]:focus-visible + .faq-custom-radio {
+.faq-page .faq-radio-label input[type="radio"]:focus-visible+.faq-custom-radio {
     box-shadow: 0 0 0 3px rgba(15, 22, 129, 0.2);
 }
 
@@ -728,6 +728,7 @@ body.faq-page.filter-drawer-open header #loginBtn {
 
     .faq-page .faq-hero-container {
         justify-content: center;
+        padding: 40px 0px;
     }
 
     .faq-page .faq-main-section {
@@ -935,4 +936,3 @@ body.faq-page.filter-drawer-open header #loginBtn {
         padding: 40px 0;
     }
 }
-

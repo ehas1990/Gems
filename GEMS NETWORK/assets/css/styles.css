@@ -7923,6 +7923,9 @@ header.headerbg .ham span {
     width: 320px !important;
     max-width: 85vw !important;
     height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
     background: #0d1b2a !important;
     background: linear-gradient(180deg, #0d1b2a 0%, #152438 100%) !important;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.35) !important;
@@ -7932,7 +7935,8 @@ header.headerbg .ham span {
     display: flex !important;
     flex-direction: column !important;
     padding: 0 !important;
-    overflow-y: auto !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
 }
 
 .mobile-menu.showmbmenu {
@@ -7943,19 +7947,20 @@ header.headerbg .ham span {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 20px 24px !important;
+    padding: clamp(10px, 2.2vh, 18px) clamp(16px, 5vw, 22px) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    flex-shrink: 0 !important;
 }
 
 .mobile-menu-logo img {
-    height: 40px !important;
+    height: clamp(30px, 4.5vh, 38px) !important;
     width: auto !important;
 }
 
 .close-items {
     position: static !important;
-    width: 36px !important;
-    height: 36px !important;
+    width: clamp(30px, 4.5vh, 36px) !important;
+    height: clamp(30px, 4.5vh, 36px) !important;
     background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 50% !important;
     display: flex !important;
@@ -7963,9 +7968,10 @@ header.headerbg .ham span {
     justify-content: center !important;
     color: #ffffff !important;
     cursor: pointer !important;
-    font-size: 18px !important;
+    font-size: clamp(14px, 2.2vh, 17px) !important;
     border: none !important;
     transition: background 0.2s ease !important;
+    flex-shrink: 0 !important;
 }
 
 .close-items:hover {
@@ -7973,18 +7979,24 @@ header.headerbg .ham span {
 }
 
 .wrpall-cg {
-    padding: 16px 20px 30px 20px !important;
+    padding: clamp(8px, 1.8vh, 14px) clamp(16px, 5vw, 20px) clamp(12px, 2.5vh, 20px) clamp(16px, 5vw, 20px) !important;
     background: transparent !important;
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
 }
 
 .mob-main_nav_menu {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-shrink: 0 !important;
 }
 
 .mob-list_nav_menu {
@@ -7995,9 +8007,10 @@ header.headerbg .ham span {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 14px 6px !important;
+    padding: clamp(6px, 1.2vh, 10px) 4px !important;
     color: #ffffff !important;
-    font-size: 15px !important;
+    font-size: clamp(13px, 1.9vh, 15px) !important;
+    line-height: 1.2 !important;
     font-weight: 500 !important;
     font-family: 'Inter Tight', sans-serif !important;
     text-decoration: none !important;
@@ -8011,7 +8024,7 @@ header.headerbg .ham span {
 .mob-list_nav_menu.mbdrp .toggle-sub {
     cursor: pointer !important;
     color: rgba(255, 255, 255, 0.6) !important;
-    font-size: 14px !important;
+    font-size: clamp(11px, 1.6vh, 13px) !important;
     transition: transform 0.3s ease !important;
 }
 
@@ -8022,7 +8035,7 @@ header.headerbg .ham span {
 
 .bxsublist-mob {
     display: none;
-    padding: 6px 0 10px 18px !important;
+    padding: 4px 0 6px 14px !important;
 }
 
 .bxsublist-mob ul {
@@ -8032,15 +8045,15 @@ header.headerbg .ham span {
 }
 
 .bxsublist-mob ul li {
-    padding: 6px 0 !important;
+    padding: clamp(2px, 0.6vh, 4px) 0 !important;
 }
 
 .bxsublist-mob ul li a {
     color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 14px !important;
+    font-size: clamp(11px, 1.6vh, 13px) !important;
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
     text-decoration: none !important;
     transition: color 0.2s ease !important;
 }
@@ -8052,24 +8065,25 @@ header.headerbg .ham span {
 .mob-actions {
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
-    margin-top: 24px !important;
-    padding-top: 18px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    gap: clamp(6px, 1.2vh, 10px) !important;
+    margin-top: auto !important;
+    padding-top: clamp(8px, 1.5vh, 14px) !important;
+    flex-shrink: 0 !important;
 }
 
 .mob-login-btn {
     width: 100% !important;
     text-align: center !important;
-    padding: 12px !important;
+    padding: clamp(8px, 1.3vh, 11px) !important;
     border-radius: 50px !important;
     background: transparent !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    font-size: 14px !important;
+    font-size: clamp(12px, 1.7vh, 14px) !important;
     cursor: pointer !important;
     transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
 }
 
 .mob-login-btn:hover {
@@ -8079,15 +8093,16 @@ header.headerbg .ham span {
 .mob-cta-btn {
     width: 100% !important;
     text-align: center !important;
-    padding: 12px !important;
+    padding: clamp(8px, 1.3vh, 11px) !important;
     border-radius: 50px !important;
     background: linear-gradient(135deg, #93333b 0%, #6d2228 100%) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    font-size: 14px !important;
+    font-size: clamp(12px, 1.7vh, 14px) !important;
     text-decoration: none !important;
     box-shadow: 0 4px 12px rgba(110, 34, 40, 0.3) !important;
     display: block !important;
+    box-sizing: border-box !important;
 }
 
 /* Responsive Media Queries */

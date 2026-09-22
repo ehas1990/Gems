@@ -93,15 +93,31 @@
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
-    <!-- Page-Specific Overflow Fix for Career Journey -->
+    <!-- Page-Specific Fix for Career Journey Overflow & Timeline Visibility -->
     <style>
         .career-journey-page {
             overflow-x: hidden;
             width: 100%;
-            max-width: 100vw;
+            max-width: 100%;
+        }
+        .career-journey-page .career-stages-section {
+            overflow: visible;
         }
         .career-journey-page .career-timeline-container {
-            overflow-x: hidden;
+            overflow: visible !important;
+            position: relative;
+            padding-top: 36px;
+            margin-top: 20px;
+            max-width: 100%;
+        }
+        .career-journey-page .career-connector-line {
+            left: 8%;
+            right: 8%;
+            max-width: 84%;
+            box-sizing: border-box;
+        }
+        .career-journey-page .career-stages-grid {
+            max-width: 100%;
         }
         .career-journey-page .career-cards-slider {
             max-width: 100%;

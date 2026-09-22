@@ -599,6 +599,7 @@
                                     data-annual="$399 / year">$39 / month</div>
                                 <div class="plan-price-subtext price-sub" data-monthly="Billed monthly"
                                     data-annual="Billed annually ($399/yr)">Billed monthly</div>
+                                <span class="plan-savings-badge">Most Popular</span>
                             </div>
 
                             <p class="plan-card-desc">
@@ -671,6 +672,7 @@
                                     data-annual="$999 / year">$99 / month</div>
                                 <div class="plan-price-subtext price-sub" data-monthly="Billed monthly"
                                     data-annual="Billed annually ($999/yr)">Billed monthly</div>
+                                <span class="plan-savings-badge">Best Value </span>
                             </div>
                             <p class="plan-card-desc">
                                 For journeys where having dedicated guidance can make a meaningful difference. Navigator
@@ -1610,6 +1612,14 @@
             const savingsBadge = document.getElementById("savingsBadge");
             let currentBillingMode = "monthly";
 
+            // Cache initial default badge text for each plan card (e.g. Always Free, Most Popular, Best Value)
+            document.querySelectorAll(".membership-grid .plan-card").forEach(function (card) {
+                const initialBadge = card.querySelector(".plan-savings-badge");
+                if (initialBadge) {
+                    card.setAttribute("data-default-badge", initialBadge.textContent.trim());
+                }
+            });
+
             const savingsMap = {
                 "Explorer": "Always Free",
                 "Companion": "Save $69",
@@ -1653,25 +1663,33 @@
                     savingsBadge.setAttribute("aria-pressed", mode === "savings" ? "true" : "false");
                 }
 
-                // Manage savings badges inside all membership cards without duplication
+                // Manage badges inside all membership cards without duplication or badge loss
                 document.querySelectorAll(".membership-grid .plan-card").forEach(function (card) {
+                    const titleEl = card.querySelector(".plan-card-title");
+                    const title = titleEl ? titleEl.textContent.trim() : "";
+                    const defaultBadgeText = card.getAttribute("data-default-badge") || (title === "Explorer" ? "Always Free" : "");
+                    const pricingBox = card.querySelector(".plan-pricing-box");
                     const existingBadge = card.querySelector(".plan-savings-badge");
-                    if (existingBadge) {
-                        existingBadge.remove();
+
+                    let targetBadgeText = "";
+                    if (mode === "savings") {
+                        targetBadgeText = savingsMap[title] || "Always Free";
+                    } else {
+                        targetBadgeText = defaultBadgeText;
                     }
 
-                    if (mode === "savings") {
-                        const titleEl = card.querySelector(".plan-card-title");
-                        const title = titleEl ? titleEl.textContent.trim() : "";
-                        const savingsText = savingsMap[title] || "Always Free";
-
-                        const badge = document.createElement("span");
-                        badge.className = "plan-savings-badge";
-                        badge.textContent = savingsText;
-
-                        const pricingBox = card.querySelector(".plan-pricing-box");
-                        if (pricingBox) {
+                    if (targetBadgeText) {
+                        if (existingBadge) {
+                            existingBadge.textContent = targetBadgeText;
+                        } else if (pricingBox) {
+                            const badge = document.createElement("span");
+                            badge.className = "plan-savings-badge";
+                            badge.textContent = targetBadgeText;
                             pricingBox.appendChild(badge);
+                        }
+                    } else {
+                        if (existingBadge) {
+                            existingBadge.remove();
                         }
                     }
                 });

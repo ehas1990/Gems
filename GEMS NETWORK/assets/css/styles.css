@@ -7771,23 +7771,33 @@ header.headerbg .list_nav_a::after {
     padding-top: 0 !important;
 }
 
+/* Shared Header CTA Button Dimensions & Base Styling */
+.chat_flex_box #loginBtn,
+.chat_flex_box .chat_box {
+    padding: 9px 22px !important;
+    border-radius: 50px !important;
+    font-family: 'Inter Tight', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.2px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    min-height: 40px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
 /* Member Sign In Button */
 #loginBtn {
     background: transparent !important;
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    padding: 9px 20px !important;
-    border-radius: 50px !important;
-    font-family: 'Inter Tight', sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.2px !important;
     cursor: pointer !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    white-space: nowrap !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 }
 
 #loginBtn:hover {
@@ -7813,20 +7823,11 @@ header.headerbg #loginBtn:hover {
     background: #7e2f35 !important;
     background: linear-gradient(135deg, #93333b 0%, #6d2228 100%) !important;
     color: #ffffff !important;
-    padding: 10px 24px !important;
-    border-radius: 50px !important;
-    font-family: 'Inter Tight', sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
+    border: 1px solid transparent !important;
     letter-spacing: 0.3px !important;
     text-decoration: none !important;
     box-shadow: 0 4px 12px rgba(110, 34, 40, 0.3) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    white-space: nowrap !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border: none !important;
 }
 
 .chat_box:hover {

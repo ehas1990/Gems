@@ -17,12 +17,20 @@ $(".close-items").on('click', function(){
 });
 
 // Mobile dropdown toggle for Journeys
-$(document).on('click', '.mob-list_nav_menu.mbdrp > a, .toggle-sub', function(e){
+$(document).off('click', '.mob-list_nav_menu.mbdrp > a').on('click', '.mob-list_nav_menu.mbdrp > a', function(e){
   e.preventDefault();
-  var sub = $(this).closest('.mob-list_nav_menu').find('.bxsublist-mob');
-  var caret = $(this).closest('.mob-list_nav_menu').find('.toggle-sub');
-  caret.toggleClass('active');
-  sub.slideToggle(250);
+  e.stopPropagation();
+  var parent = $(this).closest('.mob-list_nav_menu');
+  var sub = parent.find('.bxsublist-mob');
+  var caret = parent.find('.toggle-sub');
+  
+  if (sub.is(':visible')) {
+    caret.removeClass('active');
+    sub.stop(true, true).slideUp(250);
+  } else {
+    caret.addClass('active');
+    sub.stop(true, true).slideDown(250);
+  }
 });
 
 

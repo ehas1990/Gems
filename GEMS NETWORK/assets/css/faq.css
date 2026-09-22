@@ -698,6 +698,26 @@
    6. RESPONSIVE MEDIA QUERIES (TABLET & MOBILE FILTER DRAWER & FULL-WIDTH)
    ========================================================================== */
 
+/* Header state when filter drawer is active on tablet/mobile */
+body.faq-page.filter-drawer-open header {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(7, 27, 53, 0.08) !important;
+    z-index: 100000 !important;
+}
+
+body.faq-page.filter-drawer-open header .main_nav_menu .list_nav_a {
+    color: #071b35 !important;
+}
+
+body.faq-page.filter-drawer-open header .ham span {
+    background-color: #071b35 !important;
+}
+
+body.faq-page.filter-drawer-open header #loginBtn {
+    background: #0f1681 !important;
+    color: #ffffff !important;
+}
+
 /* Tablet & Mobile (max-width: 991px) */
 @media (max-width: 991px) {
     .faq-page .faq-hero {
@@ -756,50 +776,69 @@
         font-size: 0.9rem;
     }
 
-    /* Mobile / Tablet Filter Drawer */
+    /* Mobile / Tablet Filter Drawer - ALWAYS CLOSED BY DEFAULT */
     .faq-page .faq-filter-sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 320px;
-        max-width: 85vw;
-        height: 100vh;
-        background: #ffffff;
-        z-index: 99999;
-        padding: 24px 20px 30px 20px;
-        box-shadow: 0 10px 40px rgba(7, 27, 53, 0.25);
-        transform: translateX(-105%);
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        overflow-y: auto;
-        border-radius: 0;
-        border: none;
+        display: block !important;
+        position: fixed !important;
+        top: var(--faq-header-offset, 76px) !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 320px !important;
+        max-width: 85vw !important;
+        height: calc(100vh - var(--faq-header-offset, 76px)) !important;
+        height: calc(100dvh - var(--faq-header-offset, 76px)) !important;
+        background: #ffffff !important;
+        z-index: 99990 !important;
+        padding: 24px 20px 30px 20px !important;
+        box-shadow: 4px 0 25px rgba(7, 27, 53, 0.15) !important;
+        transform: translateX(-105%) !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s ease !important;
+        overflow-y: auto !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-right: 1px solid #e2e8f0 !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
     }
 
-    .faq-page .faq-filter-sidebar.open-drawer {
-        transform: translateX(0);
+    /* Open State for Drawer (Visible ONLY when open) */
+    .faq-page .faq-filter-sidebar.open-drawer,
+    body.faq-page.filter-drawer-open .faq-filter-sidebar {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
     }
 
     .faq-page .faq-filter-close-btn {
-        display: inline-flex;
+        display: inline-flex !important;
     }
 
-    /* Filter Drawer Overlay Backdrop */
+    /* Filter Drawer Overlay Backdrop (Starts BELOW header, does NOT cover header) */
     .faq-page .faq-filter-overlay {
-        display: block;
-        position: fixed;
-        inset: 0;
-        background: rgba(7, 27, 53, 0.6);
-        z-index: 99998;
-        backdrop-filter: blur(2px);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        display: block !important;
+        position: fixed !important;
+        top: var(--faq-header-offset, 76px) !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: calc(100vh - var(--faq-header-offset, 76px)) !important;
+        height: calc(100dvh - var(--faq-header-offset, 76px)) !important;
+        background: rgba(7, 27, 53, 0.55) !important;
+        z-index: 99980 !important;
+        backdrop-filter: blur(2px) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease !important;
+        pointer-events: none !important;
     }
 
-    .faq-page .faq-filter-overlay.active {
-        opacity: 1;
-        visibility: visible;
+    .faq-page .faq-filter-overlay.active,
+    body.faq-page.filter-drawer-open .faq-filter-overlay {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
     }
 
     /* Full Width Accordion List and Cards */

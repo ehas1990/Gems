@@ -343,7 +343,7 @@
                     <!-- ==========================================================
                          LEFT SIDEBAR / RESPONSIVE DRAWER: FILTER PANEL
                          ========================================================== -->
-                    <aside class="faq-filter-sidebar" id="faqFilterSidebar" data-aos="fade-up" data-aos-duration="750">
+                    <aside class="faq-filter-sidebar" id="faqFilterSidebar">
                         <div class="faq-filter-header">
                             <div class="faq-filter-header-left">
                                 <i class="fa-solid fa-filter"></i>
@@ -995,19 +995,38 @@
             const filterSidebar = document.getElementById('faqFilterSidebar');
             const filterOverlay = document.getElementById('faqFilterOverlay');
 
+            let isFilterOpen = false;
+
+            function updateHeaderOffset() {
+                const headerEl = document.querySelector('header');
+                if (headerEl) {
+                    const height = headerEl.offsetHeight || 76;
+                    document.documentElement.style.setProperty('--faq-header-offset', height + 'px');
+                }
+            }
+            window.addEventListener('resize', updateHeaderOffset);
+            window.addEventListener('scroll', updateHeaderOffset, { passive: true });
+            updateHeaderOffset();
+
             function openFilterDrawer() {
+                isFilterOpen = true;
+                updateHeaderOffset();
                 if (filterSidebar && filterOverlay) {
                     filterSidebar.classList.add('open-drawer');
                     filterOverlay.classList.add('active');
+                    document.body.classList.add('filter-drawer-open');
                     document.body.style.overflow = 'hidden';
                 }
             }
 
             function closeFilterDrawer() {
+                isFilterOpen = false;
                 if (filterSidebar && filterOverlay) {
                     filterSidebar.classList.remove('open-drawer');
                     filterOverlay.classList.remove('active');
+                    document.body.classList.remove('filter-drawer-open');
                     document.body.style.overflow = '';
+                    updateHeaderScroll();
                 }
             }
 
@@ -1025,7 +1044,7 @@
 
             // Close on Escape key
             document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && filterSidebar && filterSidebar.classList.contains('open-drawer')) {
+                if (e.key === 'Escape' && isFilterOpen) {
                     closeFilterDrawer();
                 }
             });

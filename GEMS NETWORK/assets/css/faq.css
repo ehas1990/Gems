@@ -629,16 +629,38 @@
 }
 
 /* ==========================================================================
-   5. BOTTOM FAQ CTA SECTION (Matching Screenshot)
+   5. BOTTOM FAQ CTA SECTION (WITH SIGNATURE GEMS BACKGROUND IMAGE)
    ========================================================================== */
 .faq-page .faq-bottom-cta {
-    background: #edf4fc;
-    border-top: 1px solid rgba(15, 22, 129, 0.08);
-    padding: 60px 0;
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 85px 0;
     text-align: center;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.faq-page .faq-bottom-cta-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/cta_eagle_sunrise.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 0;
+    filter: saturate(1.15) brightness(0.9);
+}
+
+.faq-page .faq-bottom-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(15, 22, 129, 0.65) 0%, rgba(7, 27, 53, 0.95) 85%);
+    z-index: 1;
 }
 
 .faq-page .faq-bottom-cta-content {
+    position: relative;
+    z-index: 2;
     max-width: 720px;
     margin: 0 auto;
     display: flex;
@@ -647,17 +669,18 @@
 }
 
 .faq-page .faq-bottom-cta-title {
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.75rem, 2.8vw, 2.4rem);
     font-weight: 800;
-    color: var(--color-navy-deep, #071b35);
-    margin-bottom: 10px;
+    color: #ffffff;
+    margin-bottom: 12px;
     font-family: var(--font-family-primary, 'Dubai', sans-serif);
+    letter-spacing: -0.3px;
 }
 
 .faq-page .faq-bottom-cta-desc {
-    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
-    color: #475569;
-    margin-bottom: 24px;
+    font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 26px;
     line-height: 1.6;
     font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
 }
@@ -666,27 +689,27 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--color-navy-deep, #071b35);
-    color: #ffffff;
+    background: #ffffff;
+    color: var(--color-navy-deep, #071b35);
     text-decoration: none;
-    padding: 12px 32px;
+    padding: 13px 34px;
     border-radius: 50px;
     font-size: 0.98rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px rgba(7, 27, 53, 0.2);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
 
 .faq-page .faq-contact-btn:hover {
-    background: var(--color-primary, #0f1681);
-    color: #ffffff;
+    background: var(--color-gold, #f4b942);
+    color: var(--color-navy-deep, #071b35);
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(15, 22, 129, 0.3);
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
 }
 
 .faq-page .faq-contact-btn i {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     transition: transform 0.25s ease;
 }
 

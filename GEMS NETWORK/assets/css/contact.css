@@ -118,10 +118,24 @@
     font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
     font-size: clamp(0.95rem, 1.5vw, 1.15rem);
     line-height: 1.65;
-    margin: 0 auto 24px auto;
+    margin: 0 auto 20px auto;
     max-width: 680px;
     font-weight: 400;
     word-break: break-word;
+}
+
+.contact-page .contact-tagline-badge {
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    font-weight: 600;
+    font-style: italic;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 16px;
+    word-break: break-word;
+    text-align: center;
 }
 
 /* ==========================================================================

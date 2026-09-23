@@ -34,8 +34,8 @@
     height: 100%;
     object-fit: cover;
     object-position: center 35%;
-    opacity: 0.30;
-    filter: saturate(1.15) brightness(0.85);
+    opacity: 0.60;
+    filter: saturate(1.1) brightness(0.95);
     transform: scale(1.02);
     transition: transform 6s ease-out;
 }
@@ -47,7 +47,7 @@
 .membership-page .membership-hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.72) 0%, rgba(7, 27, 53, 0.94) 100%);
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.45) 0%, rgba(7, 27, 53, 0.78) 100%);
     z-index: 1;
     pointer-events: none;
 }

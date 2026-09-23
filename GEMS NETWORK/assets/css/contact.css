@@ -1669,43 +1669,96 @@
     }
 
     .contact-page .journey-select-section {
-        padding: 55px 0 35px 0;
+        padding: 50px 0 35px 0;
     }
 
     .contact-page .section-header-centered {
-        margin-bottom: 40px;
+        margin-bottom: 35px;
     }
 
     .contact-page .journey-connecting-line {
-        display: none;
+        display: none !important;
     }
 
     .contact-page .journey-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        max-width: 100%;
         margin: 0 auto;
     }
 
+    /* Mobile Journey Item: Horizontal Row Layout (Left Icon Box + Right Content Area) */
     .contact-page .journey-card {
-        padding: 0 10px;
-    }
-
-    .contact-page .journey-card-icon-wrap {
-        width: 90px;
-        height: 90px;
-        font-size: 1.85rem;
-        margin-bottom: 18px;
-    }
-
-    .contact-page .journey-card-desc {
-        margin-bottom: 20px;
-        max-width: 320px;
-    }
-
-    .contact-page .journey-card-btn {
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        grid-template-rows: auto auto auto;
+        column-gap: 18px;
+        row-gap: 6px;
+        align-items: start;
+        text-align: left;
+        padding: 18px 16px;
+        background: #ffffff;
+        border: 1px solid rgba(15, 22, 129, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 4px 18px rgba(7, 27, 53, 0.04);
         width: 100%;
-        max-width: 260px;
+        box-sizing: border-box;
+    }
+
+    .contact-page .journey-card.active-selected {
+        border-color: rgba(244, 185, 66, 0.6);
+        box-shadow: 0 6px 22px rgba(244, 185, 66, 0.14);
+    }
+
+    /* Left Side: Icon Box */
+    .contact-page .journey-card-icon-wrap {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+        width: 84px;
+        height: 84px;
+        min-width: 84px;
+        font-size: 1.75rem;
+        margin-bottom: 0;
+        align-self: start;
+        border-radius: 50%;
+    }
+
+    /* Right Side: Heading */
+    .contact-page .journey-card-title {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+        text-align: left;
+        line-height: 1.25;
+    }
+
+    /* Right Side: Description */
+    .contact-page .journey-card-desc {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    /* Right Side: Button */
+    .contact-page .journey-card-btn {
+        grid-column: 2;
+        grid-row: 3;
+        width: auto;
+        max-width: 100%;
+        display: inline-flex;
+        align-self: start;
+        justify-content: center;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+        margin-top: 0;
     }
 
     .contact-page .contact-main-section {
@@ -1765,7 +1818,32 @@
 
 /* Small Mobile Devices (<= 480px and 320px) */
 @media (max-width: 480px) {
+    .contact-page .journey-card {
+        grid-template-columns: 70px 1fr;
+        column-gap: 14px;
+        padding: 16px 14px;
+    }
 
+    .contact-page .journey-card-icon-wrap {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        font-size: 1.5rem;
+    }
+
+    .contact-page .journey-card-title {
+        font-size: 1.1rem;
+    }
+
+    .contact-page .journey-card-desc {
+        font-size: 0.835rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-page .journey-card-btn {
+        padding: 9px 14px;
+        font-size: 0.8rem;
+    }
 
     .contact-page .contact-hero {
         padding: 180px 0 50px 0;

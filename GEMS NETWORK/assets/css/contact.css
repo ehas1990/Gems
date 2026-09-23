@@ -125,24 +125,25 @@
 }
 
 /* ==========================================================================
-   2. SECTION 1 — HOW CAN GEMS HELP YOU TODAY? (4 JOURNEY CARDS)
+   2. SECTION 1 — HOW CAN GEMS HELP YOU TODAY? (JOURNEY PATH FLOW)
    ========================================================================== */
 .contact-page .journey-select-section {
-    padding: 70px 0 45px 0;
+    padding: 85px 0 65px 0;
     background-color: #ffffff;
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .contact-page .section-header-centered {
     text-align: center;
     max-width: 780px;
-    margin: 0 auto 40px auto;
-    padding: 0 10px;
+    margin: 0 auto 55px auto;
+    padding: 0 16px;
 }
 
 .contact-page .gold-accent-dash {
-    width: 38px;
+    width: 40px;
     height: 3px;
     background: var(--color-gold, #f4b942);
     border-radius: 2px;
@@ -151,175 +152,231 @@
 
 .contact-page .journey-select-title {
     font-family: var(--font-family-primary, 'Dubai', sans-serif);
-    font-size: clamp(1.65rem, 3vw, 2.45rem);
-    font-weight: 700;
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    font-weight: 800;
     color: var(--color-navy-deep, #071b35);
-    line-height: 1.25;
+    line-height: 1.2;
     letter-spacing: -0.5px;
     margin: 0;
     word-break: break-word;
 }
 
+/* Journey Path Container & Flowing SVG Line */
+.contact-page .journey-path-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contact-page .journey-connecting-line {
+    position: absolute;
+    top: 62px;
+    left: 4%;
+    right: 4%;
+    height: 120px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-page .journey-connecting-line svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.contact-page .journey-path-curve {
+    stroke: #d9e4f2;
+    stroke-width: 1.5;
+    stroke-dasharray: none;
+    opacity: 0.9;
+}
+
+/* Journey Steps Grid (4 Columns, No Cards) */
 .contact-page .journey-cards-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    align-items: stretch;
+    gap: 32px;
+    align-items: flex-start;
     width: 100%;
     box-sizing: border-box;
 }
 
+/* Journey Step Item */
 .contact-page .journey-card {
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid rgba(15, 22, 129, 0.08);
-    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.04);
-    padding: 28px 20px 24px 20px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 10px 10px 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     text-decoration: none;
     outline: none;
     width: 100%;
+    min-height: 100%;
     box-sizing: border-box;
 }
 
 .contact-page .journey-card:focus-visible {
-    box-shadow: 0 0 0 3px var(--color-gold, #f4b942), 0 12px 32px rgba(7, 27, 53, 0.12);
+    outline: 2px dashed var(--color-gold, #f4b942);
+    outline-offset: 8px;
+    border-radius: 12px;
 }
 
 .contact-page .journey-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(7, 27, 53, 0.09);
-    border-color: rgba(15, 22, 129, 0.18);
+    transform: translateY(-4px);
 }
 
-.contact-page .journey-card.active-selected {
-    border-color: var(--color-gold, #f4b942);
-    box-shadow: 0 12px 32px rgba(244, 185, 66, 0.18);
-}
-
-/* Card Icon Box */
+/* Big Soft Circular Icon Badges */
 .contact-page .journey-card-icon-wrap {
-    width: 60px;
-    height: 60px;
+    width: 104px;
+    height: 104px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 18px;
-    transition: transform 0.3s ease;
+    font-size: 2.1rem;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 4;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
+    box-shadow: 0 10px 28px rgba(15, 22, 129, 0.04);
 }
 
 .contact-page .journey-card:hover .journey-card-icon-wrap {
     transform: scale(1.08);
+    box-shadow: 0 14px 32px rgba(15, 22, 129, 0.1);
 }
 
 .contact-page .journey-card.card-student .journey-card-icon-wrap {
-    background: #eef3ff;
+    background: #e8f0fe;
     color: #0f1681;
 }
 
 .contact-page .journey-card.card-pro .journey-card-icon-wrap {
-    background: #fdf5ea;
+    background: #fdf2e4;
     color: #b47d3c;
 }
 
 .contact-page .journey-card.card-biz .journey-card-icon-wrap {
-    background: #ebf7f3;
+    background: #e4f4ee;
     color: #1e725d;
 }
 
 .contact-page .journey-card.card-notsure .journey-card-icon-wrap {
-    background: #f4efff;
+    background: #f3ebfc;
     color: #673ab7;
 }
 
-/* Card Content */
+/* Active State Badge Highlight */
+.contact-page .journey-card.active-selected .journey-card-icon-wrap {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 4px rgba(244, 185, 66, 0.3), 0 12px 28px rgba(7, 27, 53, 0.12);
+}
+
+/* Journey Step Titles */
 .contact-page .journey-card-title {
     font-family: var(--font-family-primary, 'Dubai', sans-serif);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--color-navy-deep, #071b35);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    line-height: 1.25;
     word-break: break-word;
 }
 
+/* Journey Step Descriptions (Italic, Subtle, Centered) */
 .contact-page .journey-card-desc {
     font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
-    font-size: 0.885rem;
+    font-size: 0.9375rem;
     color: #64748b;
+    font-style: italic;
     line-height: 1.55;
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     flex-grow: 1;
     word-break: break-word;
+    max-width: 270px;
 }
 
-/* Card Buttons */
+/* Journey Step Action Buttons */
 .contact-page .journey-card-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
-    padding: 11px 16px;
+    max-width: 230px;
+    padding: 13px 22px;
     border-radius: 50px;
     font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #ffffff;
     border: none;
-    transition: all 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     text-decoration: none;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 .contact-page .journey-card.card-student .journey-card-btn {
     background: #0f1681;
+    box-shadow: 0 6px 16px rgba(15, 22, 129, 0.2);
 }
 
 .contact-page .journey-card.card-student .journey-card-btn:hover {
     background: #090e54;
-    box-shadow: 0 4px 14px rgba(15, 22, 129, 0.3);
+    box-shadow: 0 8px 22px rgba(15, 22, 129, 0.35);
+    transform: translateY(-2px);
 }
 
 .contact-page .journey-card.card-pro .journey-card-btn {
     background: #b47d3c;
+    box-shadow: 0 6px 16px rgba(180, 125, 60, 0.2);
 }
 
 .contact-page .journey-card.card-pro .journey-card-btn:hover {
     background: #96652d;
-    box-shadow: 0 4px 14px rgba(180, 125, 60, 0.3);
+    box-shadow: 0 8px 22px rgba(180, 125, 60, 0.35);
+    transform: translateY(-2px);
 }
 
 .contact-page .journey-card.card-biz .journey-card-btn {
     background: #1e725d;
+    box-shadow: 0 6px 16px rgba(30, 114, 93, 0.2);
 }
 
 .contact-page .journey-card.card-biz .journey-card-btn:hover {
     background: #145041;
-    box-shadow: 0 4px 14px rgba(30, 114, 93, 0.3);
+    box-shadow: 0 8px 22px rgba(30, 114, 93, 0.35);
+    transform: translateY(-2px);
 }
 
 .contact-page .journey-card.card-notsure .journey-card-btn {
     background: #673ab7;
+    box-shadow: 0 6px 16px rgba(103, 58, 183, 0.2);
 }
 
 .contact-page .journey-card.card-notsure .journey-card-btn:hover {
     background: #512da8;
-    box-shadow: 0 4px 14px rgba(103, 58, 183, 0.3);
+    box-shadow: 0 8px 22px rgba(103, 58, 183, 0.35);
+    transform: translateY(-2px);
 }
 
 .contact-page .journey-card-btn i {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     transition: transform 0.25s ease;
 }
 
@@ -1524,9 +1581,25 @@
 
 /* Laptop / Small Desktop (1024px - 1199px) */
 @media (max-width: 1199px) {
+    .contact-page .journey-connecting-line {
+        top: 54px;
+    }
+
     .contact-page .journey-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 20px;
+    }
+
+    .contact-page .journey-card-icon-wrap {
+        width: 88px;
+        height: 88px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-page .journey-card-btn {
+        padding: 11px 16px;
+        font-size: 0.85rem;
     }
 
     .contact-page .contact-layout-grid {
@@ -1537,6 +1610,15 @@
 
 /* Tablet (768px - 1023px) */
 @media (max-width: 1023px) {
+    .contact-page .journey-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 24px;
+    }
+
+    .contact-page .journey-connecting-line {
+        display: none;
+    }
+
     .contact-page .contact-layout-grid {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1573,12 +1655,43 @@
     }
 
     .contact-page .journey-select-section {
-        padding: 50px 0 30px 0;
+        padding: 55px 0 35px 0;
+    }
+
+    .contact-page .section-header-centered {
+        margin-bottom: 40px;
+    }
+
+    .contact-page .journey-connecting-line {
+        display: none;
     }
 
     .contact-page .journey-cards-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 40px;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .contact-page .journey-card {
+        padding: 0 10px;
+    }
+
+    .contact-page .journey-card-icon-wrap {
+        width: 90px;
+        height: 90px;
+        font-size: 1.85rem;
+        margin-bottom: 18px;
+    }
+
+    .contact-page .journey-card-desc {
+        margin-bottom: 20px;
+        max-width: 320px;
+    }
+
+    .contact-page .journey-card-btn {
+        width: 100%;
+        max-width: 260px;
     }
 
     .contact-page .contact-main-section {
@@ -1638,10 +1751,7 @@
 
 /* Small Mobile Devices (<= 480px and 320px) */
 @media (max-width: 480px) {
-    .contact-page .contact-hero {
-        padding: 180px 0 50px 0;
-        min-height: 360px;
-    }
+
 
     .contact-page .contact-hero {
         padding: 180px 0 50px 0;

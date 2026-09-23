@@ -34,7 +34,7 @@
 .contact-page .contact-hero {
     position: relative;
     background-color: var(--color-navy-deep, #071b35);
-    padding: 140px 0 90px 0;
+    padding: 160px 0 90px 0;
     color: #ffffff;
     overflow: hidden;
     display: flex;
@@ -285,6 +285,7 @@
 .contact-page .journey-card.card-student .journey-card-btn {
     background: #0f1681;
 }
+
 .contact-page .journey-card.card-student .journey-card-btn:hover {
     background: #090e54;
     box-shadow: 0 4px 14px rgba(15, 22, 129, 0.3);
@@ -293,6 +294,7 @@
 .contact-page .journey-card.card-pro .journey-card-btn {
     background: #b47d3c;
 }
+
 .contact-page .journey-card.card-pro .journey-card-btn:hover {
     background: #96652d;
     box-shadow: 0 4px 14px rgba(180, 125, 60, 0.3);
@@ -301,6 +303,7 @@
 .contact-page .journey-card.card-biz .journey-card-btn {
     background: #1e725d;
 }
+
 .contact-page .journey-card.card-biz .journey-card-btn:hover {
     background: #145041;
     box-shadow: 0 4px 14px rgba(30, 114, 93, 0.3);
@@ -309,6 +312,7 @@
 .contact-page .journey-card.card-notsure .journey-card-btn {
     background: #673ab7;
 }
+
 .contact-page .journey-card.card-notsure .journey-card-btn:hover {
     background: #512da8;
     box-shadow: 0 4px 14px rgba(103, 58, 183, 0.3);
@@ -579,6 +583,7 @@
         opacity: 0;
         transform: translateY(6px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -656,7 +661,7 @@
     box-shadow: 0 0 0 3px rgba(15, 22, 129, 0.12);
 }
 
-.contact-page .form-control-gems:focus + .input-icon-prefix,
+.contact-page .form-control-gems:focus+.input-icon-prefix,
 .contact-page .input-with-icon:focus-within .input-icon-prefix {
     color: var(--color-primary, #0f1681);
 }
@@ -1415,6 +1420,7 @@
         opacity: 0;
         transform: scale(0.92) translateY(16px);
     }
+
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -1562,7 +1568,7 @@
 /* Mobile Devices (<= 767px) */
 @media (max-width: 767px) {
     .contact-page .contact-hero {
-        padding: 120px 0 60px 0;
+        padding: 150px 0 60px 0;
         min-height: 400px;
     }
 

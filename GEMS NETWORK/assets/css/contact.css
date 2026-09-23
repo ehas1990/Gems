@@ -1639,7 +1639,12 @@
 /* Small Mobile Devices (<= 480px and 320px) */
 @media (max-width: 480px) {
     .contact-page .contact-hero {
-        padding: 110px 0 50px 0;
+        padding: 180px 0 50px 0;
+        min-height: 360px;
+    }
+
+    .contact-page .contact-hero {
+        padding: 180px 0 50px 0;
         min-height: 360px;
     }
 

@@ -200,7 +200,12 @@
     overflow: visible;
 }
 
-.contact-page .journey-path-curve {
+.contact-page .journey-connecting-line .journey-mobile-svg {
+    display: none;
+}
+
+.contact-page .journey-path-curve,
+.contact-page .journey-path-curve-mobile {
     stroke: #d9e4f2;
     stroke-width: 1.5;
     stroke-dasharray: none;
@@ -1680,23 +1685,30 @@
         position: relative;
     }
 
-    /* Vertical Connecting Line on Mobile */
+    /* Flowing Vertical Connecting Line on Mobile (Centered with icon column) */
     .contact-page .journey-connecting-line {
         display: block !important;
         position: absolute;
         top: 42px;
         bottom: 42px;
-        left: 42px;
+        left: 22px;
         right: auto;
-        width: 2px;
-        height: auto;
+        width: 40px;
+        height: calc(100% - 84px);
         transform: none;
-        background: #dbe7f5;
+        background: transparent !important;
         z-index: 1;
+        pointer-events: none;
     }
 
-    .contact-page .journey-connecting-line svg {
+    .contact-page .journey-connecting-line .journey-desktop-svg {
         display: none !important;
+    }
+
+    .contact-page .journey-connecting-line .journey-mobile-svg {
+        display: block !important;
+        width: 100%;
+        height: 100%;
     }
 
     .contact-page .journey-cards-grid {
@@ -1847,7 +1859,8 @@
     .contact-page .journey-connecting-line {
         top: 36px;
         bottom: 36px;
-        left: 36px;
+        left: 16px;
+        height: calc(100% - 72px);
     }
 
     .contact-page .journey-cards-grid {

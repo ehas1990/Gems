@@ -304,80 +304,93 @@
         </section>
 
         <!-- ==========================================================================
-             2. GROWTH JOURNEY AT A GLANCE (6 CONNECTED NODES)
+             2. GROWTH JOURNEY AT A GLANCE (ROW 1: WHITE INTRO + ROW 2: BACKGROUND IMAGE)
              ========================================================================== -->
-        <section class="growth-glance-section" id="growth-glance" aria-label="Growth Journey At A Glance">
-            <div class="container-port-xl">
-                <div class="growth-section-header" data-aos="fade-up" data-aos-duration="800">
-                    <div class="growth-eyebrow">
-                        <i class="fa-solid fa-shapes"></i> AT A GLANCE
+        <section class="growth-glance-wrapper" id="growth-glance" aria-label="Growth Journey At A Glance">
+            <!-- ROW 1 — WHITE BACKGROUND CONTENT AREA -->
+            <div class="growth-glance-intro-row">
+                <div class="container-port-xl">
+                    <div class="growth-section-header" data-aos="fade-up" data-aos-duration="800">
+                        <div class="growth-eyebrow">
+                            <i class="fa-solid fa-shapes"></i> AT A GLANCE
+                        </div>
+                        <h2 class="growth-section-title">
+                            Growth Journey At A Glance
+                        </h2>
+                        <p class="growth-section-desc">
+                            Growth is multidimensional. It is not a rigid single ladder, and there is no mandatory starting
+                            point. Explore the connected areas below and begin wherever is most relevant to you.
+                        </p>
                     </div>
-                    <h2 class="growth-section-title">
-                        Growth Journey At A Glance
-                    </h2>
-                    <p class="growth-section-desc">
-                        Growth is multidimensional. It is not a rigid single ladder, and there is no mandatory starting
-                        point. Explore the connected areas below and begin wherever is most relevant to you.
-                    </p>
                 </div>
+            </div>
 
-                <div class="growth-glance-timeline">
-                    <div class="growth-connector-line" aria-hidden="true"></div>
+            <!-- ROW 2 — BACKGROUND IMAGE + EXISTING ICON CONTENT -->
+            <div class="growth-glance-visual-row">
+                <div class="growth-glance-bg-overlay" aria-hidden="true"></div>
+                <div class="container-port-xl growth-glance-content-container">
+                    <div class="growth-glance-timeline">
+                        <div class="growth-glance-grid">
+                            <!-- Node 1: Personal Development -->
+                            <a href="#personal-dev" class="growth-glance-node node-personal" data-aos="fade-up"
+                                data-aos-delay="100">
+                                <div class="node-icon-circle">
+                                    <i class="fa-solid fa-spa"></i>
+                                </div>
+                                <h3 class="growth-glance-title">Personal Development</h3>
+                                <span class="growth-glance-tagline">Be your best self</span>
+                            </a>
 
-                    <div class="growth-glance-grid">
-                        <!-- Node 1: Personal Development -->
-                        <a href="#personal-dev" class="growth-glance-node node-personal" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="node-icon-circle">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                            <h3 class="growth-glance-title">Personal Development</h3>
-                        </a>
+                            <!-- Node 2: Professional Growth -->
+                            <a href="#professional-growth" class="growth-glance-node node-professional" data-aos="fade-up"
+                                data-aos-delay="200">
+                                <div class="node-icon-circle">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <h3 class="growth-glance-title">Professional Growth</h3>
+                                <span class="growth-glance-tagline">Build your future</span>
+                            </a>
 
-                        <!-- Node 2: Professional Growth -->
-                        <a href="#professional-growth" class="growth-glance-node node-professional" data-aos="fade-up"
-                            data-aos-delay="200">
-                            <div class="node-icon-circle">
-                                <i class="fa-solid fa-arrow-trend-up"></i>
-                            </div>
-                            <h3 class="growth-glance-title">Professional Growth</h3>
-                        </a>
+                            <!-- Node 3: Financial Readiness -->
+                            <a href="#financial-readiness" class="growth-glance-node node-financial" data-aos="fade-up"
+                                data-aos-delay="300">
+                                <div class="node-icon-circle">
+                                    <i class="fa-solid fa-coins"></i>
+                                </div>
+                                <h3 class="growth-glance-title">Financial Readiness</h3>
+                                <span class="growth-glance-tagline">Create stability</span>
+                            </a>
 
-                        <!-- Node 3: Financial Readiness -->
-                        <a href="#financial-readiness" class="growth-glance-node node-financial" data-aos="fade-up"
-                            data-aos-delay="300">
-                            <div class="node-icon-circle">
-                                <i class="fa-solid fa-coins"></i>
-                            </div>
-                            <h3 class="growth-glance-title">Financial Readiness</h3>
-                        </a>
+                            <!-- Node 4: Network & Relationships -->
+                            <a href="#network-relationships" class="growth-glance-node node-network" data-aos="fade-up"
+                                data-aos-delay="400">
+                                <div class="node-icon-circle">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <h3 class="growth-glance-title">Network &amp; Relationships</h3>
+                                <span class="growth-glance-tagline">Grow together</span>
+                            </a>
 
-                        <!-- Node 4: Network & Relationships -->
-                        <a href="#network-relationships" class="growth-glance-node node-network" data-aos="fade-up"
-                            data-aos-delay="400">
-                            <div class="node-icon-circle">
-                                <i class="fa-solid fa-users"></i>
-                            </div>
-                            <h3 class="growth-glance-title">Network &amp; Relationships</h3>
-                        </a>
+                            <!-- Node 5: Entrepreneurship -->
+                            <a href="#entrepreneurship" class="growth-glance-node node-entrepreneurship" data-aos="fade-up"
+                                data-aos-delay="500">
+                                <div class="node-icon-circle">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                                <h3 class="growth-glance-title">Entrepreneurship</h3>
+                                <span class="growth-glance-tagline">Turn ideas into impact</span>
+                            </a>
 
-                        <!-- Node 5: Entrepreneurship -->
-                        <a href="#entrepreneurship" class="growth-glance-node node-entrepreneurship" data-aos="fade-up"
-                            data-aos-delay="500">
-                            <div class="node-icon-circle">
-                                <i class="fa-solid fa-lightbulb"></i>
-                            </div>
-                            <h3 class="growth-glance-title">Entrepreneurship</h3>
-                        </a>
-
-                        <!-- Node 6: Long-Term Planning -->
-                        <a href="#long-term-planning" class="growth-glance-node node-planning" data-aos="fade-up"
-                            data-aos-delay="600">
-                            <div class="node-icon-circle">
-                                <i class="fa-solid fa-bullseye"></i>
-                            </div>
-                            <h3 class="growth-glance-title">Long-Term Planning</h3>
-                        </a>
+                            <!-- Node 6: Long-Term Planning -->
+                            <a href="#long-term-planning" class="growth-glance-node node-planning" data-aos="fade-up"
+                                data-aos-delay="600">
+                                <div class="node-icon-circle">
+                                    <i class="fa-solid fa-compass"></i>
+                                </div>
+                                <h3 class="growth-glance-title">Long-Term Planning</h3>
+                                <span class="growth-glance-tagline">Design the life you want</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -610,55 +623,108 @@
 
                 <div class="compass-interactive-wrapper" data-aos="fade-up" data-aos-delay="200">
 
-                    <!-- Left: Circular Compass Device -->
+                    <!-- Left: Circular Compass Device (Matching Picture 2 Vintage Compass Reference) -->
                     <div class="compass-visual-col">
-                        <div class="compass-circle-outer">
-                            <div class="compass-center-hub">
-                                <i class="fa-solid fa-compass"></i>
-                                <span>GEMS<br>Compass</span>
+                        <div class="compass-vintage-wrapper">
+                            <!-- Background Subtle Map Watermark -->
+                            <div class="compass-world-map-bg" aria-hidden="true"></div>
+
+                            <!-- Cardinal Points N / E / S / W around compass -->
+                            <div class="compass-cardinal cardinal-n">N</div>
+                            <div class="compass-cardinal cardinal-e">E</div>
+                            <div class="compass-cardinal cardinal-s">S</div>
+                            <div class="compass-cardinal cardinal-w">W</div>
+
+                            <!-- Top Loop / Hanger Ring -->
+                            <div class="compass-top-hanger" aria-hidden="true">
+                                <div class="compass-ring-loop"></div>
+                                <div class="compass-ring-mount"></div>
                             </div>
 
-                            <!-- Node 1: Personal (Top) -->
-                            <button type="button" class="compass-node-btn cnode-1 active" data-compass-target="personal"
-                                aria-label="Select Personal Development">
-                                <i class="fa-solid fa-user"></i>
-                                <span class="compass-label">Personal</span>
-                            </button>
+                            <!-- Main Compass Brass Body & Bezel -->
+                            <div class="compass-circle-outer">
+                                <!-- Outer Beaded / Cog Brass Rim -->
+                                <div class="compass-brass-rim" aria-hidden="true"></div>
+                                
+                                <!-- Inner Dial Track with Subtle Circular Division Rings (Internal direction labels removed) -->
+                                <div class="compass-dial-track" aria-hidden="true"></div>
 
-                            <!-- Node 2: Professional (Top-Right) -->
-                            <button type="button" class="compass-node-btn cnode-2" data-compass-target="professional"
-                                aria-label="Select Professional Growth">
-                                <i class="fa-solid fa-arrow-trend-up"></i>
-                                <span class="compass-label">Professional</span>
-                            </button>
+                                <!-- 6 Growth Journey Segments arranged around the dial -->
+                                <div class="compass-segments-grid" aria-label="Growth Areas Dial Navigation">
+                                    <!-- Node 1: Personal (Top - Teal/Cyan Emerald) -->
+                                    <button type="button" class="compass-node-btn cnode-1 active segment-personal" data-compass-target="personal"
+                                        aria-label="Select Personal Development">
+                                        <div class="node-content-inner">
+                                            <div class="node-icon-wrap"><i class="fa-solid fa-seedling"></i></div>
+                                            <span class="compass-label">Personal<br>Development</span>
+                                        </div>
+                                    </button>
 
-                            <!-- Node 3: Financial (Bottom-Right) -->
-                            <button type="button" class="compass-node-btn cnode-3" data-compass-target="financial"
-                                aria-label="Select Financial Readiness">
-                                <i class="fa-solid fa-coins"></i>
-                                <span class="compass-label">Financial</span>
-                            </button>
+                                    <!-- Node 2: Professional (Top-Right - Vibrant Blue) -->
+                                    <button type="button" class="compass-node-btn cnode-2 segment-professional" data-compass-target="professional"
+                                        aria-label="Select Professional Growth">
+                                        <div class="node-content-inner">
+                                            <div class="node-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+                                            <span class="compass-label">Professional<br>Growth</span>
+                                        </div>
+                                    </button>
 
-                            <!-- Node 4: Network (Bottom) -->
-                            <button type="button" class="compass-node-btn cnode-4" data-compass-target="network"
-                                aria-label="Select Network & Relationships">
-                                <i class="fa-solid fa-users"></i>
-                                <span class="compass-label">Network</span>
-                            </button>
+                                    <!-- Node 3: Financial (Bottom-Right - Forest Olive Green) -->
+                                    <button type="button" class="compass-node-btn cnode-3 segment-financial" data-compass-target="financial"
+                                        aria-label="Select Financial Readiness">
+                                        <div class="node-content-inner">
+                                            <div class="node-icon-wrap"><i class="fa-solid fa-coins"></i></div>
+                                            <span class="compass-label">Financial<br>Readiness</span>
+                                        </div>
+                                    </button>
 
-                            <!-- Node 5: Entrepreneurship (Bottom-Left) -->
-                            <button type="button" class="compass-node-btn cnode-5"
-                                data-compass-target="entrepreneurship" aria-label="Select Entrepreneurship">
-                                <i class="fa-solid fa-lightbulb"></i>
-                                <span class="compass-label">Business</span>
-                            </button>
+                                    <!-- Node 4: Network (Bottom - Warm Amber Bronze) -->
+                                    <button type="button" class="compass-node-btn cnode-4 segment-network" data-compass-target="network"
+                                        aria-label="Select Network & Relationships">
+                                        <div class="node-content-inner">
+                                            <div class="node-icon-wrap"><i class="fa-solid fa-users"></i></div>
+                                            <span class="compass-label">Network &amp;<br>Relationships</span>
+                                        </div>
+                                    </button>
 
-                            <!-- Node 6: Long-Term Planning (Top-Left) -->
-                            <button type="button" class="compass-node-btn cnode-6" data-compass-target="planning"
-                                aria-label="Select Long-Term Planning">
-                                <i class="fa-solid fa-bullseye"></i>
-                                <span class="compass-label">Planning</span>
-                            </button>
+                                    <!-- Node 5: Entrepreneurship (Bottom-Left - Deep Royal Purple) -->
+                                    <button type="button" class="compass-node-btn cnode-5 segment-entrepreneurship"
+                                        data-compass-target="entrepreneurship" aria-label="Select Entrepreneurship">
+                                        <div class="node-content-inner">
+                                            <div class="node-icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+                                            <span class="compass-label">Entrepreneurship</span>
+                                        </div>
+                                    </button>
+
+                                    <!-- Node 6: Long-Term Planning (Top-Left - Slate Indigo) -->
+                                    <button type="button" class="compass-node-btn cnode-6 segment-planning" data-compass-target="planning"
+                                        aria-label="Select Long-Term Planning">
+                                        <div class="node-content-inner">
+                                            <div class="node-icon-wrap"><i class="fa-solid fa-bullseye"></i></div>
+                                            <span class="compass-label">Long-Term<br>Planning</span>
+                                        </div>
+                                    </button>
+                                </div>
+
+                                <!-- Central Vintage Compass Rose Star & Synchronized Rotating Needle -->
+                                <div class="compass-center-rose-wrapper" aria-hidden="true">
+                                    <!-- Compass Star Background (8-Point Star in center) -->
+                                    <div class="compass-star-rose"></div>
+                                    
+                                    <!-- Rotating Needle Pointer (Turns smoothly toward the active item) -->
+                                    <div class="compass-needle-pivot" id="compassNeedlePivot">
+                                        <div class="compass-needle-pointer">
+                                            <div class="needle-tip-north"></div>
+                                            <div class="needle-tip-south"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Central Brass Hub Center Cap -->
+                                    <div class="compass-center-hub" id="compassCenterHub">
+                                        <div class="hub-inner-core"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1311,6 +1377,32 @@
             const detailDesc = document.getElementById('compassDetailDesc');
             const detailHighlights = document.getElementById('compassDetailHighlights');
             const detailCta = document.getElementById('compassDetailCta');
+            const needlePivot = document.getElementById('compassNeedlePivot');
+
+            // Dial angle mapping for the 6 sectors:
+            // 0 deg = North (Personal), 60 deg = NE/E (Professional), 120 deg = SE (Financial),
+            // 180 deg = South (Network), 240 deg = SW (Entrepreneurship), 300 deg = NW (Planning)
+            const compassAngles = {
+                personal: 0,
+                professional: 60,
+                financial: 120,
+                network: 180,
+                entrepreneurship: 240,
+                planning: 300
+            };
+
+            let currentRotation = 0;
+
+            function rotateCompassNeedle(target) {
+                if (!needlePivot || !(target in compassAngles)) return;
+                const targetAngle = compassAngles[target];
+                
+                // Calculate shortest rotational distance
+                let diff = (targetAngle - (currentRotation % 360) + 540) % 360 - 180;
+                currentRotation += diff;
+                
+                needlePivot.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+            }
 
             compassButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
@@ -1322,6 +1414,9 @@
                     // Update Active Node
                     compassButtons.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
+
+                    // Synchronize Needle Pointer Rotation
+                    rotateCompassNeedle(target);
 
                     // Smooth Transition for Details
                     const detailPanel = document.getElementById('compassDetailPanel');
@@ -1345,6 +1440,9 @@
                     }, 150);
                 });
             });
+
+            // Initial set
+            rotateCompassNeedle('personal');
         });
     </script>
 

@@ -57,14 +57,8 @@
 }
 
 /* ==========================================================================
-   2. AT A GLANCE (6 CONNECTED GROWTH NODES)
+   COMMON REUSABLE SECTION HEADER (DEFAULT / LIGHT SECTIONS)
    ========================================================================== */
-.growth-journey-page .growth-glance-section {
-    padding: 85px 0 95px 0;
-    background-color: #f8fafc;
-    position: relative;
-}
-
 .growth-journey-page .growth-section-header {
     text-align: center;
     max-width: 860px;
@@ -102,100 +96,172 @@
     margin-bottom: 0;
 }
 
+/* ==========================================================================
+   2. AT A GLANCE (ROW 1: WHITE BACKGROUND INTRO + ROW 2: BACKGROUND IMAGE)
+   ========================================================================== */
+.growth-journey-page .growth-glance-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* ROW 1 — Clean White Background Content Area */
+.growth-journey-page .growth-glance-intro-row {
+    background-color: #ffffff;
+    padding: 95px 0 30px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.growth-journey-page .growth-glance-intro-row .growth-section-header {
+    margin-bottom: 0;
+}
+
+/* ROW 2 — Full Background Image Area (Complete Image Visible) */
+.growth-journey-page .growth-glance-visual-row {
+    position: relative;
+    width: 100%;
+    background-image: url('../img/growth_glance_bg.jpg');
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1024 / 655;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 clamp(40px, 7.5vw, 100px) 0;
+    overflow: hidden;
+}
+
+@supports not (aspect-ratio: 1024 / 655) {
+    .growth-journey-page .growth-glance-visual-row {
+        min-height: 520px;
+    }
+}
+
+/* Layer 2: Transparent overlay (no artificial dark tint, pure image clarity) */
+.growth-journey-page .growth-glance-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: #0c0c0c94;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Layer 3: Content Container */
+.growth-journey-page .growth-glance-content-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
 .growth-journey-page .growth-glance-timeline {
     position: relative;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
-.growth-journey-page .growth-connector-line {
-    position: absolute;
-    top: 36px;
-    left: 8%;
-    right: 8%;
-    height: 3px;
-    background: linear-gradient(90deg, #0f62fe 0%, #0d9488 20%, #eab308 40%, #ec4899 60%, #8b5cf6 80%, #06b6d4 100%);
-    z-index: 1;
-    border-radius: 3px;
-}
-
+/* 6 Items Grid — Content directly over the background (NO BOXES / NO CARDS) */
 .growth-journey-page .growth-glance-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 16px;
     position: relative;
     z-index: 2;
+    margin-bottom: clamp(10px, 2.5vw, 35px);
 }
 
 .growth-journey-page .growth-glance-node {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 24px 14px 20px 14px;
-    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.05);
-    border: 1px solid rgba(15, 22, 129, 0.08);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 10px 6px;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     text-decoration: none !important;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     color: inherit;
+    cursor: pointer;
 }
 
 .growth-journey-page .growth-glance-node:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 36px rgba(15, 22, 129, 0.12);
-    border-color: rgba(15, 22, 129, 0.22);
+    transform: translateY(-6px);
+    background: transparent;
+    box-shadow: none;
+    border-color: transparent;
 }
 
-.growth-journey-page .node-icon-circle {
-    width: 62px;
-    height: 62px;
+.growth-journey-page .growth-glance-node .node-icon-circle {
+    width: 66px;
+    height: 66px;
     border-radius: 50%;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.35rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
-    border: 4px solid #ffffff;
-    margin-bottom: 16px;
-    transition: transform 0.3s ease;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    border: 3.5px solid rgba(255, 255, 255, 0.95);
+    margin-bottom: 14px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    flex-shrink: 0;
 }
 
 .growth-journey-page .growth-glance-node:hover .node-icon-circle {
-    transform: scale(1.12);
+    transform: scale(1.14);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+    border-color: #ffffff;
 }
 
+/* Colors for the 6 Icons matching Picture 2 */
 .growth-journey-page .node-personal .node-icon-circle {
-    background: linear-gradient(135deg, #0f62fe 0%, #2563eb 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
 }
 
 .growth-journey-page .node-professional .node-icon-circle {
-    background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #034694 100%);
 }
 
 .growth-journey-page .node-financial .node-icon-circle {
-    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .growth-journey-page .node-network .node-icon-circle {
-    background: linear-gradient(135deg, #db2777 0%, #f43f5e 100%);
+    background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
 }
 
 .growth-journey-page .node-entrepreneurship .node-icon-circle {
-    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    background: linear-gradient(135deg, #7e22ce 0%, #581c87 100%);
 }
 
 .growth-journey-page .node-planning .node-icon-circle {
-    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, #0369a1 0%, #071b35 100%);
 }
 
+/* Titles and Taglines directly over background with crisp shadows */
 .growth-journey-page .growth-glance-title {
-    color: var(--color-navy-deep, #071b35);
-    font-size: 1rem;
+    font-family: var(--font-family-primary, 'Dubai', sans-serif);
+    color: #ffffff;
+    font-size: 1.05rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.25;
+    margin: 0 0 4px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95);
+    transition: color 0.25s ease;
+}
+
+.growth-journey-page .growth-glance-node:hover .growth-glance-title {
+    color: var(--color-gold, #f4b942);
+}
+
+.growth-journey-page .growth-glance-tagline {
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+    line-height: 1.35;
     margin: 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 0.95);
 }
 
 /* ==========================================================================
@@ -379,232 +445,598 @@
 }
 
 /* ==========================================================================
-   4. THE GROWTH COMPASS (SIGNATURE INTERACTIVE SECTION)
+   4. THE GROWTH COMPASS (VINTAGE BRASS MARITIME COMPASS DESIGN - PIC 2)
    ========================================================================== */
 .growth-journey-page .growth-compass-section {
-    padding: 100px 0;
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    padding: 110px 0 120px 0;
+    background: radial-gradient(circle at 35% 50%, #faf8f5 0%, #f4eee3 55%, #eae2d3 100%);
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(180, 155, 110, 0.2);
+    border-bottom: 1px solid rgba(180, 155, 110, 0.2);
+}
+
+/* Subtle World Map Watermark behind the section */
+.growth-journey-page .growth-compass-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(180, 150, 100, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .growth-journey-page .compass-interactive-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(460px, 1.15fr) 1fr;
     gap: 50px;
     align-items: center;
+    position: relative;
+    z-index: 2;
     margin-top: 40px;
 }
 
-/* Compass Device */
+/* Compass Visual Column */
 .growth-journey-page .compass-visual-col {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    padding: 30px 10px;
 }
 
+.growth-journey-page .compass-vintage-wrapper {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Outer World Map Watermark Circle */
+.growth-journey-page .compass-world-map-bg {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(circle, rgba(198, 168, 120, 0.12) 0%, rgba(198, 168, 120, 0.02) 65%, transparent 75%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Cardinal Points Outside the Compass Ring (N, E, S, W) */
+.growth-journey-page .compass-cardinal {
+    position: absolute;
+    font-family: 'Cinzel', 'Georgia', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #8c7853;
+    letter-spacing: 2px;
+    z-index: 1;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.growth-journey-page .cardinal-n { top: -22px; left: 50%; transform: translateX(-50%); }
+.growth-journey-page .cardinal-e { right: -22px; top: 50%; transform: translateY(-50%); }
+.growth-journey-page .cardinal-s { bottom: -22px; left: 50%; transform: translateX(-50%); }
+.growth-journey-page .cardinal-w { left: -22px; top: 50%; transform: translateY(-50%); }
+
+/* Vintage Compass Top Hanger / Loop */
+.growth-journey-page .compass-top-hanger {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.growth-journey-page .compass-ring-loop {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 5px solid #d4af37;
+    background: transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    background-image: linear-gradient(135deg, #f9df88 0%, #b8860b 50%, #684a0a 100%);
+    -webkit-mask: radial-gradient(transparent 12px, #000 13px);
+    mask: radial-gradient(transparent 12px, #000 13px);
+}
+
+.growth-journey-page .compass-ring-mount {
+    width: 22px;
+    height: 10px;
+    background: linear-gradient(90deg, #996515 0%, #ffd700 50%, #996515 100%);
+    border-radius: 3px 3px 0 0;
+    margin-top: -3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Main Brass Body Container */
 .growth-journey-page .compass-circle-outer {
     position: relative;
     width: 440px;
     height: 440px;
     border-radius: 50%;
-    border: 2px dashed rgba(15, 22, 129, 0.2);
-    background: radial-gradient(circle, rgba(15, 22, 129, 0.02) 0%, rgba(248, 250, 252, 0.6) 100%);
+    background: radial-gradient(circle, #0e2038 0%, #061220 100%);
+    box-shadow: 
+        0 25px 60px rgba(10, 20, 35, 0.35),
+        0 10px 25px rgba(0, 0, 0, 0.25),
+        inset 0 0 0 6px #5c4314,
+        inset 0 0 0 10px #c59b27,
+        inset 0 0 0 13px #8b6508,
+        inset 0 0 20px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 16px 40px rgba(7, 27, 53, 0.06);
+    overflow: visible;
+    z-index: 2;
 }
 
-.growth-journey-page .compass-center-hub {
+/* Outer Brass Beaded/Milled Rim */
+.growth-journey-page .compass-brass-rim {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 6px solid #d4af37;
+    background: transparent;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+    background-image: 
+        repeating-conic-gradient(from 0deg, #e6ca65 0deg 2deg, #996515 2deg 4deg);
+    -webkit-mask: radial-gradient(transparent 218px, #000 220px);
+    mask: radial-gradient(transparent 218px, #000 220px);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Inner Brass Degree Track */
+.growth-journey-page .compass-dial-track {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 185, 66, 0.4);
+    pointer-events: none;
+    z-index: 4;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.growth-journey-page .compass-dial-track::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    border: 1px dashed rgba(244, 185, 66, 0.35);
+}
+
+.growth-journey-page .track-cardinal {
+    position: absolute;
+    font-family: 'Cinzel', 'Dubai', serif;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #e5c365;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px #000000;
+}
+
+.growth-journey-page .track-n  { top: 6px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #ffd700; }
+.growth-journey-page .track-ne { top: 22%; right: 22%; }
+.growth-journey-page .track-e  { top: 50%; right: 6px; transform: translateY(-50%); font-size: 0.8rem; color: #ffd700; }
+.growth-journey-page .track-se { bottom: 22%; right: 22%; }
+.growth-journey-page .track-s  { bottom: 6px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #ffd700; }
+.growth-journey-page .track-sw { bottom: 22%; left: 22%; }
+.growth-journey-page .track-w  { top: 50%; left: 6px; transform: translateY(-50%); font-size: 0.8rem; color: #ffd700; }
+.growth-journey-page .track-nw { top: 22%; left: 22%; }
+
+/* 6 Segments Navigation Dial (Seamless integrated circular sectors matching Reference Image 2) */
+.growth-journey-page .compass-segments-grid {
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 3;
+    display: block;
+    /* 6-way pie sector background with metallic sheen and subtle dividers */
+    background: conic-gradient(
+        from 330deg at 50% 50%,
+        #0d4e46 0deg 60deg,      /* 1: Personal (Top - Teal) */
+        #03558c 60deg 120deg,    /* 2: Professional (Top-Right - Blue) */
+        #3b6613 120deg 180deg,   /* 3: Financial (Bottom-Right - Olive) */
+        #784408 180deg 240deg,   /* 4: Network (Bottom - Amber Bronze) */
+        #521782 240deg 300deg,   /* 5: Entrepreneurship (Bottom-Left - Purple) */
+        #153860 300deg 360deg    /* 6: Long-Term Planning (Top-Left - Navy) */
+    );
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.75), inset 0 0 4px rgba(255, 215, 0, 0.4);
+}
+
+/* Subtle Golden Radial Dividers between Compass Sectors */
+.growth-journey-page .compass-segments-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: 
+        repeating-conic-gradient(from 330deg at 50% 50%, 
+            rgba(244, 185, 66, 0.45) 0deg 1deg, 
+            transparent 1deg 60deg
+        );
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Subtle Sector Shading / Depth Overlay */
+.growth-journey-page .compass-segments-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Individual Compass Buttons / Touch Areas directly on the Dial (NO BOXES) */
+.growth-journey-page .compass-node-btn {
+    position: absolute;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    z-index: 6;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.growth-journey-page .node-content-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 4px;
+    width: 100%;
+    transition: transform 0.3s ease;
+    gap: 10px;
+}
+
+/* Floating Clean Icons directly on Dial */
+.growth-journey-page .node-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    margin-bottom: 7px; /* Increased icon-to-text breathing room */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    background: rgba(7, 21, 38, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.growth-journey-page .compass-node-btn .compass-label {
+    font-family: var(--font-family-primary, 'Dubai', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 1px 2px #000;
+    transition: color 0.3s ease;
+    white-space: normal;
+    text-align: center;
+    max-width: 110px;
+    word-break: normal;
+}
+
+/* Sector Positions on the Dial (Safely moved inward away from the outer ring) */
+
+/* Sector 1: Top (Personal Development) */
+.growth-journey-page .cnode-1 {
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 90px;
+}
+.growth-journey-page .segment-personal .node-icon-wrap {
+    background: radial-gradient(circle, #108e7e 0%, #08433b 100%);
+}
+
+/* Sector 2: Top-Right (Professional Growth) */
+.growth-journey-page .cnode-2 {
+    top: 70px;
+    right: 22px;
+    width: 120px;
+    height: 90px;
+}
+.growth-journey-page .segment-professional .node-icon-wrap {
+    background: radial-gradient(circle, #0284c7 0%, #034694 100%);
+}
+
+/* Sector 3: Bottom-Right (Financial Readiness) */
+.growth-journey-page .cnode-3 {
+    bottom: 92px;
+    right: 22px;
+    width: 120px;
+    height: 90px;
+}
+.growth-journey-page .segment-financial .node-icon-wrap {
+    background: radial-gradient(circle, #659928 0%, #31520b 100%);
+}
+
+/* Sector 4: Bottom (Network & Relationships) */
+.growth-journey-page .cnode-4 {
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 90px;
+}
+.growth-journey-page .segment-network .node-icon-wrap {
+    background: radial-gradient(circle, #b86e14 0%, #5e3204 100%);
+}
+
+/* Sector 5: Bottom-Left (Entrepreneurship - moved safely inward) */
+.growth-journey-page .cnode-5 {
+    bottom: 97px;
+    left: 22px;
+    width: 120px;
+    height: 90px;
+}
+.growth-journey-page .segment-entrepreneurship .node-icon-wrap {
+    background: radial-gradient(circle, #8b25e2 0%, #460f78 100%);
+}
+
+/* Sector 6: Top-Left (Long-Term Planning) */
+.growth-journey-page .cnode-6 {
+    top: 70px;
+    left: 22px;
+    width: 120px;
+    height: 90px;
+}
+.growth-journey-page .segment-planning .node-icon-wrap {
+    background: radial-gradient(circle, #255d99 0%, #0e2747 100%);
+}
+
+/* Active & Hover States - Sector Highlighting & Icon Elevation */
+.growth-journey-page .compass-node-btn:hover,
+.growth-journey-page .compass-node-btn.active {
+    z-index: 9;
+}
+
+.growth-journey-page .compass-node-btn:hover .node-icon-wrap,
+.growth-journey-page .compass-node-btn.active .node-icon-wrap {
+    transform: scale(1.18);
+    border-color: #ffd700;
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.growth-journey-page .compass-node-btn:hover .compass-label,
+.growth-journey-page .compass-node-btn.active .compass-label {
+    color: #ffd700;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 2px 6px #000;
+}
+
+/* Central Vintage Star Rose & Rotating Pointer Needle */
+.growth-journey-page .compass-center-rose-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 130px;
-    height: 130px;
+    width: 170px;
+    height: 170px;
+    pointer-events: none;
+    z-index: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 8-Point Vintage Compass Star (Pure CSS geometry) */
+.growth-journey-page .compass-star-rose {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: 
+        linear-gradient(45deg, rgba(212, 175, 55, 0.15) 0%, transparent 70%),
+        radial-gradient(circle, rgba(14, 32, 56, 0.85) 0%, rgba(6, 18, 32, 0.95) 75%);
     border-radius: 50%;
-    background: linear-gradient(135deg, #071b35 0%, #0f1681 100%);
-    color: #ffffff;
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.growth-journey-page .compass-star-rose::before,
+.growth-journey-page .compass-star-rose::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+
+/* Needle Pivot (Smoothly rotates via JS / CSS transitions) */
+.growth-journey-page .compass-needle-pivot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 44px;
+    height: 250px;
+    transition: transform 0.65s cubic-bezier(0.34, 1.45, 0.64, 1);
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.growth-journey-page .compass-needle-pointer {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 10px 25px rgba(7, 27, 53, 0.35);
-    z-index: 5;
-    border: 3px solid #f4b942;
+    justify-content: space-between;
 }
 
-.growth-journey-page .compass-center-hub i {
-    font-size: 1.7rem;
-    color: var(--color-gold, #f4b942);
-    margin-bottom: 4px;
+/* Top / North Arrow Pointer (Brilliant Cyan/Gold 3D Needle matching Reference Pic) */
+.growth-journey-page .needle-tip-north {
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 115px solid #00b4d8;
+    filter: drop-shadow(0 4px 10px rgba(0, 180, 216, 0.6)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+    position: relative;
 }
 
-.growth-journey-page .compass-center-hub span {
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-/* 6 Orbiting Compass Nodes */
-.growth-journey-page .compass-node-btn {
+.growth-journey-page .needle-tip-north::after {
+    content: '';
     position: absolute;
-    width: 72px;
-    height: 72px;
+    top: 0;
+    left: -11px;
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 115px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Bottom / South Arrow Counter-balance */
+.growth-journey-page .needle-tip-south {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 75px solid #b8860b;
+    filter: drop-shadow(0 -2px 5px rgba(0, 0, 0, 0.5));
+    position: relative;
+    opacity: 0.85;
+}
+
+.growth-journey-page .needle-tip-south::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 75px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Central Brass Hub Cap */
+.growth-journey-page .compass-center-hub {
+    position: absolute;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 3px solid rgba(15, 22, 129, 0.15);
-    box-shadow: 0 8px 20px rgba(7, 27, 53, 0.12);
+    background: radial-gradient(circle at 35% 35%, #ffd700 0%, #b8860b 60%, #5c4314 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    border: 2.5px solid #ffffff;
+    z-index: 10;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 6;
-    padding: 0;
 }
 
-.growth-journey-page .compass-node-btn i {
-    font-size: 1.3rem;
-    color: var(--color-primary, #0f1681);
-    transition: all 0.3s ease;
+.growth-journey-page .hub-inner-core {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 0%, #ffd700 60%, #996515 100%);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.growth-journey-page .compass-node-btn .compass-label {
-    position: absolute;
-    bottom: -22px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-navy-deep, #071b35);
-    white-space: nowrap;
-    background: #ffffff;
-    padding: 2px 8px;
-    border-radius: 10px;
-    border: 1px solid rgba(15, 22, 129, 0.1);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-
-.growth-journey-page .cnode-1 {
-    top: -30px;
-    left: calc(50% - 32px);
-}
-
-.growth-journey-page .cnode-2 {
-    top: 80px;
-    right: -10px;
-}
-
-.growth-journey-page .cnode-3 {
-    bottom: 80px;
-    right: -14px;
-}
-
-.growth-journey-page .cnode-4 {
-    bottom: -25px;
-    left: calc(50% - 32px);
-}
-
-.growth-journey-page .cnode-5 {
-    bottom: 80px;
-    left: -16px;
-}
-
-.growth-journey-page .cnode-6 {
-    top: 80px;
-    left: -14px;
-}
-
-.growth-journey-page .compass-node-btn:hover,
-.growth-journey-page .compass-node-btn.active {
-    border-color: var(--color-gold, #f4b942);
-    background: var(--color-primary, #0f1681);
-    transform: scale(1.15);
-    box-shadow: 0 12px 28px rgba(15, 22, 129, 0.3);
-}
-
-.growth-journey-page .compass-node-btn:hover i,
-.growth-journey-page .compass-node-btn.active i {
-    color: var(--color-gold, #f4b942);
-}
-
-.growth-journey-page .compass-node-btn.active .compass-label {
-    background: var(--color-primary, #0f1681);
-    color: #ffffff;
-    border-color: var(--color-gold, #f4b942);
-}
-
-/* Compass Detail Panel */
+/* Dynamic Detail Panel (Right Side matching Reference Picture typography & layout) */
 .growth-journey-page .compass-detail-panel {
     background: #ffffff;
     border-radius: 20px;
-    padding: 40px;
-    border: 1px solid rgba(15, 22, 129, 0.08);
-    box-shadow: 0 12px 36px rgba(7, 27, 53, 0.06);
-    min-height: 400px;
+    padding: 44px 40px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 16px 40px rgba(7, 27, 53, 0.08);
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .growth-journey-page .compass-detail-tag {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-primary, #0f1681);
+    color: #b8860b;
     margin-bottom: 12px;
 }
 
 .growth-journey-page .compass-detail-title {
     color: var(--color-navy-deep, #071b35);
-    font-size: 1.8rem;
+    font-size: 2.1rem;
     font-weight: 800;
     line-height: 1.25;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .growth-journey-page .compass-detail-desc {
     color: var(--color-text, #64748b);
-    font-size: 1.02rem;
-    line-height: 1.65;
-    margin-bottom: 22px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
 }
 
 .growth-journey-page .compass-detail-highlights {
     list-style: none;
     padding: 0;
-    margin: 0 0 28px 0;
+    margin: 0 0 32px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 14px 18px;
 }
 
 .growth-journey-page .compass-detail-highlights li {
     position: relative;
-    padding-left: 28px;
-    font-size: 0.9rem;
+    padding-left: 32px;
+    font-size: 0.94rem;
     color: #334155;
     font-weight: 600;
+    line-height: 1.4;
 }
 
 .growth-journey-page .compass-detail-highlights li::before {
-    content: "\f00c";
+    content: "\f058";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: absolute;
     left: 0;
-    top: 0;
-    color: #10b981;
-    font-size: 0.9rem;
+    top: 1px;
+    color: #0284c7;
+    font-size: 1.05rem;
 }
 
 /* ==========================================================================
@@ -1081,70 +1513,61 @@
 
     .growth-journey-page .compass-interactive-wrapper {
         gap: 30px;
+        grid-template-columns: minmax(400px, 1fr) 1fr;
+    }
+
+    .growth-journey-page .compass-vintage-wrapper {
+        width: 400px;
+        height: 400px;
     }
 
     .growth-journey-page .compass-circle-outer {
-        width: 380px;
-        height: 380px;
+        width: 370px;
+        height: 370px;
     }
 
-    .growth-journey-page .compass-node-btn {
-        width: 64px;
-        height: 64px;
+    .growth-journey-page .compass-needle-pivot {
+        height: 210px;
     }
 
-    .growth-journey-page .cnode-1 { top: 10px; left: calc(50% - 32px); }
-    .growth-journey-page .cnode-2 { top: 80px; right: 15px; }
-    .growth-journey-page .cnode-3 { bottom: 80px; right: 15px; }
-    .growth-journey-page .cnode-4 { bottom: 10px; left: calc(50% - 32px); }
-    .growth-journey-page .cnode-5 { bottom: 80px; left: 15px; }
-    .growth-journey-page .cnode-6 { top: 80px; left: 15px; }
-}
-
-/* Tablet (768px - 1023px) */
-@media (max-width: 1023px) and (min-width: 768px) {
-
-    .growth-journey-page .cnode-1 {
-        top: -30px;
-        left: calc(50% - 32px);
+    .growth-journey-page .needle-tip-north {
+        border-bottom-width: 95px;
     }
 
-    .growth-journey-page .cnode-2 {
-        top: 80px;
-        right: -15px;
+    .growth-journey-page .needle-tip-south {
+        border-top-width: 60px;
     }
 
-    .growth-journey-page .cnode-3 {
-        bottom: 80px;
-        right: -13px;
-    }
-
-    .growth-journey-page .cnode-4 {
-        bottom: -25px;
-        left: calc(50% - 32px);
-    }
-
-    .growth-journey-page .cnode-5 {
-        bottom: 80px;
-        left: -14px;
-    }
-
-    .growth-journey-page .cnode-6 {
-        top: 80px;
-        left: -13px;
-    }
-
+    .growth-journey-page .cnode-1 { width: 120px; height: 90px; top: 4px; }
+    .growth-journey-page .cnode-2 { width: 110px; height: 85px; top: 55px; right: 8px; }
+    .growth-journey-page .cnode-3 { width: 110px; height: 85px; bottom: 55px; right: 8px; }
+    .growth-journey-page .cnode-4 { width: 120px; height: 90px; bottom: 4px; }
+    .growth-journey-page .cnode-5 { width: 110px; height: 85px; bottom: 55px; left: 8px; }
+    .growth-journey-page .cnode-6 { width: 110px; height: 85px; top: 55px; left: 8px; }
 }
 
 /* Tablet <= 991px */
 @media (max-width: 991px) {
-    .growth-journey-page .growth-connector-line {
-        display: none;
+    .growth-journey-page .growth-glance-intro-row {
+        padding: 70px 0 24px 0;
+    }
+
+    .growth-journey-page .growth-glance-visual-row {
+        aspect-ratio: auto;
+        min-height: 480px;
+        background-size: cover;
+        padding: 40px 0 40px 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .growth-journey-page .growth-glance-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 24px 16px;
+        max-width: 780px;
+        margin: 0 auto;
+        justify-items: center;
+        align-items: center;
     }
 
     .growth-journey-page .growth-areas-grid {
@@ -1155,14 +1578,19 @@
 
     .growth-journey-page .compass-interactive-wrapper {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .growth-journey-page .compass-visual-col {
         order: 1;
+        justify-content: center;
     }
 
     .growth-journey-page .compass-detail-panel {
         order: 2;
+        max-width: 650px;
+        margin: 0 auto;
+        width: 100%;
     }
 
     .growth-journey-page .process-cards-grid {
@@ -1187,7 +1615,43 @@
 
 /* Mobile <= 767px */
 @media (max-width: 767px) {
-    .growth-journey-page .growth-glance-section,
+    .growth-journey-page .growth-glance-intro-row {
+        padding: 55px 0 20px 0;
+    }
+
+    .growth-journey-page .growth-glance-visual-row {
+        aspect-ratio: auto;
+        min-height: auto;
+        background-size: cover;
+        padding: 45px 0 45px 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .growth-journey-page .growth-glance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 14px;
+        max-width: 480px;
+        margin: 0 auto;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .growth-journey-page .growth-glance-node .node-icon-circle {
+        width: 54px;
+        height: 54px;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .growth-journey-page .growth-glance-title {
+        font-size: 0.95rem;
+    }
+
+    .growth-journey-page .growth-glance-tagline {
+        font-size: 0.74rem;
+    }
+
     .growth-journey-page .growth-areas-section,
     .growth-journey-page .growth-compass-section,
     .growth-journey-page .growth-process-section,
@@ -1196,58 +1660,91 @@
         padding: 60px 0;
     }
 
-    .growth-journey-page .growth-glance-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
     .growth-journey-page .growth-areas-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    /* Mobile Compass conversion to clean stacked navigation */
+    /* Mobile Compass Scaling (Proportionally scaled full circular dial) */
+    .growth-journey-page .compass-visual-col {
+        padding: 30px 24px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .growth-journey-page .compass-vintage-wrapper {
+        width: 320px;
+        height: 320px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
     .growth-journey-page .compass-circle-outer {
-        width: 100%;
-        height: auto;
-        border-radius: 16px;
-        border: none;
-        background: transparent;
-        box-shadow: none;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        width: 300px;
+        height: 300px;
     }
 
-    .growth-journey-page .compass-center-hub {
-        display: none;
+    .growth-journey-page .compass-cardinal {
+        font-size: 1.05rem;
     }
 
-    .growth-journey-page .compass-node-btn {
-        position: static;
-        width: 100%;
-        height: 75px;
-        border-radius: 14px;
-        transform: none !important;
+    .growth-journey-page .node-icon-wrap {
+        width: 32px;
+        height: 32px;
+        font-size: 0.95rem;
+        margin-bottom: 5px;
     }
 
     .growth-journey-page .compass-node-btn .compass-label {
-        position: static;
-        margin-top: 4px;
-        box-shadow: none;
-        border: none;
-        background: transparent;
-        color: inherit;
-        font-size: 0.75rem;
+        font-size: 0.62rem;
+        max-width: 90px;
     }
 
-    .growth-journey-page .compass-node-btn.active .compass-label {
-        background: transparent;
-        color: #ffffff;
+    .growth-journey-page .cnode-1 { width: 100px; height: 68px; top: 8px; }
+    .growth-journey-page .cnode-2 { width: 90px; height: 64px; top: 48px; right: 10px; }
+    .growth-journey-page .cnode-3 { width: 90px; height: 64px; bottom: 48px; right: 10px; }
+    .growth-journey-page .cnode-4 { width: 100px; height: 68px; bottom: 8px; }
+    .growth-journey-page .cnode-5 { width: 90px; height: 64px; bottom: 48px; left: 10px; }
+    .growth-journey-page .cnode-6 { width: 90px; height: 64px; top: 48px; left: 10px; }
+
+    .growth-journey-page .compass-needle-pivot {
+        height: 170px;
+    }
+
+    .growth-journey-page .needle-tip-north {
+        border-bottom-width: 75px;
+        border-left-width: 8px;
+        border-right-width: 8px;
+    }
+
+    .growth-journey-page .needle-tip-south {
+        border-top-width: 48px;
+        border-left-width: 6px;
+        border-right-width: 6px;
+    }
+
+    .growth-journey-page .compass-center-rose-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .growth-journey-page .compass-star-rose {
+        width: 85px;
+        height: 85px;
+    }
+
+    .growth-journey-page .compass-center-hub {
+        width: 34px;
+        height: 34px;
     }
 
     .growth-journey-page .compass-detail-panel {
-        padding: 24px 20px;
+        padding: 28px 22px;
+    }
+
+    .growth-journey-page .compass-detail-title {
+        font-size: 1.65rem;
     }
 
     .growth-journey-page .compass-detail-highlights {
@@ -1282,10 +1779,72 @@
 @media (max-width: 480px) {
     .growth-journey-page .growth-glance-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 320px;
+        margin: 0 auto;
+        justify-items: center;
+    }
+
+    .growth-journey-page .growth-glance-node {
+        flex-direction: row;
+        text-align: left;
         gap: 14px;
+        padding: 8px 12px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .growth-journey-page .growth-glance-node .node-icon-circle {
+        margin-bottom: 0;
+    }
+
+    .growth-journey-page .compass-visual-col {
+        padding: 24px 16px;
+    }
+
+    .growth-journey-page .compass-vintage-wrapper {
+        width: 280px;
+        height: 280px;
     }
 
     .growth-journey-page .compass-circle-outer {
-        grid-template-columns: repeat(2, 1fr);
+        width: 265px;
+        height: 265px;
+    }
+
+    .growth-journey-page .cnode-1 { width: 88px; height: 60px; top: 6px; }
+    .growth-journey-page .cnode-2 { width: 80px; height: 56px; top: 38px; right: 8px; }
+    .growth-journey-page .cnode-3 { width: 80px; height: 56px; bottom: 38px; right: 8px; }
+    .growth-journey-page .cnode-4 { width: 88px; height: 60px; bottom: 6px; }
+    .growth-journey-page .cnode-5 { width: 80px; height: 56px; bottom: 38px; left: 8px; }
+    .growth-journey-page .cnode-6 { width: 80px; height: 56px; top: 38px; left: 8px; }
+
+    .growth-journey-page .node-icon-wrap {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+
+    .growth-journey-page .compass-node-btn .compass-label {
+        font-size: 0.54rem;
+        max-width: 75px;
+    }
+
+    .growth-journey-page .compass-needle-pivot {
+        height: 145px;
+    }
+
+    .growth-journey-page .needle-tip-north {
+        border-bottom-width: 60px;
+        border-left-width: 7px;
+        border-right-width: 7px;
+    }
+
+    .growth-journey-page .needle-tip-south {
+        border-top-width: 38px;
+        border-left-width: 5px;
+        border-right-width: 5px;
     }
 }
+

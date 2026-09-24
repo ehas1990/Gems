@@ -1709,31 +1709,31 @@
 
     .growth-journey-page .node-content-inner {
         padding: 2px 2px;
-        gap: 6px;
+        gap: 5px;
     }
 
     .growth-journey-page .node-icon-wrap {
-        width: 32px;
-        height: 32px;
-        font-size: 0.95rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
         margin-bottom: 0;
     }
 
     .growth-journey-page .compass-node-btn .compass-label {
-        font-size: 0.60rem;
+        font-size: 0.54rem;
         line-height: 1.15;
-        max-width: 86px;
+        max-width: 82px;
         white-space: normal;
         text-align: center;
     }
 
     /* Precision mobile node placements safely away from boundaries */
-    .growth-journey-page .cnode-1 { width: 96px; height: 62px; top: 12px; left: 50%; transform: translateX(-50%); }
-    .growth-journey-page .cnode-2 { width: 88px; height: 58px; top: 52px; right: 18px; }
-    .growth-journey-page .cnode-3 { width: 88px; height: 58px; bottom: 62px; right: 18px; }
-    .growth-journey-page .cnode-4 { width: 96px; height: 62px; bottom: 12px; left: 50%; transform: translateX(-50%); }
-    .growth-journey-page .cnode-5 { width: 88px; height: 58px; bottom: 64px; left: 18px; }
-    .growth-journey-page .cnode-6 { width: 88px; height: 58px; top: 52px; left: 18px; }
+    .growth-journey-page .cnode-1 { width: 92px; height: 58px; top: 12px; left: 50%; transform: translateX(-50%); }
+    .growth-journey-page .cnode-2 { width: 84px; height: 56px; top: 54px; right: 18px; }
+    .growth-journey-page .cnode-3 { width: 84px; height: 56px; bottom: 64px; right: 18px; }
+    .growth-journey-page .cnode-4 { width: 92px; height: 58px; bottom: 12px; left: 50%; transform: translateX(-50%); }
+    .growth-journey-page .cnode-5 { width: 84px; height: 56px; bottom: 66px; left: 18px; }
+    .growth-journey-page .cnode-6 { width: 84px; height: 56px; top: 54px; left: 18px; }
 
     /* Precision Center Pivot & Needle Scaling for Mobile */
     .growth-journey-page .compass-center-rose-wrapper {
@@ -1754,7 +1754,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 30px;
+        width: 44px;
         height: 165px;
         transform-origin: 50% 50%;
     }
@@ -1765,10 +1765,35 @@
         border-right-width: 8px;
     }
 
+    .growth-journey-page .needle-tip-north::after {
+        border-bottom-width: 75px;
+        border-left-width: 8px;
+        left: -8px;
+    }
+
+    /* Clean straight south needle extending seamlessly from center pivot */
     .growth-journey-page .needle-tip-south {
-        border-top-width: 48px;
-        border-left-width: 6px;
-        border-right-width: 6px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 50px solid #b8860b;
+        filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.45));
+        position: relative;
+        opacity: 0.9;
+        margin: 0 auto;
+    }
+
+    .growth-journey-page .needle-tip-south::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -6px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 0px solid transparent;
+        border-top: 50px solid rgba(255, 255, 255, 0.3);
     }
 
     .growth-journey-page .compass-center-hub {
@@ -1858,32 +1883,32 @@
         font-size: 0.95rem;
     }
 
-    .growth-journey-page .cnode-1 { width: 84px; height: 54px; top: 10px; }
-    .growth-journey-page .cnode-2 { width: 76px; height: 50px; top: 44px; right: 14px; }
-    .growth-journey-page .cnode-3 { width: 76px; height: 50px; bottom: 52px; right: 14px; }
-    .growth-journey-page .cnode-4 { width: 84px; height: 54px; bottom: 10px; }
-    .growth-journey-page .cnode-5 { width: 76px; height: 50px; bottom: 54px; left: 14px; }
-    .growth-journey-page .cnode-6 { width: 76px; height: 50px; top: 44px; left: 14px; }
+    .growth-journey-page .cnode-1 { width: 80px; height: 50px; top: 10px; }
+    .growth-journey-page .cnode-2 { width: 72px; height: 48px; top: 46px; right: 14px; }
+    .growth-journey-page .cnode-3 { width: 72px; height: 48px; bottom: 54px; right: 14px; }
+    .growth-journey-page .cnode-4 { width: 80px; height: 50px; bottom: 10px; }
+    .growth-journey-page .cnode-5 { width: 72px; height: 48px; bottom: 56px; left: 14px; }
+    .growth-journey-page .cnode-6 { width: 72px; height: 48px; top: 46px; left: 14px; }
 
     .growth-journey-page .node-content-inner {
-        gap: 4px;
+        gap: 3px;
     }
 
     .growth-journey-page .node-icon-wrap {
-        width: 26px;
-        height: 26px;
-        font-size: 0.8rem;
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
         margin-bottom: 0;
     }
 
     .growth-journey-page .compass-node-btn .compass-label {
-        font-size: 0.52rem;
-        max-width: 72px;
+        font-size: 0.44rem;
+        max-width: 68px;
     }
 
     .growth-journey-page .compass-needle-pivot {
         height: 145px;
-        width: 26px;
+        width: 44px;
     }
 
     .growth-journey-page .needle-tip-north {
@@ -1892,10 +1917,22 @@
         border-right-width: 7px;
     }
 
+    .growth-journey-page .needle-tip-north::after {
+        border-bottom-width: 65px;
+        border-left-width: 7px;
+        left: -7px;
+    }
+
     .growth-journey-page .needle-tip-south {
         border-top-width: 40px;
         border-left-width: 5px;
         border-right-width: 5px;
+    }
+
+    .growth-journey-page .needle-tip-south::after {
+        border-top-width: 40px;
+        border-left-width: 5px;
+        left: -5px;
     }
 
     .growth-journey-page .compass-center-rose-wrapper {

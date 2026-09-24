@@ -1653,11 +1653,17 @@
     }
 
     .growth-journey-page .growth-areas-section,
-    .growth-journey-page .growth-compass-section,
     .growth-journey-page .growth-process-section,
     .growth-journey-page .growth-dual-section,
     .growth-journey-page .growth-resources-section {
         padding: 60px 0;
+    }
+
+    /* Mobile Compass Section - Retaining Identical Radial Background & Texture */
+    .growth-journey-page .growth-compass-section {
+        padding: 60px 0 70px 0;
+        background: radial-gradient(circle at 50% 35%, #faf8f5 0%, #f4eee3 55%, #eae2d3 100%);
+        background-size: cover;
     }
 
     .growth-journey-page .growth-areas-grid {
@@ -1665,12 +1671,15 @@
         gap: 40px;
     }
 
-    /* Mobile Compass Scaling (Proportionally scaled full circular dial) */
+    /* Mobile Compass Scaling (Proportionally scaled full circular dial with safe viewport padding) */
     .growth-journey-page .compass-visual-col {
-        padding: 30px 24px;
+        padding: 20px 24px 30px 24px;
         width: 100%;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .growth-journey-page .compass-vintage-wrapper {
@@ -1678,38 +1687,76 @@
         height: 320px;
         max-width: 100%;
         margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .growth-journey-page .compass-circle-outer {
-        width: 300px;
-        height: 300px;
+        width: 295px;
+        height: 295px;
+        position: relative;
     }
 
     .growth-journey-page .compass-cardinal {
         font-size: 1.05rem;
+    }
+    .growth-journey-page .cardinal-n { top: -20px; }
+    .growth-journey-page .cardinal-e { right: -20px; }
+    .growth-journey-page .cardinal-s { bottom: -20px; }
+    .growth-journey-page .cardinal-w { left: -20px; }
+
+    .growth-journey-page .node-content-inner {
+        padding: 2px 2px;
+        gap: 6px;
     }
 
     .growth-journey-page .node-icon-wrap {
         width: 32px;
         height: 32px;
         font-size: 0.95rem;
-        margin-bottom: 5px;
+        margin-bottom: 0;
     }
 
     .growth-journey-page .compass-node-btn .compass-label {
-        font-size: 0.62rem;
-        max-width: 90px;
+        font-size: 0.60rem;
+        line-height: 1.15;
+        max-width: 86px;
+        white-space: normal;
+        text-align: center;
     }
 
-    .growth-journey-page .cnode-1 { width: 100px; height: 68px; top: 8px; }
-    .growth-journey-page .cnode-2 { width: 90px; height: 64px; top: 48px; right: 10px; }
-    .growth-journey-page .cnode-3 { width: 90px; height: 64px; bottom: 48px; right: 10px; }
-    .growth-journey-page .cnode-4 { width: 100px; height: 68px; bottom: 8px; }
-    .growth-journey-page .cnode-5 { width: 90px; height: 64px; bottom: 48px; left: 10px; }
-    .growth-journey-page .cnode-6 { width: 90px; height: 64px; top: 48px; left: 10px; }
+    /* Precision mobile node placements safely away from boundaries */
+    .growth-journey-page .cnode-1 { width: 96px; height: 62px; top: 12px; left: 50%; transform: translateX(-50%); }
+    .growth-journey-page .cnode-2 { width: 88px; height: 58px; top: 52px; right: 18px; }
+    .growth-journey-page .cnode-3 { width: 88px; height: 58px; bottom: 62px; right: 18px; }
+    .growth-journey-page .cnode-4 { width: 96px; height: 62px; bottom: 12px; left: 50%; transform: translateX(-50%); }
+    .growth-journey-page .cnode-5 { width: 88px; height: 58px; bottom: 64px; left: 18px; }
+    .growth-journey-page .cnode-6 { width: 88px; height: 58px; top: 52px; left: 18px; }
+
+    /* Precision Center Pivot & Needle Scaling for Mobile */
+    .growth-journey-page .compass-center-rose-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 110px;
+        height: 110px;
+    }
+
+    .growth-journey-page .compass-star-rose {
+        width: 78px;
+        height: 78px;
+    }
 
     .growth-journey-page .compass-needle-pivot {
-        height: 170px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30px;
+        height: 165px;
+        transform-origin: 50% 50%;
     }
 
     .growth-journey-page .needle-tip-north {
@@ -1724,19 +1771,14 @@
         border-right-width: 6px;
     }
 
-    .growth-journey-page .compass-center-rose-wrapper {
-        width: 120px;
-        height: 120px;
-    }
-
-    .growth-journey-page .compass-star-rose {
-        width: 85px;
-        height: 85px;
-    }
-
     .growth-journey-page .compass-center-hub {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .growth-journey-page .hub-inner-core {
+        width: 12px;
+        height: 12px;
     }
 
     .growth-journey-page .compass-detail-panel {
@@ -1799,7 +1841,7 @@
     }
 
     .growth-journey-page .compass-visual-col {
-        padding: 24px 16px;
+        padding: 16px 16px 26px 16px;
     }
 
     .growth-journey-page .compass-vintage-wrapper {
@@ -1808,43 +1850,72 @@
     }
 
     .growth-journey-page .compass-circle-outer {
-        width: 265px;
-        height: 265px;
+        width: 260px;
+        height: 260px;
     }
 
-    .growth-journey-page .cnode-1 { width: 88px; height: 60px; top: 6px; }
-    .growth-journey-page .cnode-2 { width: 80px; height: 56px; top: 38px; right: 8px; }
-    .growth-journey-page .cnode-3 { width: 80px; height: 56px; bottom: 38px; right: 8px; }
-    .growth-journey-page .cnode-4 { width: 88px; height: 60px; bottom: 6px; }
-    .growth-journey-page .cnode-5 { width: 80px; height: 56px; bottom: 38px; left: 8px; }
-    .growth-journey-page .cnode-6 { width: 80px; height: 56px; top: 38px; left: 8px; }
+    .growth-journey-page .compass-cardinal {
+        font-size: 0.95rem;
+    }
+
+    .growth-journey-page .cnode-1 { width: 84px; height: 54px; top: 10px; }
+    .growth-journey-page .cnode-2 { width: 76px; height: 50px; top: 44px; right: 14px; }
+    .growth-journey-page .cnode-3 { width: 76px; height: 50px; bottom: 52px; right: 14px; }
+    .growth-journey-page .cnode-4 { width: 84px; height: 54px; bottom: 10px; }
+    .growth-journey-page .cnode-5 { width: 76px; height: 50px; bottom: 54px; left: 14px; }
+    .growth-journey-page .cnode-6 { width: 76px; height: 50px; top: 44px; left: 14px; }
+
+    .growth-journey-page .node-content-inner {
+        gap: 4px;
+    }
 
     .growth-journey-page .node-icon-wrap {
         width: 26px;
         height: 26px;
         font-size: 0.8rem;
-        margin-bottom: 4px;
+        margin-bottom: 0;
     }
 
     .growth-journey-page .compass-node-btn .compass-label {
-        font-size: 0.54rem;
-        max-width: 75px;
+        font-size: 0.52rem;
+        max-width: 72px;
     }
 
     .growth-journey-page .compass-needle-pivot {
         height: 145px;
+        width: 26px;
     }
 
     .growth-journey-page .needle-tip-north {
-        border-bottom-width: 60px;
+        border-bottom-width: 65px;
         border-left-width: 7px;
         border-right-width: 7px;
     }
 
     .growth-journey-page .needle-tip-south {
-        border-top-width: 38px;
+        border-top-width: 40px;
         border-left-width: 5px;
         border-right-width: 5px;
+    }
+
+    .growth-journey-page .compass-center-rose-wrapper {
+        width: 95px;
+        height: 95px;
+    }
+
+    .growth-journey-page .compass-star-rose {
+        width: 68px;
+        height: 68px;
+    }
+
+    .growth-journey-page .compass-center-hub {
+        width: 28px;
+        height: 28px;
+    }
+
+    .growth-journey-page .hub-inner-core {
+        width: 10px;
+        height: 10px;
     }
 }
 

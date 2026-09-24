@@ -891,92 +891,300 @@
         <!-- ==========================================================================
              6. TRUSTED NETWORK & MEMBERSHIP CONNECTION (DUAL SECTION)
              ========================================================================== -->
-        <section class="growth-dual-section" id="membership" aria-label="Trusted Network and Membership Connection">
+        <section class="growth-dual-section" id="trusted-network" aria-label="Trusted Network">
+            <style>
+                .premium-trust-slide {
+                    display: flex;
+                    flex-direction: row;
+                    background: #ffffff;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    box-shadow: 0 24px 60px rgba(7, 27, 53, 0.08);
+                    border: 1px solid rgba(15, 22, 129, 0.08);
+                    min-height: 350px;
+                    margin-bottom: 30px;
+                }
+
+                .premium-trust-content {
+                    flex: 0 0 50%;
+                    padding: 50px 60px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .premium-trust-image {
+                    flex: 0 0 50%;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                @keyframes premiumZoomInOut {
+                    0% {
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        transform: scale(1.03);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+
+                .premium-trust-image img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    animation: premiumZoomInOut 25s ease-in-out infinite;
+                }
+
+                .premium-trust-content .dual-eyebrow {
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    color: var(--color-primary, #0f1681);
+                    margin-bottom: 16px;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .premium-trust-content .dual-eyebrow i {
+                    font-size: 1.1rem;
+                }
+
+                .premium-trust-content .dual-title {
+                    font-size: 2.75rem;
+                    font-weight: 700;
+                    color: var(--color-navy-deep, #071b35);
+                    line-height: 1.15;
+                    margin-bottom: 18px;
+                }
+
+                .premium-trust-content .dual-desc {
+                    font-size: 1.15rem;
+                    color: #4a5568;
+                    line-height: 1.7;
+                    margin-bottom: 20px;
+                    max-width: 95%;
+                }
+
+                .premium-trust-content .trust-tagline {
+                    color: var(--color-gold, #f4b942);
+                    font-weight: 700;
+                    font-size: 1.15rem;
+                    font-style: italic;
+                    margin-bottom: 30px;
+                }
+
+                @media (max-width: 991px) {
+                    .premium-trust-slide {
+                        flex-direction: column;
+                        min-height: auto;
+                    }
+
+                    .premium-trust-content {
+                        padding: 50px 40px;
+                    }
+
+                    .premium-trust-image {
+                        min-height: 400px;
+                    }
+
+                    .premium-trust-content .dual-title {
+                        font-size: 2.25rem;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .premium-trust-content {
+                        padding: 40px 24px;
+                    }
+
+                    .premium-trust-image {
+                        min-height: 300px;
+                    }
+
+                    .premium-trust-content .dual-title {
+                        font-size: 1.85rem;
+                    }
+                }
+            </style>
             <div class="container-port-xl">
-                <div class="growth-dual-grid">
-
-                    <!-- LEFT: TRUSTED NETWORK -->
-                    <div class="trust-card-wrap" data-aos="fade-right" data-aos-duration="800">
-                        <div class="trust-content-side">
-                            <span class="dual-eyebrow" style="color: var(--color-primary, #0f1681);">
-                                <i class="fa-solid fa-handshake"></i> TRUSTED NETWORK
-                            </span>
-                            <h3 class="dual-title">The right connection can change the next chapter.</h3>
-                            <p class="dual-desc">
-                                GEMS helps visitors make sense of what they need and, when specialized expertise is
-                                required, connect with people who can provide it.
-                            </p>
-                            <div class="trust-tagline">
-                                No matter what journey you begin... Start With GEMS
-                            </div>
-                            <div>
-                                <a href="trusted-network.html" class="btn-gems-primary">
-                                    Explore The Trusted Network
-                                </a>
-                            </div>
+                <!-- PREMIUM SLIDE: TRUSTED NETWORK -->
+                <div class="premium-trust-slide" data-aos="fade-up" data-aos-duration="1000">
+                    <!-- LEFT PANEL: CONTENT -->
+                    <div class="premium-trust-content">
+                        <span class="dual-eyebrow">
+                            <i class="fa-solid fa-handshake"></i> TRUSTED NETWORK
+                        </span>
+                        <h3 class="dual-title">The right connection can change the next chapter.</h3>
+                        <p class="dual-desc">
+                            GEMS helps visitors make sense of what they need and, when specialized expertise is
+                            required, connect with people who can provide it.
+                        </p>
+                        <div class="trust-tagline" style="display: none;">
+                            No matter what journey you begin... Start With GEMS
                         </div>
-                        <div class="trust-image-side">
-                            <img src="./assets/img/career_trust_professional.jpg"
-                                alt="Authentic professional collaboration in modern meeting room" class="trust-img">
-                        </div>
-                    </div>
-
-                    <!-- RIGHT: MEMBERSHIP CONNECTION -->
-                    <div class="dual-col-card" data-aos="fade-left" data-aos-duration="800">
-                        <div class="dual-header">
-                            <span class="dual-eyebrow">
-                                <i class="fa-solid fa-id-card"></i> MEMBERSHIP CONNECTION
-                            </span>
-                            <h3 class="dual-title">Connect your growth with GEMS membership.</h3>
-                            <p class="dual-desc">
-                                Select the level of support that aligns with your timeline and aspirations.
-                            </p>
-                        </div>
-
-                        <div class="membership-compact-list">
-                            <!-- Explorer -->
-                            <div class="membership-mini-item mini-tier-explorer">
-                                <div class="mini-tier-icon">
-                                    <i class="fa-solid fa-compass"></i>
-                                </div>
-                                <div class="mini-tier-content">
-                                    <h4>Explorer</h4>
-                                    <p>Discover growth resources, ideas and the GEMS network.</p>
-                                </div>
-                            </div>
-
-                            <!-- Companion -->
-                            <div class="membership-mini-item mini-tier-companion">
-                                <div class="mini-tier-icon">
-                                    <i class="fa-solid fa-users"></i>
-                                </div>
-                                <div class="mini-tier-content">
-                                    <h4>Companion</h4>
-                                    <p>Return to GEMS for recurring guidance as goals and circumstances develop.</p>
-                                </div>
-                            </div>
-
-                            <!-- Navigator -->
-                            <div class="membership-mini-item mini-tier-navigator">
-                                <div class="mini-tier-icon">
-                                    <i class="fa-solid fa-route"></i>
-                                </div>
-                                <div class="mini-tier-content">
-                                    <h4>Navigator</h4>
-                                    <p>Use deeper ongoing support for planning, coordination and broader network access.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dual-cta-wrap">
-                            <a href="memberships.html" class="btn-gems-primary"
-                                style="width: 100%; text-align: center;">
-                                Explore Membership Levels
+                            <a href="trusted-network.html" class="btn-gems-primary">
+                                Explore The Trusted Network
                             </a>
                         </div>
                     </div>
 
+                    <!-- RIGHT PANEL: IMAGE -->
+                    <div class="premium-trust-image">
+                        <img src="./assets/img/career_trust_professional.jpg"
+                            alt="Authentic professional collaboration in modern meeting room">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             MEMBERSHIP CONNECTION (NEW FULL-WIDTH SECTION)
+             ========================================================================== -->
+        <section class="membership-tiers-section" id="membership" style="background-color: #f8f9fa;">
+            <style>
+                .growth-membership-card {
+                    display: flex;
+                    flex-direction: column;
+                    text-decoration: none;
+                    color: inherit;
+                    transition: all 0.4s ease;
+                    position: relative;
+                    height: 100%;
+                }
+
+                .growth-membership-card:hover {
+                    text-decoration: none;
+                    color: inherit;
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 35px rgba(7, 27, 53, 0.1);
+                }
+
+                .growth-membership-card .tier-hover-details {
+                    max-height: 0;
+                    opacity: 0;
+                    overflow: hidden;
+                    transition: all 0.4s ease;
+                }
+
+                .growth-membership-card:hover .tier-hover-details {
+                    max-height: 250px;
+                    opacity: 1;
+                    margin-top: 15px;
+                }
+
+                .growth-membership-card .plan-features-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    text-align: left;
+                }
+
+                .growth-membership-card .plan-features-list li {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 10px;
+                    font-size: 0.95rem;
+                    color: #4a5568;
+                    margin-bottom: 8px;
+                    line-height: 1.5;
+                }
+
+                .growth-membership-card .plan-features-list li i {
+                    color: var(--color-primary, #0f1681);
+                    margin-top: 4px;
+                    font-size: 0.85rem;
+                }
+            </style>
+            <div class="container-port-xl">
+                <!-- Section Header -->
+                <div class="membership-tiers-header" data-aos="fade-up" data-aos-duration="800">
+                    <span class="membership-badge">
+                        <i class="fa-solid fa-id-card"></i> MEMBERSHIP CONNECTION
+                    </span>
+                    <h2 class="membership-main-headline">Connect your growth with GEMS membership.</h2>
+                    <h4 class="membership-sub-headline">Select the level of support that aligns with your timeline and
+                        aspirations.</h4>
+                </div>
+
+                <!-- Membership Cards Grid -->
+                <div class="membership-cards-grid">
+                    <!-- Tier 1: Explorer -->
+                    <a href="memberships.html?journey=growth&membership=explorer"
+                        class="member-tier-card growth-membership-card" data-aos="fade-up" data-aos-delay="100"
+                        data-aos-duration="800">
+                        <div class="tier-header-wrap">
+                            <div class="tier-icon">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <h3 class="tier-name">Explorer</h3>
+                        </div>
+                        <p class="tier-desc">Start With GEMS. Explore At Your Own Pace.</p>
+                        <div class="tier-hover-details">
+                            <ul class="plan-features-list">
+                                <li><i class="fa-solid fa-check"></i> <span>Discover growth resources, ideas and the
+                                        GEMS network.</span></li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <!-- Tier 2: Companion -->
+                    <a href="memberships.html?journey=growth&membership=companion"
+                        class="member-tier-card highlighted-tier growth-membership-card" data-aos="fade-up"
+                        data-aos-delay="200" data-aos-duration="800">
+                        <div class="tier-popular-ribbon">
+                            <span>⭐ Most Popular</span>
+                        </div>
+                        <div class="tier-header-wrap">
+                            <div class="tier-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h3 class="tier-name">Companion</h3>
+                        </div>
+                        <p class="tier-desc">Keep GEMS By Your Side As You Move Forward.</p>
+                        <div class="tier-hover-details">
+                            <ul class="plan-features-list">
+                                <li><i class="fa-solid fa-check"></i> <span>Return to GEMS for recurring guidance as
+                                        goals and circumstances develop.</span></li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <!-- Tier 3: Navigator -->
+                    <a href="memberships.html?journey=growth&membership=navigator"
+                        class="member-tier-card highlighted-tier growth-membership-card" data-aos="fade-up"
+                        data-aos-delay="300" data-aos-duration="800">
+                        <div class="tier-popular-ribbon"
+                            style="background-color: var(--color-primary, #0f1681); border-color: var(--color-primary, #0f1681);">
+                            <span>💎 Best Value</span>
+                        </div>
+                        <div class="tier-header-wrap">
+                            <div class="tier-icon">
+                                <i class="fa-solid fa-route"></i>
+                            </div>
+                            <h3 class="tier-name">Navigator</h3>
+                        </div>
+                        <p class="tier-desc">Let GEMS Travel More Closely With You.</p>
+                        <div class="tier-hover-details">
+                            <ul class="plan-features-list">
+                                <li><i class="fa-solid fa-check"></i> <span>Use deeper ongoing support for planning,
+                                        coordination and broader network access.</span></li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="membership-cta-wrap mt-5" data-aos="fade-up" data-aos-delay="400">
+                    <a href="memberships.html?journey=growth" class="btn-gems-primary">
+                        COMPARE MEMBERSHIPS &rarr;
+                    </a>
                 </div>
             </div>
         </section>

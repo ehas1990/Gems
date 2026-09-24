@@ -775,102 +775,263 @@
                     </p>
                 </div>
 
-                <div class="growth-process-cards-slider" data-aos="fade-up" data-aos-delay="200">
-                    <div class="swiper growth-process-swiper">
-                        <div class="swiper-wrapper">
+                <style>
+                    /* Custom Circular Process Concept */
+                    .gems-growth-process-section {
+                        width: 100%;
+                        max-width: 1100px;
+                        margin: 60px auto 100px auto;
+                        padding: 0 15px;
+                        container-type: inline-size;
+                    }
 
-                            <!-- Slide 1: Identify -->
-                            <div class="swiper-slide">
-                                <div class="process-slider-card">
-                                    <div class="process-card-bg"
-                                        style="background-image: url('./assets/img/sum_PersonalGuidance.png');"></div>
-                                    <div class="process-card-overlay"></div>
-                                    <div class="process-card-content">
-                                        <h3 class="growth-process-title">Identify</h3>
-                                        <p class="growth-process-desc">
-                                            Clarify what you want to improve, accomplish, or transition toward with
-                                            targeted exploratory dialogue.
-                                        </p>
-                                    </div>
-                                </div>
+                    .gems-growth-process-wheel {
+                        position: relative;
+                        width: 100%;
+                        max-width: 900px;
+                        aspect-ratio: 1;
+                        margin: 0 auto;
+                        border-radius: 50%;
+                    }
+
+                    /* The 5 Background Slices */
+                    .gems-growth-process-ring-wrap {
+                        position: absolute;
+                        top: 2cqw; left: 2cqw; right: 2cqw; bottom: 2cqw;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        z-index: 1;
+                        box-shadow: 0 20px 60px rgba(7, 27, 53, 0.15);
+                    }
+
+                    .gems-growth-process-slice {
+                        position: absolute;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        transform-origin: 50% 50%;
+                    }
+
+                    .gems-growth-process-slice-inner {
+                        position: absolute;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        clip-path: polygon(50% 50%, 13.67% 0%, 86.33% 0%);
+                        background-size: cover;
+                        background-position: center;
+                    }
+
+                    .gems-growth-process-slice-inner::after {
+                        content: '';
+                        position: absolute;
+                        top: 0; left: 0; right: 0; bottom: 0;
+                        opacity: 0.88;
+                    }
+
+                    .gems-growth-process-slice-1 { transform: rotate(0deg); }
+                    .gems-growth-process-slice-1 .gems-growth-process-slice-inner::after { background: linear-gradient(145deg, #cc1c1c, #850000); }
+
+                    .gems-growth-process-slice-2 { transform: rotate(72deg); }
+                    .gems-growth-process-slice-2 .gems-growth-process-slice-inner::after { background: linear-gradient(145deg, #1565c0, #032b6b); }
+
+                    .gems-growth-process-slice-3 { transform: rotate(144deg); }
+                    .gems-growth-process-slice-3 .gems-growth-process-slice-inner::after { background: linear-gradient(145deg, #00838f, #004b55); }
+
+                    .gems-growth-process-slice-4 { transform: rotate(216deg); }
+                    .gems-growth-process-slice-4 .gems-growth-process-slice-inner::after { background: linear-gradient(145deg, #e65c00, #b83f00); }
+
+                    .gems-growth-process-slice-5 { transform: rotate(288deg); }
+                    .gems-growth-process-slice-5 .gems-growth-process-slice-inner::after { background: linear-gradient(145deg, #2e7d32, #184c1b); }
+
+                    /* Center Orb */
+                    .gems-growth-process-center-orb {
+                        position: absolute;
+                        top: 50%; left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 32%;
+                        height: 32%;
+                        background: #ffffff;
+                        border-radius: 50%;
+                        z-index: 10;
+                        box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 0 0 6px var(--color-gold, #f4b942);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        padding: 2cqw;
+                    }
+
+                    .gems-growth-process-center-orb i {
+                        font-size: 5cqw;
+                        color: var(--color-gold, #f4b942);
+                        margin-bottom: 0.5cqw;
+                    }
+
+                    .gems-growth-process-center-orb h2 {
+                        font-size: 3cqw;
+                        font-weight: 800;
+                        color: var(--color-navy-deep, #071b35);
+                        line-height: 1.1;
+                        margin: 0;
+                    }
+
+                    /* Content Blocks Overlay */
+                    .gems-growth-process-content-wrap {
+                        position: absolute;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        z-index: 5;
+                        pointer-events: none;
+                    }
+
+                    .gems-growth-process-text-block {
+                        position: absolute;
+                        width: 25%;
+                        transform: translate(-50%, -50%);
+                        text-align: center;
+                        color: #ffffff;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        pointer-events: auto;
+                    }
+
+                    .gems-growth-process-badge {
+                        background: #ffffff;
+                        color: var(--color-navy-deep, #071b35);
+                        width: 4cqw;
+                        height: 4cqw;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 800;
+                        font-size: 1.8cqw;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+                        margin-bottom: -1.5cqw;
+                        z-index: 2;
+                        border: 2px solid var(--color-gold, #f4b942);
+                    }
+
+                    .gems-growth-process-icon {
+                        width: 7cqw;
+                        height: 7cqw;
+                        background: #ffffff;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 3cqw;
+                        color: var(--color-primary, #0f1681);
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+                        margin-bottom: 1.5cqw;
+                        border: 3px solid var(--color-gold, #f4b942);
+                    }
+
+                    .gems-growth-process-text-block h3 {
+                        color: #ffffff;
+                        font-size: 2cqw;
+                        font-weight: 700;
+                        margin-bottom: 0.8cqw;
+                        text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+                    }
+
+                    .gems-growth-process-text-block p {
+                        color: rgba(255, 255, 255, 0.95);
+                        font-size: 1.25cqw;
+                        line-height: 1.4;
+                        text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+                        margin: 0;
+                    }
+
+                    /* 5-Point Polar Coordinates for the Content Blocks (Radius ~ 34%) */
+                    .pos-1 { top: 16%; left: 50%; }
+                    .pos-2 { top: 39.5%; left: 82.3%; }
+                    .pos-3 { top: 77.5%; left: 70%; }
+                    .pos-4 { top: 77.5%; left: 30%; }
+                    .pos-5 { top: 39.5%; left: 17.7%; }
+
+                    /* Responsive Mobile Refinements */
+                    @media (max-width: 767px) {
+                        /* Force slight zoom on mobile to ensure text stays readable while keeping proportion */
+                        .gems-growth-process-wheel {
+                            width: 140%;
+                            left: -20%;
+                        }
+                        .gems-growth-process-text-block p {
+                            font-size: 1.5cqw;
+                        }
+                    }
+                </style>
+
+                <div class="gems-growth-process-section" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gems-growth-process-wheel">
+                        
+                        <!-- The 5 Curved Donut Slices -->
+                        <div class="gems-growth-process-ring-wrap">
+                            <div class="gems-growth-process-slice gems-growth-process-slice-1">
+                                <div class="gems-growth-process-slice-inner" style="background-image: url('./assets/img/sum_PersonalGuidance.png');"></div>
                             </div>
-
-                            <!-- Slide 2: Understand -->
-                            <div class="swiper-slide">
-                                <div class="process-slider-card">
-                                    <div class="process-card-bg"
-                                        style="background-image: url('./assets/img/sum_Adhoc.png');"></div>
-                                    <div class="process-card-overlay"></div>
-                                    <div class="process-card-content">
-                                        <h3 class="growth-process-title">Understand</h3>
-                                        <p class="growth-process-desc">
-                                            Explain unfamiliar options, regulatory requirements, timelines, and critical
-                                            practical considerations.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="gems-growth-process-slice gems-growth-process-slice-2">
+                                <div class="gems-growth-process-slice-inner" style="background-image: url('./assets/img/sum_Adhoc.png');"></div>
                             </div>
-
-                            <!-- Slide 3: Plan -->
-                            <div class="swiper-slide">
-                                <div class="process-slider-card">
-                                    <div class="process-card-bg"
-                                        style="background-image: url('./assets/img/sum_financial\ planning.jpg');">
-                                    </div>
-                                    <div class="process-card-overlay"></div>
-                                    <div class="process-card-content">
-                                        <h3 class="growth-process-title">Plan</h3>
-                                        <p class="growth-process-desc">
-                                            Organize realistic next steps, milestones, budget allocations, and
-                                            contingency frameworks.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="gems-growth-process-slice gems-growth-process-slice-3">
+                                <div class="gems-growth-process-slice-inner" style="background-image: url('./assets/img/sum_financial\\ planning.jpg');"></div>
                             </div>
-
-                            <!-- Slide 4: Connect -->
-                            <div class="swiper-slide">
-                                <div class="process-slider-card">
-                                    <div class="process-card-bg"
-                                        style="background-image: url('./assets/img/sum_prof_legal.png');"></div>
-                                    <div class="process-card-overlay"></div>
-                                    <div class="process-card-content">
-                                        <h3 class="growth-process-title">Connect</h3>
-                                        <p class="growth-process-desc">
-                                            Connect you directly with a trusted specialist or vetted partner when
-                                            specialized expertise is needed.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="gems-growth-process-slice gems-growth-process-slice-4">
+                                <div class="gems-growth-process-slice-inner" style="background-image: url('./assets/img/sum_prof_legal.png');"></div>
                             </div>
-
-                            <!-- Slide 5: Continue -->
-                            <div class="swiper-slide">
-                                <div class="process-slider-card">
-                                    <div class="process-card-bg"
-                                        style="background-image: url('./assets/img/why_gems_eagle_path.jpg');"></div>
-                                    <div class="process-card-overlay"></div>
-                                    <div class="process-card-content">
-                                        <h3 class="growth-process-title">Continue</h3>
-                                        <p class="growth-process-desc">
-                                            Provide an ongoing relationship and advisory check-ins through appropriate
-                                            GEMS membership tiers.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="gems-growth-process-slice gems-growth-process-slice-5">
+                                <div class="gems-growth-process-slice-inner" style="background-image: url('./assets/img/why_gems_eagle_path.jpg');"></div>
                             </div>
-
                         </div>
 
-                        <!-- Slider Controls -->
-                        <div class="slider-controls-wrap">
-                            <button type="button" class="slider-arrow growth-process-prev" aria-label="Previous Slide">
-                                <i class="fa-solid fa-arrow-left"></i>
-                            </button>
-                            <div class="swiper-pagination growth-process-pagination"></div>
-                            <button type="button" class="slider-arrow growth-process-next" aria-label="Next Slide">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </button>
+                        <!-- Center Element -->
+                        <div class="gems-growth-process-center-orb">
+                            <i class="fa-regular fa-compass"></i>
+                            <h2>The GEMS<br>Process</h2>
+                        </div>
+
+                        <!-- 5 Unified Content Overlays (No Boxes) -->
+                        <div class="gems-growth-process-content-wrap">
+                            
+                            <!-- 01 Identify -->
+                            <div class="gems-growth-process-text-block pos-1">
+                                <div class="gems-growth-process-badge">01</div>
+                                <div class="gems-growth-process-icon"><i class="fa-solid fa-bullseye"></i></div>
+                                <h3>Identify</h3>
+                                <p>Clarify what you want to improve, accomplish, or transition toward with targeted exploratory dialogue.</p>
+                            </div>
+
+                            <!-- 02 Understand -->
+                            <div class="gems-growth-process-text-block pos-2">
+                                <div class="gems-growth-process-badge">02</div>
+                                <div class="gems-growth-process-icon"><i class="fa-solid fa-book-open"></i></div>
+                                <h3>Understand</h3>
+                                <p>Explain unfamiliar options, regulatory requirements, timelines, and critical practical considerations.</p>
+                            </div>
+
+                            <!-- 03 Plan -->
+                            <div class="gems-growth-process-text-block pos-3">
+                                <div class="gems-growth-process-badge">03</div>
+                                <div class="gems-growth-process-icon"><i class="fa-solid fa-list-check"></i></div>
+                                <h3>Plan</h3>
+                                <p>Organize realistic next steps, milestones, budget allocations, and contingency frameworks.</p>
+                            </div>
+
+                            <!-- 04 Connect -->
+                            <div class="gems-growth-process-text-block pos-4">
+                                <div class="gems-growth-process-badge">04</div>
+                                <div class="gems-growth-process-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                                <h3>Connect</h3>
+                                <p>Connect you directly with a trusted specialist or vetted partner when specialized expertise is needed.</p>
+                            </div>
+
+                            <!-- 05 Continue -->
+                            <div class="gems-growth-process-text-block pos-5">
+                                <div class="gems-growth-process-badge">05</div>
+                                <div class="gems-growth-process-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                                <h3>Continue</h3>
+                                <p>Provide an ongoing relationship and advisory check-ins through appropriate GEMS membership tiers.</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -1001,7 +1162,12 @@
                         padding: 40px 24px;
                     }
                     .premium-trust-image {
+                        flex: none;
                         min-height: 300px;
+                        height: 300px;
+                    }
+                    .premium-trust-image img {
+                        display: block;
                     }
                     .premium-trust-content .dual-title {
                         font-size: 1.85rem;

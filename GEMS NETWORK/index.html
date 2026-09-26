@@ -967,6 +967,7 @@
             <!-- Category Swiper Slider with Offset Right -->
             <div class="trusted-categories-slider-wrapper" data-aos="fade-up" data-aos-delay="150"
                 data-aos-duration="800">
+                <h3 class="mobile-section-heading">Trusted Network for Members</h3>
                 <div class="swiper trustedCategorySwiper">
                     <div class="swiper-wrapper">
                         <!-- 1. Education -->
@@ -1013,7 +1014,7 @@
                         <div class="swiper-slide">
                             <div class="trusted-cat-card">
                                 <div class="trusted-cat-icon">
-                                    <i class="fa-solid fa-vault"></i>
+                                    <i class="fa-solid fa-money-check-dollar"></i>
                                 </div>
                                 <h3 class="trusted-cat-title">Financial</h3>
                             </div>
@@ -1079,7 +1080,66 @@
 
     </section>
 
-
+    <style>
+        /* Mobile/Tablet Overrides for Trusted Network Section */
+        @media (max-width: 991px) {
+            .partner-section.trusted-network-section .trusted-categories-slider-wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+            .partner-section.trusted-network-section .swiper-wrapper {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px !important;
+                transform: none !important;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            .partner-section.trusted-network-section .swiper-slide {
+                width: 100% !important;
+                margin: 0 !important;
+                height: auto !important;
+            }
+            .partner-section.trusted-network-section .trusted-cat-nav {
+                display: flex !important;
+                justify-content: center !important;
+                margin-top: 25px !important;
+                width: 100%;
+            }
+            .partner-section.trusted-network-section .mobile-section-heading {
+                display: block !important;
+                text-align: center;
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 25px;
+                color: #071b35; /* matching theme */
+            }
+            /* Adjust padding/font sizes for 3 columns on small screens to prevent overflow */
+            .partner-section.trusted-network-section .trusted-cat-card {
+                padding: 10px 5px !important;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .partner-section.trusted-network-section .trusted-cat-icon {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 18px !important;
+                margin-bottom: 10px !important;
+            }
+            .partner-section.trusted-network-section .trusted-cat-title {
+                font-size: 11px !important;
+                line-height: 1.2;
+                word-wrap: break-word;
+            }
+        }
+        @media (min-width: 992px) {
+            .partner-section.trusted-network-section .mobile-section-heading {
+                display: none !important;
+            }
+        }
+    </style>
     <style>
         /* SECTION */
         .partner-section {

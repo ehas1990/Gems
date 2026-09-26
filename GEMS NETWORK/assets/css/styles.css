@@ -9822,7 +9822,7 @@ body {
 @media screen and (max-width: 576px) {
     .trusted-cat-card {
         padding: 20px 10px 16px 10px;
-        min-height: 160px;
+        min-height: 130px;
     }
 
     .trusted-cat-icon {

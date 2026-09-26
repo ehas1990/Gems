@@ -10245,3 +10245,7 @@ i.fab {
         font-size: 16px;
     }
 }
+
+div#aboutStaggered span {
+    font-size: 15px !important;
+}

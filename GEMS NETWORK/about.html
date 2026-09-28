@@ -91,6 +91,195 @@
     <link rel="stylesheet" href="./assets/css/about.css">
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Scoped Responsive Styles for About Page (Tablet + Mobile Only) -->
+    <style id="about-responsive-enhancements">
+        @media (max-width: 1024px) {
+            /* 1. Header Banner Section */
+            .about-page-banner,
+            .about-banner {
+                padding: 60px 0 45px 0 !important;
+                min-height: 200px !important;
+            }
+            .about-banner-content {
+                padding: 20px 15px !important;
+            }
+
+            /* 2. Story / More Than a Platform Section */
+            .about-page-wrapper {
+                padding-top: 0 !important;
+            }
+            .aboutus-sectin-home {
+                padding: 35px 0 20px 0 !important;
+            }
+            .aboutus-sectin-home > .container-port > p,
+            .aboutus-sectin-home p:empty,
+            .aboutus-sectin-home p#stud_section,
+            .aboutus-sectin-home p#prof_section,
+            .aboutus-sectin-home p#buss_section {
+                display: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 0 !important;
+                line-height: 0 !important;
+            }
+            .aboutus-sectin-home .row {
+                margin-bottom: 35px !important;
+                align-items: center !important;
+            }
+            .aboutus-sectin-home .row:last-of-type {
+                margin-bottom: 0 !important;
+            }
+            .aboutus-sectin-home .abts-home-content {
+                padding-left: 0 !important;
+                padding-top: 15px !important;
+            }
+            .aboutus-sectin-home .imgbs {
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin-bottom: 20px !important;
+            }
+            .aboutus-sectin-home .imgbs img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                max-height: 440px !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                display: block !important;
+                border-radius: 10px !important;
+            }
+
+            /* 3. Mission Preview Section */
+            .about-mission-preview-section {
+                padding: 40px 0 45px !important;
+            }
+            .mission-preview-card {
+                padding: 32px 24px !important;
+            }
+
+            /* 4. Philosophy Section */
+            .why-gems-section {
+                padding: 45px 0 35px 0 !important;
+            }
+            .membership-tiers-header {
+                margin-bottom: 28px !important;
+            }
+            .box-philosophy-gems .wrapsrvhm {
+                min-height: 240px !important;
+            }
+
+            /* 5. The Eagle Section */
+            .gems-eagle-section .gems-eagle-editorial-wrapper {
+                padding: 45px 0 45px 0 !important;
+            }
+            .gems-eagle-section .gems-eagle-editorial-card {
+                padding: 36px 24px !important;
+            }
+
+            /* 6. Every Journey Matters Section */
+            .gems-journey-section {
+                padding: 45px 0 50px 0 !important;
+            }
+            .gems-journey-section .gems-journey-header {
+                margin-bottom: 28px !important;
+            }
+
+            /* 7. New About Content Sections */
+            .about-new-section {
+                padding: 35px 0 20px 0 !important;
+            }
+            .about-new-row {
+                margin-bottom: 35px !important;
+            }
+            .about-new-content {
+                padding: 15px 0 !important;
+            }
+            .about-new-img-wrap {
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: visible !important;
+            }
+            .about-new-img-wrap img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                max-height: 440px !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            /* 1. Header Banner Section */
+            .about-page-banner,
+            .about-banner {
+                padding: 45px 0 30px 0 !important;
+                min-height: 160px !important;
+            }
+
+            /* 2. Story Section */
+            .aboutus-sectin-home {
+                padding: 25px 0 15px 0 !important;
+            }
+            .aboutus-sectin-home .row {
+                margin-bottom: 25px !important;
+            }
+            .aboutus-sectin-home .imgbs img {
+                max-height: 320px !important;
+            }
+
+            /* 3. Mission Preview Section */
+            .about-mission-preview-section {
+                padding: 30px 0 35px !important;
+            }
+            .mission-preview-card {
+                padding: 24px 16px !important;
+            }
+
+            /* 4. Philosophy Section */
+            .why-gems-section {
+                padding: 35px 0 25px 0 !important;
+            }
+            .membership-tiers-header {
+                margin-bottom: 20px !important;
+            }
+
+            /* 5. The Eagle Section */
+            .gems-eagle-section .gems-eagle-editorial-wrapper {
+                padding: 35px 0 35px 0 !important;
+            }
+            .gems-eagle-section .gems-eagle-editorial-card {
+                padding: 28px 18px !important;
+            }
+
+            /* 6. Every Journey Matters Section */
+            .gems-journey-section {
+                padding: 35px 0 40px 0 !important;
+            }
+            .gems-journey-section .gems-journey-header {
+                margin-bottom: 20px !important;
+            }
+
+            /* 7. New About Content Sections */
+            .about-new-section {
+                padding: 25px 0 15px 0 !important;
+            }
+            .about-new-row {
+                margin-bottom: 25px !important;
+            }
+            .about-new-img-wrap img {
+                max-height: 320px !important;
+            }
+        }
+    </style>
 </head>
 
 

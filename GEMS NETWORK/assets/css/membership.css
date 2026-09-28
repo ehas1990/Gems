@@ -1253,6 +1253,24 @@
     .membership-page .retainer-info {
         max-width: 100%;
     }
+
+    .membership-page .plan-savings-badge {
+        position: absolute;
+        top: auto;
+        bottom: 14px;
+        right: 14px;
+        margin-top: 0;
+        padding: 3px 10px;
+        background: #ecfdf5;
+        border: 1px solid #a7f3d0;
+        color: #047857;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        border-radius: 20px;
+        white-space: nowrap;
+        animation: fadeInPane 0.3s ease-out;
+    }
 }
 
 @media (max-width: 768px) {

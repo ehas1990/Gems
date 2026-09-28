@@ -1448,7 +1448,7 @@ header.headerbg .ham span {
 }
 
 .gems-eagle-section .gems-eagle-editorial-card {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     background: #ffffff;
     border: 1px solid rgba(7, 27, 53, 0.08);
@@ -1459,10 +1459,10 @@ header.headerbg .ham span {
 
 .gems-eagle-section .gems-eagle-editorial-lead {
     font-size: 1.25rem !important;
-    font-weight: 600;
+    font-weight: 400 !important;
     color: #071b35 !important;
     line-height: 1.65 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 16px !important;
 }
 
 .gems-eagle-section .gems-eagle-editorial-content p {
@@ -1470,11 +1470,17 @@ header.headerbg .ham span {
     font-size: 1.0625rem;
     line-height: 1.8;
     color: #4a5568;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+}
+
+.gems-eagle-section .gems-eagle-editorial-content strong {
+    font-weight: 700;
+    color: #071b35;
 }
 
 .gems-eagle-section .gems-eagle-editorial-quote {
-    margin-top: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 24px 30px;
     border-left: 4px solid var(--color-gold, #F4B942);
     background: rgba(244, 185, 66, 0.12);

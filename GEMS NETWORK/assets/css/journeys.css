@@ -206,7 +206,7 @@
    3. FOUR-STAGE CONNECTED JOURNEY TIMELINE (CORE SECTION)
    ========================================================================== */
 .journeys-page .journeys-stages-section {
-    padding: 60px 0 110px 0;
+    /* padding: 60px 0 110px 0; */
     background-color: var(--color-surface, #f7f9fc);
     position: relative;
 }

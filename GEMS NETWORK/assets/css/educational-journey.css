@@ -1,0 +1,322 @@
+/* ==========================================================================
+   EDUCATIONAL JOURNEY - OPEN BOOK / 4-CHAPTER STORYTELLING REDESIGN
+   ========================================================================== */
+
+/* Stage highlight styles preserved */
+.stage_3 {
+    position: relative;
+    left: 60px;
+    color: #f1b742;
+    font-weight: 600;
+}
+
+.stage_2 {
+    position: relative;
+    left: 30px;
+    color: #f1b742;
+    font-weight: 600;
+}
+
+.stage_1 {
+    color: #f1b742;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   OPEN BOOK 4-CHAPTER SPREAD CONTAINER (CLEAN CARDS - NO OUTER BG/CASING)
+   ========================================================================== */
+.journeys-page .journeys-stages-section {
+
+    background: transparent !important;
+    background-color: #f7f9fc !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.journeys-page .stages-connector-line {
+    display: none !important;
+}
+
+.journeys-page .stages-timeline-container {
+    margin-top: 16px;
+    position: relative;
+}
+
+/* Outer Shell Removed - Clean Transparent Container */
+.journeys-page .stages-book-spread {
+    position: relative;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+}
+
+/* 4 Connected Chapters Grid */
+.journeys-page .stages-book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Individual Chapter Card */
+.journeys-page .stage-book-chapter {
+    position: relative;
+    padding: 26px 20px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid rgba(15, 22, 129, 0.09);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(7, 27, 53, 0.05);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journeys-page .stage-book-chapter:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(15, 22, 129, 0.1);
+    border-color: rgba(190, 159, 92, 0.4);
+    background: #ffffff;
+}
+
+/* Chapter Header Label */
+.journeys-page .stage-chapter-badge {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #be9f5c;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+/* Chapter Title */
+.journeys-page .stage-chapter-title {
+    color: var(--color-navy-deep, #071b35);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* Chapter Subtitle / Description */
+.journeys-page .stage-chapter-desc {
+    color: #64748b;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    text-align: center;
+    min-height: 62px;
+}
+
+/* Chapter Image Frame */
+.journeys-page .stage-chapter-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.07);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    background: #f1f5f9;
+}
+
+.journeys-page .stage-chapter-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+}
+
+.journeys-page .stage-book-chapter:hover .stage-chapter-img {
+    transform: scale(1.05);
+}
+
+/* Services & Guidance Title */
+.journeys-page .stage-chapter-services-title {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--color-primary, #0f1681);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(15, 22, 129, 0.1);
+    text-align: left;
+}
+
+/* Services List */
+.journeys-page .stage-chapter-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+    flex-grow: 1;
+}
+
+.journeys-page .stage-chapter-services-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    color: #334155;
+    font-weight: 500;
+    margin-bottom: 7px;
+    line-height: 1.35;
+    text-align: left;
+    padding-left: 0;
+}
+
+.journeys-page .stage-chapter-services-list li::before {
+    display: none !important;
+}
+
+.journeys-page .stage-chapter-services-list li i {
+    color: #be9f5c;
+    font-size: 0.86rem;
+    width: 16px;
+    text-align: center;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* CTA Button */
+.journeys-page .stage-chapter-cta-wrap {
+    margin-top: auto;
+    margin-bottom: 14px;
+}
+
+.journeys-page .stage-chapter-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 22, 129, 0.22);
+    color: var(--color-primary, #0f1681);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(7, 27, 53, 0.04);
+}
+
+.journeys-page .stage-chapter-cta-btn:hover {
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border-color: var(--color-primary, #0f1681);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(15, 22, 129, 0.18);
+}
+
+/* Bottom Chapter Tagline */
+.journeys-page .stage-chapter-tagline {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(15, 22, 129, 0.14);
+}
+
+/* Bottom Book Spread Accent / Signature */
+.journeys-page .stages-book-footer-accent {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(190, 159, 92, 0.25);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.journeys-page .stages-book-footer-accent em {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #be9f5c;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (LAPTOP, TABLET, MOBILE)
+   ========================================================================== */
+
+/* Laptop (1025px - 1200px) */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .journeys-page .stages-book-grid {
+        gap: 16px;
+    }
+
+    .journeys-page .stage-book-chapter {
+        padding: 22px 14px 18px 14px;
+    }
+
+    .journeys-page .stage-chapter-title {
+        font-size: 1.15rem;
+    }
+
+    .journeys-page .stage-chapter-desc {
+        font-size: 0.84rem;
+        min-height: 70px;
+    }
+
+    .journeys-page .stage-chapter-services-list li {
+        font-size: 0.82rem;
+    }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .journeys-page .stages-book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .journeys-page .stage-chapter-desc {
+        min-height: auto;
+    }
+
+    .journeys-page .stages-book-footer-accent {
+        justify-content: center;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+    .journeys-page .journeys-stages-section {
+        padding: 40px 0 70px 0;
+    }
+
+    .journeys-page .stages-book-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .journeys-page .stage-book-chapter {
+        padding: 24px 18px;
+    }
+
+    .journeys-page .stage-chapter-desc {
+        min-height: auto;
+    }
+
+    .journeys-page .stages-book-footer-accent {
+        justify-content: center;
+        margin-top: 18px;
+        padding-top: 14px;
+    }
+}

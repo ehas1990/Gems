@@ -9561,16 +9561,27 @@ body {
     margin-top: 80px;
 }
 
+.principle-icon-wrapper svg,
+.principle-icon-wrapper svg path {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
 .principle-card:hover .trust path {
     stroke: #ffffff;
 }
 
-.principle-card:hover .gauide path {
-    fill: #ffffff;
+.principle-card:hover #_x32_,
+.principle-card:hover #_x32_ path,
+.principle-card:hover .guidance,
+.principle-card:hover .guidance path,
+.principle-card:hover .gauide path,
+.principle-card:hover .st0 {
+    fill: #ffffff !important;
 }
 
-.principle-card:hover .network path {
-    fill: #ffffff;
+.principle-card:hover .network path,
+.principle-card:hover svg path[stroke] {
+    stroke: #ffffff;
 }
 
 /* ==========================================================================

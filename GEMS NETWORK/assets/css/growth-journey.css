@@ -495,14 +495,26 @@
     justify-content: center;
 }
 
-/* Outer World Map Watermark Circle */
+/* Outer World Map Watermark Circle / Vintage Map Background */
 .growth-journey-page .compass-world-map-bg {
     position: absolute;
-    inset: -30px;
-    background: radial-gradient(circle, rgba(198, 168, 120, 0.12) 0%, rgba(198, 168, 120, 0.02) 65%, transparent 75%);
-    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 720px;
+    height: 520px;
+    max-width: 140vw;
+    background-image: url('../img/compass_world_map.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.55;
+    mix-blend-mode: multiply;
     pointer-events: none;
     z-index: 0;
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, black 45%, transparent 95%);
+    mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, black 45%, transparent 95%);
+    transition: opacity 0.3s ease;
 }
 
 /* Cardinal Points Outside the Compass Ring (N, E, S, W) */
@@ -817,24 +829,112 @@
     background: radial-gradient(circle, #255d99 0%, #0e2747 100%);
 }
 
-/* Active & Hover States - Sector Highlighting & Icon Elevation */
-.growth-journey-page .compass-node-btn:hover,
+/* Active & Hover States - Sector Highlighting & Ambient Glow */
+.growth-journey-page .compass-node-btn {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+/* Ambient Radial Glow behind the Active Sector */
+.growth-journey-page .compass-node-btn::before {
+    content: '';
+    position: absolute;
+    inset: -14px -18px;
+    border-radius: 40px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.25) 0%, rgba(255, 215, 0, 0.18) 40%, transparent 72%);
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.growth-journey-page .compass-node-btn:hover {
+    z-index: 8;
+}
+
 .growth-journey-page .compass-node-btn.active {
     z-index: 9;
 }
 
-.growth-journey-page .compass-node-btn:hover .node-icon-wrap,
+.growth-journey-page .compass-node-btn:hover::before {
+    opacity: 0.55;
+    transform: scale(0.98);
+}
+
+.growth-journey-page .compass-node-btn.active::before {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* Specific Dimension Glows */
+.growth-journey-page .compass-node-btn.segment-personal.active::before {
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.5) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
+}
+.growth-journey-page .compass-node-btn.segment-professional.active::before {
+    background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.55) 0%, rgba(0, 180, 216, 0.3) 45%, transparent 75%);
+}
+.growth-journey-page .compass-node-btn.segment-financial.active::before {
+    background: radial-gradient(ellipse at center, rgba(132, 204, 22, 0.5) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
+}
+.growth-journey-page .compass-node-btn.segment-network.active::before {
+    background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.55) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
+}
+.growth-journey-page .compass-node-btn.segment-entrepreneurship.active::before {
+    background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.55) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
+}
+.growth-journey-page .compass-node-btn.segment-planning.active::before {
+    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.5) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
+}
+
+.growth-journey-page .compass-node-btn .node-content-inner {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.growth-journey-page .compass-node-btn:hover .node-content-inner {
+    transform: scale(1.04);
+}
+
+.growth-journey-page .compass-node-btn.active .node-content-inner {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+}
+
+.growth-journey-page .compass-node-btn .node-icon-wrap {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.growth-journey-page .compass-node-btn:hover .node-icon-wrap {
+    transform: scale(1.1);
+    border-color: #ffd700;
+    box-shadow: 0 0 14px rgba(255, 215, 0, 0.6), 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
 .growth-journey-page .compass-node-btn.active .node-icon-wrap {
     transform: scale(1.18);
     border-color: #ffd700;
-    box-shadow: 0 0 16px rgba(255, 215, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 
+        0 0 0 2px rgba(255, 215, 0, 0.5),
+        0 0 20px rgba(255, 215, 0, 0.85),
+        0 4px 14px rgba(0, 0, 0, 0.6),
+        inset 0 0 8px rgba(255, 255, 255, 0.45);
 }
 
-.growth-journey-page .compass-node-btn:hover .compass-label,
-.growth-journey-page .compass-node-btn.active .compass-label {
+.growth-journey-page .compass-node-btn .compass-label {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.growth-journey-page .compass-node-btn:hover .compass-label {
     color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6), 0 2px 4px #000;
+}
+
+.growth-journey-page .compass-node-btn.active .compass-label {
+    color: #ffffff;
     font-weight: 800;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 2px 6px #000;
+    text-shadow: 
+        0 0 12px rgba(255, 215, 0, 0.85),
+        0 2px 6px rgba(0, 0, 0, 0.95),
+        0 1px 2px #000000;
 }
 
 /* Central Vintage Star Rose & Rotating Pointer Needle */
@@ -1586,6 +1686,12 @@
         justify-content: center;
     }
 
+    .growth-journey-page .compass-world-map-bg {
+        width: 620px;
+        height: 460px;
+        max-width: 98vw;
+    }
+
     .growth-journey-page .compass-detail-panel {
         order: 2;
         max-width: 650px;
@@ -1691,6 +1797,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .growth-journey-page .compass-world-map-bg {
+        width: 480px;
+        height: 360px;
+        max-width: 98vw;
+        opacity: 0.48;
     }
 
     .growth-journey-page .compass-circle-outer {
@@ -1872,6 +1985,13 @@
     .growth-journey-page .compass-vintage-wrapper {
         width: 280px;
         height: 280px;
+    }
+
+    .growth-journey-page .compass-world-map-bg {
+        width: 380px;
+        height: 290px;
+        max-width: 98vw;
+        opacity: 0.42;
     }
 
     .growth-journey-page .compass-circle-outer {

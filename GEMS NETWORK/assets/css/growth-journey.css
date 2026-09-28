@@ -1684,12 +1684,37 @@
     .growth-journey-page .compass-visual-col {
         order: 1;
         justify-content: center;
+        position: relative;
+        overflow: visible;
+    }
+
+    .growth-journey-page .compass-vintage-wrapper {
+        width: 440px;
+        height: 440px;
+        position: relative;
+        overflow: visible;
     }
 
     .growth-journey-page .compass-world-map-bg {
-        width: 620px;
-        height: 460px;
-        max-width: 98vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 680px;
+        height: 480px;
+        max-width: 100vw;
+        background-image: url('../img/compass_world_map.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.6;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        z-index: 0;
+        -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 98%);
+        mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 98%);
+        display: block !important;
+        visibility: visible !important;
     }
 
     .growth-journey-page .compass-detail-panel {
@@ -1779,13 +1804,14 @@
 
     /* Mobile Compass Scaling (Proportionally scaled full circular dial with safe viewport padding) */
     .growth-journey-page .compass-visual-col {
-        padding: 20px 24px 30px 24px;
+        padding: 20px 10px 30px 10px;
         width: 100%;
         box-sizing: border-box;
         overflow: visible;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
     .growth-journey-page .compass-vintage-wrapper {
@@ -1797,13 +1823,29 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: visible;
     }
 
     .growth-journey-page .compass-world-map-bg {
-        width: 480px;
-        height: 360px;
-        max-width: 98vw;
-        opacity: 0.48;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 540px;
+        height: 390px;
+        max-width: 100vw;
+        background-image: url('../img/compass_world_map.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.58;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        z-index: 0;
+        -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 98%);
+        mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 98%);
+        display: block !important;
+        visibility: visible !important;
     }
 
     .growth-journey-page .compass-circle-outer {
@@ -1979,19 +2021,38 @@
     }
 
     .growth-journey-page .compass-visual-col {
-        padding: 16px 16px 26px 16px;
+        padding: 16px 8px 26px 8px;
+        position: relative;
+        overflow: visible;
     }
 
     .growth-journey-page .compass-vintage-wrapper {
         width: 280px;
         height: 280px;
+        position: relative;
+        overflow: visible;
     }
 
     .growth-journey-page .compass-world-map-bg {
-        width: 380px;
-        height: 290px;
-        max-width: 98vw;
-        opacity: 0.42;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        height: 330px;
+        max-width: 100vw;
+        background-image: url('../img/compass_world_map.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.55;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        z-index: 0;
+        -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 98%);
+        mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 98%);
+        display: block !important;
+        visibility: visible !important;
     }
 
     .growth-journey-page .compass-circle-outer {

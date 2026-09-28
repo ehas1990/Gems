@@ -519,7 +519,9 @@
 }
 
 .membership-page .journey-steps-indicator {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;

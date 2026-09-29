@@ -1,0 +1,1006 @@
+/* ==========================================================================
+   GEMS ONBOARDING EXPERIENCE - DEDICATED STYLESHEET
+   Scoped strictly under .onboarding-page
+   ========================================================================== */
+
+body.onboarding-page {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body.onboarding-page main {
+    width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   HEADER SCROLL BEHAVIOR (TRANSPARENT -> WHITE ON SCROLL)
+   ========================================================================== */
+.onboarding-page header {
+    transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.onboarding-page header.headerbg,
+.onboarding-page header.header-scrolled {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px -2px rgba(16, 24, 40, 0.08), 0 2px 6px -1px rgba(16, 24, 40, 0.04) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    padding: 10px 0 !important;
+}
+
+.onboarding-page header.headerbg .logo-gems-eagle,
+.onboarding-page header.header-scrolled .logo-gems-eagle {
+    transform: scale(0.95) !important;
+    transform-origin: left center !important;
+}
+
+.onboarding-page header.headerbg .list_nav_a,
+.onboarding-page header.header-scrolled .list_nav_a {
+    color: #0d1b2a !important;
+}
+
+.onboarding-page header.headerbg .list_nav_a:hover,
+.onboarding-page header.header-scrolled .list_nav_a:hover {
+    color: #1a365d !important;
+}
+
+.onboarding-page header.headerbg .list_nav_a::after,
+.onboarding-page header.header-scrolled .list_nav_a::after {
+    background: #0d1b2a !important;
+}
+
+.onboarding-page header.headerbg #loginBtn,
+.onboarding-page header.header-scrolled #loginBtn {
+    color: #0d1b2a !important;
+    border-color: #0d1b2a !important;
+}
+
+.onboarding-page header.headerbg #loginBtn:hover,
+.onboarding-page header.header-scrolled #loginBtn:hover {
+    background: #0d1b2a !important;
+    color: #ffffff !important;
+    border-color: #0d1b2a !important;
+}
+
+.onboarding-page header.headerbg .ham span,
+.onboarding-page header.header-scrolled .ham span {
+    background: #0d1b2a !important;
+}
+
+/* ==========================================================================
+   HERO BANNER - MATCHING EDUCATIONAL-JOURNEYS.HTML REFERENCE
+   ========================================================================== */
+.onboarding-page .journeys-hero {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 110px 0;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 580px;
+}
+
+.onboarding-page .journeys-hero .container-port-xl {
+    padding: 50px 10px;
+}
+
+.onboarding-page .journeys-hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.onboarding-page .journeys-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.60;
+    filter: saturate(1.1) brightness(0.95);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+}
+
+.onboarding-page .journeys-hero:hover .journeys-hero-bg {
+    transform: scale(1.06);
+}
+
+.onboarding-page .journeys-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(15, 22, 129, 0.45) 0%, rgba(7, 27, 53, 0.78) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.onboarding-page .journeys-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.onboarding-page .journeys-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 185, 66, 0.15);
+    border: 1px solid rgba(244, 185, 66, 0.4);
+    color: var(--color-gold, #f4b942);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.onboarding-page .journeys-hero-title {
+    color: #ffffff;
+    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.18;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+}
+
+.onboarding-page .journeys-hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.onboarding-page .journeys-tagline-badge {
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 36px;
+    position: relative;
+    padding: 0 16px;
+}
+
+.onboarding-page .journeys-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.onboarding-page .btn-gems-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35) !important;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+    min-height: 48px;
+}
+
+.onboarding-page .btn-gems-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(244, 185, 66, 0.5);
+    color: var(--color-navy-deep, #071b35) !important;
+    background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%);
+}
+
+/* ==========================================================================
+   SECTIONS & NUMBERED ROWS (1 TO 10)
+   ========================================================================== */
+.onboarding-page .onboarding-sections-stream {
+    padding: 60px 0 100px;
+}
+
+.onboarding-page .onboarding-section-card {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    padding: 36px 32px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(7, 27, 53, 0.04);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.onboarding-page .onboarding-section-card:hover {
+    box-shadow: 0 8px 30px rgba(7, 27, 53, 0.07);
+    border-color: #cbd5e1;
+}
+
+.onboarding-page .section-row-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: flex-start;
+}
+
+/* Left Column: Numbered Badge & Overview */
+.onboarding-page .section-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.onboarding-page .section-number-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.onboarding-page .section-badge-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #071b35;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(7, 27, 53, 0.2);
+}
+
+.onboarding-page .section-badge-title {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #071b35;
+    line-height: 1.25;
+}
+
+.onboarding-page .section-badge-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #f1f5f9;
+    color: #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-top: 6px;
+}
+
+.onboarding-page .section-left-lead {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #071b35;
+    line-height: 1.35;
+}
+
+.onboarding-page .section-left-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.onboarding-page .section-left-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.onboarding-page .section-left-list li {
+    font-size: 0.88rem;
+    color: #475569;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.onboarding-page .section-left-list li span.step-idx {
+    font-weight: 700;
+    color: #0284c7;
+}
+
+/* Right Column: Interactive Content */
+.onboarding-page .section-right-col {
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 32px 28px;
+    border: 1px solid #edf2f7;
+}
+
+/* ==========================================================================
+   PART 1: CHOOSE YOUR JOURNEY CARDS
+   ========================================================================== */
+.onboarding-page .journey-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.onboarding-page .journey-select-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px 14px 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(7, 27, 53, 0.02);
+}
+
+.onboarding-page .journey-select-card:hover {
+    transform: translateY(-3px);
+    border-color: #93c5fd;
+    box-shadow: 0 8px 20px rgba(7, 27, 53, 0.06);
+}
+
+.onboarding-page .journey-select-card.active {
+    border-color: #0284c7;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.15);
+}
+
+.onboarding-page .journey-card-icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+
+.onboarding-page .icon-edu-bg { background: #e0f2fe; color: #0284c7; }
+.onboarding-page .icon-career-bg { background: #ecfdf5; color: #059669; }
+.onboarding-page .icon-growth-bg { background: #fffbeb; color: #d97706; }
+.onboarding-page .icon-explore-bg { background: #f3e8ff; color: #7c3aed; }
+
+.onboarding-page .journey-card-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #071b35;
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+.onboarding-page .journey-radio-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    margin-top: auto;
+    transition: all 0.2s ease;
+}
+
+.onboarding-page .journey-select-card.active .journey-radio-dot {
+    border-color: #0284c7;
+    background: #0284c7;
+    box-shadow: inset 0 0 0 2.5px #ffffff;
+}
+
+/* ==========================================================================
+   DROPDOWN QUESTIONNAIRE - PROGRESSIVE SEQUENTIAL FLOW
+   ========================================================================== */
+.onboarding-page .questionnaire-progressive-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.onboarding-page .sequential-question-step {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(7, 27, 53, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(10px);
+    display: none;
+}
+
+.onboarding-page .sequential-question-step.is-visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: questionStepReveal 0.35s ease-out forwards;
+}
+
+@keyframes questionStepReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.onboarding-page .sequential-question-step:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.06);
+}
+
+.onboarding-page .question-step-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #071b35;
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+
+.onboarding-page .question-step-num-badge {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #0284c7;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.onboarding-page .select-field-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.onboarding-page .onboarding-custom-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f8fafc;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230284c7'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 13px 46px 13px 16px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1e293b;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.onboarding-page .onboarding-custom-select:hover {
+    border-color: #94a3b8;
+    background-color: #ffffff;
+}
+
+.onboarding-page .onboarding-custom-select:focus {
+    outline: none;
+    border-color: #0284c7;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.onboarding-page .onboarding-custom-select option {
+    padding: 10px;
+    color: #1e293b;
+    background-color: #ffffff;
+}
+
+.onboarding-page .inline-other-input-wrap {
+    margin-top: 10px;
+    display: none;
+}
+
+.onboarding-page .inline-other-input-wrap.is-visible {
+    display: block;
+    animation: questionStepReveal 0.25s ease-out forwards;
+}
+
+.onboarding-page .inline-other-input-wrap input {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 0.9rem;
+    color: #071b35;
+    background: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.onboarding-page .inline-other-input-wrap input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.onboarding-page .questionnaire-finish-wrap {
+    display: none;
+    margin-top: 10px;
+    animation: questionStepReveal 0.35s ease-out forwards;
+}
+
+.onboarding-page .questionnaire-finish-wrap.is-visible {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ==========================================================================
+   PART 6: PERSONALIZED SUMMARY
+   ========================================================================== */
+.onboarding-page .summary-right-box {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid #e2e8f0;
+}
+
+.onboarding-page .summary-user-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.onboarding-page .summary-user-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #0284c7;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.onboarding-page .summary-user-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #071b35;
+    margin: 0;
+}
+
+.onboarding-page .summary-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.onboarding-page .summary-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.45;
+}
+
+.onboarding-page .summary-item-row:last-child {
+    border-bottom: none;
+}
+
+.onboarding-page .summary-check-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e0f2fe;
+    color: #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.onboarding-page .summary-bottom-badge {
+    background: #f0f9ff;
+    border-left: 3px solid #0284c7;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: #0369a1;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   PART 7: RECOMMENDATIONS (HORIZONTAL LIST CARDS)
+   ========================================================================== */
+.onboarding-page .recommendations-list-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.onboarding-page .recommendation-row-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.onboarding-page .recommendation-row-card:hover {
+    border-color: #93c5fd;
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.05);
+}
+
+.onboarding-page .rec-row-thumb {
+    width: 90px;
+    height: 64px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.onboarding-page .rec-row-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.onboarding-page .rec-row-info {
+    flex-grow: 1;
+}
+
+.onboarding-page .rec-row-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #071b35;
+    margin-bottom: 2px;
+}
+
+.onboarding-page .rec-row-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.onboarding-page .rec-row-arrow {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   PART 8: NEXT STEPS (3 ACTION CARDS)
+   ========================================================================== */
+.onboarding-page .next-steps-row-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.onboarding-page .next-step-box {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 22px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.onboarding-page .next-step-icon-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f0f9ff;
+    color: #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.onboarding-page .next-step-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #0284c7;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.onboarding-page .next-step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #071b35;
+    margin-bottom: 6px;
+}
+
+.onboarding-page .next-step-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   PART 9: EXPLORER MEMBERSHIP & CONSULTANT
+   ========================================================================== */
+.onboarding-page .membership-consultant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.onboarding-page .membership-clean-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 26px 22px;
+    border: 1.5px solid #edbd75;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.onboarding-page .membership-header-pill {
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: rgba(237, 189, 117, 0.2);
+    color: #92580a;
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.onboarding-page .membership-card-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #071b35;
+    margin-bottom: 10px;
+}
+
+.onboarding-page .membership-bullet-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+}
+
+.onboarding-page .membership-bullet-points li {
+    font-size: 0.85rem;
+    color: #334155;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.onboarding-page .membership-bullet-points li i {
+    color: #059669;
+    font-size: 0.8rem;
+}
+
+.onboarding-page .consultant-clean-card {
+    background: linear-gradient(135deg, #071b35 0%, #0f274a 100%);
+    border-radius: 16px;
+    padding: 26px 22px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.onboarding-page .consultant-avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.onboarding-page .consultant-pic {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid #edbd75;
+    object-fit: cover;
+}
+
+.onboarding-page .consultant-name-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.onboarding-page .consultant-subtag {
+    font-size: 0.78rem;
+    color: #edbd75;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   PART 10: BACK TO HOME
+   ========================================================================== */
+.onboarding-page .back-to-home-box {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.onboarding-page .back-to-home-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #071b35;
+    margin: 0;
+}
+
+/* ==========================================================================
+   BUTTONS & ACTION STYLES
+   ========================================================================== */
+.onboarding-page .btn-onboarding-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #edbd75 0%, #d49e4e 100%);
+    color: #071b35 !important;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(237, 189, 117, 0.35);
+    transition: all 0.25s ease;
+    text-decoration: none !important;
+}
+
+.onboarding-page .btn-onboarding-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(237, 189, 117, 0.5);
+    background: linear-gradient(135deg, #fcd598 0%, #e2ab5b 100%);
+}
+
+.onboarding-page .btn-onboarding-navy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #ffffff;
+    color: #071b35 !important;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none !important;
+}
+
+.onboarding-page .btn-onboarding-navy:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+.onboarding-page .section-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .onboarding-page .section-row-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .onboarding-page .journey-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .onboarding-page .questions-two-col-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .onboarding-page .next-steps-row-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .onboarding-page .membership-consultant-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .onboarding-page .onboarding-hero-banner {
+        padding: 90px 0 60px;
+    }
+
+    .onboarding-page .onboarding-hero-title {
+        font-size: 2.3rem;
+    }
+
+    .onboarding-page .onboarding-section-card {
+        padding: 24px 16px;
+    }
+
+    .onboarding-page .section-right-col {
+        padding: 20px 16px;
+    }
+
+    .onboarding-page .journey-grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .onboarding-page .recommendation-row-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .onboarding-page .rec-row-thumb {
+        width: 100%;
+        height: 120px;
+    }
+}

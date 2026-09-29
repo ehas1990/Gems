@@ -184,10 +184,16 @@ span.staggered-line.staggered-5 {
 }
 
 /* Responsive Styles for Banner */
-@media (max-width: 1023px) {
-    .about-page-banner {
-        padding: 80px 0 70px 0;
+@media (max-width: 1024px) {
+    .about-page-banner,
+    .about-banner {
+        height: 300px;
         min-height: 280px;
+        max-height: 320px;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .about-banner-title {
@@ -197,12 +203,64 @@ span.staggered-line.staggered-5 {
     .about-banner-description {
         margin-bottom: 20px;
     }
+
+    /* Responsive Staggered Lines (Tablet) */
+    .about-final-staggered {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .about-final-staggered .staggered-line {
+        font-size: clamp(18px, 2.8vw, 24px) !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        position: static !important;
+        left: 0 !important;
+    }
+
+    .staggered-1 {
+        margin-left: 0 !important;
+        left: 0 !important;
+    }
+
+    .staggered-2 {
+        margin-left: 18px !important;
+        left: 0 !important;
+    }
+
+    .staggered-3 {
+        margin-left: 36px !important;
+        left: 0 !important;
+    }
+
+    .staggered-4 {
+        margin-left: 54px !important;
+        left: 0 !important;
+    }
+
+    .staggered-5,
+    span.staggered-line.staggered-5 {
+        margin-left: 72px !important;
+        left: 0 !important;
+        position: static !important;
+    }
 }
 
 @media (max-width: 767px) {
-    .about-page-banner {
-        padding: 90px 0 50px 0;
+    .about-page-banner,
+    .about-banner {
+        height: 260px;
         min-height: 240px;
+        max-height: 280px;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .about-banner-title {
@@ -219,7 +277,126 @@ span.staggered-line.staggered-5 {
         padding: 5px 14px;
         font-size: 0.8125rem;
     }
+
+    /* Responsive Staggered Lines (Mobile) */
+    .about-final-staggered {
+        margin: 16px 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .about-final-staggered .staggered-line {
+        font-size: clamp(14px, 3.8vw, 16px) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 10px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        position: static !important;
+        left: 0 !important;
+    }
+
+    .staggered-1 {
+        margin-left: 0 !important;
+        left: 0 !important;
+    }
+
+    .staggered-2 {
+        margin-left: 12px !important;
+        left: 0 !important;
+    }
+
+    .staggered-3 {
+        margin-left: 24px !important;
+        left: 0 !important;
+    }
+
+    .staggered-4 {
+        margin-left: 34px !important;
+        left: 0 !important;
+    }
+
+    .staggered-5,
+    span.staggered-line.staggered-5 {
+        margin-left: 44px !important;
+        left: 0 !important;
+        position: static !important;
+    }
 }
+
+@media (max-width: 480px) {
+    .about-page-banner,
+    .about-banner {
+        height: 240px;
+        min-height: 220px;
+        max-height: 260px;
+        padding: 0 !important;
+    }
+
+    .about-final-staggered .staggered-line {
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .staggered-1 {
+        margin-left: 0 !important;
+        left: 0 !important;
+    }
+
+    .staggered-2 {
+        margin-left: 8px !important;
+        left: 0 !important;
+    }
+
+    .staggered-3 {
+        margin-left: 16px !important;
+        left: 0 !important;
+    }
+
+    .staggered-4 {
+        margin-left: 24px !important;
+        left: 0 !important;
+    }
+
+    .staggered-5,
+    span.staggered-line.staggered-5 {
+        margin-left: 32px !important;
+        left: 0 !important;
+        position: static !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-final-staggered .staggered-line {
+        font-size: 13.5px !important;
+    }
+
+    .staggered-1 {
+        margin-left: 0 !important;
+    }
+
+    .staggered-2 {
+        margin-left: 6px !important;
+    }
+
+    .staggered-3 {
+        margin-left: 12px !important;
+    }
+
+    .staggered-4 {
+        margin-left: 18px !important;
+    }
+
+    .staggered-5,
+    span.staggered-line.staggered-5 {
+        margin-left: 24px !important;
+    }
+}
+
+
 
 /* ==========================================================================
    2. REUSABLE BADGES, BUTTONS & SECTION ACCENTS

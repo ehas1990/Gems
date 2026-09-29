@@ -99,10 +99,13 @@
             /* 1. Header Banner Section */
             .about-page-banner,
             .about-banner {
-                height: 240px !important;
-                min-height: 200px !important;
-                max-height: 260px !important;
+                height: 300px !important;
+                min-height: 280px !important;
+                max-height: 320px !important;
                 padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             .about-banner-content {
@@ -235,6 +238,52 @@
                 object-position: center !important;
                 display: block !important;
             }
+
+            /* 8. Responsive Staggered Lines (Tablet) */
+            .about-final-staggered {
+                max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .about-final-staggered .staggered-line {
+                font-size: clamp(18px, 2.8vw, 24px) !important;
+                line-height: 1.45 !important;
+                margin-bottom: 12px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                position: static !important;
+                left: 0 !important;
+            }
+
+            .staggered-1 {
+                margin-left: 0 !important;
+                left: 0 !important;
+            }
+
+            .staggered-2 {
+                margin-left: 18px !important;
+                left: 0 !important;
+            }
+
+            .staggered-3 {
+                margin-left: 36px !important;
+                left: 0 !important;
+            }
+
+            .staggered-4 {
+                margin-left: 54px !important;
+                left: 0 !important;
+            }
+
+            .staggered-5,
+            span.staggered-line.staggered-5 {
+                margin-left: 72px !important;
+                left: 0 !important;
+                position: static !important;
+            }
         }
 
         @media (max-width: 767px) {
@@ -242,10 +291,13 @@
             /* 1. Header Banner Section */
             .about-page-banner,
             .about-banner {
-                height: 180px !important;
-                min-height: 150px !important;
-                max-height: 200px !important;
+                height: 260px !important;
+                min-height: 240px !important;
+                max-height: 280px !important;
                 padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             /* 2. Story Section */
@@ -308,6 +360,115 @@
 
             .about-new-img-wrap img {
                 max-height: 320px !important;
+            }
+
+            /* 8. Responsive Staggered Lines (Mobile) */
+            .about-final-staggered {
+                margin: 16px 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .about-final-staggered .staggered-line {
+                font-size: clamp(14px, 3.8vw, 16px) !important;
+                line-height: 1.5 !important;
+                margin-bottom: 10px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                position: static !important;
+                left: 0 !important;
+            }
+
+            .staggered-1 {
+                margin-left: 0 !important;
+                left: 0 !important;
+            }
+
+            .staggered-2 {
+                margin-left: 12px !important;
+                left: 0 !important;
+            }
+
+            .staggered-3 {
+                margin-left: 24px !important;
+                left: 0 !important;
+            }
+
+            .staggered-4 {
+                margin-left: 34px !important;
+                left: 0 !important;
+            }
+
+            .staggered-5,
+            span.staggered-line.staggered-5 {
+                margin-left: 44px !important;
+                left: 0 !important;
+                position: static !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-final-staggered .staggered-line {
+                font-size: 14px !important;
+                line-height: 1.45 !important;
+                margin-bottom: 8px !important;
+            }
+
+            .staggered-1 {
+                margin-left: 0 !important;
+                left: 0 !important;
+            }
+
+            .staggered-2 {
+                margin-left: 8px !important;
+                left: 0 !important;
+            }
+
+            .staggered-3 {
+                margin-left: 16px !important;
+                left: 0 !important;
+            }
+
+            .staggered-4 {
+                margin-left: 24px !important;
+                left: 0 !important;
+            }
+
+            .staggered-5,
+            span.staggered-line.staggered-5 {
+                margin-left: 32px !important;
+                left: 0 !important;
+                position: static !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .about-final-staggered .staggered-line {
+                font-size: 13.5px !important;
+            }
+
+            .staggered-1 {
+                margin-left: 0 !important;
+            }
+
+            .staggered-2 {
+                margin-left: 6px !important;
+            }
+
+            .staggered-3 {
+                margin-left: 12px !important;
+            }
+
+            .staggered-4 {
+                margin-left: 18px !important;
+            }
+
+            .staggered-5,
+            span.staggered-line.staggered-5 {
+                margin-left: 24px !important;
             }
         }
     </style>
@@ -1308,42 +1469,6 @@
 
         </div>
     </div>
-    <section class="p-10" style="color: #ffffff;">
-        <div class="gems-eagle-editorial-wrapper">
-            <div class="container-port-xl">
-                <div class="gems-eagle-editorial-card" data-aos="fade-up" data-aos-duration="900">
-                    <span class="membership-badge">Vision & Wisdom</span>
-                    <div class="gems-eagle-editorial-content">
-                        <p class="gems-eagle-editorial-lead">
-                            The eagle has long represented vision, wisdom, and perspective. For <strong>GEMS</strong>,
-                            it symbolizes
-                            something even deeper. The eagle doesn't fly your journey. It doesn't decide your
-                            destination. It doesn't choose your path.
-                        </p>
-                        <p>
-                            Instead, it sees farther than most can see. It recognizes opportunities beyond the horizon.
-                            It anticipates challenges before they appear. It provides perspective when the path becomes
-                            uncertain.
-                        </p>
-                        <p>
-                            Like the eagle, <strong>GEMS</strong> exists to help people move forward with greater
-                            confidence because
-                            someone is watching the horizon with them.
-                        </p>
-                        <div class="gems-eagle-editorial-quote">
-                            <h3>Our role is not to lead your life. Our role is to help you see it more clearly.</h3>
-                        </div>
-                        <div class="mt-4">
-                            <button type="button" class="legalbtn vision-cta-btn" id="openVisionModalBtn"
-                                aria-haspopup="dialog" aria-controls="visionModal">
-                                Discover Our Vision&rarr;
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- ==========================================================================
          MISSION PREVIEW SECTION (Between Purpose/Story and Philosophy)
          ========================================================================== -->
@@ -1390,6 +1515,43 @@
             </div>
         </div>
     </section>
+    <section class="p-10" style="color: #ffffff;">
+        <div class="gems-eagle-editorial-wrapper">
+            <div class="container-port-xl">
+                <div class="gems-eagle-editorial-card" data-aos="fade-up" data-aos-duration="900">
+                    <span class="membership-badge">Vision & Wisdom</span>
+                    <div class="gems-eagle-editorial-content">
+                        <p class="gems-eagle-editorial-lead">
+                            The eagle has long represented vision, wisdom, and perspective. For <strong>GEMS</strong>,
+                            it symbolizes
+                            something even deeper. The eagle doesn't fly your journey. It doesn't decide your
+                            destination. It doesn't choose your path.
+                        </p>
+                        <p>
+                            Instead, it sees farther than most can see. It recognizes opportunities beyond the horizon.
+                            It anticipates challenges before they appear. It provides perspective when the path becomes
+                            uncertain.
+                        </p>
+                        <p>
+                            Like the eagle, <strong>GEMS</strong> exists to help people move forward with greater
+                            confidence because
+                            someone is watching the horizon with them.
+                        </p>
+                        <div class="gems-eagle-editorial-quote">
+                            <h3>Our role is not to lead your life. Our role is to help you see it more clearly.</h3>
+                        </div>
+                        <div class="mt-4">
+                            <button type="button" class="legalbtn vision-cta-btn" id="openVisionModalBtn"
+                                aria-haspopup="dialog" aria-controls="visionModal">
+                                Discover Our Vision&rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==========================================================================
          FINAL CTA SECTION (MATCHING EDUCATIONAL JOURNEYS DESIGN)
          ========================================================================== -->

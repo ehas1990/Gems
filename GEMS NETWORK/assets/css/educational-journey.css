@@ -22,6 +22,8 @@
     font-weight: 600;
 }
 
+
+
 /* ==========================================================================
    OPEN BOOK 4-CHAPTER SPREAD CONTAINER (CLEAN CARDS - NO OUTER BG/CASING)
    ========================================================================== */
@@ -176,7 +178,7 @@
     text-align: left;
 }
 
-.journeys-page .stage-chapter-services-list li + li {
+.journeys-page .stage-chapter-services-list li+li {
     margin-top: 14px;
 }
 
@@ -380,7 +382,7 @@
 
 .membership-tiers-section .member-tier-card:hover .tier-hover-details,
 .membership-tiers-section .educational-membership-card:hover .tier-hover-details {
-    max-height: 250px;
+    max-height: 800px;
     opacity: 1;
     margin-top: 4px;
 }
@@ -407,6 +409,31 @@
     margin-top: 4px;
     font-size: 0.85rem;
 }
+
+#list li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    position: relative !important;
+    list-style: none !important;
+}
+
+#list li::before {
+    content: '' !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    margin-top: 4px !important;
+    background-image: url('../img/double-arrow.svg'), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b79b5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m13 16 4-4-4-4M7 16l4-4-4-4'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+}
+
+
 
 /* ==========================================================================
    MEMBERSHIP CARDS ICON BOX STYLING (MATCHING EXPLORER REFERENCE)
@@ -454,6 +481,7 @@
 }
 
 @media (max-width: 767px) {
+
     .membership-tiers-section .tier-icon,
     .membership-tiers-section .member-tier-card .tier-icon,
     .membership-tiers-section .member-tier-card.highlighted-tier .tier-icon {

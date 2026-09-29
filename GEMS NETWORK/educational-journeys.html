@@ -201,6 +201,35 @@
                 max-height: 24px !important;
             }
         }
+
+        .membership-tiers-section .member-tier-card:hover .tier-hover-details,
+        .membership-tiers-section .educational-membership-card:hover .tier-hover-details {
+            max-height: 800px !important;
+            opacity: 1 !important;
+        }
+
+        #list li {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+            position: relative !important;
+            list-style: none !important;
+        }
+
+        #list li::before {
+            content: '' !important;
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+            width: 14px !important;
+            height: 14px !important;
+            min-width: 14px !important;
+            min-height: 14px !important;
+            margin-top: 4px !important;
+            background-image: url('./assets/img/double-arrow.svg'), url('../img/double-arrow.svg'), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b79b5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m13 16 4-4-4-4M7 16l4-4-4-4'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            background-size: contain !important;
+        }
     </style>
 </head>
 
@@ -756,10 +785,19 @@
                         </div>
                         <p class="tier-desc">A starting point for discovering GEMS and available resources.</p>
                         <div class="tier-hover-details">
-                            <ul class="plan-features-list">
-                                <li><i class="fa-solid fa-check"></i> <span>A starting point for discovering GEMS and
-                                        available resources.</span></li>
+                            <p>Perfect for students who are just beginning their journey and it Includes:</p>
+                            <ul class="plan-features-list" id="list">
+                                <li>Educational articles and guides</li>
+                                <li>Country and university information</li>
+                                <li>Career pathway resources</li>
+                                <li>Public webinars and events</li>
+                                <li>Community news and updates</li>
+                                <li>Access to selected free resources</li>
+
                             </ul>
+                            <p>Whether you're considering studying abroad, exploring career options,
+                                or simply gathering information, Explorer gives you access to the knowledge and tools to
+                                help you make informed decisions—at your own pace.</p>
                         </div>
                     </a>
 
@@ -794,10 +832,21 @@
                         </div>
                         <p class="tier-desc">For students who want more personalized guidance and support.</p>
                         <div class="tier-hover-details">
-                            <ul class="plan-features-list">
-                                <li><i class="fa-solid fa-check"></i> <span>For students who want more personalized
-                                        guidance and support.</span></li>
+                            <p>Ideal for students actively preparing to study abroad or build their future. Includes
+                                everything in Explorer, plus:</p>
+                            <ul class="plan-features-list" id="list">
+                                <li>Personalized education roadmap</li>
+                                <li>University and program comparisons</li>
+                                <li>Visa preparation guidance</li>
+                                <li>Application planning</li>
+                                <li>Document checklists</li>
+                                <li>Financial planning resources</li>
+                                <li>Priority member support</li>
+                                <li>Exclusive member resources</li>
+
                             </ul>
+                            <p>When you're ready to take the next step,Companion provides personalized guidance,planning
+                                tools,and ongoing support to help you stay organized and move forward with clarity.</p>
                         </div>
                     </a>
 
@@ -837,9 +886,18 @@
                         </div>
                         <p class="tier-desc">For students who want a deeper level of ongoing assistance.</p>
                         <div class="tier-hover-details">
-                            <ul class="plan-features-list">
-                                <li><i class="fa-solid fa-check"></i> <span>For students who want a deeper level of
-                                        ongoing assistance.</span></li>
+                            <p>Your journey becomes our journey. Includes everything in Companion, plus:</p>
+                            <ul class="plan-features-list" id="list">
+                                <li>One-on-one consultations</li>
+                                <li>Dedicated member assistance</li>
+                                <li>Priority appointments</li>
+                                <li>Application reviews</li>
+                                <li>Family guidance sessions</li>
+                                <li>Scholarship strategy</li>
+                                <li>Personalized planning support</li>
+                                <li>Concierge referrals</li>
+                                <li>Ongoing journey support</li>
+                                <li>Partner discounts and benefits</li>
                             </ul>
                         </div>
                     </a>

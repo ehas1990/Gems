@@ -227,7 +227,10 @@
 
 .career-journey-page .career-services-list li {
     position: relative;
-    padding-left: 38px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding-left: 0;
     font-size: 0.92rem;
     color: #334155;
     font-weight: 500;
@@ -239,16 +242,23 @@
 }
 
 .career-journey-page .career-services-list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
+    display: none !important;
+}
+
+.career-journey-page .career-services-list li i {
+    color: #cca352;
+    font-size: 0.82rem;
     width: 26px;
     height: 26px;
-    background-image: url('../img/list.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1.5px solid #e2c076;
+    border-radius: 50%;
+    margin-top: 2px;
+    box-sizing: border-box;
+    background: rgba(226, 192, 118, 0.08);
 }
 
 /* Custom Stage CTA buttons */

@@ -197,10 +197,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
-    padding: 10px 14px;
-    border-radius: 8px;
+    padding: 14px 32px;
+    border-radius: 50px;
     background: #ffffff;
     border: 1px solid rgba(15, 22, 129, 0.22);
     color: var(--color-primary, #0f1681);

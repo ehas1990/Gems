@@ -27,6 +27,13 @@
     width: 100%;
 }
 
+.p-10 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .about-banner-video-wrap {
     position: absolute;
     inset: 0;

@@ -741,6 +741,74 @@
     font-size: 0.85rem;
 }
 
+/* ==========================================================================
+   MEMBERSHIP CARDS ICON BOX STYLING (MATCHING EXPLORER REFERENCE)
+   ========================================================================== */
+.membership-tiers-section .tier-icon,
+.membership-tiers-section .member-tier-card .tier-icon,
+.membership-tiers-section .member-tier-card.highlighted-tier .tier-icon,
+.membership-tiers-section .career-membership-card .tier-icon,
+.membership-tiers-section .career-membership-card.highlighted-tier .tier-icon {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    border-radius: 12px !important;
+    background: rgba(0, 59, 109, 0.07) !important;
+    border: 1px solid rgba(0, 59, 109, 0.12) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 6px rgba(7, 27, 53, 0.04) !important;
+    transition: all 0.3s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.membership-tiers-section .member-tier-card:hover .tier-icon,
+.membership-tiers-section .career-membership-card:hover .tier-icon {
+    background: rgba(0, 59, 109, 0.12) !important;
+    border-color: rgba(0, 59, 109, 0.22) !important;
+    transform: scale(1.05);
+}
+
+.membership-tiers-section .tier-icon svg {
+    width: 28px !important;
+    height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+    display: block !important;
+    margin: auto !important;
+}
+
+.membership-tiers-section .tier-icon svg path,
+.membership-tiers-section .tier-icon svg g {
+    fill: #172B4E !important;
+}
+
+@media (max-width: 767px) {
+    .membership-tiers-section .tier-icon,
+    .membership-tiers-section .member-tier-card .tier-icon,
+    .membership-tiers-section .member-tier-card.highlighted-tier .tier-icon,
+    .membership-tiers-section .career-membership-card .tier-icon,
+    .membership-tiers-section .career-membership-card.highlighted-tier .tier-icon {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        border-radius: 10px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .membership-tiers-section .tier-icon svg {
+        width: 24px !important;
+        height: 24px !important;
+        max-width: 24px !important;
+        max-height: 24px !important;
+    }
+}
+
+
 
 /* ==========================================================================
    5. RESPONSIVE BREAKPOINTS

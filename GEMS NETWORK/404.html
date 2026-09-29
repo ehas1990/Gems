@@ -205,37 +205,78 @@
     </header>
 
     <!-- ==========================================================================
-         LOGIN POPUP MODAL (STANDARD GEMS MODAL)
+         LOGIN POPUP MODAL
          ========================================================================== -->
     <div class="popup-overlay" style="display: none;"></div>
+
     <div class="loginpage" style="display: none;">
         <div class="loginbx">
-            <span class="close-popup">&times;</span>
+            <!-- CLOSE -->
+            <span class="close-popup" role="button" tabindex="0" aria-label="Close login modal"><i
+                    class="fa-solid fa-xmark"></i></span>
+
+            <!-- HEADER -->
             <div class="headerlg">
-                <h3>Welcome</h3>
+                <h3>Welcome </h3>
                 <p>Login to access your membership content.</p>
             </div>
+
+            <!-- AJAX MESSAGE -->
             <div class="ajax-message"></div>
+
+            <!-- LOGIN FORM -->
             <form id="loginForm">
+                <!-- EMAIL -->
                 <div class="frmgrplg">
-                    <label>Email Address</label>
+                    <label for="login_email">Email Address</label>
                     <div class="rlbx">
                         <div class="iniicon">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
-                        <input type="email" name="email" placeholder="Enter your email" required="">
+                        <input type="email" id="login_email" name="email" placeholder="Enter your email" required=""
+                            autocomplete="email">
                     </div>
                 </div>
+
+                <!-- PASSWORD -->
                 <div class="frmgrplg">
-                    <label>Password</label>
-                    <div class="rlbx">
-                        <div class="iniicon">
-                            <i class="fa-solid fa-lock"></i>
+                    <label for="password">Password</label>
+                    <div class="password-box">
+                        <div class="rlbx">
+                            <div class="iniicon">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input type="password" id="password" name="password" placeholder="Enter password"
+                                required="" autocomplete="current-password">
                         </div>
-                        <input type="password" name="password" placeholder="Enter your password" required="">
+                        <!-- TOGGLE PASSWORD -->
+                        <span class="toggle-password" role="button" tabindex="0"
+                            aria-label="Toggle password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </span>
                     </div>
+                    <!-- FORGOT PASSWORD -->
+                    <a href="https://globalenrollment.us/forgot-password" class="forgot-link">
+                        Forgot Password?
+                    </a>
                 </div>
-                <button type="submit" class="submitbtn">Sign In</button>
+
+                <!-- BUTTON -->
+                <div class="frmgrplg">
+                    <button type="submit">
+                        Login
+                    </button>
+                </div>
+
+                <!-- SUBSCRIBE -->
+                <div class="sbc">
+                    <p>
+                        Ready to Get Started?
+                        <a href="https://globalenrollment.us/subscription">
+                            Subscribe Now
+                        </a>
+                    </p>
+                </div>
             </form>
         </div>
     </div>
@@ -460,6 +501,96 @@
             window.addEventListener("scroll", updateHeaderScroll, { passive: true });
             updateHeaderScroll();
         });
+    </script>
+
+    <!-- Scoped Header Member Sign In Modal Handler -->
+    <script>
+        (function () {
+            function setupLoginModal() {
+                const loginBtn = document.getElementById('loginBtn');
+                const mobLoginBtn = document.querySelector('.mob-login-btn');
+                const overlay = document.querySelector('.popup-overlay');
+                const modal = document.querySelector('.loginpage');
+                const closeBtn = document.querySelector('.loginpage .close-popup');
+
+                function openModal(e) {
+                    if (e) e.preventDefault();
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu) mobileMenu.classList.remove('showmbmenu');
+                    if (overlay) {
+                        overlay.style.display = 'block';
+                        overlay.classList.add('active');
+                    }
+                    if (modal) {
+                        modal.style.display = 'flex';
+                        modal.classList.add('active');
+                    }
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal(e) {
+                    if (e) e.preventDefault();
+                    if (overlay) {
+                        overlay.style.display = 'none';
+                        overlay.classList.remove('active');
+                    }
+                    if (modal) {
+                        modal.style.display = 'none';
+                        modal.classList.remove('active');
+                    }
+                    document.body.style.overflow = '';
+                }
+
+                if (loginBtn) {
+                    loginBtn.addEventListener('click', openModal);
+                }
+                if (mobLoginBtn) {
+                    mobLoginBtn.addEventListener('click', openModal);
+                }
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closeModal);
+                }
+                if (overlay) {
+                    overlay.addEventListener('click', closeModal);
+                }
+                if (modal) {
+                    modal.addEventListener('click', function (e) {
+                        if (e.target === modal) closeModal(e);
+                    });
+                }
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' || e.keyCode === 27) {
+                        if (modal && (modal.style.display === 'flex' || modal.classList.contains('active'))) {
+                            closeModal(e);
+                        }
+                    }
+                });
+
+                // Toggle password visibility
+                const togglePassword = document.querySelector('.loginpage .toggle-password');
+                if (togglePassword) {
+                    togglePassword.addEventListener('click', function () {
+                        const passInput = document.getElementById('password') || document.querySelector('.loginpage input[type="password"], .loginpage input[type="text"]');
+                        if (passInput) {
+                            if (passInput.type === 'password') {
+                                passInput.type = 'text';
+                                togglePassword.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+                            } else {
+                                passInput.type = 'password';
+                                togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+                            }
+                        }
+                    });
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupLoginModal);
+            } else {
+                setupLoginModal();
+            }
+        })();
     </script>
 
 </body>

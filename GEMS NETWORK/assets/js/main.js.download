@@ -109,4 +109,174 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     })();
+
+    /* =====================================================
+       GLOBAL HEADER FORM POPUP (Modal & Overlay Experience)
+       ===================================================== */
+    (function initGemsHeaderPopup() {
+        // Ensure modal HTML template is present if page lacks it
+        function ensureModalInDOM() {
+            let overlay = document.querySelector('.popup-overlay');
+            let modal = document.querySelector('.loginpage');
+
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'popup-overlay';
+                overlay.style.display = 'none';
+                document.body.appendChild(overlay);
+            }
+
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.className = 'loginpage';
+                modal.style.display = 'none';
+                modal.innerHTML = `
+                    <div class="loginbx">
+                        <span class="close-popup" role="button" tabindex="0" aria-label="Close login modal"><i class="fa-solid fa-xmark"></i></span>
+                        <div class="headerlg">
+                            <h3>Welcome</h3>
+                            <p>Login to access your membership content.</p>
+                        </div>
+                        <div class="ajax-message"></div>
+                        <form id="loginForm">
+                            <div class="frmgrplg">
+                                <label for="login_email">Email Address</label>
+                                <div class="rlbx">
+                                    <div class="iniicon">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <input type="email" id="login_email" name="email" placeholder="Enter your email" required="" autocomplete="email">
+                                </div>
+                            </div>
+                            <div class="frmgrplg">
+                                <label for="password">Password</label>
+                                <div class="password-box">
+                                    <div class="rlbx">
+                                        <div class="iniicon">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </div>
+                                        <input type="password" id="password" name="password" placeholder="Enter password" required="" autocomplete="current-password">
+                                    </div>
+                                    <span class="toggle-password" role="button" tabindex="0" aria-label="Toggle password visibility">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                </div>
+                                <a href="https://globalenrollment.us/forgot-password" class="forgot-link">Forgot Password?</a>
+                            </div>
+                            <div class="frmgrplg">
+                                <button type="submit">Login</button>
+                            </div>
+                            <div class="sbc">
+                                <p>
+                                    Ready to Get Started?
+                                    <a href="https://globalenrollment.us/subscription">Subscribe Now</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+        }
+
+        window.openGemsHeaderPopup = function() {
+            ensureModalInDOM();
+            const modal = $('.loginpage');
+            const overlay = $('.popup-overlay');
+
+            modal.addClass('active').stop(true, true).fadeIn(250);
+            overlay.stop(true, true).fadeIn(250);
+            $('body').css('overflow', 'hidden');
+        };
+
+        window.closeGemsHeaderPopup = function() {
+            const modal = $('.loginpage');
+            const overlay = $('.popup-overlay');
+
+            modal.stop(true, true).fadeOut(200, function() {
+                $(this).removeClass('active');
+            });
+            overlay.stop(true, true).fadeOut(200);
+            $('body').css('overflow', '');
+        };
+
+        // Delegated click for Header Form Trigger
+        $(document).on('click', '#loginBtn, .mob-login-btn, [data-open-login]', function(e) {
+            e.preventDefault();
+            $('.mobile-menu').removeClass('showmbmenu');
+            window.openGemsHeaderPopup();
+        });
+
+        // Close triggers: close button, overlay click, background backdrop click
+        $(document).on('click', '.close-popup, .popup-overlay', function(e) {
+            e.preventDefault();
+            window.closeGemsHeaderPopup();
+        });
+
+        $(document).on('click', '.loginpage', function(e) {
+            if (e.target === this) {
+                window.closeGemsHeaderPopup();
+            }
+        });
+
+        // ESC key handler
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                if ($('.loginpage').is(':visible') || $('.loginpage').hasClass('active')) {
+                    window.closeGemsHeaderPopup();
+                }
+            }
+        });
+
+        // Password visibility toggle delegation
+        $(document).on('click', '.toggle-password', function() {
+            const input = $(this).closest('.frmgrplg').find('input[name="password"], #password');
+            if (input.attr('type') === 'password') {
+                input.attr('type', 'text');
+                $(this).html('<i class="fa-solid fa-eye-slash"></i>');
+            } else {
+                input.attr('type', 'password');
+                $(this).html('<i class="fa-solid fa-eye"></i>');
+            }
+        });
+
+        // Global AJAX form submission fallback
+        $(document).on('submit', '#loginForm', function(e) {
+            if ($(this).data('handled')) return;
+            $(this).data('handled', true);
+
+            e.preventDefault();
+            const form = $(this);
+            const msgBox = form.siblings('.ajax-message').length ? form.siblings('.ajax-message') : form.find('.ajax-message');
+            msgBox.html('');
+
+            $.ajax({
+                url: 'https://globalenrollment.us/user-login',
+                type: 'POST',
+                data: form.serialize(),
+                success: function(response) {
+                    try {
+                        let res = typeof response === 'string' ? JSON.parse(response) : response;
+                        if (res.status === 'error') {
+                            msgBox.html('<div class="login-error">' + (res.message || 'Login failed.') + '</div>');
+                            form.data('handled', false);
+                        } else if (res.status === 'success') {
+                            sessionStorage.setItem('gems_member_tab', 'active');
+                            if (res.tab_token) sessionStorage.setItem('gems_member_token', res.tab_token);
+                            msgBox.html('<div class="login-success">' + (res.message || 'Login successful.') + '</div>');
+                            setTimeout(function() {
+                                window.location.href = res.redirect || 'index.html';
+                            }, 800);
+                        }
+                    } catch (err) {
+                        form.data('handled', false);
+                    }
+                },
+                error: function() {
+                    msgBox.html('<div class="login-error">Network error. Please try again.</div>');
+                    form.data('handled', false);
+                }
+            });
+        });
+    })();
 });

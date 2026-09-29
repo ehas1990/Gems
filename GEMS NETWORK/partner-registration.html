@@ -92,9 +92,701 @@
     <link rel="stylesheet" href="./assets/css/partner-registration.css">
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Scoped Typography & Button Color System (Matching educational-journeys.html) -->
+    <style>
+        /* Typography System */
+        body.partner-registration-page,
+        .partner-registration-page {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+            color: #4b5563;
+        }
+
+        /* Headings Font & Colors */
+        .partner-registration-page h1,
+        .partner-registration-page h2,
+        .partner-registration-page h3,
+        .partner-registration-page h4,
+        .partner-registration-page h5,
+        .partner-registration-page h6,
+        .partner-registration-page .partner-hero-title,
+        .partner-registration-page .partner-section-title,
+        .partner-registration-page .path-card-title,
+        .partner-registration-page .path-examples-title,
+        .partner-registration-page .disclaimer-title,
+        .partner-registration-page .success-text-group h3 {
+            font-family: var(--font-family-primary, 'Dubai', 'Inter Tight', sans-serif) !important;
+            font-weight: 700;
+        }
+
+        .partner-registration-page .partner-hero-title {
+            color: #ffffff !important;
+            font-weight: 800;
+        }
+
+        .partner-registration-page .partner-section-title {
+            color: var(--color-navy-deep, #071b35) !important;
+            font-weight: 700;
+        }
+
+        .partner-registration-page .path-card-title {
+            color: var(--color-navy-deep, #071b35) !important;
+            font-weight: 700;
+        }
+
+        .partner-registration-page .path-examples-title {
+            color: var(--color-navy-deep, #071b35) !important;
+            font-weight: 700;
+        }
+
+        .partner-registration-page .disclaimer-title {
+            color: var(--color-navy-deep, #071b35) !important;
+            font-weight: 700;
+        }
+
+        .partner-registration-page .success-text-group h3 {
+            color: var(--color-navy-deep, #071b35) !important;
+            font-weight: 700;
+        }
+
+        .partner-registration-page .partner-label {
+            color: var(--color-navy-deep, #071b35) !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-weight: 600;
+        }
+
+        /* Body & Supporting Text Colors */
+        .partner-registration-page .partner-hero-subtitle {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .partner-bullet-item {
+            color: #4b5563 !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .path-description-list li {
+            color: #4b5563 !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .path-example-item {
+            color: #4b5563 !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .disclaimer-content {
+            color: #4b5563 !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .partner-option-label {
+            color: #4b5563 !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .partner-input,
+        .partner-registration-page .partner-textarea {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            color: #111827;
+        }
+
+        .partner-registration-page .word-count-info {
+            color: #64748b !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+        }
+
+        .partner-registration-page .pipeline-label {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            color: #475569 !important;
+        }
+
+        /* Button Colors (Exact Match with educational-journeys.html) */
+        .partner-registration-page .btn-partner-gold,
+        .partner-registration-page .btn-start-conversation,
+        .partner-registration-page .btn-path-cta,
+        .partner-registration-page .select-path-btn {
+            background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%) !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-weight: 700 !important;
+            border: none !important;
+            box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35) !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .partner-registration-page .btn-partner-gold:hover,
+        .partner-registration-page .btn-start-conversation:hover,
+        .partner-registration-page .btn-path-cta:hover,
+        .partner-registration-page .select-path-btn:hover {
+            background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%) !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 30px rgba(244, 185, 66, 0.5) !important;
+        }
+
+        .partner-registration-page .btn-choose-file {
+            background: #f0f4fc !important;
+            border: 1px solid rgba(15, 22, 129, 0.15) !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-weight: 600 !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .partner-registration-page .btn-choose-file:hover {
+            background: var(--color-navy-deep, #071b35) !important;
+            color: #ffffff !important;
+            border-color: var(--color-navy-deep, #071b35) !important;
+        }
+
+        /* ==========================================================================
+           TWO PARTNERSHIP PATHS (Scoped Enhanced Layout & Balanced Spacing)
+           ========================================================================== */
+        .partner-registration-page .partner-paths-section {
+            position: relative;
+            background-color: #fcfdfe;
+            border-top: 1px solid #edf2f7;
+            padding: 0;
+            overflow: visible;
+        }
+
+        .partner-registration-page .partner-paths-intro-wrap {
+            padding-top: 48px;
+            padding-bottom: 24px;
+        }
+
+        .partner-registration-page .partner-paths-scroll-track {
+            position: relative;
+            height: 220vh;
+        }
+
+        .partner-registration-page .partner-paths-sticky-stage {
+            position: sticky;
+            top: var(--header-height, 90px);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height, 90px));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 10;
+            padding: 16px 0;
+        }
+
+        .partner-registration-page .partner-paths-stage-inner {
+            position: relative;
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            max-height: 100%;
+        }
+
+        .partner-registration-page .partner-scenes-viewport {
+            position: relative;
+            width: 100%;
+            flex: 1 1 auto;
+            min-height: 0;
+            max-height: calc(100vh - var(--header-height, 90px) - 36px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-registration-page .partnership-scene {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(28px) scale(0.985);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .partner-registration-page .partnership-scene.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .partner-registration-page .partnership-scene.scene-past {
+            opacity: 0;
+            transform: translateY(-28px) scale(0.985);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .partner-registration-page .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: stretch;
+            width: 100%;
+            height: 100%;
+            max-height: 520px;
+        }
+
+        .partner-registration-page .scene-content-col,
+        .partner-registration-page .scene-media-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            min-height: 0;
+        }
+
+        /* Image Media Frame */
+        .partner-registration-page .scene-media-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            max-height: 520px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+            border: 1.5px solid rgba(0, 0, 0, 0.06);
+            background: #ffffff;
+        }
+
+        .partner-registration-page .scene-media-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.75s ease;
+        }
+
+        .partner-registration-page .scene-media-frame:hover .scene-media-img {
+            transform: scale(1.03);
+        }
+
+        .partner-registration-page .scene-media-badge {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            background: rgba(11, 25, 44, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+            z-index: 3;
+        }
+
+        .partner-registration-page .scene-media-badge.strategic {
+            background: rgba(30, 24, 16, 0.90);
+            border-color: rgba(244, 185, 66, 0.3);
+            color: #fef3c7;
+        }
+
+        .partner-registration-page .scene-media-badge.strategic i {
+            color: #f4b942;
+        }
+
+        /* Card Container & Unified Flow */
+        .partner-registration-page .partner-path-card {
+            border-radius: 22px;
+            padding: 32px 34px 28px 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            min-height: 0;
+            max-height: 520px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-registration-page .path-card-body-flow {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            gap: 0;
+        }
+
+        /* Collaborative Theme (LHS) */
+        .partner-registration-page .partner-path-card.collaborative {
+            background: #f0f6fd;
+            border: 1.5px solid #d4e4f7;
+            box-shadow: 0 10px 32px rgba(15, 22, 129, 0.05);
+        }
+
+        .partner-registration-page .partner-path-card.collaborative:hover {
+            box-shadow: 0 16px 40px rgba(15, 22, 129, 0.09);
+        }
+
+        .partner-registration-page .partner-path-card.collaborative .path-icon-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .partner-registration-page .partner-path-card.collaborative .path-card-subtitle {
+            color: #c26508;
+        }
+
+        /* Strategic Theme (RHS) */
+        .partner-registration-page .partner-path-card.strategic {
+            background: #ffffff;
+            border: 1.5px solid #ebe1ce;
+            box-shadow: 0 10px 32px rgba(160, 120, 68, 0.05);
+        }
+
+        .partner-registration-page .partner-path-card.strategic:hover {
+            box-shadow: 0 16px 40px rgba(160, 120, 68, 0.09);
+        }
+
+        .partner-registration-page .partner-path-card.strategic .path-icon-badge {
+            background: #f5eedb;
+            color: #854d0e;
+        }
+
+        .partner-registration-page .partner-path-card.strategic .path-card-subtitle {
+            color: #a16207;
+        }
+
+        /* Header (Icon + Titles) */
+        .partner-registration-page .path-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .partner-registration-page .path-icon-badge {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .partner-registration-page .path-header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .partner-registration-page .path-card-title {
+            font-family: var(--font-family-primary, 'Dubai', 'Inter Tight', sans-serif) !important;
+            font-size: 1.4rem !important;
+            font-weight: 700 !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            margin: 0 !important;
+            line-height: 1.2 !important;
+            letter-spacing: -0.2px;
+        }
+
+        .partner-registration-page .path-card-subtitle {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.88rem !important;
+            font-weight: 600 !important;
+            margin: 0 !important;
+            line-height: 1.3 !important;
+        }
+
+        /* Descriptions Flow */
+        .partner-registration-page .path-description-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .partner-registration-page .path-description-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.88rem !important;
+            line-height: 1.48 !important;
+            color: #4b5563 !important;
+        }
+
+        .partner-registration-page .path-description-list li::before {
+            content: "•";
+            color: #374151;
+            font-size: 1.15rem;
+            line-height: 1.1;
+            flex-shrink: 0;
+        }
+
+        /* Examples Supporting Content Flow */
+        .partner-registration-page .path-examples-block {
+            margin: 0 0 20px 0;
+        }
+
+        .partner-registration-page .path-examples-title {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.88rem !important;
+            font-weight: 700 !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            margin-bottom: 8px !important;
+        }
+
+        .partner-registration-page .path-examples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px 14px;
+        }
+
+        .partner-registration-page .path-example-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.82rem !important;
+            color: #4b5563 !important;
+            line-height: 1.35 !important;
+        }
+
+        .partner-registration-page .path-example-item i {
+            font-size: 0.72rem;
+            color: #1f2937;
+            flex-shrink: 0;
+        }
+
+        /* CTA Button Flow */
+        .partner-registration-page .btn-path-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: fit-content;
+            padding: 11px 24px !important;
+            border-radius: 50px !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.86rem !important;
+            font-weight: 700 !important;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 2px !important;
+            background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%) !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            border: none !important;
+            box-shadow: 0 6px 20px rgba(244, 185, 66, 0.35) !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .partner-registration-page .btn-path-cta:hover {
+            background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%) !important;
+            color: var(--color-navy-deep, #071b35) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 26px rgba(244, 185, 66, 0.48) !important;
+        }
+
+        .partner-registration-page .btn-path-cta i {
+            font-size: 0.78rem;
+            transition: transform 0.25s ease;
+        }
+
+        .partner-registration-page .btn-path-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Compact Laptops & Viewports */
+        @media (max-height: 760px) and (min-width: 992px) {
+            .partner-registration-page .partner-paths-sticky-stage {
+                padding: 8px 0;
+            }
+            .partner-registration-page .partner-path-card {
+                padding: 20px 24px 18px 24px;
+            }
+            .partner-registration-page .path-header {
+                margin-bottom: 10px;
+            }
+            .partner-registration-page .path-card-title {
+                font-size: 1.25rem !important;
+            }
+            .partner-registration-page .path-description-list {
+                margin-bottom: 10px;
+                gap: 5px;
+            }
+            .partner-registration-page .path-description-list li {
+                font-size: 0.82rem !important;
+                line-height: 1.35 !important;
+            }
+            .partner-registration-page .path-examples-block {
+                margin-bottom: 12px;
+            }
+            .partner-registration-page .path-examples-title {
+                font-size: 0.82rem !important;
+                margin-bottom: 4px !important;
+            }
+            .partner-registration-page .path-examples-grid {
+                gap: 4px 10px;
+            }
+            .partner-registration-page .path-example-item {
+                font-size: 0.78rem !important;
+            }
+            .partner-registration-page .btn-path-cta {
+                padding: 8px 20px !important;
+                font-size: 0.82rem !important;
+            }
+        }
+
+        /* Tablet Viewport (769px - 991px) */
+        @media (max-width: 991px) and (min-width: 769px) {
+            .partner-registration-page .partner-paths-scroll-track {
+                height: 190vh;
+            }
+            .partner-registration-page .scene-grid {
+                gap: 18px;
+                max-height: 480px;
+            }
+            .partner-registration-page .partner-path-card {
+                padding: 22px 22px 18px 22px;
+            }
+            .partner-registration-page .path-card-title {
+                font-size: 1.2rem !important;
+            }
+            .partner-registration-page .path-description-list {
+                margin-bottom: 12px;
+                gap: 6px;
+            }
+            .partner-registration-page .path-examples-block {
+                margin-bottom: 14px;
+            }
+            .partner-registration-page .path-examples-grid {
+                gap: 5px 10px;
+            }
+            .partner-registration-page .btn-path-cta {
+                padding: 9px 20px !important;
+                font-size: 0.82rem !important;
+            }
+        }
+
+        /* Mobile Viewport (<= 768px) */
+        @media (max-width: 768px) {
+            .partner-registration-page .partner-paths-section {
+                padding: 0;
+            }
+            .partner-registration-page .partner-paths-intro-wrap {
+                padding-top: 36px;
+                padding-bottom: 16px;
+            }
+            .partner-registration-page .partner-paths-scroll-track {
+                height: 200vh;
+            }
+            .partner-registration-page .partner-paths-sticky-stage {
+                padding: 6px 0;
+            }
+            .partner-registration-page .partner-scenes-viewport {
+                max-height: calc(100vh - var(--header-height, 70px) - 10px);
+            }
+            .partner-registration-page .scene-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+                max-height: none !important;
+                height: 100% !important;
+            }
+            .partner-registration-page .scene-media-col {
+                order: 1 !important;
+                height: 130px !important;
+                min-height: 110px !important;
+                max-height: 140px !important;
+                flex: 0 0 auto !important;
+            }
+            .partner-registration-page .scene-content-col {
+                order: 2 !important;
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+                height: auto !important;
+            }
+            .partner-registration-page .scene-media-frame {
+                height: 100% !important;
+                max-height: 140px !important;
+                border-radius: 14px !important;
+            }
+            .partner-registration-page .scene-media-badge {
+                bottom: 8px;
+                left: 8px;
+                padding: 4px 10px;
+                font-size: 0.72rem;
+            }
+            .partner-registration-page .partner-path-card {
+                padding: 16px 18px !important;
+                border-radius: 16px !important;
+                height: auto !important;
+                max-height: none !important;
+            }
+            .partner-registration-page .path-header {
+                gap: 10px;
+                margin-bottom: 8px;
+            }
+            .partner-registration-page .path-icon-badge {
+                width: 36px;
+                height: 36px;
+                font-size: 1.05rem;
+                border-radius: 10px;
+            }
+            .partner-registration-page .path-card-title {
+                font-size: 1.12rem !important;
+            }
+            .partner-registration-page .path-card-subtitle {
+                font-size: 0.78rem !important;
+            }
+            .partner-registration-page .path-description-list {
+                margin: 0 0 8px 0;
+                gap: 4px;
+            }
+            .partner-registration-page .path-description-list li {
+                font-size: 0.78rem !important;
+                line-height: 1.32 !important;
+            }
+            .partner-registration-page .path-examples-block {
+                margin: 0 0 10px 0;
+            }
+            .partner-registration-page .path-examples-title {
+                font-size: 0.78rem !important;
+                margin-bottom: 4px !important;
+            }
+            .partner-registration-page .path-examples-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3px 8px;
+            }
+            .partner-registration-page .path-example-item {
+                font-size: 0.74rem !important;
+            }
+            .partner-registration-page .btn-path-cta {
+                padding: 8px 18px !important;
+                font-size: 0.78rem !important;
+                margin-top: 2px !important;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="partner-registration-page">
 
     <!-- ==========================================================================
          MOBILE NAVIGATION
@@ -449,7 +1141,7 @@
                                 <!-- LEFT SIDE — CONTENT -->
                                 <div class="scene-content-col">
                                     <div class="partner-path-card collaborative">
-                                        <div>
+                                        <div class="path-card-body-flow">
                                             <div class="path-header">
                                                 <div class="path-icon-badge">
                                                     <i class="fa-solid fa-handshake"></i>
@@ -484,13 +1176,13 @@
                                                         Co-created opportunities</div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <a href="#partner-application" class="btn-path-cta select-path-btn"
-                                            data-type="collaborative">
-                                            <span>Explore Collaborative Partnership</span>
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </a>
+                                            <a href="#partner-application" class="btn-path-cta select-path-btn"
+                                                data-type="collaborative">
+                                                <span>Explore Collaborative Partnership</span>
+                                                <i class="fa-solid fa-arrow-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -524,7 +1216,7 @@
                                 <!-- RIGHT SIDE — CONTENT -->
                                 <div class="scene-content-col">
                                     <div class="partner-path-card strategic">
-                                        <div>
+                                        <div class="path-card-body-flow">
                                             <div class="path-header">
                                                 <div class="path-icon-badge">
                                                     <i class="fa-solid fa-briefcase"></i>
@@ -562,13 +1254,13 @@
                                                         Co-branded campaigns</div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <a href="#partner-application" class="btn-path-cta select-path-btn"
-                                            data-type="strategic">
-                                            <span>Explore Strategic Partnership</span>
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </a>
+                                            <a href="#partner-application" class="btn-path-cta select-path-btn"
+                                                data-type="strategic">
+                                                <span>Explore Strategic Partnership</span>
+                                                <i class="fa-solid fa-arrow-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -937,17 +1629,6 @@
                 $('.mobile-menu').removeClass('showmbmenu');
             });
 
-            // Login modal handlers
-            $('#loginBtn').on('click', function (e) {
-                e.preventDefault();
-                $('.popup-overlay').fadeIn();
-                $('.loginpage').fadeIn();
-            });
-            $('.close-popup, .popup-overlay').on('click', function () {
-                $('.popup-overlay').fadeOut();
-                $('.loginpage').fadeOut();
-            });
-
             // File input name update
             const logoInput = document.getElementById('companyLogo');
             const logoFileName = document.getElementById('logoFileName');
@@ -1175,6 +1856,87 @@
                 });
             }
         });
+    </script>
+
+    <!-- Scoped Header Member Sign In Modal Handler -->
+    <script>
+        (function () {
+            function setupLoginModal() {
+                const loginBtn = document.getElementById('loginBtn');
+                const mobLoginBtn = document.querySelector('.mob-login-btn');
+                const overlay = document.querySelector('.popup-overlay');
+                const modal = document.querySelector('.loginpage');
+                const closeBtn = document.querySelector('.loginpage .close-popup');
+
+                function openModal(e) {
+                    if (e) e.preventDefault();
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu) mobileMenu.classList.remove('showmbmenu');
+                    if (overlay) {
+                        overlay.style.display = 'block';
+                        overlay.classList.add('active');
+                    }
+                    if (modal) {
+                        modal.style.display = 'flex';
+                        modal.classList.add('active');
+                    }
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal(e) {
+                    if (e) e.preventDefault();
+                    if (overlay) {
+                        overlay.style.display = 'none';
+                        overlay.classList.remove('active');
+                    }
+                    if (modal) {
+                        modal.style.display = 'none';
+                        modal.classList.remove('active');
+                    }
+                    document.body.style.overflow = '';
+                }
+
+                if (loginBtn) loginBtn.addEventListener('click', openModal);
+                if (mobLoginBtn) mobLoginBtn.addEventListener('click', openModal);
+                if (closeBtn) closeBtn.addEventListener('click', closeModal);
+                if (overlay) overlay.addEventListener('click', closeModal);
+                if (modal) {
+                    modal.addEventListener('click', function (e) {
+                        if (e.target === modal) closeModal(e);
+                    });
+                }
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' || e.keyCode === 27) {
+                        if (modal && (modal.style.display === 'flex' || modal.classList.contains('active'))) {
+                            closeModal(e);
+                        }
+                    }
+                });
+
+                const togglePassword = document.querySelector('.loginpage .toggle-password');
+                if (togglePassword) {
+                    togglePassword.addEventListener('click', function () {
+                        const passInput = document.querySelector('.loginpage input[type="password"], .loginpage input[type="text"]');
+                        if (passInput) {
+                            if (passInput.type === 'password') {
+                                passInput.type = 'text';
+                                togglePassword.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+                            } else {
+                                passInput.type = 'password';
+                                togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+                            }
+                        }
+                    });
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupLoginModal);
+            } else {
+                setupLoginModal();
+            }
+        })();
     </script>
 </body>
 

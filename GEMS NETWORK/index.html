@@ -84,6 +84,301 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style(2).css">
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Scoped Login Modal & Overlay Styles -->
+    <style>
+        /* Dark Semi-Transparent Fullscreen Overlay */
+        .popup-overlay {
+            position: fixed !important;
+            inset: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(10, 15, 30, 0.72) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            z-index: 9999998 !important;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Centered Modal Container */
+        .loginpage {
+            position: fixed !important;
+            inset: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            display: none;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 9999999 !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+            overflow-y: auto !important;
+            transform: none !important;
+            background: transparent !important;
+        }
+
+        .loginpage.active {
+            display: flex !important;
+        }
+
+        /* Modal Dialog Box */
+        .loginbx {
+            position: relative !important;
+            background: #ffffff !important;
+            width: 100% !important;
+            max-width: 420px !important;
+            padding: 40px 32px 36px 32px !important;
+            border-radius: 20px !important;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+            box-sizing: border-box !important;
+            animation: loginModalEntrance 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+            margin: auto !important;
+        }
+
+        @keyframes loginModalEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.92) translateY(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Close Button */
+        .loginbx .close-popup {
+            position: absolute !important;
+            top: 18px !important;
+            right: 18px !important;
+            width: 32px !important;
+            height: 32px !important;
+            border-radius: 50% !important;
+            background: #f1f5f9 !important;
+            color: #64748b !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            font-size: 15px !important;
+            transition: all 0.2s ease !important;
+            border: none !important;
+            line-height: 1 !important;
+        }
+
+        .loginbx .close-popup:hover {
+            background: #e2e8f0 !important;
+            color: #0f172a !important;
+            transform: scale(1.06);
+        }
+
+        /* Header */
+        .loginbx .headerlg {
+            text-align: center !important;
+            margin-bottom: 24px !important;
+        }
+
+        .loginbx .headerlg h3 {
+            font-family: var(--font-family-primary, 'Dubai', 'Inter Tight', sans-serif) !important;
+            font-size: 1.75rem !important;
+            font-weight: 700 !important;
+            color: #140152 !important;
+            margin: 0 0 6px 0 !important;
+            line-height: 1.2 !important;
+        }
+
+        .loginbx .headerlg p {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.9rem !important;
+            color: #475569 !important;
+            margin: 0 !important;
+        }
+
+        /* Form Group */
+        .loginbx .frmgrplg {
+            margin-bottom: 18px !important;
+        }
+
+        .loginbx .frmgrplg label {
+            display: block !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.84rem !important;
+            font-weight: 600 !important;
+            color: #1e293b !important;
+            margin-bottom: 7px !important;
+            text-align: left !important;
+        }
+
+        .loginbx .rlbx {
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            border: 1.5px solid #94a3b8 !important;
+            border-radius: 10px !important;
+            background: #ffffff !important;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+            overflow: hidden !important;
+        }
+
+        .loginbx .rlbx:focus-within {
+            border-color: #140152 !important;
+            box-shadow: 0 0 0 3px rgba(20, 1, 82, 0.12) !important;
+        }
+
+        .loginbx .iniicon {
+            position: absolute !important;
+            left: 14px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: #140152 !important;
+            font-size: 15px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            pointer-events: none !important;
+        }
+
+        .loginbx .rlbx input {
+            width: 100% !important;
+            height: 46px !important;
+            border: none !important;
+            outline: none !important;
+            padding: 0 40px 0 42px !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.92rem !important;
+            color: #0f172a !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .loginbx .toggle-password {
+            position: absolute !important;
+            right: 14px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: #64748b !important;
+            cursor: pointer !important;
+            font-size: 15px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 4px !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .loginbx .toggle-password:hover {
+            color: #140152 !important;
+        }
+
+        /* Forgot Password Link */
+        .loginbx .forgot-link {
+            display: block !important;
+            text-align: right !important;
+            margin-top: 8px !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.84rem !important;
+            font-weight: 600 !important;
+            color: #140152 !important;
+            text-decoration: none !important;
+            transition: color 0.2s ease, text-decoration 0.2s ease !important;
+        }
+
+        .loginbx .forgot-link:hover {
+            color: #3b82f6 !important;
+            text-decoration: underline !important;
+        }
+
+        /* Submit Button */
+        .loginbx button[type="submit"] {
+            width: 100% !important;
+            height: 48px !important;
+            border-radius: 10px !important;
+            background: #140152 !important;
+            color: #ffffff !important;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            border: none !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 14px rgba(20, 1, 82, 0.28) !important;
+            margin-top: 6px !important;
+        }
+
+        .loginbx button[type="submit"]:hover {
+            background: #240b78 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 8px 20px rgba(20, 1, 82, 0.4) !important;
+        }
+
+        /* Subscribe Footer */
+        .loginbx .sbc {
+            margin-top: 18px !important;
+            text-align: center !important;
+        }
+
+        .loginbx .sbc p {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 0.86rem !important;
+            color: #334155 !important;
+            margin: 0 !important;
+        }
+
+        .loginbx .sbc a {
+            color: #4338ca !important;
+            font-weight: 700 !important;
+            text-decoration: none !important;
+            margin-left: 3px !important;
+            transition: text-decoration 0.2s ease !important;
+        }
+
+        .loginbx .sbc a:hover {
+            text-decoration: underline !important;
+        }
+
+        /* Error/Success Messages */
+        .loginbx .login-error {
+            background: #fef2f2 !important;
+            border: 1px solid #fecaca !important;
+            color: #dc2626 !important;
+            padding: 10px 14px !important;
+            border-radius: 8px !important;
+            font-size: 0.84rem !important;
+            margin-bottom: 14px !important;
+            text-align: center !important;
+        }
+
+        .loginbx .login-success {
+            background: #f0fdf4 !important;
+            border: 1px solid #bbf7d0 !important;
+            color: #16a34a !important;
+            padding: 10px 14px !important;
+            border-radius: 8px !important;
+            font-size: 0.84rem !important;
+            margin-bottom: 14px !important;
+            text-align: center !important;
+        }
+
+        /* Mobile Adjustment */
+        @media (max-width: 480px) {
+            .loginbx {
+                padding: 32px 22px 28px 22px !important;
+                border-radius: 16px !important;
+                max-width: 100% !important;
+            }
+            .loginbx .headerlg h3 {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -1989,37 +2284,55 @@
 
             /*
             |--------------------------------------------------------------------------
-            | OPEN POPUP
+            | OPEN & CLOSE POPUP (Above Page / Centered Overlay)
             |--------------------------------------------------------------------------
             */
 
-            $("#loginBtn").click(function () {
-
+            function openLoginPopup() {
                 $(".loginpage")
                     .addClass("active")
-                    .hide()
-                    .fadeIn();
+                    .stop(true, true)
+                    .fadeIn(250);
 
-                $(".popup-overlay").fadeIn();
+                $(".popup-overlay")
+                    .stop(true, true)
+                    .fadeIn(250);
 
-            });
+                $("body").css("overflow", "hidden");
+            }
 
-            /*
-            |--------------------------------------------------------------------------
-            | CLOSE POPUP
-            |--------------------------------------------------------------------------
-            */
-
-            $(".close-popup, .popup-overlay").click(function () {
-
-                $(".loginpage").fadeOut(function () {
-
+            function closeLoginPopup() {
+                $(".loginpage").stop(true, true).fadeOut(200, function () {
                     $(this).removeClass("active");
-
                 });
 
-                $(".popup-overlay").fadeOut();
+                $(".popup-overlay").stop(true, true).fadeOut(200);
 
+                $("body").css("overflow", "");
+            }
+
+            $("#loginBtn").on("click", function (e) {
+                e.preventDefault();
+                openLoginPopup();
+            });
+
+            $(".close-popup, .popup-overlay").on("click", function (e) {
+                e.preventDefault();
+                closeLoginPopup();
+            });
+
+            $(".loginpage").on("click", function (e) {
+                if (e.target === this) {
+                    closeLoginPopup();
+                }
+            });
+
+            $(document).on("keydown", function (e) {
+                if (e.key === "Escape" || e.keyCode === 27) {
+                    if ($(".loginpage").is(":visible") || $(".loginpage").hasClass("active")) {
+                        closeLoginPopup();
+                    }
+                }
             });
 
             /*

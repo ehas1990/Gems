@@ -62,9 +62,10 @@
 }
 
 /* Individual Chapter Card */
-.journeys-page .stage-book-chapter {
+.journeys-page .stage-book-chapter,
+.stage-book-chapter {
     position: relative;
-    padding: 26px 20px 22px 20px;
+    padding: 26px 20px 44px 20px !important;
     display: flex;
     flex-direction: column;
     background: #ffffff;
@@ -74,7 +75,8 @@
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.journeys-page .stage-book-chapter:hover {
+.journeys-page .stage-book-chapter:hover,
+.stage-book-chapter:hover {
     transform: translateY(-6px);
     box-shadow: 0 18px 38px rgba(15, 22, 129, 0.1);
     border-color: rgba(190, 159, 92, 0.4);
@@ -232,14 +234,16 @@
 }
 
 /* Bottom Chapter Tagline */
-.journeys-page .stage-chapter-tagline {
+.journeys-page .stage-chapter-tagline,
+.stage-chapter-tagline {
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #94a3b8;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 12px;
+    padding-bottom: 6px;
     border-top: 1px dashed rgba(15, 22, 129, 0.14);
 }
 
@@ -272,8 +276,9 @@
         gap: 16px;
     }
 
-    .journeys-page .stage-book-chapter {
-        padding: 22px 14px 18px 14px;
+    .journeys-page .stage-book-chapter,
+    .stage-book-chapter {
+        padding: 22px 14px 38px 14px !important;
     }
 
     .journeys-page .stage-chapter-title {
@@ -297,6 +302,11 @@
         gap: 20px;
     }
 
+    .journeys-page .stage-book-chapter,
+    .stage-book-chapter {
+        padding: 24px 18px 40px 18px !important;
+    }
+
     .journeys-page .stage-chapter-desc {
         min-height: auto;
     }
@@ -317,8 +327,9 @@
         gap: 18px;
     }
 
-    .journeys-page .stage-book-chapter {
-        padding: 24px 18px;
+    .journeys-page .stage-book-chapter,
+    .stage-book-chapter {
+        padding: 24px 18px 38px 18px !important;
     }
 
     .journeys-page .stage-chapter-desc {

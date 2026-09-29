@@ -162,16 +162,20 @@
 }
 
 .journeys-page .stage-chapter-services-list li {
+    position: relative;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-size: 0.86rem;
+    gap: 12px;
+    padding-left: 0;
+    font-size: 0.92rem;
     color: #334155;
     font-weight: 500;
-    margin-bottom: 7px;
-    line-height: 1.35;
+    line-height: 1.5;
     text-align: left;
-    padding-left: 0;
+}
+
+.journeys-page .stage-chapter-services-list li + li {
+    margin-top: 14px;
 }
 
 .journeys-page .stage-chapter-services-list li::before {
@@ -179,12 +183,19 @@
 }
 
 .journeys-page .stage-chapter-services-list li i {
-    color: #be9f5c;
-    font-size: 0.86rem;
-    width: 16px;
-    text-align: center;
-    margin-top: 2px;
+    color: #cca352;
+    font-size: 0.82rem;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    border: 1.5px solid #e2c076;
+    border-radius: 50%;
+    margin-top: 2px;
+    box-sizing: border-box;
+    background: rgba(226, 192, 118, 0.08);
 }
 
 /* CTA Button */

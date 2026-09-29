@@ -394,7 +394,7 @@
     line-height: 1.5;
 }
 
-.growth-journey-page .growth-services-list li + li {
+.growth-journey-page .growth-services-list li+li {
     margin-top: 12px;
 }
 
@@ -405,7 +405,7 @@
     top: 1px;
     width: 24px;
     height: 24px;
-    background-image: url('../img/list.svg');
+    background-image: url('../img/double-arrow.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -449,11 +449,11 @@
    ========================================================================== */
 .growth-journey-page .growth-compass-section {
     padding: 110px 0 120px 0;
-    background: radial-gradient(circle at 35% 50%, #faf8f5 0%, #f4eee3 55%, #eae2d3 100%);
+    background: linear-gradient(180deg, #eaf2fb 0%, #f4f8fd 40%, #ffffff 100%);
     position: relative;
     overflow: hidden;
-    border-top: 1px solid rgba(180, 155, 110, 0.2);
-    border-bottom: 1px solid rgba(180, 155, 110, 0.2);
+
+    border-bottom: 1px solid #e2ecf7;
 }
 
 /* Subtle World Map Watermark behind the section */
@@ -531,10 +531,29 @@
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.growth-journey-page .cardinal-n { top: -22px; left: 50%; transform: translateX(-50%); }
-.growth-journey-page .cardinal-e { right: -22px; top: 50%; transform: translateY(-50%); }
-.growth-journey-page .cardinal-s { bottom: -22px; left: 50%; transform: translateX(-50%); }
-.growth-journey-page .cardinal-w { left: -22px; top: 50%; transform: translateY(-50%); }
+.growth-journey-page .cardinal-n {
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.growth-journey-page .cardinal-e {
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.growth-journey-page .cardinal-s {
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.growth-journey-page .cardinal-w {
+    left: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
 /* Vintage Compass Top Hanger / Loop */
 .growth-journey-page .compass-top-hanger {
@@ -577,7 +596,7 @@
     height: 440px;
     border-radius: 50%;
     background: radial-gradient(circle, #0e2038 0%, #061220 100%);
-    box-shadow: 
+    box-shadow:
         0 25px 60px rgba(10, 20, 35, 0.35),
         0 10px 25px rgba(0, 0, 0, 0.25),
         inset 0 0 0 6px #5c4314,
@@ -598,11 +617,11 @@
     border-radius: 50%;
     border: 6px solid #d4af37;
     background: transparent;
-    box-shadow: 
+    box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.3),
         inset 0 2px 4px rgba(255, 255, 255, 0.5),
         inset 0 -2px 4px rgba(0, 0, 0, 0.5);
-    background-image: 
+    background-image:
         repeating-conic-gradient(from 0deg, #e6ca65 0deg 2deg, #996515 2deg 4deg);
     -webkit-mask: radial-gradient(transparent 218px, #000 220px);
     mask: radial-gradient(transparent 218px, #000 220px);
@@ -639,14 +658,57 @@
     text-shadow: 0 1px 2px #000000;
 }
 
-.growth-journey-page .track-n  { top: 6px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #ffd700; }
-.growth-journey-page .track-ne { top: 22%; right: 22%; }
-.growth-journey-page .track-e  { top: 50%; right: 6px; transform: translateY(-50%); font-size: 0.8rem; color: #ffd700; }
-.growth-journey-page .track-se { bottom: 22%; right: 22%; }
-.growth-journey-page .track-s  { bottom: 6px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #ffd700; }
-.growth-journey-page .track-sw { bottom: 22%; left: 22%; }
-.growth-journey-page .track-w  { top: 50%; left: 6px; transform: translateY(-50%); font-size: 0.8rem; color: #ffd700; }
-.growth-journey-page .track-nw { top: 22%; left: 22%; }
+.growth-journey-page .track-n {
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #ffd700;
+}
+
+.growth-journey-page .track-ne {
+    top: 22%;
+    right: 22%;
+}
+
+.growth-journey-page .track-e {
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #ffd700;
+}
+
+.growth-journey-page .track-se {
+    bottom: 22%;
+    right: 22%;
+}
+
+.growth-journey-page .track-s {
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #ffd700;
+}
+
+.growth-journey-page .track-sw {
+    bottom: 22%;
+    left: 22%;
+}
+
+.growth-journey-page .track-w {
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #ffd700;
+}
+
+.growth-journey-page .track-nw {
+    top: 22%;
+    left: 22%;
+}
 
 /* 6 Segments Navigation Dial (Seamless integrated circular sectors matching Reference Image 2) */
 .growth-journey-page .compass-segments-grid {
@@ -657,15 +719,20 @@
     z-index: 3;
     display: block;
     /* 6-way pie sector background with metallic sheen and subtle dividers */
-    background: conic-gradient(
-        from 330deg at 50% 50%,
-        #0d4e46 0deg 60deg,      /* 1: Personal (Top - Teal) */
-        #03558c 60deg 120deg,    /* 2: Professional (Top-Right - Blue) */
-        #3b6613 120deg 180deg,   /* 3: Financial (Bottom-Right - Olive) */
-        #784408 180deg 240deg,   /* 4: Network (Bottom - Amber Bronze) */
-        #521782 240deg 300deg,   /* 5: Entrepreneurship (Bottom-Left - Purple) */
-        #153860 300deg 360deg    /* 6: Long-Term Planning (Top-Left - Navy) */
-    );
+    background: conic-gradient(from 330deg at 50% 50%,
+            #0d4e46 0deg 60deg,
+            /* 1: Personal (Top - Teal) */
+            #03558c 60deg 120deg,
+            /* 2: Professional (Top-Right - Blue) */
+            #3b6613 120deg 180deg,
+            /* 3: Financial (Bottom-Right - Olive) */
+            #784408 180deg 240deg,
+            /* 4: Network (Bottom - Amber Bronze) */
+            #521782 240deg 300deg,
+            /* 5: Entrepreneurship (Bottom-Left - Purple) */
+            #153860 300deg 360deg
+            /* 6: Long-Term Planning (Top-Left - Navy) */
+        );
     box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.75), inset 0 0 4px rgba(255, 215, 0, 0.4);
 }
 
@@ -675,11 +742,10 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: 
-        repeating-conic-gradient(from 330deg at 50% 50%, 
-            rgba(244, 185, 66, 0.45) 0deg 1deg, 
-            transparent 1deg 60deg
-        );
+    background:
+        repeating-conic-gradient(from 330deg at 50% 50%,
+            rgba(244, 185, 66, 0.45) 0deg 1deg,
+            transparent 1deg 60deg);
     pointer-events: none;
     z-index: 4;
 }
@@ -737,7 +803,8 @@
     align-items: center;
     justify-content: center;
     font-size: 1.15rem;
-    margin-bottom: 7px; /* Increased icon-to-text breathing room */
+    margin-bottom: 7px;
+    /* Increased icon-to-text breathing room */
     color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border: 1.5px solid rgba(255, 255, 255, 0.7);
@@ -769,6 +836,7 @@
     width: 130px;
     height: 90px;
 }
+
 .growth-journey-page .segment-personal .node-icon-wrap {
     background: radial-gradient(circle, #108e7e 0%, #08433b 100%);
 }
@@ -780,6 +848,7 @@
     width: 120px;
     height: 90px;
 }
+
 .growth-journey-page .segment-professional .node-icon-wrap {
     background: radial-gradient(circle, #0284c7 0%, #034694 100%);
 }
@@ -791,6 +860,7 @@
     width: 120px;
     height: 90px;
 }
+
 .growth-journey-page .segment-financial .node-icon-wrap {
     background: radial-gradient(circle, #659928 0%, #31520b 100%);
 }
@@ -803,6 +873,7 @@
     width: 130px;
     height: 90px;
 }
+
 .growth-journey-page .segment-network .node-icon-wrap {
     background: radial-gradient(circle, #b86e14 0%, #5e3204 100%);
 }
@@ -814,6 +885,7 @@
     width: 120px;
     height: 90px;
 }
+
 .growth-journey-page .segment-entrepreneurship .node-icon-wrap {
     background: radial-gradient(circle, #8b25e2 0%, #460f78 100%);
 }
@@ -825,6 +897,7 @@
     width: 120px;
     height: 90px;
 }
+
 .growth-journey-page .segment-planning .node-icon-wrap {
     background: radial-gradient(circle, #255d99 0%, #0e2747 100%);
 }
@@ -870,18 +943,23 @@
 .growth-journey-page .compass-node-btn.segment-personal.active::before {
     background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.5) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
 }
+
 .growth-journey-page .compass-node-btn.segment-professional.active::before {
     background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.55) 0%, rgba(0, 180, 216, 0.3) 45%, transparent 75%);
 }
+
 .growth-journey-page .compass-node-btn.segment-financial.active::before {
     background: radial-gradient(ellipse at center, rgba(132, 204, 22, 0.5) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
 }
+
 .growth-journey-page .compass-node-btn.segment-network.active::before {
     background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.55) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
 }
+
 .growth-journey-page .compass-node-btn.segment-entrepreneurship.active::before {
     background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.55) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
 }
+
 .growth-journey-page .compass-node-btn.segment-planning.active::before {
     background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.5) 0%, rgba(255, 215, 0, 0.25) 45%, transparent 75%);
 }
@@ -912,7 +990,7 @@
 .growth-journey-page .compass-node-btn.active .node-icon-wrap {
     transform: scale(1.18);
     border-color: #ffd700;
-    box-shadow: 
+    box-shadow:
         0 0 0 2px rgba(255, 215, 0, 0.5),
         0 0 20px rgba(255, 215, 0, 0.85),
         0 4px 14px rgba(0, 0, 0, 0.6),
@@ -931,7 +1009,7 @@
 .growth-journey-page .compass-node-btn.active .compass-label {
     color: #ffffff;
     font-weight: 800;
-    text-shadow: 
+    text-shadow:
         0 0 12px rgba(255, 215, 0, 0.85),
         0 2px 6px rgba(0, 0, 0, 0.95),
         0 1px 2px #000000;
@@ -957,7 +1035,7 @@
     position: absolute;
     width: 120px;
     height: 120px;
-    background: 
+    background:
         linear-gradient(45deg, rgba(212, 175, 55, 0.15) 0%, transparent 70%),
         radial-gradient(circle, rgba(14, 32, 56, 0.85) 0%, rgba(6, 18, 32, 0.95) 75%);
     border-radius: 50%;
@@ -1638,12 +1716,45 @@
         border-top-width: 60px;
     }
 
-    .growth-journey-page .cnode-1 { width: 120px; height: 90px; top: 4px; }
-    .growth-journey-page .cnode-2 { width: 110px; height: 85px; top: 55px; right: 8px; }
-    .growth-journey-page .cnode-3 { width: 110px; height: 85px; bottom: 55px; right: 8px; }
-    .growth-journey-page .cnode-4 { width: 120px; height: 90px; bottom: 4px; }
-    .growth-journey-page .cnode-5 { width: 110px; height: 85px; bottom: 55px; left: 8px; }
-    .growth-journey-page .cnode-6 { width: 110px; height: 85px; top: 55px; left: 8px; }
+    .growth-journey-page .cnode-1 {
+        width: 120px;
+        height: 90px;
+        top: 4px;
+    }
+
+    .growth-journey-page .cnode-2 {
+        width: 110px;
+        height: 85px;
+        top: 55px;
+        right: 8px;
+    }
+
+    .growth-journey-page .cnode-3 {
+        width: 110px;
+        height: 85px;
+        bottom: 55px;
+        right: 8px;
+    }
+
+    .growth-journey-page .cnode-4 {
+        width: 120px;
+        height: 90px;
+        bottom: 4px;
+    }
+
+    .growth-journey-page .cnode-5 {
+        width: 110px;
+        height: 85px;
+        bottom: 55px;
+        left: 8px;
+    }
+
+    .growth-journey-page .cnode-6 {
+        width: 110px;
+        height: 85px;
+        top: 55px;
+        left: 8px;
+    }
 }
 
 /* Tablet <= 991px */
@@ -1790,11 +1901,9 @@
         padding: 60px 0;
     }
 
-    /* Mobile Compass Section - Retaining Identical Radial Background & Texture */
+    /* Mobile Compass Section */
     .growth-journey-page .growth-compass-section {
         padding: 60px 0 70px 0;
-        background: radial-gradient(circle at 50% 35%, #faf8f5 0%, #f4eee3 55%, #eae2d3 100%);
-        background-size: cover;
     }
 
     .growth-journey-page .growth-areas-grid {
@@ -1857,10 +1966,22 @@
     .growth-journey-page .compass-cardinal {
         font-size: 1.05rem;
     }
-    .growth-journey-page .cardinal-n { top: -20px; }
-    .growth-journey-page .cardinal-e { right: -20px; }
-    .growth-journey-page .cardinal-s { bottom: -20px; }
-    .growth-journey-page .cardinal-w { left: -20px; }
+
+    .growth-journey-page .cardinal-n {
+        top: -20px;
+    }
+
+    .growth-journey-page .cardinal-e {
+        right: -20px;
+    }
+
+    .growth-journey-page .cardinal-s {
+        bottom: -20px;
+    }
+
+    .growth-journey-page .cardinal-w {
+        left: -20px;
+    }
 
     .growth-journey-page .node-content-inner {
         padding: 2px 2px;
@@ -1883,12 +2004,49 @@
     }
 
     /* Precision mobile node placements safely away from boundaries */
-    .growth-journey-page .cnode-1 { width: 92px; height: 58px; top: 12px; left: 50%; transform: translateX(-50%); }
-    .growth-journey-page .cnode-2 { width: 84px; height: 56px; top: 54px; right: 18px; }
-    .growth-journey-page .cnode-3 { width: 84px; height: 56px; bottom: 64px; right: 18px; }
-    .growth-journey-page .cnode-4 { width: 92px; height: 58px; bottom: 12px; left: 50%; transform: translateX(-50%); }
-    .growth-journey-page .cnode-5 { width: 84px; height: 56px; bottom: 66px; left: 18px; }
-    .growth-journey-page .cnode-6 { width: 84px; height: 56px; top: 54px; left: 18px; }
+    .growth-journey-page .cnode-1 {
+        width: 92px;
+        height: 58px;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .growth-journey-page .cnode-2 {
+        width: 84px;
+        height: 56px;
+        top: 54px;
+        right: 18px;
+    }
+
+    .growth-journey-page .cnode-3 {
+        width: 84px;
+        height: 56px;
+        bottom: 64px;
+        right: 18px;
+    }
+
+    .growth-journey-page .cnode-4 {
+        width: 92px;
+        height: 58px;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .growth-journey-page .cnode-5 {
+        width: 84px;
+        height: 56px;
+        bottom: 66px;
+        left: 18px;
+    }
+
+    .growth-journey-page .cnode-6 {
+        width: 84px;
+        height: 56px;
+        top: 54px;
+        left: 18px;
+    }
 
     /* Precision Center Pivot & Needle Scaling for Mobile */
     .growth-journey-page .compass-center-rose-wrapper {
@@ -2064,12 +2222,45 @@
         font-size: 0.95rem;
     }
 
-    .growth-journey-page .cnode-1 { width: 80px; height: 50px; top: 10px; }
-    .growth-journey-page .cnode-2 { width: 72px; height: 48px; top: 46px; right: 14px; }
-    .growth-journey-page .cnode-3 { width: 72px; height: 48px; bottom: 54px; right: 14px; }
-    .growth-journey-page .cnode-4 { width: 80px; height: 50px; bottom: 10px; }
-    .growth-journey-page .cnode-5 { width: 72px; height: 48px; bottom: 56px; left: 14px; }
-    .growth-journey-page .cnode-6 { width: 72px; height: 48px; top: 46px; left: 14px; }
+    .growth-journey-page .cnode-1 {
+        width: 80px;
+        height: 50px;
+        top: 10px;
+    }
+
+    .growth-journey-page .cnode-2 {
+        width: 72px;
+        height: 48px;
+        top: 46px;
+        right: 14px;
+    }
+
+    .growth-journey-page .cnode-3 {
+        width: 72px;
+        height: 48px;
+        bottom: 54px;
+        right: 14px;
+    }
+
+    .growth-journey-page .cnode-4 {
+        width: 80px;
+        height: 50px;
+        bottom: 10px;
+    }
+
+    .growth-journey-page .cnode-5 {
+        width: 72px;
+        height: 48px;
+        bottom: 56px;
+        left: 14px;
+    }
+
+    .growth-journey-page .cnode-6 {
+        width: 72px;
+        height: 48px;
+        top: 46px;
+        left: 14px;
+    }
 
     .growth-journey-page .node-content-inner {
         gap: 3px;
@@ -2136,4 +2327,3 @@
         height: 10px;
     }
 }
-

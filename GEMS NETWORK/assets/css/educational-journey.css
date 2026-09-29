@@ -331,3 +331,68 @@
         padding-top: 14px;
     }
 }
+
+/* ==========================================================================
+   MEMBERSHIP CARDS HOVER EXPANSION (MATCHING CAREER & GROWTH JOURNEYS)
+   ========================================================================== */
+.membership-tiers-section .educational-membership-card,
+.membership-tiers-section .member-tier-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    position: relative;
+    height: 100%;
+}
+
+.membership-tiers-section .educational-membership-card:hover,
+.membership-tiers-section .member-tier-card:hover {
+    text-decoration: none;
+    color: inherit;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(7, 27, 53, 0.12);
+    z-index: 5;
+}
+
+.membership-tiers-section .tier-desc {
+    margin-bottom: 6px;
+    flex-grow: 0;
+}
+
+.membership-tiers-section .tier-hover-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.membership-tiers-section .member-tier-card:hover .tier-hover-details,
+.membership-tiers-section .educational-membership-card:hover .tier-hover-details {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 4px;
+}
+
+.membership-tiers-section .plan-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.membership-tiers-section .plan-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.membership-tiers-section .plan-features-list li i {
+    color: var(--color-primary, #0f1681);
+    margin-top: 4px;
+    font-size: 0.85rem;
+}

@@ -1984,3 +1984,140 @@ ul.about-Cta-list li {
         word-break: break-word;
     }
 }
+
+/* ==========================================================================
+   20. ABOUT FINAL CTA SECTION (MATCHING EDUCATIONAL JOURNEYS DESIGN)
+   ========================================================================== */
+.about-final-cta-section {
+    position: relative;
+    background-color: var(--color-navy-deep, #071b35);
+    padding: 160px 0 170px 0;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.about-final-cta-section .about-final-cta-bg-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.about-final-cta-section .about-final-cta-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 1;
+    filter: saturate(1.15) brightness(0.82);
+}
+
+.about-final-cta-section .about-final-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(7, 27, 53, 0.45) 0%, rgba(7, 27, 53, 0.92) 100%);
+    z-index: 1;
+}
+
+.about-final-cta-section .about-final-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-final-cta-section .about-final-cta-title {
+    color: #ffffff;
+    font-family: var(--font-family-primary, 'Dubai', sans-serif);
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+
+.about-final-cta-section .about-final-cta-list {
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.about-final-cta-section .about-final-cta-item {
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-final-cta-section .about-final-cta-alone {
+    color: var(--color-gold, #f4b942);
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 16px;
+    margin-bottom: 38px;
+    line-height: 1.4;
+}
+
+.about-final-cta-section .about-final-cta-btn-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-final-cta-section .about-final-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--color-gold, #f4b942) 0%, #e0a52d 100%);
+    color: var(--color-navy-deep, #071b35) !important;
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(244, 185, 66, 0.35);
+    min-height: 52px;
+    text-align: center;
+}
+
+.about-final-cta-section .about-final-cta-btn:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 14px 32px rgba(244, 185, 66, 0.52);
+    color: var(--color-navy-deep, #071b35) !important;
+    background: linear-gradient(135deg, #ffd066 0%, #f4b942 100%);
+}
+
+@media (max-width: 767px) {
+    .about-final-cta-section {
+        padding: 80px 0 90px 0;
+    }
+
+    .about-final-cta-section .about-final-cta-title {
+        font-size: 1.85rem;
+        margin-bottom: 18px;
+    }
+
+    .about-final-cta-section .about-final-cta-alone {
+        margin-bottom: 28px;
+    }
+
+    .about-final-cta-section .about-final-cta-btn {
+        width: 100%;
+        max-width: 440px;
+        padding: 14px 20px;
+        font-size: 0.98rem;
+        line-height: 1.35;
+    }
+}

@@ -1364,7 +1364,7 @@
                     flex-direction: column;
                     text-decoration: none;
                     color: inherit;
-                    transition: all 0.4s ease;
+                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
                     position: relative;
                     height: 100%;
                 }
@@ -1372,21 +1372,27 @@
                 .growth-membership-card:hover {
                     text-decoration: none;
                     color: inherit;
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 35px rgba(7, 27, 53, 0.1);
+                    transform: translateY(-6px) scale(1.03);
+                    box-shadow: 0 20px 45px rgba(7, 27, 53, 0.12);
+                    z-index: 5;
+                }
+
+                .membership-tiers-section .tier-desc {
+                    margin-bottom: 6px;
+                    flex-grow: 0;
                 }
 
                 .growth-membership-card .tier-hover-details {
                     max-height: 0;
                     opacity: 0;
                     overflow: hidden;
-                    transition: all 0.4s ease;
+                    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
                 }
 
                 .growth-membership-card:hover .tier-hover-details {
                     max-height: 250px;
                     opacity: 1;
-                    margin-top: 15px;
+                    margin-top: 4px;
                 }
 
                 .growth-membership-card .plan-features-list {

@@ -547,172 +547,198 @@
 
 
 /* ==========================================================================
-   4. TWO-COLUMN SPLIT: MEMBERSHIP & TRUST/REASSURANCE
+   4. TRUST AND CONFIDENCE & MEMBERSHIP CONNECTION (MATCHING GROWTH JOURNEY DESIGN)
    ========================================================================== */
+
+/* --- Trust and Confidence (Premium Slide Card) --- */
 .career-journey-page .career-dual-section {
-    padding: 90px 0;
+    padding: 80px 0 60px 0;
     background-color: #f8fafc;
     position: relative;
 }
 
-.career-journey-page .career-dual-grid {
-    display: grid;
-    grid-template-columns: 35% 1fr;
-    gap: 36px;
-    align-items: stretch;
-}
-
-/* Left Card: Membership Connection */
-.career-journey-page .dual-col-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 36px;
-    border: 1px solid rgba(15, 22, 129, 0.08);
-    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
+.career-journey-page .premium-trust-slide {
     display: flex;
-    flex-direction: column;
-}
-
-.career-journey-page .dual-header {
-    margin-bottom: 24px;
-}
-
-.career-journey-page .dual-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-primary, #0f1681);
-    display: block;
-    margin-bottom: 10px;
-}
-
-.career-journey-page .dual-title {
-    color: var(--color-navy-deep, #071b35);
-    font-size: 1.65rem;
-    font-weight: 800;
-    line-height: 1.28;
-    margin-bottom: 12px;
-}
-
-.career-journey-page .dual-desc {
-    color: var(--color-text, #64748b);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    flex-direction: row;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(7, 27, 53, 0.08);
+    border: 1px solid rgba(15, 22, 129, 0.08);
+    min-height: 350px;
     margin-bottom: 0;
 }
 
-/* 3 Compact Tier Rows */
-.career-journey-page .membership-compact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 28px;
-    flex-grow: 1;
-}
-
-.career-journey-page .membership-mini-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 12px;
-    background: #f8fafc;
-    border: 1px solid #edf2f7;
-    transition: all 0.25s ease;
-}
-
-.career-journey-page .membership-mini-item:hover {
-    background: #ffffff;
-    border-color: rgba(15, 22, 129, 0.18);
-    box-shadow: 0 6px 16px rgba(15, 22, 129, 0.06);
-    transform: translateY(-2px);
-}
-
-.career-journey-page .mini-tier-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.15rem;
-    color: #ffffff;
-    flex-shrink: 0;
-}
-
-.career-journey-page .mini-tier-explorer .mini-tier-icon {
-    background: linear-gradient(135deg, #0f62fe, #2563eb);
-}
-
-.career-journey-page .mini-tier-companion .mini-tier-icon {
-    background: linear-gradient(135deg, #0d9488, #10b981);
-}
-
-.career-journey-page .mini-tier-navigator .mini-tier-icon {
-    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
-}
-
-.career-journey-page .mini-tier-content h4 {
-    color: var(--color-navy-deep, #071b35);
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-bottom: 4px;
-}
-
-.career-journey-page .mini-tier-content p {
-    color: var(--color-text, #64748b);
-    font-size: 0.88rem;
-    line-height: 1.45;
-    margin: 0;
-}
-
-/* Right Card: Trust & Confidence (With Photo Split) */
-.career-journey-page .trust-card-wrap {
-    background: #ffffff;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(15, 22, 129, 0.08);
-    box-shadow: 0 10px 30px rgba(7, 27, 53, 0.04);
-    display: grid;
-    grid-template-columns: 50% 50%;
-    height: 100%;
-}
-
-.career-journey-page .trust-content-side {
-    padding: 36px 30px;
+.career-journey-page .premium-trust-content {
+    flex: 0 0 50%;
+    padding: 50px 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.career-journey-page .trust-tagline {
-    color: var(--color-gold, #f4b942);
-    font-weight: 700;
-    font-size: 0.98rem;
-    font-style: italic;
-    margin-top: 14px;
-    margin-bottom: 24px;
-}
-
-.career-journey-page .trust-image-side {
+.career-journey-page .premium-trust-image {
+    flex: 0 0 50%;
     position: relative;
-    height: 100%;
-    min-height: 320px;
     overflow: hidden;
 }
 
-.career-journey-page .trust-img {
+@keyframes careerZoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.career-journey-page .premium-trust-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 25%;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: careerZoomInOut 25s ease-in-out infinite;
 }
 
-.career-journey-page .trust-image-side:hover .trust-img {
-    transform: scale(1.05);
+.career-journey-page .premium-trust-content .dual-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f1681);
+    margin-bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.career-journey-page .premium-trust-content .dual-eyebrow i {
+    font-size: 1.1rem;
+}
+
+.career-journey-page .premium-trust-content .dual-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--color-navy-deep, #071b35);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.career-journey-page .premium-trust-content .dual-desc {
+    font-size: 1.15rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.career-journey-page .premium-trust-content .trust-tagline {
+    color: var(--color-gold, #f4b942);
+    font-weight: 700;
+    font-size: 1.15rem;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 991px) {
+    .career-journey-page .premium-trust-slide {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .career-journey-page .premium-trust-content {
+        padding: 50px 40px;
+    }
+
+    .career-journey-page .premium-trust-image {
+        min-height: 400px;
+    }
+
+    .career-journey-page .premium-trust-content .dual-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .career-journey-page .premium-trust-content {
+        padding: 40px 24px;
+    }
+
+    .career-journey-page .premium-trust-image {
+        flex: none;
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .career-journey-page .premium-trust-image img {
+        display: block;
+    }
+
+    .career-journey-page .premium-trust-content .dual-title {
+        font-size: 1.85rem;
+    }
+}
+
+/* --- Membership Connection (Interactive Cards Grid) --- */
+.career-journey-page .career-membership-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    position: relative;
+    height: 100%;
+}
+
+.career-journey-page .career-membership-card:hover {
+    text-decoration: none;
+    color: inherit;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(7, 27, 53, 0.12);
+    z-index: 5;
+}
+
+.career-journey-page .membership-tiers-section .tier-desc {
+    margin-bottom: 6px;
+    flex-grow: 0;
+}
+
+.career-journey-page .career-membership-card .tier-hover-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.career-journey-page .career-membership-card:hover .tier-hover-details {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 4px;
+}
+
+.career-journey-page .career-membership-card .plan-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.career-journey-page .career-membership-card .plan-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.career-journey-page .career-membership-card .plan-features-list li i {
+    color: var(--color-primary, #0f1681);
+    margin-top: 4px;
+    font-size: 0.85rem;
 }
 
 

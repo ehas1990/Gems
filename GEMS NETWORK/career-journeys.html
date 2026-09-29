@@ -113,6 +113,53 @@
             max-width: 100%;
         }
 
+        .membership-tiers-section .member-tier-card:hover .tier-hover-details,
+        .membership-tiers-section .career-membership-card:hover .tier-hover-details {
+            max-height: 1000px !important;
+            opacity: 1 !important;
+            margin-top: 6px !important;
+        }
+
+        .career-journey-page .career-membership-card:hover {
+            z-index: 10 !important;
+        }
+
+        .membership-tiers-section .tier-hover-details p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.55;
+            margin: 10px 0;
+        }
+
+        #list li,
+        .membership-tiers-section #list li {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+            position: relative !important;
+            list-style: none !important;
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        #list li::before,
+        .membership-tiers-section #list li::before {
+            content: '' !important;
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+            width: 14px !important;
+            height: 14px !important;
+            min-width: 14px !important;
+            min-height: 14px !important;
+            margin-top: 4px !important;
+            background-image: url('./assets/img/double-arrow.svg'), url('../img/double-arrow.svg'), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b79b5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m13 16 4-4-4-4M7 16l4-4-4-4'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            background-size: contain !important;
+        }
+
         .career-journey-page .career-connector-line {
             left: 8%;
             right: 8%;
@@ -178,6 +225,7 @@
         }
 
         @media (max-width: 767px) {
+
             .membership-tiers-section .tier-icon,
             .membership-tiers-section .member-tier-card .tier-icon,
             .membership-tiers-section .member-tier-card.highlighted-tier .tier-icon,
@@ -196,6 +244,155 @@
                 height: 24px !important;
                 max-width: 24px !important;
                 max-height: 24px !important;
+            }
+        }
+
+        /* Career Services & Trusted Network Relationship Section */
+        .career-network-relation-section {
+            padding: 100px 0;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-network-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .career-network-image-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(7, 27, 53, 0.08);
+            border: 1px solid rgba(15, 22, 129, 0.08);
+            height: 100%;
+            min-height: 440px;
+            display: flex;
+        }
+
+        .career-network-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .career-network-image-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        .career-network-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .career-network-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-primary, #0f1681);
+            background: rgba(15, 22, 129, 0.06);
+            border: 1px solid rgba(15, 22, 129, 0.12);
+            padding: 8px 18px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-bottom: 20px;
+        }
+
+        .career-network-title {
+            font-size: 2.35rem;
+            font-weight: 700;
+            color: var(--color-navy-deep, #071b35);
+            line-height: 1.25;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .career-network-points-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .career-network-points-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 1.05rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .career-network-points-list li::before {
+            content: '' !important;
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+            width: 16px !important;
+            height: 16px !important;
+            min-width: 16px !important;
+            min-height: 16px !important;
+            margin-top: 5px !important;
+            background-image: url('./assets/img/double-arrow.svg'), url('../img/double-arrow.svg'), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b79b5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m13 16 4-4-4-4M7 16l4-4-4-4'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            background-size: contain !important;
+        }
+
+        @media (max-width: 991px) {
+            .career-network-relation-section {
+                padding: 70px 0;
+            }
+
+            .career-network-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .career-network-image-wrap {
+                min-height: 340px;
+                max-height: 420px;
+            }
+
+            .career-network-title {
+                font-size: 1.95rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .career-network-relation-section {
+                padding: 55px 0;
+            }
+
+            .career-network-image-wrap {
+                min-height: 240px;
+                max-height: 300px;
+                border-radius: 18px;
+            }
+
+            .career-network-title {
+                font-size: 1.65rem;
+                margin-bottom: 18px;
+            }
+
+            .career-network-points-list {
+                gap: 14px;
+            }
+
+            .career-network-points-list li {
+                font-size: 0.95rem;
+                gap: 10px;
             }
         }
     </style>
@@ -445,24 +642,22 @@
                                 </div>
                             </div>
                             <h3 class="career-stage-title">Starting Your Career</h3>
-                            <div class="career-stage-tagline"
-                                style="font-size: 0.92rem; font-weight: 700; color: #e11d48; margin-bottom: 8px;">Build
-                                your foundation.</div>
-                            <p class="career-stage-desc">
+
+                            <!-- <p class="career-stage-desc">
                                 You are entering the professional world and figuring out where you fit, what you need,
                                 and how to prepare.
-                            </p>
+                            </p> -->
                             <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
                             <ul class="career-services-list">
-                                <li><i class="fa-solid fa-clipboard-check"></i> <span>Career assessment &
-                                        planning</span></li>
+                                <li><i class="fa-solid fa-clipboard-check"></i> <span>Career planning</span></li>
+                                <li><i class="fa-solid fa-briefcase"></i> <span>employment readiness</span></li>
                                 <li><i class="fa-solid fa-file-lines"></i> <span>Resume & profile guidance</span></li>
                                 <li><i class="fa-solid fa-comments"></i> <span>Interview preparation</span></li>
-                                <li><i class="fa-solid fa-magnifying-glass"></i> <span>Job search & application
-                                        guidance</span></li>
-                                <li><i class="fa-solid fa-briefcase"></i> <span>Workplace readiness &
-                                        expectations</span></li>
                                 <li><i class="fa-solid fa-chart-line"></i> <span>Professional development</span></li>
+                                <li><i class="fa-solid fa-magnifying-glass"></i> <span>understanding workplace
+                                        expectations</span></li>
+
+
                             </ul>
                             <a href="https://globalenrollment.us/subscription" class="tier-btn tier-btn-outline">
                                 <span>Help me get started</span>
@@ -477,23 +672,23 @@
                                 </div>
                             </div>
                             <h3 class="career-stage-title">Building Your Career</h3>
-                            <div class="career-stage-tagline"
+                            <!-- <div class="career-stage-tagline"
                                 style="font-size: 0.92rem; font-weight: 700; color: #d97706; margin-bottom: 8px;">Turn
                                 your experience into opportunity.</div>
                             <p class="career-stage-desc">
                                 You have a foundation. Now it's about building experience, expanding your network, and
                                 creating your next opportunity.
-                            </p>
+                            </p> -->
                             <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
                             <ul class="career-services-list">
-                                <li><i class="fa-solid fa-users"></i> <span>Networking opportunities</span></li>
-                                <li><i class="fa-solid fa-arrow-trend-up"></i> <span>Professional development</span>
+                                <li><i class="fa-solid fa-clipboard-check"></i> <span>Career Planning</span></li>
+                                <li><i class="fa-solid fa-users"></i> <span>Networking </span></li>
+                                <li><i class="fa-solid fa-arrow-trend-up"></i> <span>Professional Development</span>
                                 </li>
-                                <li><i class="fa-solid fa-certificate"></i> <span>Certifications & training
-                                        guidance</span></li>
-                                <li><i class="fa-solid fa-handshake"></i> <span>Placement opportunities</span></li>
-                                <li><i class="fa-solid fa-user-group"></i> <span>Mentorship & coaching</span></li>
-                                <li><i class="fa-solid fa-network-wired"></i> <span>Industry connections</span></li>
+                                <li><i class="fa-solid fa-certificate"></i> <span>Certifications </span></li>
+                                <li><i class="fa-solid fa-handshake"></i> <span>Placement Planning</span></li>
+                                <li><i class="fa-solid fa-user-group"></i> <span>Personalized Guidance</span></li>
+
                             </ul>
                             <a href="https://globalenrollment.us/subscription" class="tier-btn tier-btn-outline">
                                 <span>Help me move forward</span>
@@ -508,22 +703,27 @@
                                 </div>
                             </div>
                             <h3 class="career-stage-title">Changing Direction</h3>
-                            <div class="career-stage-tagline"
+                            <!-- <div class="career-stage-tagline"
                                 style="font-size: 0.92rem; font-weight: 700; color: #0d9488; margin-bottom: 8px;">A new
                                 direction doesn't mean starting over.</div>
                             <p class="career-stage-desc">
                                 Careers change. Circumstances change. Your next chapter may require a new plan. GEMS
                                 helps you navigate the transition with clarity and support.
-                            </p>
+                            </p> -->
                             <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
                             <ul class="career-services-list">
-                                <li><i class="fa-solid fa-route"></i> <span>Career transition planning</span></li>
-                                <li><i class="fa-solid fa-gears"></i> <span>Skill reskilling & upskilling</span></li>
+                                <li><i class="fa-solid fa-route"></i> <span>Career Transition </span></li>
                                 <li><i class="fa-solid fa-map-location-dot"></i> <span>Relocation assistance</span></li>
-                                <li><i class="fa-solid fa-handshake"></i> <span>Placement opportunities</span></li>
-                                <li><i class="fa-solid fa-scale-balanced"></i> <span>Financial & legal guidance</span>
+                                <li><i class="fa-solid fa-user-group"></i> <span>Personalized Guidance</span></li>
+
+
+                                <li><i class="fa-solid fa-handshake"></i> <span> Placement
+                                        Planning</span></li>
+                                <li><i class="fa-solid fa-scale-balanced"></i> <span>Financial Planning</span>
                                 </li>
-                                <li><i class="fa-solid fa-shield-halved"></i> <span>Trusted connections</span></li>
+                                <li><i class="fa-solid fa-shield-halved"></i> <span> Trusted Specialist
+                                        Connections</span></li>
+
                             </ul>
                             <a href="https://globalenrollment.us/subscription" class="tier-btn tier-btn-outline">
                                 <span>Help me navigate my transition</span>
@@ -538,20 +738,24 @@
                                 </div>
                             </div>
                             <h3 class="career-stage-title">Growing & Advancing</h3>
-                            <div class="career-stage-tagline"
+                            <!-- <div class="career-stage-tagline"
                                 style="font-size: 0.92rem; font-weight: 700; color: #2563eb; margin-bottom: 8px;">Think
                                 beyond the next job.</div>
                             <p class="career-stage-desc">
                                 Build toward greater responsibility, new opportunities, entrepreneurship, or the
                                 long-term career you want.
-                            </p>
+                            </p> -->
                             <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
                             <ul class="career-services-list">
-                                <li><i class="fa-solid fa-bullseye"></i> <span>Strategic career planning</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>Leadership development</span></li>
-                                <li><i class="fa-solid fa-award"></i> <span>Advanced certifications</span></li>
-                                <li><i class="fa-solid fa-lightbulb"></i> <span>Entrepreneurship guidance</span></li>
-                                <li><i class="fa-solid fa-city"></i> <span>Industry connections</span></li>
+                                <li><i class="fa-solid fa-arrow-trend-up"></i> <span>Professional Development</span>
+                                </li>
+                                <li><i class="fa-solid fa-bullseye"></i> <span>Strategic Career Planning</span></li>
+                                <li><i class="fa-solid fa-users"></i> <span>Networking </span></li>
+                                <li><i class="fa-solid fa-award"></i> <span>certifications</span></li>
+
+
+                                <li><i class="fa-solid fa-lightbulb"></i> <span>Entrepreneurship Guidance</span></li>
+
                                 <li><i class="fa-solid fa-arrow-trend-up"></i> <span>Long-term growth planning</span>
                                 </li>
                             </ul>
@@ -687,6 +891,39 @@
                 </div>
             </div>
         </section>
+
+        <!-- ==========================================================================
+             CAREER SERVICES AND TRUSTED NETWORK RELATIONSHIP
+             ========================================================================== -->
+        <section class="career-network-relation-section" id="career-network-relationship">
+            <div class="container-port-xl">
+                <div class="career-network-grid">
+                    <!-- LHS: Image -->
+                    <div class="career-network-image-wrap" data-aos="fade-right" data-aos-duration="800">
+                        <img src="./assets/img/AboutUs_Trusted_Network.webp"
+                            alt="Career Services and Trusted Network Relationship">
+                    </div>
+
+                    <!-- RHS: Content -->
+                    <div class="career-network-content" data-aos="fade-left" data-aos-duration="800">
+                        <span class="career-network-badge">
+                            <i class="fa-solid fa-handshake"></i> TRUSTED NETWORK RELATIONSHIP
+                        </span>
+                        <h2 class="career-network-title">Career Services And Trusted Network Relationship</h2>
+                        <ul class="career-network-points-list">
+                            <li>GEMS helps the visitor understand what they need.</li>
+                            <li>GEMS helps determine the appropriate next step.</li>
+                            <li>Where appropriate, GEMS provides guidance or consulting directly.</li>
+                            <li>Where specialist expertise is required, GEMS connects the visitor with an appropriate
+                                Trusted Network provider.</li>
+                            <li>The value of the network is the confidence created by curated, trusted connections — not
+                                simply the number of providers.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==========================================================================
              5. MEMBERSHIP CONNECTION (MATCHING GROWTH JOURNEY DESIGN)
              ========================================================================== -->
@@ -730,11 +967,21 @@
                         </div>
                         <p class="tier-desc">A starting point for discovering GEMS, career resources, and the broader
                             network.</p>
+
                         <div class="tier-hover-details">
-                            <ul class="plan-features-list">
-                                <li><i class="fa-solid fa-check"></i> <span>A starting point for discovering GEMS,
-                                        career resources, and the broader network.</span></li>
+                            <p>Perfect for students who are just beginning their journey and it Includes:</p>
+                            <ul class="plan-features-list" id="list">
+                                <li>Educational articles and guides</li>
+                                <li>Country and university information</li>
+                                <li>Career pathway resources</li>
+                                <li>Public webinars and events</li>
+                                <li>Community news and updates</li>
+                                <li>Access to selected free resources</li>
+
                             </ul>
+                            <p>Whether you're considering studying abroad, exploring career options,
+                                or simply gathering information, Explorer gives you access to the knowledge and tools to
+                                help you make informed decisions—at your own pace.</p>
                         </div>
                     </a>
 
@@ -770,10 +1017,21 @@
                         <p class="tier-desc">For professionals who want personalized guidance and someone they can
                             return to as career questions arise.</p>
                         <div class="tier-hover-details">
-                            <ul class="plan-features-list">
-                                <li><i class="fa-solid fa-check"></i> <span>For professionals who want personalized
-                                        guidance and someone they can return to as career questions arise.</span></li>
+                            <p>Ideal for students actively preparing to study abroad or build their future. Includes
+                                everything in Explorer, plus:</p>
+                            <ul class="plan-features-list" id="list">
+                                <li>Personalized education roadmap</li>
+                                <li>University and program comparisons</li>
+                                <li>Visa preparation guidance</li>
+                                <li>Application planning</li>
+                                <li>Document checklists</li>
+                                <li>Financial planning resources</li>
+                                <li>Priority member support</li>
+                                <li>Exclusive member resources</li>
+
                             </ul>
+                            <p>When you're ready to take the next step,Companion provides personalized guidance,planning
+                                tools,and ongoing support to help you stay organized and move forward with clarity.</p>
                         </div>
                     </a>
 
@@ -818,9 +1076,18 @@
                         <p class="tier-desc">For professionals who want a deeper level of ongoing support, planning, and
                             access to the GEMS network.</p>
                         <div class="tier-hover-details">
-                            <ul class="plan-features-list">
-                                <li><i class="fa-solid fa-check"></i> <span>For professionals who want a deeper level of
-                                        ongoing support, planning, and access to the GEMS network.</span></li>
+                            <p>Your journey becomes our journey. Includes everything in Companion, plus:</p>
+                            <ul class="plan-features-list" id="list">
+                                <li>One-on-one consultations</li>
+                                <li>Dedicated member assistance</li>
+                                <li>Priority appointments</li>
+                                <li>Application reviews</li>
+                                <li>Family guidance sessions</li>
+                                <li>Scholarship strategy</li>
+                                <li>Personalized planning support</li>
+                                <li>Concierge referrals</li>
+                                <li>Ongoing journey support</li>
+                                <li>Partner discounts and benefits</li>
                             </ul>
                         </div>
                     </a>
@@ -828,7 +1095,7 @@
 
                 <div class="membership-cta-wrap mt-5" data-aos="fade-up" data-aos-delay="400"
                     style="text-align: center; margin-top: 40px;">
-                    <a href="memberships.html" class="btn-gems-primary">
+                    <a href="membership-level.html?journey=career" class="btn-gems-primary">
                         COMPARE MEMBERSHIPS &rarr;
                     </a>
                 </div>

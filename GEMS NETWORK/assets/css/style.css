@@ -12,6 +12,11 @@
   gap: 10px;
 }
 
+.bxsublist-mob ul li {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
 .field span {
   font-family: "Nanum Gothic", sans-serif;
   color: #fff;

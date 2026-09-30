@@ -8116,20 +8116,20 @@ header.headerbg .ham span {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: clamp(10px, 2.2vh, 18px) clamp(16px, 5vw, 22px) !important;
+    padding: clamp(12px, 2.2vh, 18px) clamp(16px, 5vw, 22px) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     flex-shrink: 0 !important;
 }
 
 .mobile-menu-logo img {
-    height: clamp(30px, 4.5vh, 38px) !important;
+    height: clamp(32px, 4.5vh, 40px) !important;
     width: auto !important;
 }
 
 .close-items {
     position: static !important;
-    width: clamp(30px, 4.5vh, 36px) !important;
-    height: clamp(30px, 4.5vh, 36px) !important;
+    width: clamp(32px, 4.5vh, 38px) !important;
+    height: clamp(32px, 4.5vh, 38px) !important;
     background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 50% !important;
     display: flex !important;
@@ -8148,14 +8148,16 @@ header.headerbg .ham span {
 }
 
 .wrpall-cg {
-    padding: clamp(8px, 1.8vh, 14px) clamp(16px, 5vw, 20px) clamp(12px, 2.5vh, 20px) clamp(16px, 5vw, 20px) !important;
+    padding: clamp(10px, 2vh, 18px) clamp(16px, 5vw, 22px) clamp(16px, 3vh, 24px) clamp(16px, 5vw, 22px) !important;
     background: transparent !important;
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     min-height: 0 !important;
-    overflow: hidden !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
     box-sizing: border-box !important;
 }
 
@@ -8163,6 +8165,8 @@ header.headerbg .ham span {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    padding-top: clamp(6px, 1.2vh, 12px) !important;
+    padding-bottom: clamp(8px, 1.5vh, 14px) !important;
     display: flex !important;
     flex-direction: column !important;
     flex-shrink: 0 !important;
@@ -8176,10 +8180,10 @@ header.headerbg .ham span {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: clamp(6px, 1.2vh, 10px) 4px !important;
+    padding: clamp(10px, 1.8vh, 14px) 4px !important;
     color: #ffffff !important;
-    font-size: clamp(13px, 1.9vh, 15px) !important;
-    line-height: 1.2 !important;
+    font-size: clamp(14px, 2vh, 16px) !important;
+    line-height: 1.3 !important;
     font-weight: 500 !important;
     font-family: 'Inter Tight', sans-serif !important;
     text-decoration: none !important;
@@ -8193,7 +8197,7 @@ header.headerbg .ham span {
 .mob-list_nav_menu.mbdrp .toggle-sub {
     cursor: pointer !important;
     color: rgba(255, 255, 255, 0.6) !important;
-    font-size: clamp(11px, 1.6vh, 13px) !important;
+    font-size: clamp(12px, 1.8vh, 14px) !important;
     transition: transform 0.3s ease !important;
 }
 
@@ -8204,7 +8208,7 @@ header.headerbg .ham span {
 
 .bxsublist-mob {
     display: none;
-    padding: 4px 0 6px 14px !important;
+    padding: clamp(8px, 1.4vh, 12px) 0 clamp(8px, 1.4vh, 12px) 16px !important;
 }
 
 .bxsublist-mob ul {
@@ -8214,15 +8218,15 @@ header.headerbg .ham span {
 }
 
 .bxsublist-mob ul li {
-    padding: clamp(2px, 0.6vh, 4px) 0 !important;
+    padding: clamp(5px, 0.9vh, 7px) 0 !important;
 }
 
 .bxsublist-mob ul li a {
     color: rgba(255, 255, 255, 0.8) !important;
-    font-size: clamp(11px, 1.6vh, 13px) !important;
+    font-size: clamp(12px, 1.7vh, 14px) !important;
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 10px !important;
     text-decoration: none !important;
     transition: color 0.2s ease !important;
 }
@@ -8234,22 +8238,22 @@ header.headerbg .ham span {
 .mob-actions {
     display: flex !important;
     flex-direction: column !important;
-    gap: clamp(6px, 1.2vh, 10px) !important;
+    gap: clamp(8px, 1.4vh, 12px) !important;
     margin-top: auto !important;
-    padding-top: clamp(8px, 1.5vh, 14px) !important;
+    padding-top: clamp(14px, 2.2vh, 20px) !important;
     flex-shrink: 0 !important;
 }
 
 .mob-login-btn {
     width: 100% !important;
     text-align: center !important;
-    padding: clamp(8px, 1.3vh, 11px) !important;
+    padding: clamp(10px, 1.6vh, 13px) !important;
     border-radius: 50px !important;
     background: transparent !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    font-size: clamp(12px, 1.7vh, 14px) !important;
+    font-size: clamp(13px, 1.8vh, 15px) !important;
     cursor: pointer !important;
     transition: all 0.2s ease !important;
     box-sizing: border-box !important;
@@ -8262,16 +8266,90 @@ header.headerbg .ham span {
 .mob-cta-btn {
     width: 100% !important;
     text-align: center !important;
-    padding: clamp(8px, 1.3vh, 11px) !important;
+    padding: clamp(10px, 1.6vh, 13px) !important;
     border-radius: 50px !important;
     background: linear-gradient(135deg, #93333b 0%, #6d2228 100%) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    font-size: clamp(12px, 1.7vh, 14px) !important;
+    font-size: clamp(13px, 1.8vh, 15px) !important;
     text-decoration: none !important;
     box-shadow: 0 4px 12px rgba(110, 34, 40, 0.3) !important;
     display: block !important;
     box-sizing: border-box !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1243px) {
+    .mobile-menu {
+        width: 360px !important;
+        max-width: 80vw !important;
+    }
+
+    .mob-list_nav_a {
+        padding: 14px 6px !important;
+        font-size: 16px !important;
+    }
+
+    .bxsublist-mob {
+        padding: 10px 0 10px 18px !important;
+    }
+
+    .bxsublist-mob ul li {
+        padding: 6px 0 !important;
+    }
+
+    .bxsublist-mob ul li a {
+        font-size: 14px !important;
+    }
+
+    .mob-actions {
+        padding-top: 20px !important;
+        gap: 12px !important;
+    }
+
+    .mob-login-btn,
+    .mob-cta-btn {
+        padding: 12px !important;
+        font-size: 15px !important;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .mobile-menu-header {
+        padding: 8px 16px !important;
+    }
+
+    .wrpall-cg {
+        padding: 8px 16px 12px 16px !important;
+    }
+
+    .mob-main_nav_menu {
+        padding-top: 4px !important;
+        padding-bottom: 6px !important;
+    }
+
+    .mob-list_nav_a {
+        padding: 6px 4px !important;
+        font-size: 13px !important;
+    }
+
+    .bxsublist-mob {
+        padding: 4px 0 4px 12px !important;
+    }
+
+    .bxsublist-mob ul li {
+        padding: 3px 0 !important;
+    }
+
+    .mob-actions {
+        padding-top: 8px !important;
+        gap: 6px !important;
+    }
+
+    .mob-login-btn,
+    .mob-cta-btn {
+        padding: 6px !important;
+        font-size: 12px !important;
+    }
 }
 
 /* Responsive Media Queries */

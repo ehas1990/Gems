@@ -284,6 +284,50 @@
     box-shadow: 0 0 0 3px rgba(15, 22, 129, 0.2);
 }
 
+/* Filter Action Buttons (Filter + Reset) */
+.faq-page .faq-filter-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.faq-page .faq-apply-btn {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    background: var(--color-primary, #0f1681);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 11px 20px;
+    font-size: 0.94rem;
+    font-weight: 600;
+    font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(15, 22, 129, 0.2);
+}
+
+.faq-page .faq-apply-btn:hover {
+    background: var(--color-navy-deep, #071b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(7, 27, 53, 0.25);
+    color: #ffffff;
+}
+
+.faq-page .faq-apply-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+    .faq-page .faq-apply-btn {
+        display: inline-flex;
+    }
+}
+
 /* Reset Filters Button */
 .faq-page .faq-reset-btn {
     width: 100%;
@@ -302,7 +346,7 @@
     cursor: pointer;
     transition: all 0.25s ease;
     box-shadow: 0 4px 14px rgba(7, 27, 53, 0.15);
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .faq-page .faq-reset-btn:hover {

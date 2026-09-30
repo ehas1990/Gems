@@ -449,11 +449,17 @@
                             </div>
                         </div>
 
-                        <!-- Reset Filters Button -->
-                        <button type="button" id="faqResetBtn" class="faq-reset-btn"
-                            aria-label="Reset all filters and search">
-                            <i class="fa-solid fa-rotate-left"></i> Reset Filters
-                        </button>
+                        <!-- Filter Actions (Apply on Tablet/Mobile + Reset) -->
+                        <div class="faq-filter-actions">
+                            <button type="button" id="faqApplyBtn" class="faq-apply-btn"
+                                aria-label="Apply selected filters">
+                                <i class="fa-solid fa-filter"></i> Filter
+                            </button>
+                            <button type="button" id="faqResetBtn" class="faq-reset-btn"
+                                aria-label="Reset all filters and search">
+                                <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                            </button>
+                        </div>
                     </aside>
 
                     <!-- ==========================================================
@@ -512,7 +518,7 @@
                                     <div class="faq-answer-panel">
                                         <p>GEMS is designed for international students planning or currently undergoing
                                             studies abroad, early-to-mid career professionals seeking global
-                                            advancement, career changers, educational institutions, recruiters, and
+                                             advancement, career changers, educational institutions, recruiters, and
                                             corporate partners looking for trusted global solutions.</p>
                                     </div>
                                 </div>
@@ -660,12 +666,12 @@
                             <!-- FAQ 10 -->
                             <article class="faq-card" data-journey="all career" data-category="general">
                                 <button type="button" class="faq-card-header" aria-expanded="false"
-                                    aria-controls="faq-ans-10" id="faq-head-10">
+                                    aria-controls="faq-ans-10" id="faq-head-010">
                                     <span class="faq-number-badge">10</span>
                                     <h3 class="faq-question-text">How does GEMS support Career Journey candidates?</h3>
                                     <i class="fa-solid fa-chevron-down faq-chevron-icon" aria-hidden="true"></i>
                                 </button>
-                                <div class="faq-card-body" id="faq-ans-10" role="region" aria-labelledby="faq-head-10">
+                                <div class="faq-card-body" id="faq-ans-10" role="region" aria-labelledby="faq-head-010">
                                     <div class="faq-answer-panel">
                                         <p>We empower professionals through credential evaluations, resume restructuring
                                             tailored to global ATS standards, mock behavioral and technical interviews,
@@ -901,6 +907,13 @@
                     offset: 60,
                     delay: 50
                 });
+            } else {
+                document.querySelectorAll('[data-aos]').forEach(function (el) {
+                    el.classList.add('aos-animate');
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.style.visibility = 'visible';
+                });
             }
 
             /* =====================================================
@@ -986,8 +999,13 @@
             const categoryRadios = document.querySelectorAll('input[name="category"]');
             const resultsCountEl = document.getElementById('faqResultsCount');
             const emptyStateEl = document.getElementById('faqEmptyState');
+            const applyBtn = document.getElementById('faqApplyBtn');
             const resetBtn = document.getElementById('faqResetBtn');
             const emptyResetBtn = document.getElementById('faqEmptyResetBtn');
+
+            const isMobileOrTablet = function () {
+                return window.innerWidth <= 991;
+            };
 
             function filterFAQs() {
                 const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
@@ -1052,12 +1070,28 @@
             }
 
             journeyRadios.forEach(radio => {
-                radio.addEventListener('change', filterFAQs);
+                radio.addEventListener('change', function () {
+                    if (!isMobileOrTablet()) {
+                        filterFAQs();
+                    }
+                });
             });
 
             categoryRadios.forEach(radio => {
-                radio.addEventListener('change', filterFAQs);
+                radio.addEventListener('change', function () {
+                    if (!isMobileOrTablet()) {
+                        filterFAQs();
+                    }
+                });
             });
+
+            // Mobile & Tablet Apply Filter Button
+            if (applyBtn) {
+                applyBtn.addEventListener('click', function () {
+                    filterFAQs();
+                    closeFilterDrawer();
+                });
+            }
 
             // Reset Function
             function resetAllFilters() {

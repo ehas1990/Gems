@@ -113,6 +113,45 @@
             max-width: 100%;
         }
 
+        .membership-tiers-section .member-tier-card,
+        .membership-tiers-section .career-membership-card {
+            border: 2px solid transparent !important;
+            transition: border-color 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+        }
+
+        .membership-tiers-section .member-tier-card::before,
+        .membership-tiers-section .member-tier-card::after {
+            display: none !important;
+        }
+
+        /* Default: Companion Card has visible border */
+        .membership-tiers-section .membership-cards-grid > .member-tier-card:nth-child(2),
+        .membership-tiers-section .career-membership-card[href*="membership=companion"] {
+            border-color: #003b6d !important;
+        }
+
+        /* Default: Explorer & Navigator Cards have no visible border */
+        .membership-tiers-section .membership-cards-grid > .member-tier-card:nth-child(1),
+        .membership-tiers-section .membership-cards-grid > .member-tier-card:nth-child(3),
+        .membership-tiers-section .career-membership-card[href*="membership=explorer"],
+        .membership-tiers-section .career-membership-card[href*="membership=navigator"] {
+            border-color: transparent !important;
+        }
+
+        /* Hover: Explorer & Navigator smoothly show Companion border color */
+        .membership-tiers-section .membership-cards-grid > .member-tier-card:nth-child(1):hover,
+        .membership-tiers-section .membership-cards-grid > .member-tier-card:nth-child(3):hover,
+        .membership-tiers-section .career-membership-card[href*="membership=explorer"]:hover,
+        .membership-tiers-section .career-membership-card[href*="membership=navigator"]:hover {
+            border-color: #003b6d !important;
+        }
+
+        /* Hover: Companion Card keeps existing border color */
+        .membership-tiers-section .membership-cards-grid > .member-tier-card:nth-child(2):hover,
+        .membership-tiers-section .career-membership-card[href*="membership=companion"]:hover {
+            border-color: #003b6d !important;
+        }
+
         .membership-tiers-section .member-tier-card:hover .tier-hover-details,
         .membership-tiers-section .career-membership-card:hover .tier-hover-details {
             max-height: 1000px !important;

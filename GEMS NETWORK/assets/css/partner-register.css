@@ -1,0 +1,528 @@
+/**
+ * ==========================================================================
+ * GEMS Network - Partner Registration Stylesheet (partner-register.css)
+ * ==========================================================================
+ * Strictly scoped under .partner-register-page.
+ * Harmonized with GEMS Network design tokens (global.css & trusted-network.css).
+ */
+
+/* ==========================================================================
+   1. PAGE CONTAINER & BACKGROUND
+   ========================================================================== */
+body.partner-register-page {
+  background-color: var(--color-navy-deep, #071b35);
+  background: radial-gradient(circle at 50% 12%, rgba(15, 22, 129, 0.42) 0%, rgba(7, 27, 53, 0.98) 100%), #071b35;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-family-secondary, 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: #374151;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.partner-register-page .logincontainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   2. REGISTRATION CARD & HEADER
+   ========================================================================== */
+.partner-register-page .register-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+body.partner-register-page {
+    background: #182c4f !important;
+}
+.partner-register-page .register-box {
+  background: #ffffff;
+  padding: 44px 48px;
+  border-radius: 24px;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 22, 129, 0.08);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.partner-register-page .logo-i {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.partner-register-page .logo-i a {
+  display: inline-block;
+  transition: transform 0.25s ease;
+  text-decoration: none;
+}
+
+.partner-register-page .logo-i a:hover {
+  transform: scale(1.03);
+}
+
+.partner-register-page .logo-i img {
+  max-width: 82px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.partner-register-page .logo-i span {
+  font-family: var(--font-family-primary, 'Dubai', 'Inter Tight', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: var(--color-navy-deep, #071b35);
+  text-transform: uppercase;
+}
+
+.partner-register-page .partner-register-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.partner-register-page .partner-register-text h2 {
+  font-family: var(--font-family-primary, 'Dubai', 'Inter Tight', sans-serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  color: var(--color-navy-deep, #071b35);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.partner-register-page .partner-register-text p {
+  color: var(--color-text, #64748b);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 580px;
+}
+
+/* ==========================================================================
+   3. FORM CONTROLS & LABELS
+   ========================================================================== */
+.partner-register-page .field-label {
+  font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: #1e293b;
+}
+
+.partner-register-page .field-label .req {
+  color: #dc2626;
+  margin-left: 2px;
+  font-weight: 700;
+}
+
+.partner-register-page .form-control {
+  height: 52px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+  font-size: 0.95rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  padding: 10px 16px;
+  transition: all 0.22s ease;
+  box-sizing: border-box;
+}
+
+.partner-register-page .form-control:focus {
+  border-color: var(--color-primary, #0f1681);
+  box-shadow: 0 0 0 3px rgba(15, 22, 129, 0.12);
+  outline: none;
+}
+
+.partner-register-page .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.partner-register-page .form-control.is-invalid {
+  border-color: #dc2626;
+  background-image: none;
+}
+
+.partner-register-page .form-control.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.14);
+}
+
+.partner-register-page .form-control.is-valid {
+  border-color: #16a34a;
+  background-image: none;
+}
+
+.partner-register-page .form-control[readonly] {
+  background-color: #f3f4f6;
+  color: #64748b;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+}
+
+/* Password Input Group with Toggle Button */
+.partner-register-page .password-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.partner-register-page .password-input-group .form-control {
+  padding-right: 48px;
+  width: 100%;
+}
+
+.partner-register-page .btn-toggle-password {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  z-index: 5;
+  outline: none;
+}
+
+.partner-register-page .btn-toggle-password:hover {
+  color: var(--color-primary, #0f1681);
+}
+
+/* Textarea & File Inputs */
+.partner-register-page textarea.form-control {
+  height: 120px;
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+.partner-register-page input[type="file"].form-control {
+  padding: 9px 12px;
+  height: 52px;
+  cursor: pointer;
+}
+
+.partner-register-page input[type="file"].form-control::file-selector-button {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 14px;
+  color: var(--color-navy-deep, #071b35);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+}
+
+.partner-register-page input[type="file"].form-control::file-selector-button:hover {
+  background: #e2e8f0;
+  color: var(--color-primary, #0f1681);
+}
+
+/* Helper Text & Status */
+.partner-register-page .helper-text {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 5px;
+  display: block;
+}
+
+.partner-register-page .form-status-text {
+  font-size: 0.82rem;
+  margin-top: 5px;
+  display: block;
+  font-weight: 600;
+}
+
+.partner-register-page .textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.partner-register-page .word-counter {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.partner-register-page .word-counter.over-limit {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.partner-register-page .invalid-feedback {
+  display: none;
+  font-size: 0.82rem;
+  color: #dc2626;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.partner-register-page .form-control.is-invalid ~ .invalid-feedback,
+.partner-register-page .password-input-group.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Alert Notification Box */
+.partner-register-page .form-alert {
+  padding: 13px 18px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  margin-bottom: 22px;
+  display: none;
+  border: 1px solid transparent;
+  animation: fadeInAlert 0.3s ease;
+}
+
+.partner-register-page .form-alert.alert-danger {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+.partner-register-page .form-alert.alert-success {
+  background-color: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+@keyframes fadeInAlert {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   4. PRIMARY SUBMIT BUTTON (GEMS BRAND BUTTON STYLE)
+   ========================================================================== */
+.partner-register-page .submit-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  background: var(--color-navy-deep, #071b35);
+  color: #ffffff;
+  border-radius: 10px;
+  font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(7, 27, 53, 0.16);
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  outline: none;
+}
+
+.partner-register-page .submit-btn:hover:not(:disabled) {
+  background: var(--color-primary, #0f1681);
+  color: #ffffff;
+  box-shadow: 0 10px 26px rgba(15, 22, 129, 0.28);
+  transform: translateY(-2px);
+}
+
+.partner-register-page .submit-btn:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   5. EXTRA LINKS & EXISTING USER PROMPT
+   ========================================================================== */
+.partner-register-page .extra-links {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.partner-register-page .extra-links p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.partner-register-page .extra-links a {
+  color: var(--color-primary, #0f1681);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.98rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.partner-register-page .extra-links a:hover {
+  color: var(--color-gold-hover, #e0a52d);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+.partner-register-page .ftrcls {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 28px;
+  position: relative !important;
+  bottom: auto !important;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.partner-register-page .ftrcls p {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.partner-register-page .ftrcls a {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.partner-register-page .ftrcls img {
+  width: 65px;
+  height: auto;
+  vertical-align: middle;
+  filter: brightness(1.2);
+  transition: opacity 0.2s ease;
+}
+
+.partner-register-page .ftrcls img:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   7. SUCCESS MODAL
+   ========================================================================== */
+.partner-register-page .modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.partner-register-page .success-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+}
+
+.partner-register-page .success-modal-title {
+  font-family: var(--font-family-primary, 'Dubai', 'Inter Tight', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-navy-deep, #071b35);
+  margin-bottom: 8px;
+}
+
+.partner-register-page .success-modal-msg {
+  color: #64748b;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.partner-register-page .btn-success-ok {
+  background: var(--color-navy-deep, #071b35);
+  color: #ffffff;
+  font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+  font-weight: 700;
+  padding: 12px 36px;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 120px;
+  box-shadow: 0 6px 18px rgba(7, 27, 53, 0.18);
+}
+
+.partner-register-page .btn-success-ok:hover {
+  background: var(--color-primary, #0f1681);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 22, 129, 0.28);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .partner-register-page .logincontainer {
+    padding: 30px 14px;
+  }
+
+  .partner-register-page .register-box {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .partner-register-page .partner-register-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .partner-register-page .partner-register-text p {
+    font-size: 0.92rem;
+  }
+
+  .partner-register-page .form-control {
+    height: 48px;
+    font-size: 0.9rem;
+  }
+
+  .partner-register-page input[type="file"].form-control {
+    height: auto;
+    padding: 8px 10px;
+  }
+
+  .partner-register-page .submit-btn {
+    height: 48px;
+    font-size: 0.98rem;
+  }
+}

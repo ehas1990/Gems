@@ -201,9 +201,38 @@
                 />
               </div>
 
-              <!-- 5. Username (helper text: "Username will be same as email") -->
+              <!-- 5. Network Categories -->
+              <div class="col-md-12 mb-3">
+                <label class="field-label" for="network_categories">
+                  Network Categories <span class="req">*</span>
+                </label>
+                <select
+                  class="form-control"
+                  name="network_categories"
+                  id="network_categories"
+                  required
+                >
+                  <option value="" disabled selected>Select Network Category</option>
+                  <option value="Business Services">Business Services</option>
+                  <option value="Community">Community</option>
+                  <option value="Education">Education</option>
+                  <option value="Financial">Financial</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Home & Lifestyle">Home &amp; Lifestyle</option>
+                  <option value="Legal">Legal</option>
+                  <option value="Professional Services">Professional Services</option>
+                  <option value="Relocation">Relocation</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a network category.
+                </div>
+              </div>
+
+              <!-- 6. Username (helper text: "Username will be same as email") -->
               <div class="col-md-6 mb-3">
-                <label class="field-label" for="username"> Username </label>
+                <label class="field-label" for="username">
+                  Username <span class="req">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"

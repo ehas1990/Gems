@@ -1184,96 +1184,779 @@
     </div>
     <!-- end about-page-wrapper -->
 
+    <!-- ==========================================================================
+         4. OUR PHILOSOPHY SECTION (Interactive Curved Timeline Inspired by Eterna Cloud)
+         ========================================================================== -->
+    <style>
+        /* Scoped styles strictly for Our Philosophy Timeline */
+        #Our\ Philosophy.why-gems-section {
+            background-color: #f7f9fc;
+            padding: 95px 0 115px 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        #Our\ Philosophy .container-port-xl {
+            max-width: 1360px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        #Our\ Philosophy .membership-tiers-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #Our\ Philosophy .membership-badge {
+            display: inline-block;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #0d1b2a;
+            background: rgba(13, 27, 42, 0.08);
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        #Our\ Philosophy .membership-main-headline {
+            font-family: var(--font-family-primary, 'Dubai', sans-serif);
+            font-size: clamp(32px, 3.5vw, 44px);
+            font-weight: 700;
+            color: #0d1b2a;
+            margin-bottom: 14px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        #Our\ Philosophy .membership-narrative-desc {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+            font-size: 1rem;
+            color: #4a5568;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Timeline Container */
+        #Our\ Philosophy .gems-curved-timeline {
+            position: relative;
+            width: 100%;
+            max-width: 1180px;
+            margin: 50px auto 0 auto;
+            padding: 20px 0;
+        }
+
+        /* SVG Curved Connecting Path Layer */
+        #Our\ Philosophy .gems-timeline-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: visible;
+        }
+
+        #Our\ Philosophy .gems-timeline-track {
+            fill: none;
+            stroke: rgba(15, 22, 129, 0.14);
+            stroke-width: 2.5;
+            stroke-dasharray: 6 6;
+            stroke-linecap: round;
+        }
+
+        #Our\ Philosophy .gems-timeline-active {
+            fill: none;
+            stroke: url(#gems-timeline-grad);
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px rgba(244, 185, 66, 0.5));
+            transition: stroke-dashoffset 0.12s linear;
+        }
+
+        /* Timeline Rows */
+        #Our\ Philosophy .gems-timeline-items {
+            position: relative;
+            z-index: 2;
+        }
+
+        #Our\ Philosophy .gems-timeline-row {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 85px;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #Our\ Philosophy .gems-timeline-row:last-child {
+            margin-bottom: 0;
+        }
+
+        #Our\ Philosophy .gems-row-left {
+            justify-content: flex-start;
+        }
+
+        #Our\ Philosophy .gems-row-right {
+            justify-content: flex-end;
+        }
+
+        /* Milestone Circular Markers */
+        #Our\ Philosophy .gems-milestone-marker {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #071b35;
+            border: 1.5px solid rgba(15, 22, 129, 0.25);
+            box-shadow: 0 8px 24px rgba(7, 27, 53, 0.15);
+            color: rgba(255, 255, 255, 0.45);
+            cursor: pointer;
+            z-index: 5;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #Our\ Philosophy .gems-marker-svg {
+            width: 44px;
+            height: 44px;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
+        }
+
+        #Our\ Philosophy .marker-circle-outer {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.2;
+            opacity: 0.4;
+            transition: opacity 0.4s ease, stroke 0.4s ease;
+        }
+
+        #Our\ Philosophy .marker-circle-mid {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            opacity: 0.75;
+            transition: opacity 0.4s ease;
+        }
+
+        #Our\ Philosophy .marker-circle-core {
+            fill: currentColor;
+            transition: fill 0.4s ease;
+        }
+
+        #Our\ Philosophy .marker-path-orbit,
+        #Our\ Philosophy .marker-line-constellation {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+        }
+
+        #Our\ Philosophy .marker-circle-satellite {
+            fill: currentColor;
+            opacity: 0.75;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Milestone Inactive & Active States */
+        #Our\ Philosophy .gems-timeline-row:not(.is-active) .gems-milestone-marker {
+            opacity: 0.45;
+            transform: scale(0.92);
+            filter: grayscale(0.6);
+        }
+
+        #Our\ Philosophy .gems-timeline-row.is-active .gems-milestone-marker,
+        #Our\ Philosophy .gems-milestone-marker:hover {
+            opacity: 1;
+            transform: scale(1.08);
+            border-color: #F4B942;
+            color: #F4B942;
+            box-shadow: 0 0 28px rgba(244, 185, 66, 0.48), 0 8px 24px rgba(7, 27, 53, 0.28);
+            filter: none;
+        }
+
+        #Our\ Philosophy .gems-timeline-row.is-active .marker-circle-outer {
+            opacity: 0.85;
+            stroke: #F4B942;
+        }
+
+        #Our\ Philosophy .gems-timeline-row.is-active .marker-circle-core {
+            fill: #F4B942;
+        }
+
+        /* Content Panels */
+        #Our\ Philosophy .gems-timeline-panel-wrap {
+            max-width: 620px;
+            width: 100%;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #Our\ Philosophy .gems-row-left .gems-timeline-panel-wrap {
+            margin-left: 36px;
+        }
+
+        #Our\ Philosophy .gems-row-right .gems-timeline-panel-wrap {
+            margin-right: 36px;
+        }
+
+        #Our\ Philosophy .gems-timeline-panel.wrapsrvhm {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 250px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #071b35;
+            border: 1px solid rgba(15, 22, 129, 0.12);
+            box-shadow: 0 14px 35px rgba(7, 27, 53, 0.14);
+            text-decoration: none !important;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.35s ease;
+        }
+
+        #Our\ Philosophy .gems-timeline-panel.wrapsrvhm:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 50px rgba(7, 27, 53, 0.24);
+            border-color: rgba(244, 185, 66, 0.4);
+        }
+
+        /* Subtle photographic texture */
+        #Our\ Philosophy .gems-panel-bg.bxpicsrv {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #Our\ Philosophy .gems-panel-bg.bxpicsrv img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            display: block;
+            opacity: 0.22;
+            filter: saturate(1.15);
+            transform: scale(1);
+            transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+
+        #Our\ Philosophy .gems-timeline-panel.wrapsrvhm:hover .gems-panel-bg.bxpicsrv img {
+            transform: scale(1.08);
+            opacity: 0.32;
+        }
+
+        /* Panel content */
+        #Our\ Philosophy .gems-panel-content.bx-ddpt {
+            position: relative;
+            z-index: 3;
+            padding: 34px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            background: linear-gradient(135deg, rgba(7, 27, 53, 0.94) 0%, rgba(15, 22, 129, 0.88) 100%);
+            height: 100%;
+        }
+
+        #Our\ Philosophy .gems-panel-content.bx-ddpt h3 {
+            color: #ffffff;
+            font-family: var(--font-family-primary, 'Dubai', sans-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 14px 0;
+            padding-bottom: 12px;
+            position: relative;
+            letter-spacing: 0.3px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        #Our\ Philosophy .gems-panel-content.bx-ddpt h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 38px;
+            height: 2px;
+            background: var(--color-gold, #F4B942);
+            border-radius: 2px;
+            transition: width 0.35s ease;
+        }
+
+        #Our\ Philosophy .gems-timeline-panel.wrapsrvhm:hover .gems-panel-content.bx-ddpt h3::after {
+            width: 58px;
+        }
+
+        #Our\ Philosophy .gems-panel-content.bx-ddpt p {
+            color: #ffffff;
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif);
+            font-size: 0.9375rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #Our\ Philosophy .gems-panel-content.bx-ddpt p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Scoped Staggered Lines for Service */
+        #Our\ Philosophy .about-final-staggered {
+            margin: 12px 0 14px 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 6px !important;
+        }
+
+        #Our\ Philosophy .about-final-staggered .staggered-line {
+            font-family: var(--font-family-secondary, 'Inter Tight', sans-serif) !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            line-height: 1.35 !important;
+            margin-bottom: 0 !important;
+            display: inline-block !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        #Our\ Philosophy .about-final-staggered .staggered-1 {
+            margin-left: 0 !important;
+            color: #ffffff !important;
+        }
+
+        #Our\ Philosophy .about-final-staggered .staggered-2 {
+            margin-left: 18px !important;
+            color: rgba(255, 255, 255, 0.92) !important;
+        }
+
+        #Our\ Philosophy .about-final-staggered .staggered-3 {
+            margin-left: 36px !important;
+            color: var(--color-gold, #F4B942) !important;
+        }
+
+        /* Panel Inactive & Active Reveal States */
+        #Our\ Philosophy .gems-timeline-row:not(.is-active) .gems-timeline-panel-wrap {
+            opacity: 0.35;
+            transform: translateY(22px);
+        }
+
+        #Our\ Philosophy .gems-timeline-row.is-active .gems-timeline-panel-wrap {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            #Our\ Philosophy.why-gems-section {
+                padding: 80px 0 95px 0;
+            }
+            #Our\ Philosophy .gems-timeline-panel-wrap {
+                max-width: 520px;
+            }
+            #Our\ Philosophy .gems-panel-content.bx-ddpt {
+                padding: 28px 28px;
+            }
+            #Our\ Philosophy .gems-milestone-marker {
+                width: 60px;
+                height: 60px;
+            }
+            #Our\ Philosophy .gems-marker-svg {
+                width: 38px;
+                height: 38px;
+            }
+            #Our\ Philosophy .gems-row-left .gems-timeline-panel-wrap {
+                margin-left: 24px;
+            }
+            #Our\ Philosophy .gems-row-right .gems-timeline-panel-wrap {
+                margin-right: 24px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #Our\ Philosophy.why-gems-section {
+                padding: 60px 0 75px 0;
+            }
+            #Our\ Philosophy .container-port-xl {
+                padding: 0 16px;
+            }
+            #Our\ Philosophy .gems-curved-timeline {
+                margin-top: 36px;
+            }
+            #Our\ Philosophy .gems-timeline-row {
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+                margin-bottom: 45px;
+            }
+            #Our\ Philosophy .gems-row-right {
+                flex-direction: row-reverse !important;
+                justify-content: flex-end !important;
+            }
+            #Our\ Philosophy .gems-row-right .gems-timeline-panel-wrap {
+                margin-right: 0 !important;
+                margin-left: 16px !important;
+            }
+            #Our\ Philosophy .gems-row-left .gems-timeline-panel-wrap {
+                margin-left: 16px !important;
+            }
+            #Our\ Philosophy .gems-milestone-marker {
+                width: 48px;
+                height: 48px;
+                margin-top: 10px;
+            }
+            #Our\ Philosophy .gems-marker-svg {
+                width: 30px;
+                height: 30px;
+            }
+            #Our\ Philosophy .gems-timeline-panel-wrap {
+                max-width: calc(100% - 64px);
+            }
+            #Our\ Philosophy .gems-timeline-panel.wrapsrvhm {
+                min-height: 220px;
+            }
+            #Our\ Philosophy .gems-panel-content.bx-ddpt {
+                padding: 22px 20px;
+            }
+            #Our\ Philosophy .gems-panel-content.bx-ddpt h3 {
+                font-size: 1.35rem;
+                margin-bottom: 10px;
+                padding-bottom: 8px;
+            }
+            #Our\ Philosophy .gems-panel-content.bx-ddpt p {
+                font-size: 0.9rem;
+                line-height: 1.55;
+                margin-bottom: 10px;
+            }
+            #Our\ Philosophy .about-final-staggered .staggered-line {
+                font-size: 0.92rem !important;
+            }
+            #Our\ Philosophy .about-final-staggered .staggered-2 {
+                margin-left: 10px !important;
+            }
+            #Our\ Philosophy .about-final-staggered .staggered-3 {
+                margin-left: 20px !important;
+            }
+        }
+
+        /* Accessibility: Prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            #Our\ Philosophy * {
+                animation: none !important;
+                transition: none !important;
+            }
+            #Our\ Philosophy .gems-timeline-row:not(.is-active) .gems-milestone-marker,
+            #Our\ Philosophy .gems-timeline-row:not(.is-active) .gems-timeline-panel-wrap {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+            #Our\ Philosophy .gems-timeline-active {
+                stroke-dashoffset: 0 !important;
+            }
+        }
+    </style>
+
     <section class="why-gems-section" id="Our Philosophy">
         <div class="container-port-xl">
-            <!--  -->
             <div class="membership-tiers-header" data-aos="fade-up" data-aos-duration="900">
                 <span class="membership-badge">Choose Your Membership</span>
                 <h2 class="membership-main-headline">Our Philosophy</h2>
                 <p class="membership-narrative-desc">
                     Everything we do is guided by four principles that define who we are and how we serve.
                 </p>
-
-
             </div>
-            <div class="row">
 
-                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="0" data-aos-duration="900">
-                    <div class="box-philosophy-gems">
-                        <a href="https://globalenrollment.us/adhoc_services" class="wrapsrvhm">
-                            <div class="bxpicsrv"><img src="./assets/img/sum_Adhoc.png" alt="Guidance"></div>
-                            <div class="bx-ddpt">
-                                <h3>Guidance</h3>
-                                <p>We help people see possibilities, understand options, and navigate important
-                                    decisions
-                                    with clarity and confidence.</p>
-                                <p>We believe guidance creates confidence, and confident decisions create meaningful
-                                    futures.</p>
+            <!-- Interactive Curved Timeline Wrapper -->
+            <div class="gems-curved-timeline" id="gemsCurvedTimeline">
+                <!-- Connecting SVG Path Layer -->
+                <svg class="gems-timeline-svg" id="gemsTimelineSvg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="gems-timeline-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0F1681" />
+                            <stop offset="50%" stop-color="#F4B942" />
+                            <stop offset="100%" stop-color="#e2c076" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Inactive dashed track path -->
+                    <path class="gems-timeline-track" id="gemsTimelineTrack" d="" />
+                    <!-- Active gradient animated path -->
+                    <path class="gems-timeline-active" id="gemsTimelineActive" d="" />
+                </svg>
 
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900">
-                    <div class="box-philosophy-gems">
-                        <a href="https://globalenrollment.us/financial_planning" class="wrapsrvhm">
-                            <div class="bxpicsrv"><img src="./assets/img/sum_financial planning.jpg" alt="Empowerment">
-                            </div>
-                            <div class="bx-ddpt">
-                                <h3>Empowerment</h3>
-                                <p>Our goal is never to make decisions for people.</p>
-                                <p>Our purpose is to provide the knowledge, resources, and trusted connections that
-                                    empower
-                                    every individual to make informed choices for themselves.</p>
-                                <p>Empowered people build stronger futures.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
-                    <div class="box-philosophy-gems">
-                        <a href="https://globalenrollment.us/legal_assistance" class="wrapsrvhm">
-                            <div class="bxpicsrv"><img src="./assets/img/sum_prof_legal.png" alt="Mentorship"></div>
-                            <div class="bx-ddpt">
-                                <h3>Mentorship</h3>
-                                <p>Life isn't meant to be navigated alone.</p>
-                                <p>We believe in walking alongside people—not leading their journey, but supporting it.
-                                </p>
-                                <p>Mentorship is built through listening, encouragement, shared experiences, and genuine
-                                    relationships that grow stronger over time.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
-                    <div class="box-philosophy-gems">
-                        <a href="https://globalenrollment.us/onboarding_assistance" class="wrapsrvhm">
-                            <div class="bxpicsrv"><img src="./assets/img/sum_buss_Onboarding.png" alt="Service"></div>
-                            <div class="bx-ddpt">
-                                <h3>Service</h3>
-                                <p>Service is the heart of everything we do.
-                                <div class="about-final-staggered" id="aboutStaggered">
-                                    <span class="staggered-line staggered-1" style="color: #ffffff">Before
-                                        recognition.</span>
-                                    <span class="staggered-line staggered-2" style="color: #ffffff">Before revenue.
-                                    </span>
-                                    <span class="staggered-line staggered-3">Before results</span>
-
+                <!-- Timeline Items Container -->
+                <div class="gems-timeline-items">
+                    <!-- 1. Guidance (Left milestone, Content right) -->
+                    <div class="gems-timeline-row gems-row-left" data-milestone="1">
+                        <div class="gems-milestone-marker" id="gemsMilestone1" title="Principle 1: Guidance">
+                            <svg viewBox="0 0 48 48" class="gems-marker-svg" aria-hidden="true">
+                                <circle cx="24" cy="24" r="21" class="marker-circle-outer" />
+                                <circle cx="24" cy="24" r="14" class="marker-circle-mid" />
+                                <circle cx="24" cy="24" r="6" class="marker-circle-core" />
+                            </svg>
+                        </div>
+                        <div class="gems-timeline-panel-wrap">
+                            <a href="https://globalenrollment.us/adhoc_services" class="gems-timeline-panel wrapsrvhm">
+                                <div class="gems-panel-bg bxpicsrv">
+                                    <img src="./assets/img/guidance.png" alt="Guidance">
                                 </div>
-                                <p>Every act of service is an opportunity to earn lasting trust. </p>
-                                <p>Service isn't something we offer. It's who we are.
-                                </p>
+                                <div class="gems-panel-content bx-ddpt">
+                                    <h3>Guidance</h3>
+                                    <p>We help people see possibilities, understand options, and navigate important decisions with clarity and confidence.</p>
+                                    <p>We believe guidance creates confidence, and confident decisions create meaningful futures.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-                            </div>
-                        </a>
+                    <!-- 2. Empowerment (Content left, Right milestone) -->
+                    <div class="gems-timeline-row gems-row-right" data-milestone="2">
+                        <div class="gems-timeline-panel-wrap">
+                            <a href="https://globalenrollment.us/financial_planning" class="gems-timeline-panel wrapsrvhm">
+                                <div class="gems-panel-bg bxpicsrv">
+                                    <img src="./assets/img/empowerment.png" alt="Empowerment">
+                                </div>
+                                <div class="gems-panel-content bx-ddpt">
+                                    <h3>Empowerment</h3>
+                                    <p>Our goal is never to make decisions for people.</p>
+                                    <p>Our purpose is to provide the knowledge, resources, and trusted connections that empower every individual to make informed choices for themselves.</p>
+                                    <p>Empowered people build stronger futures.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gems-milestone-marker" id="gemsMilestone2" title="Principle 2: Empowerment">
+                            <svg viewBox="0 0 48 48" class="gems-marker-svg" aria-hidden="true">
+                                <circle cx="24" cy="24" r="21" class="marker-circle-outer" />
+                                <path d="M 12 24 C 12 16, 24 16, 24 24 C 24 32, 36 32, 36 24" class="marker-path-orbit" />
+                                <circle cx="12" cy="24" r="3" class="marker-circle-core" />
+                                <circle cx="24" cy="24" r="3" class="marker-circle-core" />
+                                <circle cx="36" cy="24" r="3" class="marker-circle-core" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 3. Mentorship (Left milestone, Content right) -->
+                    <div class="gems-timeline-row gems-row-left" data-milestone="3">
+                        <div class="gems-milestone-marker" id="gemsMilestone3" title="Principle 3: Mentorship">
+                            <svg viewBox="0 0 48 48" class="gems-marker-svg" aria-hidden="true">
+                                <circle cx="24" cy="24" r="21" class="marker-circle-outer" />
+                                <line x1="24" y1="14" x2="15" y2="31" class="marker-line-constellation" />
+                                <line x1="15" y1="31" x2="33" y2="31" class="marker-line-constellation" />
+                                <line x1="33" y1="31" x2="24" y2="14" class="marker-line-constellation" />
+                                <circle cx="24" cy="14" r="3.5" class="marker-circle-core" />
+                                <circle cx="15" cy="31" r="3.5" class="marker-circle-core" />
+                                <circle cx="33" cy="31" r="3.5" class="marker-circle-core" />
+                            </svg>
+                        </div>
+                        <div class="gems-timeline-panel-wrap">
+                            <a href="https://globalenrollment.us/legal_assistance" class="gems-timeline-panel wrapsrvhm">
+                                <div class="gems-panel-bg bxpicsrv">
+                                    <img src="./assets/img/mentorship.png" alt="Mentorship">
+                                </div>
+                                <div class="gems-panel-content bx-ddpt">
+                                    <h3>Mentorship</h3>
+                                    <p>Life isn't meant to be navigated alone.</p>
+                                    <p>We believe in walking alongside people—not leading their journey, but supporting it.</p>
+                                    <p>Mentorship is built through listening, encouragement, shared experiences, and genuine relationships that grow stronger over time.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Service (Content left, Right milestone) -->
+                    <div class="gems-timeline-row gems-row-right" data-milestone="4">
+                        <div class="gems-timeline-panel-wrap">
+                            <a href="https://globalenrollment.us/onboarding_assistance" class="gems-timeline-panel wrapsrvhm">
+                                <div class="gems-panel-bg bxpicsrv">
+                                    <img src="./assets/img/service.png" alt="Service">
+                                </div>
+                                <div class="gems-panel-content bx-ddpt">
+                                    <h3>Service</h3>
+                                    <p>Service is the heart of everything we do.</p>
+                                    <div class="about-final-staggered" id="aboutStaggered">
+                                        <span class="staggered-line staggered-1" style="color: #ffffff">Before recognition.</span>
+                                        <span class="staggered-line staggered-2" style="color: #ffffff">Before revenue.</span>
+                                        <span class="staggered-line staggered-3">Before results</span>
+                                    </div>
+                                    <p>Every act of service is an opportunity to earn lasting trust. </p>
+                                    <p>Service isn't something we offer. It's who we are.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="gems-milestone-marker" id="gemsMilestone4" title="Principle 4: Service">
+                            <svg viewBox="0 0 48 48" class="gems-marker-svg" aria-hidden="true">
+                                <circle cx="24" cy="24" r="21" class="marker-circle-outer" />
+                                <circle cx="24" cy="24" r="4.5" class="marker-circle-core" />
+                                <circle cx="24" cy="12" r="2.5" class="marker-circle-satellite" />
+                                <circle cx="34.39" cy="18" r="2.5" class="marker-circle-satellite" />
+                                <circle cx="34.39" cy="30" r="2.5" class="marker-circle-satellite" />
+                                <circle cx="24" cy="36" r="2.5" class="marker-circle-satellite" />
+                                <circle cx="13.61" cy="30" r="2.5" class="marker-circle-satellite" />
+                                <circle cx="13.61" cy="18" r="2.5" class="marker-circle-satellite" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
-
-            <!--  -->
         </div>
+
+        <!-- Section-Scoped Timeline Script -->
+        <script>
+            (function() {
+                function initGemsCurvedTimeline() {
+                    var container = document.getElementById('gemsCurvedTimeline');
+                    if (!container) return;
+
+                    var track = document.getElementById('gemsTimelineTrack');
+                    var active = document.getElementById('gemsTimelineActive');
+                    var section = document.getElementById('Our Philosophy');
+                    var markers = [
+                        document.getElementById('gemsMilestone1'),
+                        document.getElementById('gemsMilestone2'),
+                        document.getElementById('gemsMilestone3'),
+                        document.getElementById('gemsMilestone4')
+                    ];
+                    var rows = container.querySelectorAll('.gems-timeline-row');
+
+                    if (!track || !active || !section || markers.some(function(m) { return !m; })) return;
+
+                    var isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                    function calculatePath() {
+                        var cRect = container.getBoundingClientRect();
+                        var isMobile = window.innerWidth <= 767;
+
+                        var pts = markers.map(function(m) {
+                            var r = m.getBoundingClientRect();
+                            return {
+                                x: r.left - cRect.left + r.width / 2,
+                                y: r.top - cRect.top + r.height / 2
+                            };
+                        });
+
+                        var d = 'M ' + pts[0].x.toFixed(1) + ' ' + pts[0].y.toFixed(1);
+
+                        if (isMobile) {
+                            for (var i = 1; i < pts.length; i++) {
+                                d += ' L ' + pts[i].x.toFixed(1) + ' ' + pts[i].y.toFixed(1);
+                            }
+                        } else {
+                            for (var j = 0; j < pts.length - 1; j++) {
+                                var p1 = pts[j];
+                                var p2 = pts[j + 1];
+                                var dx = p2.x - p1.x;
+                                var dy = p2.y - p1.y;
+
+                                var cp1x = (p1.x + dx * 0.55).toFixed(1);
+                                var cp1y = p1.y.toFixed(1);
+                                var cp2x = p2.x.toFixed(1);
+                                var cp2y = (p1.y + dy * 0.45).toFixed(1);
+
+                                d += ' C ' + cp1x + ' ' + cp1y + ', ' + cp2x + ' ' + cp2y + ', ' + p2.x.toFixed(1) + ' ' + p2.y.toFixed(1);
+                            }
+                        }
+
+                        track.setAttribute('d', d);
+                        active.setAttribute('d', d);
+
+                        var totalLength = active.getTotalLength ? active.getTotalLength() : 1000;
+                        active.style.strokeDasharray = totalLength;
+
+                        if (isReducedMotion) {
+                            active.style.strokeDashoffset = '0';
+                            rows.forEach(function(r) { r.classList.add('is-active'); });
+                        } else {
+                            updateScroll();
+                        }
+                    }
+
+                    function updateScroll() {
+                        if (isReducedMotion) return;
+
+                        var sRect = section.getBoundingClientRect();
+                        var winH = window.innerHeight || document.documentElement.clientHeight;
+                        var totalLength = active.getTotalLength ? active.getTotalLength() : 1000;
+
+                        // Start filling when section top is at 70% viewport
+                        var startTrigger = winH * 0.70;
+                        var endTrigger = winH * 0.30;
+                        var current = startTrigger - sRect.top;
+                        var range = sRect.height + (startTrigger - endTrigger);
+
+                        var progress = current / range;
+                        if (progress < 0) progress = 0;
+                        if (progress > 1) progress = 1;
+
+                        active.style.strokeDashoffset = (totalLength * (1 - progress)).toFixed(1);
+
+                        // Trigger milestone activations
+                        rows.forEach(function(row) {
+                            var marker = row.querySelector('.gems-milestone-marker');
+                            if (!marker) return;
+                            var mRect = marker.getBoundingClientRect();
+                            if (mRect.top <= winH * 0.76) {
+                                row.classList.add('is-active');
+                            } else {
+                                row.classList.remove('is-active');
+                            }
+                        });
+                    }
+
+                    // Click milestone marker to scroll smoothly
+                    markers.forEach(function(m, idx) {
+                        m.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            if (rows[idx]) {
+                                rows[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        });
+                    });
+
+                    // Event listeners
+                    var ticking = false;
+                    function onScroll() {
+                        if (!ticking) {
+                            window.requestAnimationFrame(function() {
+                                updateScroll();
+                                ticking = false;
+                            });
+                            ticking = true;
+                        }
+                    }
+
+                    window.addEventListener('scroll', onScroll, { passive: true });
+
+                    var resizeTimer;
+                    window.addEventListener('resize', function() {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(calculatePath, 100);
+                    });
+
+                    // Initial calculations
+                    calculatePath();
+                    setTimeout(calculatePath, 300);
+                    setTimeout(calculatePath, 1000);
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initGemsCurvedTimeline);
+                } else {
+                    initGemsCurvedTimeline();
+                }
+            })();
+        </script>
     </section>
     <!-- ==========================================================================
          7. THE EAGLE SECTION (Cinematic Scroll Storytelling)

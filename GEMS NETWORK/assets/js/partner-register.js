@@ -251,6 +251,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================================================
+  // 7b. NETWORK CATEGORIES (DYNAMIC SORTING & LIVE VALIDATION)
+  // ==========================================================================
+  const networkCatInput = document.getElementById("network_categories");
+  if (networkCatInput) {
+    // Ensure all options appear in exact alphabetical order while keeping placeholder on top
+    const placeholder = networkCatInput.querySelector('option[value=""]');
+    const options = Array.from(networkCatInput.querySelectorAll('option:not([value=""])'));
+    if (options.length > 0) {
+      options.sort((a, b) => a.text.localeCompare(b.text));
+      networkCatInput.innerHTML = "";
+      if (placeholder) networkCatInput.appendChild(placeholder);
+      options.forEach((opt) => networkCatInput.appendChild(opt));
+    }
+
+    networkCatInput.addEventListener("change", function () {
+      if (this.value && this.value.trim()) {
+        this.classList.remove("is-invalid");
+        this.classList.add("is-valid");
+      } else {
+        this.classList.add("is-invalid");
+        this.classList.remove("is-valid");
+      }
+    });
+  }
+
+  // ==========================================================================
   // 8. ALERT NOTIFICATION HELPERS
   // ==========================================================================
   function showAlert(msg, type) {
@@ -307,6 +333,19 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.classList.add("is-invalid");
         isValid = false;
         if (!firstInvalidField) firstInvalidField = emailInput;
+      }
+    }
+
+    // Network Categories
+    if (networkCatInput) {
+      if (!networkCatInput.value || !networkCatInput.value.trim()) {
+        networkCatInput.classList.add("is-invalid");
+        networkCatInput.classList.remove("is-valid");
+        isValid = false;
+        if (!firstInvalidField) firstInvalidField = networkCatInput;
+      } else {
+        networkCatInput.classList.remove("is-invalid");
+        networkCatInput.classList.add("is-valid");
       }
     }
 
@@ -429,6 +468,11 @@ document.addEventListener("DOMContentLoaded", function () {
       submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting Registration...';
 
       const formData = new FormData(form);
+      const selectedCategoryVal = networkCatInput ? networkCatInput.value : "";
+      if (selectedCategoryVal) {
+        if (!formData.has("network_category")) formData.append("network_category", selectedCategoryVal);
+        if (!formData.has("category")) formData.append("category", selectedCategoryVal);
+      }
       const actionUrl = form.getAttribute("action") || "https://globalenrollment.us/partner-register/save";
 
       try {
@@ -444,6 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (usernameInput) usernameInput.value = "";
           if (emailStatus) emailStatus.textContent = "";
           if (descWordCounter) descWordCounter.textContent = "0 / 50 words";
+          if (networkCatInput) networkCatInput.selectedIndex = 0;
           const allValidated = form.querySelectorAll(".is-valid, .is-invalid");
           allValidated.forEach((el) => el.classList.remove("is-valid", "is-invalid"));
         } else {

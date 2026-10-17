@@ -1116,268 +1116,1155 @@
                     </p>
                 </div>
 
-                <style>
-                    .growth-process-model {
-                        width: 100%;
-                        max-width: 1220px;
-                        margin: 50px auto 35px auto;
-                        padding: 0 15px;
-                    }
+                <style id="gems-process-wheel-styles">
+            /* ==========================================================================
+               HOW GEMS SUPPORTS GROWTH — INTERACTIVE PROCESS WHEEL (SCOPED)
+               ========================================================================== */
+            #how-gems-supports {
+              position: relative;
+              background-color: var(--color-surface, #f7f9fc);
+              padding: 90px 0;
+            }
 
-                    /* 5-Step Connected Flow (Desktop Layout) */
-                    .growth-model-steps-track {
-                        display: grid;
-                        grid-template-columns: repeat(5, minmax(0, 1fr));
-                        align-items: flex-start;
-                        justify-items: center;
-                        position: relative;
-                        width: 100%;
-                    }
+            #how-gems-supports .gems-wheel-process-container {
+              max-width: 1240px;
+              margin: 45px auto 0 auto;
+              padding: 0 15px;
+            }
 
-                    /* One Continuous Dotted Track across all 5 steps (Center of Step 1 to Center of Step 5) */
-                    .growth-model-steps-track::before {
-                        content: '';
-                        position: absolute;
-                        top: 37px;
-                        left: 10%;
-                        right: 10%;
-                        height: 3px;
-                        transform: translateY(-50%);
-                        background-image: radial-gradient(circle, var(--color-gold, #d4af37) 1.5px, transparent 1.5px);
-                        background-size: 9px 3px;
-                        background-repeat: repeat-x;
-                        background-position: center;
-                       
-                        z-index: 1;
-                        pointer-events: none;
-                    }
+            /* 2-Column Responsive Layout */
+            #how-gems-supports .gems-wheel-process-grid {
+              display: grid;
+              grid-template-columns: minmax(320px, 1fr) minmax(340px, 1.15fr);
+              gap: 48px;
+              align-items: center;
+            }
 
-                    .growth-model-step {
-                        position: relative;
-                        z-index: 2;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-                        width: 100%;
-                        padding: 0 10px;
-                    }
+            /* --- Left Column: Process Wheel Visual --- */
+            #how-gems-supports .gems-wheel-visual-col {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            }
 
-                    .growth-step-node {
-                        position: relative;
-                        z-index: 2;
-                        width: 74px;
-                        height: 74px;
-                        border-radius: 50%;
-                        background: #ffffff;
-                        border: 2px solid rgba(0, 59, 109, 0.14);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-bottom: 16px;
-                        box-shadow: 0 8px 24px rgba(7, 27, 53, 0.07);
-                        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                        flex-shrink: 0;
-                    }
+            #how-gems-supports .gems-wheel-wrapper {
+              position: relative;
+              display: inline-block;
+              width: 100%;
+              max-width: 540px;
+              margin: 0 auto;
+              user-select: none;
+              -webkit-user-select: none;
+            }
 
-                    .growth-model-step:hover .growth-step-node {
-                        border-color: var(--color-gold, #d4af37);
-                        box-shadow: 0 10px 24px rgba(7, 27, 53, 0.12);
-                    }
+            #how-gems-supports .gems-wheel-img {
+              display: block;
+              width: 100%;
+              height: auto;
+              aspect-ratio: 577 / 433;
+              object-fit: contain;
+              filter: drop-shadow(0 14px 32px rgba(7, 27, 53, 0.14));
+              transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
 
-                    .growth-step-badge {
-                        position: absolute;
-                        top: -6px;
-                        right: -6px;
-                        background: var(--color-navy-deep, #071b35);
-                        color: #ffffff;
-                        font-size: 0.72rem;
-                        font-weight: 700;
-                        padding: 2px 7px;
-                        border-radius: 12px;
-                        letter-spacing: 0.5px;
-                        border: 1.5px solid #ffffff;
-                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-                    }
+            /* Hotspots Overlay Container */
+            #how-gems-supports .gems-wheel-hotspots {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+            }
 
-                    /* Step Icon & Smooth Hover Zoom */
-                    .growth-step-icon {
-                        font-size: 1.6rem;
-                        color: var(--color-primary, #0f1681);
-                        display: inline-block;
-                        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
-                        transform-origin: center center;
-                        will-change: transform;
-                    }
+            /* Accessible hidden text */
+            #how-gems-supports .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+              border: 0;
+            }
 
-                    .growth-model-step:hover .growth-step-icon {
-                        color: var(--color-gold, #d4af37);
-                        transform: scale(1.22);
-                    }
+            /* Individual Interactive Hotspot placed over the wheel's embossed number badges */
+            #how-gems-supports .wheel-hotspot {
+              position: absolute;
+              transform: translate(-50%, -50%);
+              pointer-events: auto;
+              width: 44px;
+              height: 44px;
+              aspect-ratio: 1 / 1;
+              border-radius: 50%;
+              background: transparent;
+              border: 2px solid transparent;
+              box-shadow: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              padding: 0;
+              outline: none;
+              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              z-index: 10;
+            }
 
-                    .growth-step-text {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                    }
+            /* Pulsing radar ring */
+            #how-gems-supports .wheel-hotspot .hotspot-pulse {
+              position: absolute;
+              inset: -6px;
+              border-radius: 50%;
+              border: 2.5px solid transparent;
+              pointer-events: none;
+              opacity: 0;
+              transition: all 0.3s ease;
+            }
 
-                    .growth-step-title {
-                        font-size: 1.2rem;
-                        font-weight: 700;
-                        color: var(--color-navy-deep, #071b35);
-                        margin: 0 0 8px 0;
-                        line-height: 1.3;
-                    }
+            /* Hotspot Hover & Focus */
+            #how-gems-supports .wheel-hotspot:hover {
+              transform: translate(-50%, -50%) scale(1.15);
+              border-color: rgba(190, 159, 92, 0.9);
+              box-shadow: 0 0 16px rgba(190, 159, 92, 0.55), inset 0 0 10px rgba(190, 159, 92, 0.25);
+            }
 
-                    .growth-step-desc {
-                        font-size: 0.9rem;
-                        line-height: 1.55;
-                        color: #5a6a80;
-                        margin: 0;
-                        max-width: 210px;
-                    }
+            #how-gems-supports .wheel-hotspot:focus-visible {
+              outline: 2.5px solid var(--color-primary, #0f1681);
+              outline-offset: 3px;
+              transform: translate(-50%, -50%) scale(1.15);
+            }
 
-                    /* Tablet & Mobile Layout: Clean LHS | RHS structure */
-                    @media screen and (max-width: 991px) {
-                        .growth-process-model {
-                            max-width: 600px;
-                            margin: 40px auto 30px auto;
-                            padding: 0 15px;
-                        }
+            /* Active Hotspot State: luminous colored ring and animated wave */
+            #how-gems-supports .wheel-hotspot.is-active {
+              transform: translate(-50%, -50%) scale(1.16);
+              border-color: #ffffff;
+              z-index: 15;
+            }
 
-                        .growth-model-steps-track {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: stretch;
-                            position: relative;
-                            gap: 16px;
-                            width: 100%;
-                        }
+            #how-gems-supports .wheel-hotspot.is-active .hotspot-pulse {
+              opacity: 1;
+              animation: gemsHotspotWave 2.2s infinite ease-out;
+            }
 
-                        /* Continuous Vertical Dotted Line */
-                        .growth-model-steps-track::before {
-                            left: 33px;
-                            right: auto;
-                            top: 41px;
-                            bottom: 41px;
-                            width: 3px;
-                            height: auto;
-                            transform: translateX(-50%);
-                            background-image: radial-gradient(circle, var(--color-gold, #d4af37) 1.5px, transparent 1.5px);
-                            background-size: 3px 9px;
-                            background-repeat: repeat-y;
-                            background-position: center;
-                            border-top: none;
-                           
-                        }
+            @keyframes gemsHotspotWave {
+              0% {
+                transform: scale(0.92);
+                opacity: 0.95;
+              }
+              70% {
+                transform: scale(1.68);
+                opacity: 0;
+              }
+              100% {
+                transform: scale(1.88);
+                opacity: 0;
+              }
+            }
 
-                        .growth-model-step {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: flex-start;
-                            text-align: left;
-                            gap: 20px;
-                            width: 100%;
-                            padding: 8px 0;
-                        }
+            /* Specific stage accents for active hotspots */
+            #how-gems-supports .wheel-hotspot[data-stage="1"].is-active {
+              box-shadow: 0 0 0 3px #e53935, 0 0 22px rgba(229, 57, 53, 0.65), 0 8px 20px rgba(0, 0, 0, 0.35);
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="1"].is-active .hotspot-pulse {
+              border-color: #e53935;
+            }
 
-                        .growth-step-node {
-                            width: 66px;
-                            height: 66px;
-                            min-width: 66px;
-                            margin-bottom: 0;
-                        }
+            #how-gems-supports .wheel-hotspot[data-stage="2"].is-active {
+              box-shadow: 0 0 0 3px #1e88e5, 0 0 22px rgba(30, 136, 229, 0.65), 0 8px 20px rgba(0, 0, 0, 0.35);
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="2"].is-active .hotspot-pulse {
+              border-color: #1e88e5;
+            }
 
-                        .growth-step-icon {
-                            font-size: 1.45rem;
-                        }
+            #how-gems-supports .wheel-hotspot[data-stage="3"].is-active {
+              box-shadow: 0 0 0 3px #00897b, 0 0 22px rgba(0, 137, 123, 0.65), 0 8px 20px rgba(0, 0, 0, 0.35);
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="3"].is-active .hotspot-pulse {
+              border-color: #00897b;
+            }
 
-                        .growth-step-text {
-                            align-items: flex-start;
-                            text-align: left;
-                            flex: 1;
-                            padding-top: 4px;
-                        }
+            #how-gems-supports .wheel-hotspot[data-stage="4"].is-active {
+              box-shadow: 0 0 0 3px #fb8c00, 0 0 22px rgba(251, 140, 0, 0.65), 0 8px 20px rgba(0, 0, 0, 0.35);
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="4"].is-active .hotspot-pulse {
+              border-color: #fb8c00;
+            }
 
-                        .growth-step-title {
-                            font-size: 1.2rem;
-                            margin: 0 0 6px 0;
-                        }
+            #how-gems-supports .wheel-hotspot[data-stage="5"].is-active {
+              box-shadow: 0 0 0 3px #43a047, 0 0 22px rgba(67, 160, 71, 0.65), 0 8px 20px rgba(0, 0, 0, 0.35);
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="5"].is-active .hotspot-pulse {
+              border-color: #43a047;
+            }
 
-                        .growth-step-desc {
-                            font-size: 0.94rem;
-                            line-height: 1.55;
-                            max-width: 100%;
-                        }
-                    }
-                </style>
+            /* Wheel Interactive Hint */
+            #how-gems-supports .wheel-interactive-hint {
+              display: inline-flex;
+              align-items: center;
+              gap: 7px;
+              margin-top: 16px;
+              padding: 7px 16px;
+              border-radius: 20px;
+              background: rgba(15, 22, 129, 0.05);
+              border: 1px solid rgba(15, 22, 129, 0.1);
+              font-size: 0.78rem;
+              font-weight: 600;
+              color: var(--color-primary, #0f1681);
+            }
 
-                <div class="growth-process-model" data-aos="fade-up" data-aos-delay="200">
-                    <!-- 5-Point Connected Growth Model (1 -> 2 -> 3 -> 4 -> 5) with ONE continuous dotted track -->
-                    <div class="growth-model-steps-track">
-                        <!-- Step 01: Identify -->
-                        <div class="growth-model-step">
-                            <div class="growth-step-node">
-                                <span class="growth-step-badge">01</span>
-                                <i class="fa-solid fa-bullseye growth-step-icon"></i>
-                            </div>
-                            <div class="growth-step-text">
-                                <h3 class="growth-step-title">Identify</h3>
-                                <p class="growth-step-desc">Clarify what the visitor wants to improve or accomplish.</p>
-                            </div>
-                        </div>
+            /* --- Right Column: Stage Controls & Explanation Panel --- */
+            #how-gems-supports .gems-wheel-details-col {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+            }
 
-                        <!-- Step 02: Understand -->
-                        <div class="growth-model-step">
-                            <div class="growth-step-node">
-                                <span class="growth-step-badge">02</span>
-                                <i class="fa-solid fa-book-open growth-step-icon"></i>
-                            </div>
-                            <div class="growth-step-text">
-                                <h3 class="growth-step-title">Understand</h3>
-                                <p class="growth-step-desc">Explain unfamiliar options, requirements, or considerations.</p>
-                            </div>
-                        </div>
+            /* Stage Navigation Tabs */
+            #how-gems-supports .gems-stage-nav-bar {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              background: rgba(15, 22, 129, 0.04);
+              padding: 6px;
+              border-radius: 14px;
+              border: 1px solid rgba(15, 22, 129, 0.08);
+            }
 
-                        <!-- Step 03: Plan -->
-                        <div class="growth-model-step">
-                            <div class="growth-step-node">
-                                <span class="growth-step-badge">03</span>
-                                <i class="fa-solid fa-list-check growth-step-icon"></i>
-                            </div>
-                            <div class="growth-step-text">
-                                <h3 class="growth-step-title">Plan</h3>
-                                <p class="growth-step-desc">Organize realistic next steps.</p>
-                            </div>
-                        </div>
+            #how-gems-supports .stage-nav-tab {
+              flex: 1 1 calc(20% - 8px);
+              min-width: 88px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              gap: 6px;
+              padding: 9px 10px;
+              border-radius: 10px;
+              background: transparent;
+              border: 1px solid transparent;
+              font-size: 0.82rem;
+              font-weight: 700;
+              color: #5a6a80;
+              cursor: pointer;
+              transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+              white-space: nowrap;
+            }
 
-                        <!-- Step 04: Connect -->
-                        <div class="growth-model-step">
-                            <div class="growth-step-node">
-                                <span class="growth-step-badge">04</span>
-                                <i class="fa-solid fa-people-arrows growth-step-icon"></i>
-                            </div>
-                            <div class="growth-step-text">
-                                <h3 class="growth-step-title">Connect</h3>
-                                <p class="growth-step-desc">Bring in a trusted specialist when needed.</p>
-                            </div>
-                        </div>
+            #how-gems-supports .stage-nav-tab .tab-badge {
+              display: inline-block;
+              font-size: 0.7rem;
+              font-weight: 800;
+              padding: 1px 5px;
+              border-radius: 4px;
+              background: rgba(7, 27, 53, 0.08);
+              color: var(--color-navy-deep, #071b35);
+              transition: all 0.25s ease;
+            }
 
-                        <!-- Step 05: Continue -->
-                        <div class="growth-model-step">
-                            <div class="growth-step-node">
-                                <span class="growth-step-badge">05</span>
-                                <i class="fa-solid fa-arrow-trend-up growth-step-icon"></i>
-                            </div>
-                            <div class="growth-step-text">
-                                <h3 class="growth-step-title">Continue</h3>
-                                <p class="growth-step-desc">Provide an ongoing relationship through appropriate GEMS support or membership.</p>
-                            </div>
-                        </div>
-                    </div>
+            #how-gems-supports .stage-nav-tab:hover {
+              background: rgba(255, 255, 255, 0.85);
+              color: var(--color-navy-deep, #071b35);
+              border-color: rgba(190, 159, 92, 0.35);
+            }
+
+            #how-gems-supports .stage-nav-tab:focus-visible {
+              outline: 2px solid var(--color-primary, #0f1681);
+              outline-offset: 2px;
+            }
+
+            #how-gems-supports .stage-nav-tab.is-active {
+              background: #ffffff;
+              color: var(--color-navy-deep, #071b35);
+              border-color: #be9f5c;
+              box-shadow: 0 4px 14px rgba(7, 27, 53, 0.08);
+            }
+
+            #how-gems-supports .stage-nav-tab.is-active .tab-badge {
+              background: var(--color-navy-deep, #071b35);
+              color: #ffffff;
+            }
+
+            /* Individual tab active accents */
+            #how-gems-supports .stage-nav-tab[data-stage="1"].is-active .tab-badge { background: #b81d24; }
+            #how-gems-supports .stage-nav-tab[data-stage="2"].is-active .tab-badge { background: #0f4c81; }
+            #how-gems-supports .stage-nav-tab[data-stage="3"].is-active .tab-badge { background: #006d77; }
+            #how-gems-supports .stage-nav-tab[data-stage="4"].is-active .tab-badge { background: #c87d20; }
+            #how-gems-supports .stage-nav-tab[data-stage="5"].is-active .tab-badge { background: #2d6a4f; }
+
+            /* Stage Explanation Card Container */
+            #how-gems-supports .gems-stage-card-wrap {
+              position: relative;
+              background: #ffffff;
+              border: 1px solid rgba(15, 22, 129, 0.1);
+              border-radius: 20px;
+              box-shadow: 0 14px 38px rgba(7, 27, 53, 0.08);
+              overflow: hidden;
+              transition: box-shadow 0.35s ease, border-color 0.35s ease;
+            }
+
+            /* Top stage colored accent line */
+            #how-gems-supports .gems-stage-card-wrap::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 4px;
+              background: linear-gradient(90deg, #be9f5c, #d4af37, #be9f5c);
+              transition: background 0.4s ease;
+              z-index: 5;
+            }
+
+            #how-gems-supports .gems-stage-card-wrap[data-active-stage="1"]::before {
+              background: linear-gradient(90deg, #b81d24, #e53935);
+            }
+            #how-gems-supports .gems-stage-card-wrap[data-active-stage="2"]::before {
+              background: linear-gradient(90deg, #0f4c81, #1e88e5);
+            }
+            #how-gems-supports .gems-stage-card-wrap[data-active-stage="3"]::before {
+              background: linear-gradient(90deg, #006d77, #00897b);
+            }
+            #how-gems-supports .gems-stage-card-wrap[data-active-stage="4"]::before {
+              background: linear-gradient(90deg, #c87d20, #fb8c00);
+            }
+            #how-gems-supports .gems-stage-card-wrap[data-active-stage="5"]::before {
+              background: linear-gradient(90deg, #2d6a4f, #43a047);
+            }
+
+            /* Stage Panel Content */
+            #how-gems-supports .gems-stage-panel {
+              display: none;
+              padding: 32px 34px 28px 34px;
+              animation: gemsStageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            #how-gems-supports .gems-stage-panel.is-active {
+              display: block;
+            }
+
+            @keyframes gemsStageFadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(8px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            /* Header within panel */
+            #how-gems-supports .stage-panel-header {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 12px;
+              gap: 12px;
+            }
+
+            #how-gems-supports .stage-panel-badge {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              font-size: 0.74rem;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: 1.5px;
+              padding: 4px 12px;
+              border-radius: 20px;
+              background: rgba(190, 159, 92, 0.12);
+              color: #937128;
+            }
+
+            #how-gems-supports .stage-step-indicator {
+              font-size: 0.78rem;
+              font-weight: 700;
+              color: #726d7b;
+            }
+
+            #how-gems-supports .stage-panel-title-wrap {
+              display: flex;
+              align-items: center;
+              gap: 14px;
+              margin-bottom: 12px;
+            }
+
+            #how-gems-supports .stage-panel-icon {
+              width: 48px;
+              height: 48px;
+              border-radius: 12px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.35rem;
+              color: #ffffff;
+              background: var(--color-navy-deep, #071b35);
+              box-shadow: 0 4px 14px rgba(7, 27, 53, 0.16);
+              flex-shrink: 0;
+            }
+
+            #how-gems-supports .gems-stage-panel[data-stage="1"] .stage-panel-icon {
+              background: linear-gradient(135deg, #b81d24, #e53935);
+            }
+            #how-gems-supports .gems-stage-panel[data-stage="2"] .stage-panel-icon {
+              background: linear-gradient(135deg, #0f4c81, #1e88e5);
+            }
+            #how-gems-supports .gems-stage-panel[data-stage="3"] .stage-panel-icon {
+              background: linear-gradient(135deg, #006d77, #00897b);
+            }
+            #how-gems-supports .gems-stage-panel[data-stage="4"] .stage-panel-icon {
+              background: linear-gradient(135deg, #c87d20, #fb8c00);
+            }
+            #how-gems-supports .gems-stage-panel[data-stage="5"] .stage-panel-icon {
+              background: linear-gradient(135deg, #2d6a4f, #43a047);
+            }
+
+            #how-gems-supports .stage-panel-title {
+              font-size: 1.65rem;
+              font-weight: 800;
+              color: var(--color-navy-deep, #071b35);
+              margin: 0;
+              line-height: 1.25;
+            }
+
+            #how-gems-supports .stage-panel-desc {
+              font-size: 1.08rem;
+              line-height: 1.65;
+              color: #1e293b;
+              font-weight: 600;
+              margin: 0 0 18px 0;
+              padding-bottom: 16px;
+              border-bottom: 1px solid rgba(15, 22, 129, 0.08);
+            }
+
+            /* Strategic Focus Points */
+            #how-gems-supports .stage-focus-title {
+              font-size: 0.74rem;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: 1.2px;
+              color: var(--color-primary, #0f1681);
+              margin-bottom: 10px;
+            }
+
+            #how-gems-supports .stage-focus-list {
+              list-style: none;
+              padding: 0;
+              margin: 0 0 22px 0;
+              display: flex;
+              flex-direction: column;
+              gap: 9px;
+            }
+
+            #how-gems-supports .stage-focus-list li {
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              font-size: 0.88rem;
+              line-height: 1.5;
+              color: #475569;
+            }
+
+            #how-gems-supports .stage-focus-list li i {
+              color: #be9f5c;
+              font-size: 0.78rem;
+              margin-top: 3.5px;
+              flex-shrink: 0;
+            }
+
+            #how-gems-supports .stage-focus-list li strong {
+              color: var(--color-navy-deep, #071b35);
+              font-weight: 700;
+            }
+
+            /* Panel Footer: Tagline, Step Navigation, CTA */
+            #how-gems-supports .stage-panel-footer {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 14px;
+              padding-top: 16px;
+              border-top: 1px dashed rgba(190, 159, 92, 0.35);
+            }
+
+            #how-gems-supports .stage-tagline {
+              font-size: 0.72rem;
+              font-weight: 800;
+              letter-spacing: 1.2px;
+              text-transform: uppercase;
+              color: #937128;
+            }
+
+            #how-gems-supports .stage-nav-arrows {
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+            }
+
+            #how-gems-supports .stage-arrow-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              padding: 7px 14px;
+              border-radius: 8px;
+              font-size: 0.78rem;
+              font-weight: 700;
+              color: var(--color-primary, #0f1681);
+              background: rgba(15, 22, 129, 0.05);
+              border: 1px solid rgba(15, 22, 129, 0.12);
+              cursor: pointer;
+              transition: all 0.2s ease;
+            }
+
+            #how-gems-supports .stage-arrow-btn:hover {
+              background: var(--color-primary, #0f1681);
+              color: #ffffff;
+              border-color: var(--color-primary, #0f1681);
+            }
+
+            #how-gems-supports .stage-arrow-btn:focus-visible {
+              outline: 2px solid var(--color-primary, #0f1681);
+              outline-offset: 2px;
+            }
+
+            /* Responsive Adjustments */
+            @media screen and (max-width: 991px) {
+              #how-gems-supports .gems-wheel-process-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+              }
+
+              #how-gems-supports .gems-wheel-wrapper {
+                max-width: 480px;
+              }
+
+              #how-gems-supports .gems-stage-nav-bar {
+                justify-content: center;
+              }
+
+              #how-gems-supports .stage-nav-tab {
+                flex: 1 1 calc(33.333% - 8px);
+              }
+            }
+
+            @media screen and (max-width: 576px) {
+              #how-gems-supports {
+                padding: 60px 0;
+              }
+
+              #how-gems-supports .gems-wheel-process-container {
+                margin-top: 30px;
+                padding: 0 10px;
+              }
+
+              #how-gems-supports .gems-wheel-wrapper {
+                max-width: 100%;
+              }
+
+              #how-gems-supports .wheel-hotspot {
+                width: 36px;
+                height: 36px;
+              }
+
+              #how-gems-supports .stage-nav-tab {
+                flex: 1 1 calc(50% - 6px);
+                font-size: 0.76rem;
+                padding: 7px 8px;
+              }
+
+              #how-gems-supports .gems-stage-panel {
+                padding: 24px 20px 22px 20px;
+              }
+
+              #how-gems-supports .stage-panel-title {
+                font-size: 1.35rem;
+              }
+
+              #how-gems-supports .stage-panel-desc {
+                font-size: 0.98rem;
+              }
+
+              #how-gems-supports .stage-panel-footer {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+              }
+
+              #how-gems-supports .stage-nav-arrows {
+                justify-content: space-between;
+                width: 100%;
+              }
+            }
+          </style>
+
+          <div
+            class="gems-wheel-process-container"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="gems-wheel-process-grid">
+              <!-- LHS: Interactive GEMS Process Wheel -->
+              <div class="gems-wheel-visual-col">
+                <div
+                  class="gems-wheel-wrapper"
+                  id="gemsWheelWrapper"
+                  role="region"
+                  aria-label="Interactive GEMS Process Wheel Visual"
+                >
+                  <img
+                    src="./assets/img/gems_process_wheel.png"
+                    alt="The GEMS Process Wheel illustrating the 5 stages: 01 Identify, 02 Understand, 03 Plan, 04 Connect, and 05 Continue"
+                    class="gems-wheel-img"
+                    loading="lazy"
+                    width="577"
+                    height="433"
+                  />
+
+                  <!-- Interactive Hotspot Buttons directly over the wheel -->
+                  <div
+                    class="gems-wheel-hotspots"
+                    aria-label="Interactive process stages on wheel"
+                  >
+                    <!-- Hotspot 1: Identify -->
+                    <button
+                      type="button"
+                      class="wheel-hotspot is-active"
+                      data-stage="1"
+                      style="left: 36.4%; top: 9.2%;"
+                      aria-label="Stage 01: Identify — Clarify what you want to improve or accomplish"
+                      title="Stage 01: Identify"
+                    >
+                      <span class="hotspot-pulse"></span>
+                      <span class="sr-only">Stage 01: Identify</span>
+                    </button>
+
+                    <!-- Hotspot 2: Understand -->
+                    <button
+                      type="button"
+                      class="wheel-hotspot"
+                      data-stage="2"
+                      style="left: 84.8%; top: 27.7%;"
+                      aria-label="Stage 02: Understand — Explore your options, requirements, and important considerations"
+                      title="Stage 02: Understand"
+                    >
+                      <span class="hotspot-pulse"></span>
+                      <span class="sr-only">Stage 02: Understand</span>
+                    </button>
+
+                    <!-- Hotspot 3: Plan -->
+                    <button
+                      type="button"
+                      class="wheel-hotspot"
+                      data-stage="3"
+                      style="left: 82.8%; top: 77.0%;"
+                      aria-label="Stage 03: Plan — Organize realistic next steps toward your goals"
+                      title="Stage 03: Plan"
+                    >
+                      <span class="hotspot-pulse"></span>
+                      <span class="sr-only">Stage 03: Plan</span>
+                    </button>
+
+                    <!-- Hotspot 4: Connect -->
+                    <button
+                      type="button"
+                      class="wheel-hotspot"
+                      data-stage="4"
+                      style="left: 16.7%; top: 76.9%;"
+                      aria-label="Stage 04: Connect — Connect with a trusted specialist or relevant professional when needed"
+                      title="Stage 04: Connect"
+                    >
+                      <span class="hotspot-pulse"></span>
+                      <span class="sr-only">Stage 04: Connect</span>
+                    </button>
+
+                    <!-- Hotspot 5: Continue -->
+                    <button
+                      type="button"
+                      class="wheel-hotspot"
+                      data-stage="5"
+                      style="left: 14.5%; top: 28.5%;"
+                      aria-label="Stage 05: Continue — Maintain momentum through ongoing guidance, appropriate connections, and relevant GEMS support or membership"
+                      title="Stage 05: Continue"
+                    >
+                      <span class="hotspot-pulse"></span>
+                      <span class="sr-only">Stage 05: Continue</span>
+                    </button>
+                  </div>
+
+                  <!-- Subtle Interaction Hint -->
+                  <div class="wheel-interactive-hint">
+                    <i class="fa-solid fa-hand-pointer"></i>
+                    <span>Select any stage on the wheel or tabs to view details</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RHS: Stage Controls & Explanation Panel -->
+              <div class="gems-wheel-details-col">
+                <!-- 5-Stage Selection Tablist -->
+                <div
+                  class="gems-stage-nav-bar"
+                  role="tablist"
+                  aria-label="GEMS Process Stages Navigation"
+                >
+                  <button
+                    type="button"
+                    role="tab"
+                    id="stageTab1"
+                    aria-selected="true"
+                    aria-controls="stagePanel1"
+                    data-stage="1"
+                    class="stage-nav-tab is-active"
+                  >
+                    <span class="tab-badge">01</span>
+                    <span class="tab-title">Identify</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    id="stageTab2"
+                    aria-selected="false"
+                    aria-controls="stagePanel2"
+                    data-stage="2"
+                    class="stage-nav-tab"
+                  >
+                    <span class="tab-badge">02</span>
+                    <span class="tab-title">Understand</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    id="stageTab3"
+                    aria-selected="false"
+                    aria-controls="stagePanel3"
+                    data-stage="3"
+                    class="stage-nav-tab"
+                  >
+                    <span class="tab-badge">03</span>
+                    <span class="tab-title">Plan</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    id="stageTab4"
+                    aria-selected="false"
+                    aria-controls="stagePanel4"
+                    data-stage="4"
+                    class="stage-nav-tab"
+                  >
+                    <span class="tab-badge">04</span>
+                    <span class="tab-title">Connect</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    id="stageTab5"
+                    aria-selected="false"
+                    aria-controls="stagePanel5"
+                    data-stage="5"
+                    class="stage-nav-tab"
+                  >
+                    <span class="tab-badge">05</span>
+                    <span class="tab-title">Continue</span>
+                  </button>
                 </div>
 
-                <!-- Distinction Note -->
+                <!-- Stage Explanation Card Wrap -->
+                <div
+                  class="gems-stage-card-wrap"
+                  id="gemsStageCardWrap"
+                  data-active-stage="1"
+                >
+                  <!-- Panel 1: Identify -->
+                  <div
+                    class="gems-stage-panel is-active"
+                    id="stagePanel1"
+                    role="tabpanel"
+                    aria-labelledby="stageTab1"
+                    data-stage="1"
+                  >
+                    <div class="stage-panel-header">
+                      <span class="stage-panel-badge">Stage 01</span>
+                      <span class="stage-step-indicator">Step 1 of 5</span>
+                    </div>
+                    <div class="stage-panel-title-wrap">
+                      <div class="stage-panel-icon">
+                        <i class="fa-solid fa-crosshairs"></i>
+                      </div>
+                      <h3 class="stage-panel-title">Identify</h3>
+                    </div>
+                    <p class="stage-panel-desc">
+                      Clarify what you want to improve or accomplish.
+                    </p>
+                    <div class="stage-focus-title">GEMS Role & Guidance</div>
+                    <ul class="stage-focus-list">
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Clarify Ambitions:</strong> Pinpoint exact personal, educational, or career targets without guesswork.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Evaluate Starting Points:</strong> Assess current capabilities, strengths, and requirements for the next level.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Define Priorities:</strong> Focus time and financial resources where they yield maximum long-term progress.</span>
+                      </li>
+                    </ul>
+                    <div class="stage-panel-footer">
+                      <div class="stage-tagline">CLARITY PRECEDES PROGRESS</div>
+                      <div class="stage-nav-arrows">
+                        <button type="button" class="stage-arrow-btn prev-stage-btn" aria-label="Go to Previous Stage: Continue">
+                          <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+                        </button>
+                        <button type="button" class="stage-arrow-btn next-stage-btn" aria-label="Go to Next Stage: Understand">
+                          <span>Next</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 2: Understand -->
+                  <div
+                    class="gems-stage-panel"
+                    id="stagePanel2"
+                    role="tabpanel"
+                    aria-labelledby="stageTab2"
+                    data-stage="2"
+                  >
+                    <div class="stage-panel-header">
+                      <span class="stage-panel-badge">Stage 02</span>
+                      <span class="stage-step-indicator">Step 2 of 5</span>
+                    </div>
+                    <div class="stage-panel-title-wrap">
+                      <div class="stage-panel-icon">
+                        <i class="fa-solid fa-book-open"></i>
+                      </div>
+                      <h3 class="stage-panel-title">Understand</h3>
+                    </div>
+                    <p class="stage-panel-desc">
+                      Explore your options, requirements, and important considerations.
+                    </p>
+                    <div class="stage-focus-title">GEMS Role & Guidance</div>
+                    <ul class="stage-focus-list">
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Examine Pathways:</strong> Demystify institutional policies, certifications, and regional prerequisites.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Practical Realities:</strong> Assess real-world timelines, commitments, and hidden factors before acting.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Informed Decision-Making:</strong> Gain objective, unbiased clarity to choose the right path with confidence.</span>
+                      </li>
+                    </ul>
+                    <div class="stage-panel-footer">
+                      <div class="stage-tagline">INSIGHT BEFORE ACTION</div>
+                      <div class="stage-nav-arrows">
+                        <button type="button" class="stage-arrow-btn prev-stage-btn" aria-label="Go to Previous Stage: Identify">
+                          <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+                        </button>
+                        <button type="button" class="stage-arrow-btn next-stage-btn" aria-label="Go to Next Stage: Plan">
+                          <span>Next</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 3: Plan -->
+                  <div
+                    class="gems-stage-panel"
+                    id="stagePanel3"
+                    role="tabpanel"
+                    aria-labelledby="stageTab3"
+                    data-stage="3"
+                  >
+                    <div class="stage-panel-header">
+                      <span class="stage-panel-badge">Stage 03</span>
+                      <span class="stage-step-indicator">Step 3 of 5</span>
+                    </div>
+                    <div class="stage-panel-title-wrap">
+                      <div class="stage-panel-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                      </div>
+                      <h3 class="stage-panel-title">Plan</h3>
+                    </div>
+                    <p class="stage-panel-desc">
+                      Organize realistic next steps toward your goals.
+                    </p>
+                    <div class="stage-focus-title">GEMS Role & Guidance</div>
+                    <ul class="stage-focus-list">
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Action Sequencing:</strong> Break expansive aspirations into structured, logical, and achievable milestones.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Resource Organization:</strong> Align logistics, documentation, and preparation timelines effectively.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Built-In Adaptability:</strong> Design flexible plans that can pivot smoothly as your journey evolves.</span>
+                      </li>
+                    </ul>
+                    <div class="stage-panel-footer">
+                      <div class="stage-tagline">STRUCTURED FOR EXECUTION</div>
+                      <div class="stage-nav-arrows">
+                        <button type="button" class="stage-arrow-btn prev-stage-btn" aria-label="Go to Previous Stage: Understand">
+                          <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+                        </button>
+                        <button type="button" class="stage-arrow-btn next-stage-btn" aria-label="Go to Next Stage: Connect">
+                          <span>Next</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 4: Connect -->
+                  <div
+                    class="gems-stage-panel"
+                    id="stagePanel4"
+                    role="tabpanel"
+                    aria-labelledby="stageTab4"
+                    data-stage="4"
+                  >
+                    <div class="stage-panel-header">
+                      <span class="stage-panel-badge">Stage 04</span>
+                      <span class="stage-step-indicator">Step 4 of 5</span>
+                    </div>
+                    <div class="stage-panel-title-wrap">
+                      <div class="stage-panel-icon">
+                        <i class="fa-solid fa-people-arrows"></i>
+                      </div>
+                      <h3 class="stage-panel-title">Connect</h3>
+                    </div>
+                    <p class="stage-panel-desc">
+                      Connect with a trusted specialist or relevant professional when needed.
+                    </p>
+                    <div class="stage-focus-title">GEMS Role & Guidance</div>
+                    <ul class="stage-focus-list">
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Vetted Specialist Matching:</strong> Introduce verified providers from the GEMS Trusted Network.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Curated Assurance:</strong> Navigate legal, financial, or academic requirements with accredited experts.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Coordinated Handoffs:</strong> Seamless facilitation so you never face unfamiliar systems alone.</span>
+                      </li>
+                    </ul>
+                    <div class="stage-panel-footer">
+                      <div class="stage-tagline">CURATED EXPERTISE</div>
+                      <div class="stage-nav-arrows">
+                        <button type="button" class="stage-arrow-btn prev-stage-btn" aria-label="Go to Previous Stage: Plan">
+                          <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+                        </button>
+                        <button type="button" class="stage-arrow-btn next-stage-btn" aria-label="Go to Next Stage: Continue">
+                          <span>Next</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel 5: Continue -->
+                  <div
+                    class="gems-stage-panel"
+                    id="stagePanel5"
+                    role="tabpanel"
+                    aria-labelledby="stageTab5"
+                    data-stage="5"
+                  >
+                    <div class="stage-panel-header">
+                      <span class="stage-panel-badge">Stage 05</span>
+                      <span class="stage-step-indicator">Step 5 of 5</span>
+                    </div>
+                    <div class="stage-panel-title-wrap">
+                      <div class="stage-panel-icon">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                      </div>
+                      <h3 class="stage-panel-title">Continue</h3>
+                    </div>
+                    <p class="stage-panel-desc">
+                      Maintain momentum through ongoing guidance, appropriate connections, and relevant GEMS support or membership.
+                    </p>
+                    <div class="stage-focus-title">GEMS Role & Guidance</div>
+                    <ul class="stage-focus-list">
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Sustained Momentum:</strong> Keep progress on track with regular evaluations and evolving milestone reviews.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Membership Continuity:</strong> Access ongoing Explorer, Companion, or Navigator support as goals evolve.</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span><strong>Long-Term Companion:</strong> A trusted partner ready to support your next transition whenever you are.</span>
+                      </li>
+                    </ul>
+                    <div class="stage-panel-footer">
+                      <div class="stage-tagline">AN ENDURING TRAVELING COMPANION</div>
+                      <div class="stage-nav-arrows">
+                        <button type="button" class="stage-arrow-btn prev-stage-btn" aria-label="Go to Previous Stage: Connect">
+                          <i class="fa-solid fa-arrow-left"></i> <span>Previous</span>
+                        </button>
+                        <button type="button" class="stage-arrow-btn next-stage-btn" aria-label="Go to Next Stage: Identify">
+                          <span>Next</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scoped Script for Interactive Wheel & Stage Selection -->
+          <script id="gems-process-wheel-script">
+            (function () {
+              function initGemsProcessWheel() {
+                var section = document.getElementById("how-gems-supports");
+                if (!section) return;
+
+                var hotspots = section.querySelectorAll(".wheel-hotspot");
+                var tabs = section.querySelectorAll(".stage-nav-tab");
+                var panels = section.querySelectorAll(".gems-stage-panel");
+                var cardWrap = section.querySelector("#gemsStageCardWrap");
+                var prevButtons = section.querySelectorAll(".prev-stage-btn");
+                var nextButtons = section.querySelectorAll(".next-stage-btn");
+                var totalStages = 5;
+                var currentStage = 1;
+
+                function setStage(stageNum) {
+                  stageNum = parseInt(stageNum, 10);
+                  if (isNaN(stageNum) || stageNum < 1 || stageNum > totalStages) return;
+                  currentStage = stageNum;
+
+                  // Update Hotspots
+                  hotspots.forEach(function (h) {
+                    var s = parseInt(h.getAttribute("data-stage"), 10);
+                    if (s === currentStage) {
+                      h.classList.add("is-active");
+                      h.setAttribute("aria-current", "true");
+                    } else {
+                      h.classList.remove("is-active");
+                      h.removeAttribute("aria-current");
+                    }
+                  });
+
+                  // Update Tabs
+                  tabs.forEach(function (t) {
+                    var s = parseInt(t.getAttribute("data-stage"), 10);
+                    if (s === currentStage) {
+                      t.classList.add("is-active");
+                      t.setAttribute("aria-selected", "true");
+                      t.setAttribute("tabindex", "0");
+                    } else {
+                      t.classList.remove("is-active");
+                      t.setAttribute("aria-selected", "false");
+                      t.setAttribute("tabindex", "-1");
+                    }
+                  });
+
+                  // Update Panels
+                  panels.forEach(function (p) {
+                    var s = parseInt(p.getAttribute("data-stage"), 10);
+                    if (s === currentStage) {
+                      p.classList.add("is-active");
+                      p.removeAttribute("hidden");
+                    } else {
+                      p.classList.remove("is-active");
+                      p.setAttribute("hidden", "true");
+                    }
+                  });
+
+                  // Update Card Accent
+                  if (cardWrap) {
+                    cardWrap.setAttribute("data-active-stage", currentStage);
+                  }
+                }
+
+                // Hotspot Click & Hover Listeners
+                hotspots.forEach(function (hotspot) {
+                  hotspot.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var stage = this.getAttribute("data-stage");
+                    setStage(stage);
+                  });
+
+                  hotspot.addEventListener("keydown", function (e) {
+                    if (e.key === "Enter" || e.key === " " || e.keyCode === 13 || e.keyCode === 32) {
+                      e.preventDefault();
+                      setStage(this.getAttribute("data-stage"));
+                    }
+                  });
+                });
+
+                // Tab Click & Keyboard Listeners
+                tabs.forEach(function (tab, index) {
+                  tab.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var stage = this.getAttribute("data-stage");
+                    setStage(stage);
+                  });
+
+                  tab.addEventListener("keydown", function (e) {
+                    var targetIndex = -1;
+                    if (e.key === "ArrowRight" || e.keyCode === 39) {
+                      targetIndex = (index + 1) % tabs.length;
+                    } else if (e.key === "ArrowLeft" || e.keyCode === 37) {
+                      targetIndex = (index - 1 + tabs.length) % tabs.length;
+                    } else if (e.key === "Home" || e.keyCode === 36) {
+                      targetIndex = 0;
+                    } else if (e.key === "End" || e.keyCode === 35) {
+                      targetIndex = tabs.length - 1;
+                    }
+
+                    if (targetIndex !== -1) {
+                      e.preventDefault();
+                      tabs[targetIndex].focus();
+                      setStage(tabs[targetIndex].getAttribute("data-stage"));
+                    }
+                  });
+                });
+
+                // Previous & Next Navigation Buttons
+                prevButtons.forEach(function (btn) {
+                  btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var target = currentStage === 1 ? totalStages : currentStage - 1;
+                    setStage(target);
+                  });
+                });
+
+                nextButtons.forEach(function (btn) {
+                  btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var target = currentStage === totalStages ? 1 : currentStage + 1;
+                    setStage(target);
+                  });
+                });
+
+                // Initialize default Stage 1
+                setStage(1);
+              }
+
+              if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initGemsProcessWheel);
+              } else {
+                initGemsProcessWheel();
+              }
+            })();
+          </script>
+
+          <!-- Distinction Note -->
                 <div class="role-disclaimer" data-aos="fade-up" data-aos-delay="400"
                     style="margin-top: 40px; background: #ffffff; border-left: 4px solid var(--color-primary, #0f1681); padding: 16px 24px; border-radius: 8px; max-width: 920px; margin-left: auto; margin-right: auto; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
                     <p style="margin: 0; color: var(--color-text, #64748b); font-size: 0.92rem; font-style: italic;">

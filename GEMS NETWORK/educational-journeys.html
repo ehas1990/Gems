@@ -564,7 +564,13 @@
         <!-- ==========================================================================
              4. EDUCATIONAL JOURNEY INTRO
              ========================================================================== -->
-        <section class="journeys-intro-section" aria-label="Journey Introduction">
+        <section class="journeys-intro-section educational-journey-students-model" id="educationalJourneyStudents" aria-label="Journey Introduction" style="transform: rotateY(180deg);">
+            <style>
+                .journeys-intro-section.educational-journey-students-model,
+                #educationalJourneyStudents {
+                    transform: rotateY(180deg);
+                }
+            </style>
             <div class="container-port-xl">
                 <div class="journeys-intro-wrap" data-aos="fade-up" data-aos-duration="800">
                     <h2 class="journeys-intro-title">
@@ -583,6 +589,507 @@
              5. FOUR-STAGE EDUCATIONAL JOURNEY (CORE OPEN-BOOK CHAPTER SECTION)
              ========================================================================== -->
         <section class="journeys-stages-section" id="stages" aria-label="Four Stages of the Educational Journey">
+            <!-- Scoped Styles for A5 Interactive Flip Cards -->
+            <style id="a5-flip-cards-style">
+                /* Base Grid & Container Setup */
+                #stages .stages-book-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 0px;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                /* A5 Flip Card Outer Container */
+                #stages .stage-book-chapter.a5-flip-card,
+                .journeys-page #stages .stage-book-chapter.a5-flip-card,
+                .journeys-page #stages .stage-card.stage-book-chapter.a5-flip-card {
+                    position: relative;
+                    padding: 0 !important;
+                    background: transparent !important;
+                    border: none !important;
+                    box-shadow: none !important;
+                    border-radius: 18px;
+                    cursor: pointer;
+                    perspective: 1600px;
+                    -webkit-perspective: 1600px;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    outline: none;
+                    height: 100%;
+                    min-height: 600px;
+                    display: block;
+                    transform: none;
+                }
+
+                #stages .stage-book-chapter.a5-flip-card:focus-visible {
+                    outline: 2px solid #be9f5c !important;
+                    outline-offset: 4px;
+                }
+
+                /* 3D Rotating Inner Card */
+                #stages .a5-flip-card-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    min-height: 600px;
+                    transform-style: preserve-3d;
+                    -webkit-transform-style: preserve-3d;
+                    transition: transform 0.75s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.75s ease;
+                    border-radius: 18px;
+                }
+
+                /* Hover lift on unopened card */
+                #stages .stage-book-chapter.a5-flip-card:not(.is-flipped):hover .a5-flip-card-inner {
+                    transform: translateY(-8px) scale(1.015);
+                }
+
+                /* 3D Flipped State (Fly-out + rotateY 180deg) */
+                #stages .stage-book-chapter.a5-flip-card.is-flipped .a5-flip-card-inner {
+                    transform: rotateY(180deg) translateY(-8px) scale(1.02);
+                    z-index: 20;
+                }
+
+                /* Front and Back Faces (Physical A5 Proportion & Detailing) */
+                #stages .a5-flip-card-face {
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 18px;
+                    background: #ffffff;
+                    border: 1px solid rgba(15, 22, 129, 0.09);
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+                }
+
+                /* Premium Gold Accent Foil Line at Top of Card */
+                #stages .a5-flip-card-face::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: linear-gradient(90deg, transparent, #be9f5c, #e2c076, transparent);
+                    z-index: 5;
+                }
+
+                /* ================= FRONT FACE (Cover) ================= */
+                #stages .a5-flip-card-front {
+                    transform: rotateY(0deg);
+                    padding: 24px 20px 20px 20px;
+                    box-shadow: inset 4px 0 0 -1px #be9f5c, 0 8px 24px rgba(7, 27, 53, 0.06);
+                    z-index: 2;
+                    justify-content: space-between;
+                }
+
+                #stages .stage-book-chapter.a5-flip-card:hover .a5-flip-card-front {
+                    box-shadow: inset 4px 0 0 -1px #be9f5c, 0 20px 42px rgba(15, 22, 129, 0.13);
+                    border-color: rgba(190, 159, 92, 0.45);
+                }
+
+                #stages .a5-card-front-top {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                #stages .a5-flip-card-front .stage-chapter-badge {
+                    display: inline-block;
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: #be9f5c;
+                    margin-bottom: 6px;
+                }
+
+                #stages .a5-flip-card-front .stage-chapter-title {
+                    color: var(--color-navy-deep, #071b35);
+                    font-size: 1.25rem;
+                    font-weight: 800;
+                    letter-spacing: -0.2px;
+                    line-height: 1.25;
+                    margin-bottom: 8px;
+                }
+
+                #stages .a5-flip-card-front .stage-chapter-desc {
+                    color: #64748b;
+                    font-size: 0.86rem;
+                    line-height: 1.45;
+                    margin-bottom: 14px;
+                    min-height: 56px;
+                }
+
+                #stages .a5-flip-card-front .stage-chapter-img-wrap {
+                    position: relative;
+                    width: 100%;
+                    aspect-ratio: 16 / 10;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    margin-bottom: 14px;
+                    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.08);
+                    border: 1px solid rgba(15, 22, 129, 0.08);
+                    background: #f1f5f9;
+                }
+
+                #stages .a5-flip-card-front .stage-chapter-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                    display: block;
+                }
+
+                #stages .stage-book-chapter.a5-flip-card:hover .stage-chapter-img {
+                    transform: scale(1.05);
+                }
+
+                #stages .a5-card-front-bottom {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                }
+
+                /* Interactive Open Pill Button on Front */
+                #stages .a5-open-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    width: 100%;
+                    padding: 10px 18px;
+                    border-radius: 50px;
+                    background: linear-gradient(135deg, rgba(15, 22, 129, 0.04) 0%, rgba(190, 159, 92, 0.09) 100%);
+                    border: 1.5px solid rgba(190, 159, 92, 0.35);
+                    color: var(--color-primary, #0f1681);
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                    letter-spacing: 0.3px;
+                    margin-bottom: 12px;
+                    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                    box-shadow: 0 2px 6px rgba(7, 27, 53, 0.03);
+                }
+
+                #stages .stage-book-chapter.a5-flip-card:hover .a5-open-pill {
+                    background: var(--color-primary, #0f1681);
+                    color: #ffffff;
+                    border-color: var(--color-primary, #0f1681);
+                    box-shadow: 0 6px 14px rgba(15, 22, 129, 0.2);
+                    transform: translateY(-2px);
+                }
+
+                #stages .a5-open-pill i {
+                    font-size: 0.8rem;
+                    transition: transform 0.3s ease;
+                }
+
+                #stages .stage-book-chapter.a5-flip-card:hover .a5-open-pill i {
+                    transform: translateX(3px);
+                }
+
+                /* ================= BACK FACE (Inside / Continuation) ================= */
+                #stages .a5-flip-card-back {
+                    transform: rotateY(180deg);
+                    padding: 20px 20px 18px 20px;
+                    box-shadow: inset -4px 0 0 -1px #be9f5c, 0 8px 24px rgba(7, 27, 53, 0.06);
+                    background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
+                    z-index: 1;
+                    justify-content: space-between;
+                }
+
+                #stages .stage-book-chapter.a5-flip-card.is-flipped .a5-flip-card-back {
+                    box-shadow: inset -4px 0 0 -1px #be9f5c, 0 24px 50px -10px rgba(7, 27, 53, 0.22);
+                    border-color: rgba(190, 159, 92, 0.45);
+                }
+
+                #stages .a5-card-back-header {
+                    margin-bottom: 8px;
+                    padding-bottom: 8px;
+                    border-bottom: 1px dashed rgba(190, 159, 92, 0.35);
+                }
+
+                #stages .a5-card-back-topbar {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 4px;
+                }
+
+                #stages .a5-card-back-header .stage-chapter-badge {
+                    display: inline-block;
+                    font-size: 0.72rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 1.5px;
+                    color: #be9f5c;
+                    margin: 0;
+                }
+
+                #stages .a5-close-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 0.72rem;
+                    font-weight: 700;
+                    color: var(--color-primary, #0f1681);
+                    background: rgba(15, 22, 129, 0.06);
+                    border: 1px solid rgba(15, 22, 129, 0.12);
+                    border-radius: 20px;
+                    padding: 3px 10px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+
+                #stages .a5-close-pill:hover {
+                    background: var(--color-primary, #0f1681);
+                    color: #ffffff;
+                    border-color: var(--color-primary, #0f1681);
+                }
+
+                #stages .a5-card-back-title {
+                    font-size: 1.15rem;
+                    font-weight: 800;
+                    color: var(--color-navy-deep, #071b35);
+                    margin: 0;
+                    line-height: 1.25;
+                    text-align: left;
+                }
+
+                #stages .a5-card-back-body {
+                    flex: 1 1 auto;
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    padding-right: 2px;
+                    margin-bottom: 8px;
+                }
+
+                #stages .a5-card-back-body::-webkit-scrollbar {
+                    width: 4px;
+                }
+                #stages .a5-card-back-body::-webkit-scrollbar-thumb {
+                    background: rgba(190, 159, 92, 0.35);
+                    border-radius: 4px;
+                }
+
+                #stages .a5-flip-card-back .stage-chapter-services-title {
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 1.2px;
+                    color: var(--color-primary, #0f1681);
+                    margin-bottom: 8px;
+                    padding-bottom: 4px;
+                    border-bottom: 1px solid rgba(15, 22, 129, 0.08);
+                    text-align: left;
+                }
+
+                #stages .a5-flip-card-back .stage-chapter-services-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0 0 6px 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                #stages .a5-flip-card-back .stage-chapter-services-list li {
+                    display: flex;
+                    align-items: center;
+                    gap: 9px;
+                    font-size: 0.83rem;
+                    color: #334155;
+                    font-weight: 500;
+                    line-height: 1.35;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+
+                #stages .a5-flip-card-back .stage-chapter-services-list li::before {
+                    display: none !important;
+                }
+
+                #stages .a5-flip-card-back .stage-chapter-services-list li i {
+                    color: #cca352;
+                    font-size: 0.72rem;
+                    width: 21px;
+                    height: 21px;
+                    min-width: 21px;
+                    min-height: 21px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    border: 1.5px solid #e2c076;
+                    border-radius: 50%;
+                    background: rgba(226, 192, 118, 0.1);
+                    box-sizing: border-box;
+                    margin: 0;
+                }
+
+                #stages .a5-card-back-footer {
+                    margin-top: auto;
+                    padding-top: 2px;
+                }
+
+                #stages .a5-card-back-footer .stage-chapter-cta-wrap {
+                    margin-top: 0;
+                    margin-bottom: 8px;
+                }
+
+                #stages .a5-card-back-footer .stage-chapter-cta-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 100%;
+                    padding: 10px 22px;
+                    border-radius: 50px;
+                    background: #ffffff;
+                    border: 1.5px solid rgba(15, 22, 129, 0.22);
+                    color: var(--color-primary, #0f1681);
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    transition: all 0.25s ease;
+                    box-shadow: 0 2px 6px rgba(7, 27, 53, 0.04);
+                }
+
+                #stages .a5-card-back-footer .stage-chapter-cta-btn:hover {
+                    background: var(--color-primary, #0f1681);
+                    color: #ffffff;
+                    border-color: var(--color-primary, #0f1681);
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 14px rgba(15, 22, 129, 0.18);
+                }
+
+                #stages .stage-chapter-tagline,
+                .journeys-page #stages .stage-chapter-tagline {
+                    font-size: 0.70rem !important;
+                    font-weight: 800 !important;
+                    letter-spacing: 1.2px !important;
+                    text-transform: uppercase !important;
+                    color: #94a3b8 !important;
+                    text-align: center !important;
+                    padding-top: 8px !important;
+                    padding-bottom: 2px !important;
+                    border-top: 1px dashed rgba(15, 22, 129, 0.12) !important;
+                    width: 100% !important;
+                }
+
+                /* ================= RESPONSIVE LAYOUTS ================= */
+                @media (max-width: 1200px) and (min-width: 1025px) {
+                    #stages .stage-book-chapter.a5-flip-card,
+                    .journeys-page #stages .stage-book-chapter.a5-flip-card,
+                    #stages .a5-flip-card-inner {
+                        min-height: 590px !important;
+                    }
+                    #stages .a5-flip-card-front,
+                    #stages .a5-flip-card-back {
+                        padding: 20px 16px 16px 16px !important;
+                    }
+                    #stages .a5-flip-card-front .stage-chapter-desc {
+                        font-size: 0.82rem;
+                        min-height: 60px;
+                    }
+                    #stages .a5-flip-card-back .stage-chapter-services-list li {
+                        font-size: 0.79rem;
+                    }
+                }
+
+                @media (max-width: 1024px) and (min-width: 768px) {
+                    #stages .stages-book-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 0px !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card,
+                    .journeys-page #stages .stage-book-chapter.a5-flip-card,
+                    #stages .a5-flip-card-inner {
+                        min-height: 580px !important;
+                    }
+                    #stages .a5-flip-card-front,
+                    #stages .a5-flip-card-back {
+                        padding: 24px 20px 20px 20px !important;
+                    }
+                    #stages .a5-flip-card-front .stage-chapter-desc {
+                        min-height: auto;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    #stages {
+                        overflow-x: hidden;
+                    }
+                    #stages .stages-book-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 0px !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card,
+                    .journeys-page #stages .stage-book-chapter.a5-flip-card,
+                    #stages .a5-flip-card-inner {
+                        min-height: 570px !important;
+                    }
+                    #stages .a5-flip-card-front,
+                    #stages .a5-flip-card-back {
+                        padding: 22px 18px 18px 18px !important;
+                    }
+                    #stages .a5-flip-card-front .stage-chapter-desc {
+                        min-height: auto;
+                    }
+                    #stages .a5-flip-card-front .stage-chapter-img-wrap {
+                        aspect-ratio: 16 / 9;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card.is-flipped .a5-flip-card-inner {
+                        transform: rotateY(180deg) translateY(-4px) scale(1.01);
+                    }
+                }
+
+                /* Reduced Motion Alternative */
+                @media (prefers-reduced-motion: reduce) {
+                    #stages .a5-flip-card-inner {
+                        transition: none !important;
+                        transform: none !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card.is-flipped .a5-flip-card-inner {
+                        transform: none !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card:not(.is-flipped) .a5-flip-card-front {
+                        opacity: 1 !important;
+                        visibility: visible !important;
+                        pointer-events: auto !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card:not(.is-flipped) .a5-flip-card-back {
+                        opacity: 0 !important;
+                        visibility: hidden !important;
+                        pointer-events: none !important;
+                        transform: none !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card.is-flipped .a5-flip-card-front {
+                        opacity: 0 !important;
+                        visibility: hidden !important;
+                        pointer-events: none !important;
+                    }
+                    #stages .stage-book-chapter.a5-flip-card.is-flipped .a5-flip-card-back {
+                        opacity: 1 !important;
+                        visibility: visible !important;
+                        pointer-events: auto !important;
+                        transform: none !important;
+                        z-index: 10 !important;
+                    }
+                }
+            </style>
+
             <div class="container-port-xl">
                 <div class="stages-timeline-container">
 
@@ -590,131 +1097,258 @@
                     <div class="stages-book-spread" data-aos="fade-up" data-aos-duration="1000">
                         <div class="stages-book-grid">
 
-                            <!-- CHAPTER 01: BEFORE YOU ARRIVE -->
-                            <article class="stage-book-chapter stage-card">
-                                <span class="stage-chapter-badge">Chapter 01</span>
-                                <h3 class="stage-chapter-title">Before You Arrive</h3>
-                                <p class="stage-chapter-desc">
-                                    The journey begins before the plane lands. GEMS helps students prepare with greater
-                                    clarity and fewer surprises.
-                                </p>
-                                <div class="stage-chapter-img-wrap">
-                                    <img src="./assets/img/stage_before_arrive.jpg"
-                                        alt="Before You Arrive - Preparation and planning desk"
-                                        class="stage-chapter-img" loading="lazy">
+                            <!-- CHAPTER 01: BEFORE YOU ARRIVE (A5 Interactive Flip Card) -->
+                            <article class="stage-book-chapter stage-card a5-flip-card" id="a5Chapter01" tabindex="0" role="button" aria-expanded="false" aria-label="Chapter 01 — Before You Arrive card. Press Enter or click to open.">
+                                <div class="a5-flip-card-inner">
+                                    <!-- FRONT FACE (Cover) -->
+                                    <div class="a5-flip-card-face a5-flip-card-front" aria-hidden="false">
+                                        <div class="a5-card-front-top">
+                                            <span class="stage-chapter-badge">Chapter 01</span>
+                                            <h3 class="stage-chapter-title">Before You Arrive</h3>
+                                            <p class="stage-chapter-desc">
+                                                The journey begins before the plane lands. GEMS helps students prepare with greater
+                                                clarity and fewer surprises.
+                                            </p>
+                                        </div>
+                                        <div class="stage-chapter-img-wrap">
+                                            <img src="./assets/img/stage_before_arrive.jpg"
+                                                alt="Before You Arrive - Preparation and planning desk"
+                                                class="stage-chapter-img" loading="lazy">
+                                        </div>
+                                        <div class="a5-card-front-bottom">
+                                            <div class="a5-open-pill">
+                                                <span>Open Chapter</span>
+                                                <i class="fa-solid fa-arrow-turn-down fa-rotate-270"></i>
+                                            </div>
+                                            <div class="stage-chapter-tagline">FROM ASPIRATION TO ACTION</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BACK FACE (Continuation Panel / Inside) -->
+                                    <div class="a5-flip-card-face a5-flip-card-back" aria-hidden="true">
+                                        <div class="a5-card-back-header">
+                                            <div class="a5-card-back-topbar">
+                                                <span class="stage-chapter-badge">Chapter 01</span>
+                                                <button type="button" class="a5-close-pill" aria-label="Close Chapter 01 card">
+                                                    <i class="fa-solid fa-arrow-turn-up fa-rotate-270"></i>
+                                                    <span>Close</span>
+                                                </button>
+                                            </div>
+                                            <h4 class="a5-card-back-title">Before You Arrive</h4>
+                                        </div>
+                                        <div class="a5-card-back-body">
+                                            <div class="stage-chapter-services-title">Services & Guidance</div>
+                                            <ul class="stage-chapter-services-list">
+                                                <li><i class="fa-solid fa-school"></i> <span>School selection</span></li>
+                                                <li><i class="fa-solid fa-coins"></i> <span>Financial planning</span></li>
+                                                <li><i class="fa-solid fa-passport"></i> <span>Visa preparation</span></li>
+                                                <li><i class="fa-solid fa-plane-departure"></i> <span>Travel planning</span></li>
+                                                <li><i class="fa-solid fa-compass"></i> <span>What to expect</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="a5-card-back-footer">
+                                            <div class="stage-chapter-cta-wrap">
+                                                <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
+                                                    <span>help me prepare</span>
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stage-chapter-tagline">FROM ASPIRATION TO ACTION</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stage-chapter-services-title">Services & Guidance</div>
-                                <ul class="stage-chapter-services-list">
-                                    <li><i class="fa-solid fa-school"></i> <span>School selection</span></li>
-                                    <li><i class="fa-solid fa-coins"></i> <span>Financial planning</span></li>
-                                    <li><i class="fa-solid fa-passport"></i> <span>Visa preparation</span></li>
-                                    <li><i class="fa-solid fa-plane-departure"></i> <span>Travel planning</span></li>
-                                    <li><i class="fa-solid fa-compass"></i> <span>What to expect</span></li>
-                                </ul>
-                                <div class="stage-chapter-cta-wrap">
-                                    <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
-                                        <span>help me prepare</span>
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                                <div class="stage-chapter-tagline">FROM ASPIRATION TO ACTION</div>
                             </article>
 
-                            <!-- CHAPTER 02: AFTER YOU ARRIVE -->
-                            <article class="stage-book-chapter stage-card">
-                                <span class="stage-chapter-badge">Chapter 02</span>
-                                <h3 class="stage-chapter-title">After You Arrive</h3>
-                                <p class="stage-chapter-desc">
-                                    The first days and months in a new country can be overwhelming. GEMS helps students
-                                    navigate the practical realities of settling in.
-                                </p>
-                                <div class="stage-chapter-img-wrap">
-                                    <img src="./assets/img/stage_after_arrive.jpg"
-                                        alt="After You Arrive - Student entering university campus"
-                                        class="stage-chapter-img" loading="lazy">
+                            <!-- CHAPTER 02: AFTER YOU ARRIVE (A5 Interactive Flip Card) -->
+                            <article class="stage-book-chapter stage-card a5-flip-card" id="a5Chapter02" tabindex="0" role="button" aria-expanded="false" aria-label="Chapter 02 — After You Arrive card. Press Enter or click to open.">
+                                <div class="a5-flip-card-inner">
+                                    <!-- FRONT FACE (Cover) -->
+                                    <div class="a5-flip-card-face a5-flip-card-front" aria-hidden="false">
+                                        <div class="a5-card-front-top">
+                                            <span class="stage-chapter-badge">Chapter 02</span>
+                                            <h3 class="stage-chapter-title">After You Arrive</h3>
+                                            <p class="stage-chapter-desc">
+                                                The first days and months in a new country can be overwhelming. GEMS helps students
+                                                navigate the practical realities of settling in.
+                                            </p>
+                                        </div>
+                                        <div class="stage-chapter-img-wrap">
+                                            <img src="./assets/img/stage_after_arrive.jpg"
+                                                alt="After You Arrive - Student entering university campus"
+                                                class="stage-chapter-img" loading="lazy">
+                                        </div>
+                                        <div class="a5-card-front-bottom">
+                                            <div class="a5-open-pill">
+                                                <span>Open Chapter</span>
+                                                <i class="fa-solid fa-arrow-turn-down fa-rotate-270"></i>
+                                            </div>
+                                            <div class="stage-chapter-tagline">NEW PLACE SAME SUPPORT</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BACK FACE (Continuation Panel / Inside) -->
+                                    <div class="a5-flip-card-face a5-flip-card-back" aria-hidden="true">
+                                        <div class="a5-card-back-header">
+                                            <div class="a5-card-back-topbar">
+                                                <span class="stage-chapter-badge">Chapter 02</span>
+                                                <button type="button" class="a5-close-pill" aria-label="Close Chapter 02 card">
+                                                    <i class="fa-solid fa-arrow-turn-up fa-rotate-270"></i>
+                                                    <span>Close</span>
+                                                </button>
+                                            </div>
+                                            <h4 class="a5-card-back-title">After You Arrive</h4>
+                                        </div>
+                                        <div class="a5-card-back-body">
+                                            <div class="stage-chapter-services-title">Services & Guidance</div>
+                                            <ul class="stage-chapter-services-list">
+                                                <li><i class="fa-solid fa-building-columns"></i> <span>Banking</span></li>
+                                                <li><i class="fa-solid fa-sim-card"></i> <span>SIM cards</span></li>
+                                                <li><i class="fa-solid fa-house"></i> <span>Housing</span></li>
+                                                <li><i class="fa-solid fa-bus"></i> <span>Transportation</span></li>
+                                                <li><i class="fa-solid fa-shield-halved"></i> <span>Insurance</span></li>
+                                                <li><i class="fa-solid fa-id-card"></i> <span>Driver's license guidance</span></li>
+                                                <li><i class="fa-solid fa-chart-line"></i> <span>Building credit</span></li>
+                                                <li><i class="fa-solid fa-briefcase"></i> <span>Employment readiness</span></li>
+                                                <li><i class="fa-solid fa-user-shield"></i> <span>Safety awareness</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="a5-card-back-footer">
+                                            <div class="stage-chapter-cta-wrap">
+                                                <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
+                                                    <span>Help me settle in</span>
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stage-chapter-tagline">NEW PLACE SAME SUPPORT</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stage-chapter-services-title">Services & Guidance</div>
-                                <ul class="stage-chapter-services-list">
-                                    <li><i class="fa-solid fa-building-columns"></i> <span>Banking</span></li>
-                                    <li><i class="fa-solid fa-sim-card"></i> <span>SIM cards</span></li>
-                                    <li><i class="fa-solid fa-house"></i> <span>Housing</span></li>
-                                    <li><i class="fa-solid fa-bus"></i> <span>Transportation</span></li>
-                                    <li><i class="fa-solid fa-shield-halved"></i> <span>Insurance</span></li>
-                                    <li><i class="fa-solid fa-id-card"></i> <span>Driver's license guidance</span></li>
-                                    <li><i class="fa-solid fa-chart-line"></i> <span>Building credit</span></li>
-                                    <li><i class="fa-solid fa-briefcase"></i> <span>Employment readiness</span></li>
-                                    <li><i class="fa-solid fa-user-shield"></i> <span>Safety awareness</span></li>
-                                </ul>
-                                <div class="stage-chapter-cta-wrap">
-                                    <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
-                                        <span>Help me settle in</span>
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                                <div class="stage-chapter-tagline">NEW PLACE SAME SUPPORT</div>
                             </article>
 
-                            <!-- CHAPTER 03: WHILE YOU STUDY -->
-                            <article class="stage-book-chapter stage-card">
-                                <span class="stage-chapter-badge">Chapter 03</span>
-                                <h3 class="stage-chapter-title">While You Study</h3>
-                                <p class="stage-chapter-desc">
-                                    The journey does not stop once classes begin. GEMS remains relevant as students
-                                    build experience, relationships, skills, and their future.
-                                </p>
-                                <div class="stage-chapter-img-wrap">
-                                    <img src="./assets/img/stage_while_study.jpg"
-                                        alt="While You Study - Students studying in university library"
-                                        class="stage-chapter-img" loading="lazy">
+                            <!-- CHAPTER 03: WHILE YOU STUDY (A5 Interactive Flip Card) -->
+                            <article class="stage-book-chapter stage-card a5-flip-card" id="a5Chapter03" tabindex="0" role="button" aria-expanded="false" aria-label="Chapter 03 — While You Study card. Press Enter or click to open.">
+                                <div class="a5-flip-card-inner">
+                                    <!-- FRONT FACE (Cover) -->
+                                    <div class="a5-flip-card-face a5-flip-card-front" aria-hidden="false">
+                                        <div class="a5-card-front-top">
+                                            <span class="stage-chapter-badge">Chapter 03</span>
+                                            <h3 class="stage-chapter-title">While You Study</h3>
+                                            <p class="stage-chapter-desc">
+                                                The journey does not stop once classes begin. GEMS remains relevant as students
+                                                build experience, relationships, skills, and their future.
+                                            </p>
+                                        </div>
+                                        <div class="stage-chapter-img-wrap">
+                                            <img src="./assets/img/stage_while_study.jpg"
+                                                alt="While You Study - Students studying in university library"
+                                                class="stage-chapter-img" loading="lazy">
+                                        </div>
+                                        <div class="a5-card-front-bottom">
+                                            <div class="a5-open-pill">
+                                                <span>Open Chapter</span>
+                                                <i class="fa-solid fa-arrow-turn-down fa-rotate-270"></i>
+                                            </div>
+                                            <div class="stage-chapter-tagline">LEARN | GROW | BELONG</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BACK FACE (Continuation Panel / Inside) -->
+                                    <div class="a5-flip-card-face a5-flip-card-back" aria-hidden="true">
+                                        <div class="a5-card-back-header">
+                                            <div class="a5-card-back-topbar">
+                                                <span class="stage-chapter-badge">Chapter 03</span>
+                                                <button type="button" class="a5-close-pill" aria-label="Close Chapter 03 card">
+                                                    <i class="fa-solid fa-arrow-turn-up fa-rotate-270"></i>
+                                                    <span>Close</span>
+                                                </button>
+                                            </div>
+                                            <h4 class="a5-card-back-title">While You Study</h4>
+                                        </div>
+                                        <div class="a5-card-back-body">
+                                            <div class="stage-chapter-services-title">Services & Guidance</div>
+                                            <ul class="stage-chapter-services-list">
+                                                <li><i class="fa-solid fa-briefcase"></i> <span>Internships</span></li>
+                                                <li><i class="fa-solid fa-bullseye"></i> <span>Career planning</span></li>
+                                                <li><i class="fa-solid fa-users"></i> <span>Networking</span></li>
+                                                <li><i class="fa-solid fa-file-invoice-dollar"></i> <span>Taxes</span></li>
+                                                <li><i class="fa-solid fa-map-location-dot"></i> <span>Travel</span></li>
+                                                <li><i class="fa-solid fa-certificate"></i> <span>Certifications</span></li>
+                                                <li><i class="fa-solid fa-arrow-trend-up"></i> <span>Professional development</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="a5-card-back-footer">
+                                            <div class="stage-chapter-cta-wrap">
+                                                <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
+                                                    <span>Help me move forward</span>
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stage-chapter-tagline">LEARN | GROW | BELONG</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stage-chapter-services-title">Services & Guidance</div>
-                                <ul class="stage-chapter-services-list">
-                                    <li><i class="fa-solid fa-briefcase"></i> <span>Internships</span></li>
-                                    <li><i class="fa-solid fa-bullseye"></i> <span>Career planning</span></li>
-                                    <li><i class="fa-solid fa-users"></i> <span>Networking</span></li>
-                                    <li><i class="fa-solid fa-file-invoice-dollar"></i> <span>Taxes</span></li>
-                                    <li><i class="fa-solid fa-map-location-dot"></i> <span>Travel</span></li>
-                                    <li><i class="fa-solid fa-certificate"></i> <span>Certifications</span></li>
-                                    <li><i class="fa-solid fa-arrow-trend-up"></i> <span>Professional development</span>
-                                    </li>
-                                </ul>
-                                <div class="stage-chapter-cta-wrap">
-                                    <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
-                                        <span>Help me move forward</span>
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                                <div class="stage-chapter-tagline">LEARN | GROW | BELONG</div>
                             </article>
 
-                            <!-- CHAPTER 04: AFTER GRADUATION -->
-                            <article class="stage-book-chapter stage-card">
-                                <span class="stage-chapter-badge">Chapter 04</span>
-                                <h3 class="stage-chapter-title">After Graduation</h3>
-                                <p class="stage-chapter-desc">
-                                    Graduation is not the end of the journey. It is the beginning of another chapter.
-                                    GEMS can continue to provide guidance and connections as the student's goals evolve.
-                                </p>
-                                <div class="stage-chapter-img-wrap">
-                                    <img src="./assets/img/stage_after_graduation.jpg"
-                                        alt="After Graduation - Graduate looking toward skyline"
-                                        class="stage-chapter-img" loading="lazy">
+                            <!-- CHAPTER 04: AFTER GRADUATION (A5 Interactive Flip Card) -->
+                            <article class="stage-book-chapter stage-card a5-flip-card" id="a5Chapter04" tabindex="0" role="button" aria-expanded="false" aria-label="Chapter 04 — After Graduation card. Press Enter or click to open.">
+                                <div class="a5-flip-card-inner">
+                                    <!-- FRONT FACE (Cover) -->
+                                    <div class="a5-flip-card-face a5-flip-card-front" aria-hidden="false">
+                                        <div class="a5-card-front-top">
+                                            <span class="stage-chapter-badge">Chapter 04</span>
+                                            <h3 class="stage-chapter-title">After Graduation</h3>
+                                            <p class="stage-chapter-desc">
+                                                Graduation is not the end of the journey. It is the beginning of another chapter.
+                                                GEMS can continue to provide guidance and connections as the student's goals evolve.
+                                            </p>
+                                        </div>
+                                        <div class="stage-chapter-img-wrap">
+                                            <img src="./assets/img/stage_after_graduation.jpg"
+                                                alt="After Graduation - Graduate looking toward skyline"
+                                                class="stage-chapter-img" loading="lazy">
+                                        </div>
+                                        <div class="a5-card-front-bottom">
+                                            <div class="a5-open-pill">
+                                                <span>Open Chapter</span>
+                                                <i class="fa-solid fa-arrow-turn-down fa-rotate-270"></i>
+                                            </div>
+                                            <div class="stage-chapter-tagline">OPPORTUNITIES THAT LAST A LIFETIME</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BACK FACE (Continuation Panel / Inside) -->
+                                    <div class="a5-flip-card-face a5-flip-card-back" aria-hidden="true">
+                                        <div class="a5-card-back-header">
+                                            <div class="a5-card-back-topbar">
+                                                <span class="stage-chapter-badge">Chapter 04</span>
+                                                <button type="button" class="a5-close-pill" aria-label="Close Chapter 04 card">
+                                                    <i class="fa-solid fa-arrow-turn-up fa-rotate-270"></i>
+                                                    <span>Close</span>
+                                                </button>
+                                            </div>
+                                            <h4 class="a5-card-back-title">After Graduation</h4>
+                                        </div>
+                                        <div class="a5-card-back-body">
+                                            <div class="stage-chapter-services-title">Services & Guidance</div>
+                                            <ul class="stage-chapter-services-list">
+                                                <li><i class="fa-solid fa-route"></i> <span>Career transition</span></li>
+                                                <li><i class="fa-solid fa-location-dot"></i> <span>Relocation</span></li>
+                                                <li><i class="fa-solid fa-graduation-cap"></i> <span>Further education</span></li>
+                                                <li><i class="fa-solid fa-lightbulb"></i> <span>Entrepreneurship</span></li>
+                                                <li><i class="fa-solid fa-road"></i> <span>Long-term planning</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="a5-card-back-footer">
+                                            <div class="stage-chapter-cta-wrap">
+                                                <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
+                                                    <span>Plan what's next</span>
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stage-chapter-tagline">OPPORTUNITIES THAT LAST A LIFETIME</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stage-chapter-services-title">Services & Guidance</div>
-                                <ul class="stage-chapter-services-list">
-                                    <li><i class="fa-solid fa-route"></i> <span>Career transition</span></li>
-                                    <li><i class="fa-solid fa-location-dot"></i> <span>Relocation</span></li>
-                                    <li><i class="fa-solid fa-graduation-cap"></i> <span>Further education</span></li>
-                                    <li><i class="fa-solid fa-lightbulb"></i> <span>Entrepreneurship</span></li>
-                                    <li><i class="fa-solid fa-road"></i> <span>Long-term planning</span></li>
-                                </ul>
-                                <div class="stage-chapter-cta-wrap">
-                                    <a href="https://globalenrollment.us/subscription" class="stage-chapter-cta-btn">
-                                        <span>Plan what's next</span>
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                                <div class="stage-chapter-tagline">OPPORTUNITIES THAT LAST A LIFETIME</div>
                             </article>
 
                         </div>
@@ -725,6 +1359,111 @@
 
                 </div>
             </div>
+
+            <!-- Scoped Interaction Script for A5 Flip Cards -->
+            <script id="a5-flip-cards-script">
+                (function () {
+                    function initA5FlipCards() {
+                        const stageSection = document.getElementById('stages');
+                        if (!stageSection) return;
+
+                        const cards = stageSection.querySelectorAll('.a5-flip-card');
+                        if (!cards.length) return;
+
+                        function updateCardAccessibility(card, isFlipped) {
+                            card.setAttribute('aria-expanded', isFlipped ? 'true' : 'false');
+                            const front = card.querySelector('.a5-flip-card-front');
+                            const back = card.querySelector('.a5-flip-card-back');
+                            if (front) front.setAttribute('aria-hidden', isFlipped ? 'true' : 'false');
+                            if (back) back.setAttribute('aria-hidden', isFlipped ? 'false' : 'true');
+
+                            const frontFocusables = front ? front.querySelectorAll('button, a, [tabindex="0"]') : [];
+                            const backFocusables = back ? back.querySelectorAll('button, a, [tabindex="0"]') : [];
+
+                            frontFocusables.forEach(function (el) {
+                                if (isFlipped) {
+                                    el.setAttribute('tabindex', '-1');
+                                } else {
+                                    el.removeAttribute('tabindex');
+                                }
+                            });
+
+                            backFocusables.forEach(function (el) {
+                                if (isFlipped) {
+                                    el.removeAttribute('tabindex');
+                                } else {
+                                    el.setAttribute('tabindex', '-1');
+                                }
+                            });
+                        }
+
+                        function toggleCard(targetCard) {
+                            const isCurrentlyFlipped = targetCard.classList.contains('is-flipped');
+
+                            // Close all cards first (only one active card at a time)
+                            cards.forEach(function (card) {
+                                if (card !== targetCard && card.classList.contains('is-flipped')) {
+                                    card.classList.remove('is-flipped');
+                                    updateCardAccessibility(card, false);
+                                }
+                            });
+
+                            if (isCurrentlyFlipped) {
+                                targetCard.classList.remove('is-flipped');
+                                updateCardAccessibility(targetCard, false);
+                            } else {
+                                targetCard.classList.add('is-flipped');
+                                updateCardAccessibility(targetCard, true);
+                            }
+                        }
+
+                        cards.forEach(function (card) {
+                            updateCardAccessibility(card, false);
+
+                            card.addEventListener('click', function (e) {
+                                // Don't flip when clicking the direct CTA link
+                                if (e.target.closest('.stage-chapter-cta-btn') || e.target.closest('.stage-chapter-cta-wrap')) {
+                                    return;
+                                }
+
+                                toggleCard(card);
+                            });
+
+                            card.addEventListener('keydown', function (e) {
+                                if (e.target.closest('a')) return;
+
+                                if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
+                                    e.preventDefault();
+                                    toggleCard(card);
+                                } else if (e.key === 'Escape' || e.keyCode === 27) {
+                                    if (card.classList.contains('is-flipped')) {
+                                        e.preventDefault();
+                                        toggleCard(card);
+                                    }
+                                }
+                            });
+                        });
+
+                        // Clicking outside any card closes currently open card
+                        document.addEventListener('click', function (e) {
+                            if (!stageSection.contains(e.target)) {
+                                cards.forEach(function (card) {
+                                    if (card.classList.contains('is-flipped')) {
+                                        card.classList.remove('is-flipped');
+                                        updateCardAccessibility(card, false);
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', initA5FlipCards);
+                    } else {
+                        initA5FlipCards();
+                    }
+                })();
+            </script>
         </section>
 
         <!-- ==========================================================================

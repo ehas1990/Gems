@@ -58,7 +58,7 @@
 .journeys-page .stages-book-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap:0px;
     position: relative;
     z-index: 2;
 }
@@ -275,7 +275,7 @@
 /* Laptop (1025px - 1200px) */
 @media (max-width: 1200px) and (min-width: 1025px) {
     .journeys-page .stages-book-grid {
-        gap: 16px;
+        gap:0px;
     }
 
     .journeys-page .stage-book-chapter,
@@ -301,7 +301,7 @@
 @media (max-width: 1024px) and (min-width: 768px) {
     .journeys-page .stages-book-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 0px;
     }
 
     .journeys-page .stage-book-chapter,
@@ -326,7 +326,7 @@
 
     .journeys-page .stages-book-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 0px;
     }
 
     .journeys-page .stage-book-chapter,

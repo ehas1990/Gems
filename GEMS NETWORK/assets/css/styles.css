@@ -8533,8 +8533,12 @@ header.headerbg .ham span {
 }
 
 .hero-brand-statement strong {
-    color: #ffffff;
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.15rem;
     font-weight: 700;
+    font-style: italic;
+    margin-bottom: 40px;
 }
 
 /* Hero CTA Group */
@@ -10796,4 +10800,13 @@ div#aboutStaggered span {
     .loginbx .headerlg h3 {
         font-size: 1.5rem !important;
     }
+}
+.hero-brand-statement
+{
+     display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 40px;
 }

@@ -2191,6 +2191,11 @@
         /* =====================================================
                JOURNEY SELECTION TABS INTERACTION
                ===================================================== */
+        const billingToggleWrapper = document.querySelector(
+          ".billing-toggle-wrapper",
+        );
+        let currentBillingMode = "monthly";
+
         const planPanes = {
           educational: document.getElementById("pane-educational"),
           career: document.getElementById("pane-career"),
@@ -2207,6 +2212,11 @@
 
         function selectJourney(journeyKey) {
           if (!journeyKey) return;
+
+          // Ensure billing-toggle-wrapper is displayed for the relevant journey
+          if (billingToggleWrapper) {
+            billingToggleWrapper.style.display = "flex";
+          }
 
           // Dynamically update Step 01 text based on selected journey
           if (journeyStep01Text && journeyTitles[journeyKey]) {
@@ -2249,6 +2259,15 @@
             if (card) {
               const journey = card.getAttribute("data-journey");
               selectJourney(journey);
+              if (window.history && window.history.pushState) {
+                const newUrl = new URL(window.location.href);
+                newUrl.searchParams.set("journey", journey);
+                window.history.pushState(
+                  { journey: journey },
+                  "",
+                  newUrl.toString(),
+                );
+              }
             }
           });
 
@@ -2259,20 +2278,75 @@
                 e.preventDefault();
                 const journey = card.getAttribute("data-journey");
                 selectJourney(journey);
+                if (window.history && window.history.pushState) {
+                  const newUrl = new URL(window.location.href);
+                  newUrl.searchParams.set("journey", journey);
+                  window.history.pushState(
+                    { journey: journey },
+                    "",
+                    newUrl.toString(),
+                  );
+                }
               }
             }
           });
         }
 
-        // Auto-select Journey from URL query parameter (e.g. ?journey=educational / ?journey=career / ?journey=growth)
-        try {
-          const urlParams = new URLSearchParams(window.location.search);
-          const journeyParam = urlParams.get("journey");
-          if (journeyParam && planPanes[journeyParam.toLowerCase()]) {
-            selectJourney(journeyParam.toLowerCase());
+        // Auto-select Journey and manage billing-toggle-wrapper visibility from URL query parameter
+        function applyJourneyFromUrl() {
+          try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const journeyParam = urlParams.get("journey");
+            const validJourney = journeyParam
+              ? journeyParam.toLowerCase()
+              : null;
+
+            if (validJourney && planPanes[validJourney]) {
+              selectJourney(validJourney);
+            } else {
+              // Default to educational journey if no parameter or invalid parameter is provided
+              selectJourney("educational");
+            }
+
+            if (billingToggleWrapper) {
+              billingToggleWrapper.style.display = "flex";
+            }
+
+            // When journey is detected (educational, career, or growth), ensure .billing-toggle-wrapper is displayed first in viewport
+            if (
+              (validJourney === "educational" ||
+                validJourney === "career" ||
+                validJourney === "growth") &&
+              billingToggleWrapper
+            ) {
+              const scrollToBilling = function () {
+                billingToggleWrapper.classList.add("aos-init", "aos-animate");
+                const headerEl = document.querySelector("header");
+                const headerHeight = headerEl ? headerEl.offsetHeight : 80;
+                let topOffset = 0;
+                let el = billingToggleWrapper;
+                while (el) {
+                  topOffset += el.offsetTop;
+                  el = el.offsetParent;
+                }
+                const targetY = topOffset - headerHeight - 20;
+                window.scrollTo({
+                  top: Math.max(0, targetY),
+                  behavior: "auto",
+                });
+                if (typeof AOS !== "undefined") {
+                  AOS.refresh();
+                }
+              };
+
+              requestAnimationFrame(function () {
+                scrollToBilling();
+                setTimeout(scrollToBilling, 100);
+              });
+            }
+          } catch (err) {
+            console.error("Error reading journey URL param:", err);
           }
-        } catch (err) {
-          console.error("Error reading journey URL param:", err);
         }
 
         /* =====================================================
@@ -2334,7 +2408,7 @@
         const btnMonthly = document.getElementById("btnMonthly");
         const btnAnnual = document.getElementById("btnAnnual");
         const savingsBadge = document.getElementById("savingsBadge");
-        let currentBillingMode = "monthly";
+        currentBillingMode = "monthly";
 
         // Cache initial default badge text for each plan card (e.g. Always Free, Most Popular, Best Value)
         document
@@ -2461,6 +2535,10 @@
             }
           });
         }
+
+        // Initialize journey and billing toggle visibility from URL parameter
+        applyJourneyFromUrl();
+        window.addEventListener("popstate", applyJourneyFromUrl);
       });
     </script>
 

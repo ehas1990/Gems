@@ -1185,15 +1185,13 @@ background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%); *
     margin-bottom: 21px;
 }
 
-.hrdabt h2 {
-    font-size: 18px;
-    letter-spacing: 5px;
-    font-family: 'Inter Tight';
-    font-weight: 600;
-    color: #bd9860;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.hrdabt  {
+   display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 40px;
 }
 
 .flexara {
@@ -10352,22 +10350,21 @@ i.fab {
 
 .final-cta-signature .sig-line-1 {
     font-family: 'Inter Tight', 'Inter', sans-serif;
-    font-size: 21px;
-    font-weight: 600;
-    color: #e2e8f0;
-    margin-bottom: 6px;
-    letter-spacing: 0.3px;
+   display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 40px;
 }
 
 .final-cta-signature .sig-line-2 {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
-    font-size: 21px;
-    font-weight: 800;
-    color: #edbd75;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 0;
-    text-shadow: 0 0 20px rgba(237, 189, 117, 0.4);
+    display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 40px;
 }
 
 .final-cta-buttons {

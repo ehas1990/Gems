@@ -256,3 +256,10 @@ ul.about-journey-list.modal-journey-bullets  li:nth-child(4) {
     left:60px;
 }
 }
+.journeys-final-tagline {
+    font-family: 'Nanum Gothic', 'Inter Tight', sans-serif;
+    color: #edbd75;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}

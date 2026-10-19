@@ -1,0 +1,195 @@
+/**
+ * ============================================================================
+ * GEMS Network - About Page 3D Perspective Scroll Effect & Banner Overlay
+ * Stylesheet scoped strictly to about.html.
+ * ============================================================================
+ */
+
+:root {
+  --gems-3d-perspective: 1200px;
+  --banner-overlay-op: 0.78;
+  --banner-video-ty: 0px;
+}
+
+/* Prevent horizontal overflow jitter caused by 3D transforms */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* ============================================================================
+   VIDEO BANNER SECTION - FULL-COVER BACKGROUND OVERLAY (SCOPED TO ABOUT.HTML)
+   ============================================================================ */
+.about-page-banner.about-banner {
+  position: relative !important;
+  width: 100% !important;
+  background-color: var(--color-navy-deep, #071b35) !important;
+  overflow: hidden !important;
+}
+
+/* Ensure video wrapper covers full width and full height with zero gaps */
+.about-page-banner .about-banner-video-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  transform: none !important; /* No shrinking or tilting on banner container */
+  line-height: 0 !important;
+}
+
+/* Video remains visible beneath the overlay */
+.about-page-banner .about-banner-video {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  display: block !important;
+  opacity: 0.52 !important; /* Smoothly visible beneath overlay */
+  transform: scale(1.05) translateY(var(--banner-video-ty, 0px)) !important;
+  transform-origin: center center !important;
+  will-change: transform, opacity;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease;
+}
+
+/* Full-cover rich background color / gradient overlay */
+.about-page-banner .about-banner-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: 
+    linear-gradient(
+      180deg,
+      rgba(7, 27, 53, 0.72) 0%,
+      rgba(15, 22, 129, 0.46) 45%,
+      rgba(7, 27, 53, 0.90) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(15, 22, 129, 0.38) 0%,
+      rgba(7, 27, 53, 0.84) 100%
+    ) !important;
+  opacity: var(--banner-overlay-op, 0.78) !important;
+  will-change: opacity;
+  transition: opacity 0.25s ease-out;
+}
+
+/* Remove old pseudo-element to avoid conflicting overlays */
+.about-page-banner::after,
+.about-banner::after {
+  display: none !important;
+}
+
+/* ============================================================================
+   3D PERSPECTIVE SCROLL LAYERS (STORY, TIMELINE, JOURNEYS, MISSION, VISION, CTA)
+   ============================================================================ */
+.about-page-wrapper,
+.aboutus-sectin-home,
+.why-gems-section,
+.gems-journey-section,
+.about-mission-preview-section,
+.p-10,
+.about-final-cta-section {
+  perspective: var(--gems-3d-perspective);
+  perspective-origin: 50% 50%;
+}
+
+/* Base class for elements receiving the 3D perspective scroll transform */
+.gems-3d-layer {
+  --gems-rx: 0deg;
+  --gems-ry: 0deg;
+  --gems-tz: 0px;
+  --gems-scale: 1;
+  transform: perspective(var(--gems-3d-perspective))
+             rotateX(var(--gems-rx))
+             rotateY(var(--gems-ry))
+             translateZ(var(--gems-tz))
+             scale(var(--gems-scale));
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Story Section Rows */
+.aboutus-sectin-home .row.gems-3d-layer {
+  transform-origin: 50% 50%;
+}
+
+/* Our Philosophy Curved Timeline Panels */
+#Our\ Philosophy .gems-timeline-panel-wrap.gems-3d-layer {
+  transform-origin: 50% 50%;
+}
+
+/* Every Journey Matters Swiper Slider Container */
+.gems-journey-slider-wrap.gems-3d-layer {
+  transform-origin: 50% 50%;
+}
+
+/* Mission & Vision Editorial Cards */
+.mission-preview-card.gems-3d-layer,
+.gems-eagle-editorial-card.gems-3d-layer {
+  transform-origin: 50% 50%;
+}
+
+/* Final CTA Section Content */
+.about-final-cta-content.gems-3d-layer {
+  transform-origin: 50% 50%;
+}
+
+/* Tablet Device Optimizations */
+@media (max-width: 991px) {
+  :root {
+    --gems-3d-perspective: 1000px;
+  }
+}
+
+/* Mobile Devices: lightweight, zero rotation, no gesture interference */
+@media (max-width: 767px) {
+  :root {
+    --gems-3d-perspective: 800px;
+  }
+
+  .gems-3d-layer {
+    --gems-rx: 0deg !important;
+    --gems-ry: 0deg !important;
+    will-change: auto;
+  }
+}
+
+/* Accessibility: Complete bypass for users with reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --gems-3d-perspective: none !important;
+  }
+
+  .gems-3d-layer {
+    transform: none !important;
+    perspective: none !important;
+    will-change: auto !important;
+  }
+
+  .about-page-wrapper,
+  .aboutus-sectin-home,
+  .why-gems-section,
+  .gems-journey-section,
+  .about-mission-preview-section,
+  .p-10,
+  .about-final-cta-section {
+    perspective: none !important;
+  }
+
+  .about-page-banner .about-banner-video {
+    transform: none !important;
+  }
+}

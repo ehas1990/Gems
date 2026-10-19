@@ -121,6 +121,8 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style(1).css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style(2).css" />
     <link rel="stylesheet" href="./assets/css/about.css" />
+    <!-- Scoped 3D Perspective Scroll Styles -->
+    <link rel="stylesheet" href="./assets/css/about-3d-scroll.css" />
     <!-- AOS Animation Library -->
     <link
       rel="stylesheet"
@@ -1192,6 +1194,7 @@
           <source src="assets/videos/AboutGEMS-1.mp4" type="video/mp4" />
         </video>
       </div>
+      <div class="about-banner-overlay" aria-hidden="true"></div>
       <div class="about-banner-bg" aria-hidden="true"></div>
     </section>
 
@@ -3665,7 +3668,7 @@
 
       .mission-preview-card .membership-badge {
         background: rgba(140, 96, 11, 0.08);
-        color: #8c600b;
+        color: var(--color-gold, #f4b942);
         border-color: rgba(140, 96, 11, 0.25);
       }
 
@@ -3679,7 +3682,7 @@
       }
 
       .mission-preview-tagline {
-        color: #8c600b;
+        color: var(--color-gold, #f4b942);
         font-family: "Outfit", sans-serif;
         font-size: 16px;
         font-weight: 600;
@@ -4485,5 +4488,8 @@
         }
       })();
     </script>
+
+    <!-- Scoped 3D Perspective Scroll Engine -->
+    <script src="./assets/js/about-3d-scroll.js"></script>
   </body>
 </html>

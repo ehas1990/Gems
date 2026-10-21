@@ -457,6 +457,73 @@
     </div>
 
     <!-- ==========================================================================
+         CATEGORY REGISTER POPUP MODAL (NETWORK CATEGORY CLICK)
+         ========================================================================== -->
+    <div
+      class="loginpage category-register-modal"
+      id="categoryRegisterModal"
+      style="display: none"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="catRegTitle"
+    >
+      <div class="loginbx">
+        <!-- CLOSE -->
+        <span
+          class="close-popup close-cat-reg-popup"
+          id="closeCatRegPopup"
+          role="button"
+          tabindex="0"
+          aria-label="Close registration modal"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </span>
+
+        <!-- HEADER -->
+        <div class="headerlg">
+          <h3 id="catRegTitle">Welcome</h3>
+          <p id="catRegSubtitle">Register to access this network category.</p>
+        </div>
+
+        <!-- SELECTED CATEGORY INPUT (MATCHING LOGIN POPUP INPUT STYLING) -->
+        <div class="frmgrplg" style="margin-top: 20px; margin-bottom: 20px">
+          <label for="catRegInput">Network Category</label>
+          <div class="rlbx">
+            <div class="iniicon" id="catRegIcon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <input
+              type="text"
+              id="catRegInput"
+              name="category"
+              value="Business Services"
+              readonly
+            />
+          </div>
+        </div>
+
+        <!-- REGISTER CTA BUTTON -->
+        <div class="frmgrplg" style="margin-top: 22px; margin-bottom: 0">
+          <a
+            href="partner-registration.html"
+            class="btn-cat-register"
+            id="catRegButton"
+          >
+            Register
+          </a>
+        </div>
+
+        <!-- SIGN IN OPTION FOR EXISTING MEMBERS -->
+        <div class="sbc" style="margin-top: 18px">
+          <p>
+            Already a member?
+            <a href="javascript:void(0)" id="catRegSignInLink"> Sign In </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
          MAIN CONTENT: TRUSTED NETWORK PAGE
          ========================================================================== -->
     <main class="journeys-page trusted-network-page">
@@ -746,6 +813,224 @@
           }
           .network-categories-section .cat-empty-desc {
             font-size: 0.92rem;
+          }
+        }
+
+        /* Category Card Interactive State */
+        .network-categories-section .network-cat-card {
+          cursor: pointer;
+        }
+
+        /* Category Register Modal Scoped Styles */
+        #categoryRegisterModal.loginpage {
+          position: fixed !important;
+          inset: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          display: none;
+          align-items: center !important;
+          justify-content: center !important;
+          z-index: 9999999 !important;
+          padding: 20px !important;
+          box-sizing: border-box !important;
+          overflow-y: auto !important;
+          background: transparent !important;
+        }
+
+        #categoryRegisterModal.loginpage.active {
+          display: flex !important;
+        }
+
+        #categoryRegisterModal .loginbx {
+          max-width: 420px !important;
+          width: 100% !important;
+          padding: 38px 30px 32px 30px !important;
+          text-align: center;
+          box-sizing: border-box !important;
+          position: relative !important;
+          background: #ffffff !important;
+          border-radius: 20px !important;
+          box-shadow:
+            0 25px 60px -10px rgba(0, 0, 0, 0.35),
+            0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+          animation: loginModalEntrance 0.32s cubic-bezier(0.16, 1, 0.3, 1)
+            forwards !important;
+          margin: auto !important;
+        }
+
+        #categoryRegisterModal .headerlg {
+          text-align: center !important;
+          margin-bottom: 18px !important;
+          margin-top: 0 !important;
+        }
+
+        #categoryRegisterModal .headerlg h3 {
+          font-family: var(
+            --font-family-primary,
+            "Dubai",
+            "Inter Tight",
+            sans-serif
+          ) !important;
+          font-size: 1.75rem !important;
+          font-weight: 700 !important;
+          color: #140152 !important;
+          margin: 0 0 8px 0 !important;
+          line-height: 1.2 !important;
+        }
+
+        #categoryRegisterModal .headerlg p {
+          font-family: var(
+            --font-family-secondary,
+            "Inter Tight",
+            sans-serif
+          ) !important;
+          font-size: 0.92rem !important;
+          color: #475569 !important;
+          line-height: 1.45 !important;
+          margin: 0 !important;
+          max-width: 100% !important;
+        }
+
+        #categoryRegisterModal .frmgrplg label {
+          display: block !important;
+          font-family: var(
+            --font-family-secondary,
+            "Inter Tight",
+            sans-serif
+          ) !important;
+          font-size: 0.84rem !important;
+          font-weight: 600 !important;
+          color: #1e293b !important;
+          margin-bottom: 7px !important;
+          text-align: left !important;
+        }
+
+        #categoryRegisterModal .rlbx {
+          position: relative !important;
+          display: flex !important;
+          align-items: center !important;
+          border: 1.5px solid #94a3b8 !important;
+          border-radius: 10px !important;
+          background: #f8fafc !important;
+          transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease !important;
+          overflow: hidden !important;
+        }
+
+        #categoryRegisterModal .iniicon {
+          position: absolute !important;
+          left: 14px !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          color: #140152 !important;
+          font-size: 15px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          pointer-events: none !important;
+        }
+
+        #categoryRegisterModal .rlbx input {
+          width: 100% !important;
+          height: 46px !important;
+          border: none !important;
+          outline: none !important;
+          padding: 0 16px 0 42px !important;
+          font-family: var(
+            --font-family-secondary,
+            "Inter Tight",
+            sans-serif
+          ) !important;
+          font-size: 0.95rem !important;
+          font-weight: 600 !important;
+          color: #0f172a !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          cursor: default !important;
+        }
+
+        @media (max-width: 480px) {
+          #categoryRegisterModal .loginbx {
+            padding: 32px 20px 26px 20px !important;
+            border-radius: 16px !important;
+          }
+          #categoryRegisterModal .headerlg h3 {
+            font-size: 1.55rem !important;
+          }
+        }
+
+        #categoryRegisterModal .btn-cat-register {
+          width: 100% !important;
+          height: 48px !important;
+          border-radius: 10px !important;
+          background: #140152 !important;
+          color: #ffffff !important;
+          font-family: var(
+            --font-family-secondary,
+            "Inter Tight",
+            sans-serif
+          ) !important;
+          font-size: 0.96rem !important;
+          font-weight: 700 !important;
+          border: none !important;
+          cursor: pointer !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-decoration: none !important;
+          transition: all 0.25s ease !important;
+          box-shadow: 0 4px 14px rgba(20, 1, 82, 0.28) !important;
+          box-sizing: border-box !important;
+        }
+
+        #categoryRegisterModal .btn-cat-register:hover {
+          background: #240b78 !important;
+          color: #ffffff !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 8px 20px rgba(20, 1, 82, 0.4) !important;
+        }
+
+        #categoryRegisterModal .sbc {
+          margin-top: 18px !important;
+          text-align: center !important;
+        }
+
+        #categoryRegisterModal .sbc p {
+          font-family: var(
+            --font-family-secondary,
+            "Inter Tight",
+            sans-serif
+          ) !important;
+          font-size: 0.86rem !important;
+          color: #334155 !important;
+          margin: 0 !important;
+        }
+
+        #categoryRegisterModal .sbc a {
+          color: #4338ca !important;
+          font-weight: 700 !important;
+          text-decoration: none !important;
+          margin-left: 3px !important;
+          cursor: pointer !important;
+          transition: text-decoration 0.2s ease !important;
+        }
+
+        #categoryRegisterModal .sbc a:hover {
+          text-decoration: underline !important;
+        }
+
+        @media (max-width: 480px) {
+          #categoryRegisterModal .loginbx {
+            padding: 32px 20px 26px 20px !important;
+            border-radius: 16px !important;
+          }
+          #categoryRegisterModal .headerlg h3 {
+            font-size: 1.55rem !important;
+          }
+          #categoryRegisterModal .cat-reg-badge {
+            padding: 10px 14px;
+            margin: 14px 0 4px 0;
           }
         }
       </style>
@@ -3154,6 +3439,139 @@
           document.addEventListener("DOMContentLoaded", setupLoginModal);
         } else {
           setupLoginModal();
+        }
+      })();
+    </script>
+
+    <!-- Scoped Category Register Modal Controller (Network Category Cards) -->
+    <script>
+      (function () {
+        function setupCategoryRegisterModal() {
+          const catCards = document.querySelectorAll(".network-cat-card");
+          const regModal = document.getElementById("categoryRegisterModal");
+          const overlay = document.querySelector(".popup-overlay");
+          const closeBtn = document.getElementById("closeCatRegPopup");
+          const catInput = document.getElementById("catRegInput");
+          const badgeIconEl = document.getElementById("catRegIcon");
+          const signInLink = document.getElementById("catRegSignInLink");
+          const loginModal = document.querySelector(
+            ".loginpage:not(#categoryRegisterModal)",
+          );
+
+          if (!regModal || !overlay) return;
+
+          function openModal(categoryName, iconHtml) {
+            const cleanName = (categoryName || "Network Category").trim();
+            if (catInput) {
+              catInput.value = cleanName;
+            }
+            if (badgeIconEl && iconHtml) {
+              badgeIconEl.innerHTML = iconHtml;
+            }
+
+            // Close login modal if open
+            if (loginModal) {
+              loginModal.style.display = "none";
+              loginModal.classList.remove("active");
+            }
+
+            overlay.style.display = "block";
+            overlay.classList.add("active");
+            regModal.style.display = "flex";
+            regModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+
+          function closeModal(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            regModal.style.display = "none";
+            regModal.classList.remove("active");
+
+            // Only hide overlay if login modal is not active
+            if (!loginModal || !loginModal.classList.contains("active")) {
+              overlay.style.display = "none";
+              overlay.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+
+          // Attach click & enter listeners to all category cards
+          catCards.forEach(function (card) {
+            card.setAttribute("role", "button");
+            card.setAttribute("tabindex", "0");
+            card.setAttribute("aria-haspopup", "dialog");
+
+            function handleCardActivation(e) {
+              e.preventDefault();
+              const categoryName =
+                card.getAttribute("data-category") ||
+                (card.querySelector(".cat-card-title")
+                  ? card.querySelector(".cat-card-title").textContent.trim()
+                  : "Network Category");
+              const iconWrap = card.querySelector(".cat-card-icon-wrap");
+              const iconHtml = iconWrap
+                ? iconWrap.innerHTML
+                : '<i class="fa-solid fa-shapes"></i>';
+              openModal(categoryName, iconHtml);
+            }
+
+            card.addEventListener("click", handleCardActivation);
+            card.addEventListener("keydown", function (e) {
+              if (e.key === "Enter" || e.key === " ") {
+                handleCardActivation(e);
+              }
+            });
+          });
+
+          if (closeBtn) {
+            closeBtn.addEventListener("click", closeModal);
+          }
+
+          regModal.addEventListener("click", function (e) {
+            if (e.target === regModal) {
+              closeModal(e);
+            }
+          });
+
+          overlay.addEventListener("click", function () {
+            if (regModal.classList.contains("active")) {
+              closeModal();
+            }
+          });
+
+          document.addEventListener("keydown", function (e) {
+            if (
+              (e.key === "Escape" || e.keyCode === 27) &&
+              (regModal.style.display === "flex" ||
+                regModal.classList.contains("active"))
+            ) {
+              closeModal(e);
+            }
+          });
+
+          // Switch to Sign In modal if user clicks 'Sign In'
+          if (signInLink && loginModal) {
+            signInLink.addEventListener("click", function (e) {
+              e.preventDefault();
+              regModal.style.display = "none";
+              regModal.classList.remove("active");
+
+              overlay.style.display = "block";
+              overlay.classList.add("active");
+              loginModal.style.display = "flex";
+              loginModal.classList.add("active");
+              document.body.style.overflow = "hidden";
+            });
+          }
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener(
+            "DOMContentLoaded",
+            setupCategoryRegisterModal,
+          );
+        } else {
+          setupCategoryRegisterModal();
         }
       })();
     </script>

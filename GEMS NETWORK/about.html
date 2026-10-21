@@ -884,7 +884,9 @@
         background: rgba(244, 185, 66, 0.45) !important;
         border: 1px solid rgba(244, 185, 66, 0.75) !important;
         z-index: 2 !important;
-        transition: background 0.3s ease, border-color 0.3s ease,
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease,
           box-shadow 0.3s ease !important;
       }
 
@@ -991,7 +993,10 @@
       aria-hidden="true"
     >
       <div class="gems-journey-progress-track">
-        <div class="gems-journey-progress-pip pip-top" title="Journey Start"></div>
+        <div
+          class="gems-journey-progress-pip pip-top"
+          title="Journey Start"
+        ></div>
         <div
           class="gems-journey-progress-fill"
           id="gemsJourneyProgressFill"
@@ -1011,12 +1016,7 @@
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <radialGradient
-                id="gemsProgEagleGlow"
-                cx="50%"
-                cy="50%"
-                r="50%"
-              >
+              <radialGradient id="gemsProgEagleGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stop-color="#F4B942" stop-opacity="0.85" />
                 <stop offset="60%" stop-color="#F4B942" stop-opacity="0.25" />
                 <stop offset="100%" stop-color="#F4B942" stop-opacity="0" />
@@ -2514,7 +2514,10 @@
                   class="gems-timeline-panel wrapsrvhm"
                 >
                   <div class="gems-panel-bg bxpicsrv">
-                    <img src="./assets/img/guidance.png" alt="Guidance" />
+                    <img
+                      src="./assets/img/About_Membership_Philosophy_Guidance.webp"
+                      alt="Guidance"
+                    />
                   </div>
                   <div class="gems-panel-content bx-ddpt">
                     <h3>Guidance</h3>
@@ -2539,7 +2542,10 @@
                   class="gems-timeline-panel wrapsrvhm"
                 >
                   <div class="gems-panel-bg bxpicsrv">
-                    <img src="./assets/img/empowerment.png" alt="Empowerment" />
+                    <img
+                      src="./assets/img/About_Membership_Philosophy_Empower.webp"
+                      alt="Empowerment"
+                    />
                   </div>
                   <div class="gems-panel-content bx-ddpt">
                     <h3>Empowerment</h3>
@@ -2620,7 +2626,10 @@
                   class="gems-timeline-panel wrapsrvhm"
                 >
                   <div class="gems-panel-bg bxpicsrv">
-                    <img src="./assets/img/mentorship.png" alt="Mentorship" />
+                    <img
+                      src="./assets/img/About_Membership_Philosophy_Mentorship.webp"
+                      alt="Mentorship"
+                    />
                   </div>
                   <div class="gems-panel-content bx-ddpt">
                     <h3>Mentorship</h3>
@@ -2647,7 +2656,10 @@
                   class="gems-timeline-panel wrapsrvhm"
                 >
                   <div class="gems-panel-bg bxpicsrv">
-                    <img src="./assets/img/service.png" alt="Service" />
+                    <img
+                      src="./assets/img/About_Membership_Philosophy_Service.webp"
+                      alt="Service"
+                    />
                   </div>
                   <div class="gems-panel-content bx-ddpt">
                     <h3>Service</h3>
@@ -5202,7 +5214,7 @@
            ========================================================================== */
         (function initJourneyProgress() {
           const indicator = document.getElementById(
-            "gemsJourneyProgressIndicator"
+            "gemsJourneyProgressIndicator",
           );
           const fill = document.getElementById("gemsJourneyProgressFill");
           const eagle = document.getElementById("gemsJourneyProgressEagle");
@@ -5220,7 +5232,7 @@
           let currentProgress = 0;
           let targetProgress = 0;
           const prefersReduced = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
+            "(prefers-reduced-motion: reduce)",
           ).matches;
 
           function calculateProgress() {

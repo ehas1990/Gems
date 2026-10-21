@@ -885,13 +885,16 @@
       <!-- ==========================================================================
              2. FOUR CONNECTED CAREER STAGES (TIMELINE PROGRESSION)
              ========================================================================== -->
+      <!-- ==========================================================================
+             2. FOUR CONNECTED CAREER STAGES (CONTINUOUS ROADMAP JOURNEY)
+             ========================================================================== -->
       <section
         class="career-stages-section"
         id="career-stages"
-        aria-label="Four Stages of the Career Journey"
+        aria-label="Four Stages of the Career Journey Roadmap"
       >
-        <div class="container-port-xl">
-          <!-- Section Intro -->
+        <div class="container-port-xl career-roadmap-container">
+          <!-- Section Intro Header -->
           <div
             class="career-stages-header"
             data-aos="fade-up"
@@ -905,234 +908,561 @@
               comes next.
             </h2>
             <p class="career-section-desc">
-              Career paths are rarely linear. You may be starting your
-              professional life, building experience, changing direction, or
-              preparing for a bigger opportunity. GEMS helps you understand your
-              options and take the next step with greater clarity and
-              confidence.
+              Careers aren't always linear — and that's okay. At every stage,
+              GEMS provides guidance, resources, and trusted connections to help
+              you move forward with clarity and confidence.
             </p>
           </div>
 
-          <!-- Stages Timeline -->
-          <div class="career-timeline-container">
-            <!-- <div class="career-connector-line" aria-hidden="true"></div> -->
-
-            <div class="career-stages-grid">
-              <!-- STAGE 01: STARTING YOUR CAREER -->
-              <article
-                class="career-stage-card stage-1"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <div class="career-stage-node">
-                  <div class="career-node-icon">
-                    <i class="fa-solid fa-user"></i>
-                  </div>
-                </div>
-                <h3 class="career-stage-title">Starting Your Career</h3>
-
-                <!-- <p class="career-stage-desc">
-                                You are entering the professional world and figuring out where you fit, what you need,
-                                and how to prepare.
-                            </p> -->
-                <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-                <ul class="career-services-list">
-                  <li>
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <span>Career planning</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-briefcase"></i>
-                    <span>employment readiness</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-file-lines"></i>
-                    <span>Resume & profile guidance</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-comments"></i>
-                    <span>Interview preparation</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span>Professional development</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>understanding workplace expectations</span>
-                  </li>
-                </ul>
-                <a
-                  href="https://globalenrollment.us/subscription"
-                  class="tier-btn tier-btn-outline"
+          <!-- Continuous Roadmap Visual Canvas with Responsive SVG Overlay -->
+          <div
+            class="career-roadmap-panorama"
+            data-aos="fade-up"
+            data-aos-duration="900"
+          >
+            <svg
+              class="career-roadmap-svg-overlay"
+              viewBox="0 0 1376 768"
+              preserveAspectRatio="xMidYMid slice"
+              xmlns="http://www.w3.org/2000/svg"
+              role="group"
+              aria-label="Interactive Winding Career Journey Roadmap"
+            >
+              <defs>
+                <linearGradient
+                  id="roadmapPathGrad"
+                  x1="0%"
+                  y1="100%"
+                  x2="100%"
+                  y2="0%"
                 >
-                  <span>Help me get started</span>
-                </a>
-              </article>
+                  <stop offset="0%" stop-color="#e11d48" />
+                  <stop offset="33%" stop-color="#d97706" />
+                  <stop offset="66%" stop-color="#0d9488" />
+                  <stop offset="100%" stop-color="#1d4ed8" />
+                </linearGradient>
 
-              <!-- STAGE 02: BUILDING YOUR CAREER -->
-              <article
-                class="career-stage-card stage-2"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div class="career-stage-node">
-                  <div class="career-node-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                  </div>
-                </div>
-                <h3 class="career-stage-title">Building Your Career</h3>
-                <!-- <div class="career-stage-tagline"
-                                style="font-size: 0.92rem; font-weight: 700; color: #d97706; margin-bottom: 8px;">Turn
-                                your experience into opportunity.</div>
-                            <p class="career-stage-desc">
-                                You have a foundation. Now it's about building experience, expanding your network, and
-                                creating your next opportunity.
-                            </p> -->
-                <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-                <ul class="career-services-list">
-                  <li>
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <span>Career Planning</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-users"></i> <span>Networking </span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                    <span>Professional Development</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-certificate"></i>
-                    <span>Certifications </span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-handshake"></i>
-                    <span>Placement Planning</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Personalized Guidance</span>
-                  </li>
-                </ul>
-                <a
-                  href="https://globalenrollment.us/subscription"
-                  class="tier-btn tier-btn-outline"
+                <filter
+                  id="pinShadow"
+                  x="-30%"
+                  y="-30%"
+                  width="160%"
+                  height="160%"
                 >
-                  <span>Help me move forward</span>
-                </a>
-              </article>
+                  <feDropShadow
+                    dx="0"
+                    dy="4"
+                    stdDeviation="6"
+                    flood-color="rgba(0,0,0,0.45)"
+                  />
+                </filter>
+              </defs>
 
-              <!-- STAGE 03: CHANGING DIRECTION -->
-              <article
-                class="career-stage-card stage-3"
-                data-aos="fade-up"
-                data-aos-delay="300"
+              <!-- Flowing S-Curve Trail Along the Highway -->
+              <path
+                class="roadmap-trail-base"
+                d="M 230 570 C 310 550, 380 530, 490 510 C 600 480, 670 440, 740 410 C 830 370, 930 330, 1040 300"
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.45)"
+                stroke-width="6"
+                stroke-linecap="round"
+              />
+              <path
+                class="roadmap-trail-animated"
+                d="M 230 570 C 310 550, 380 530, 490 510 C 600 480, 670 440, 740 410 C 830 370, 930 330, 1040 300"
+                fill="none"
+                stroke="url(#roadmapPathGrad)"
+                stroke-width="3.5"
+                stroke-dasharray="10 8"
+                stroke-linecap="round"
+              />
+
+              <!-- STAGE 01 SVG HOTSPOT -->
+              <a
+                href="membership-level.html?journey=career"
+                class="roadmap-svg-hotspot stage-hotspot-1"
+                data-stage="1"
+                role="link"
+                tabindex="0"
+                aria-label="Stage 01: Starting Your Career — Help me get started"
               >
-                <div class="career-stage-node">
-                  <div class="career-node-icon">
-                    <i class="fa-solid fa-signs-post"></i>
-                  </div>
-                </div>
-                <h3 class="career-stage-title">Changing Direction</h3>
-                <!-- <div class="career-stage-tagline"
-                                style="font-size: 0.92rem; font-weight: 700; color: #0d9488; margin-bottom: 8px;">A new
-                                direction doesn't mean starting over.</div>
-                            <p class="career-stage-desc">
-                                Careers change. Circumstances change. Your next chapter may require a new plan. GEMS
-                                helps you navigate the transition with clarity and support.
-                            </p> -->
-                <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-                <ul class="career-services-list">
-                  <li>
-                    <i class="fa-solid fa-route"></i>
-                    <span>Career Transition </span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <span>Relocation assistance</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Personalized Guidance</span>
-                  </li>
-
-                  <li>
-                    <i class="fa-solid fa-handshake"></i>
-                    <span> Placement Planning</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <span>Financial Planning</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span> Trusted Specialist Connections</span>
-                  </li>
-                </ul>
-                <a
-                  href="https://globalenrollment.us/subscription"
-                  class="tier-btn tier-btn-outline"
+                <polygon
+                  class="hotspot-hit-area"
+                  points="100,470 340,460 360,660 100,670"
+                  fill="rgba(225, 29, 72, 0.001)"
+                />
+                <g
+                  class="hotspot-pin-group"
+                  transform="translate(230, 570)"
+                  filter="url(#pinShadow)"
                 >
-                  <span>Help me navigate my transition</span>
-                </a>
-              </article>
+                  <circle
+                    class="pin-pulse-wave"
+                    r="28"
+                    fill="rgba(225, 29, 72, 0.28)"
+                  />
+                  <circle
+                    class="pin-outer-ring"
+                    r="22"
+                    fill="#ffffff"
+                    stroke="#e11d48"
+                    stroke-width="3.5"
+                  />
+                  <circle class="pin-inner-bg" r="16" fill="#e11d48" />
+                  <path d="M -5 -5 L 5 -2 L 2 5 L -2 2 Z" fill="#ffffff" />
+                  <rect
+                    x="8"
+                    y="-27"
+                    width="28"
+                    height="18"
+                    rx="9"
+                    fill="#e11d48"
+                  />
+                  <text
+                    x="22"
+                    y="-14"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="10.5"
+                    font-weight="800"
+                    font-family="'Plus Jakarta Sans', sans-serif"
+                  >
+                    01
+                  </text>
+                </g>
+              </a>
 
-              <!-- STAGE 04: GROWING & ADVANCING -->
-              <article
-                class="career-stage-card stage-4"
-                data-aos="fade-up"
-                data-aos-delay="400"
+              <!-- STAGE 02 SVG HOTSPOT -->
+              <a
+                href="membership-level.html?journey=career"
+                class="roadmap-svg-hotspot stage-hotspot-2"
+                data-stage="2"
+                role="link"
+                tabindex="0"
+                aria-label="Stage 02: Building Your Career — Help me move forward"
               >
-                <div class="career-stage-node">
-                  <div class="career-node-icon">
-                    <i class="fa-solid fa-award"></i>
-                  </div>
-                </div>
-                <h3 class="career-stage-title">Growing & Advancing</h3>
-                <!-- <div class="career-stage-tagline"
-                                style="font-size: 0.92rem; font-weight: 700; color: #2563eb; margin-bottom: 8px;">Think
-                                beyond the next job.</div>
-                            <p class="career-stage-desc">
-                                Build toward greater responsibility, new opportunities, entrepreneurship, or the
-                                long-term career you want.
-                            </p> -->
-                <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-                <ul class="career-services-list">
-                  <li>
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                    <span>Professional Development</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-bullseye"></i>
-                    <span>Strategic Career Planning</span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-users"></i> <span>Networking </span>
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-award"></i>
-                    <span>certifications</span>
-                  </li>
-
-                  <li>
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <span>Entrepreneurship Guidance</span>
-                  </li>
-
-                  <li>
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                    <span>Long-term growth planning</span>
-                  </li>
-                </ul>
-                <a
-                  href="https://globalenrollment.us/subscription"
-                  class="tier-btn tier-btn-outline"
+                <polygon
+                  class="hotspot-hit-area"
+                  points="360,420 600,400 620,600 380,620"
+                  fill="rgba(217, 119, 6, 0.001)"
+                />
+                <g
+                  class="hotspot-pin-group"
+                  transform="translate(490, 510)"
+                  filter="url(#pinShadow)"
                 >
-                  <span>Help me plan my next level</span>
+                  <circle
+                    class="pin-pulse-wave"
+                    r="28"
+                    fill="rgba(217, 119, 6, 0.28)"
+                  />
+                  <circle
+                    class="pin-outer-ring"
+                    r="22"
+                    fill="#ffffff"
+                    stroke="#d97706"
+                    stroke-width="3.5"
+                  />
+                  <circle class="pin-inner-bg" r="16" fill="#d97706" />
+                  <rect x="-5" y="0" width="2.8" height="5" fill="#ffffff" />
+                  <rect x="-1.4" y="-3" width="2.8" height="8" fill="#ffffff" />
+                  <rect x="2.2" y="-6" width="2.8" height="11" fill="#ffffff" />
+                  <rect
+                    x="8"
+                    y="-27"
+                    width="28"
+                    height="18"
+                    rx="9"
+                    fill="#d97706"
+                  />
+                  <text
+                    x="22"
+                    y="-14"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="10.5"
+                    font-weight="800"
+                    font-family="'Plus Jakarta Sans', sans-serif"
+                  >
+                    02
+                  </text>
+                </g>
+              </a>
+
+              <!-- STAGE 03 SVG HOTSPOT -->
+              <a
+                href="membership-level.html?journey=career"
+                class="roadmap-svg-hotspot stage-hotspot-3"
+                data-stage="3"
+                role="link"
+                tabindex="0"
+                aria-label="Stage 03: Changing Direction — Help me navigate my transition"
+              >
+                <polygon
+                  class="hotspot-hit-area"
+                  points="620,320 860,300 880,500 640,520"
+                  fill="rgba(13, 148, 136, 0.001)"
+                />
+                <g
+                  class="hotspot-pin-group"
+                  transform="translate(740, 410)"
+                  filter="url(#pinShadow)"
+                >
+                  <circle
+                    class="pin-pulse-wave"
+                    r="28"
+                    fill="rgba(13, 148, 136, 0.28)"
+                  />
+                  <circle
+                    class="pin-outer-ring"
+                    r="22"
+                    fill="#ffffff"
+                    stroke="#0d9488"
+                    stroke-width="3.5"
+                  />
+                  <circle class="pin-inner-bg" r="16" fill="#0d9488" />
+                  <path
+                    d="M 0 6 L 0 -6 M -4 -2 L 0 -6 L 4 -2 M -4 2 L 0 -1 L 4 2"
+                    stroke="#ffffff"
+                    stroke-width="1.8"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="8"
+                    y="-27"
+                    width="28"
+                    height="18"
+                    rx="9"
+                    fill="#0d9488"
+                  />
+                  <text
+                    x="22"
+                    y="-14"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="10.5"
+                    font-weight="800"
+                    font-family="'Plus Jakarta Sans', sans-serif"
+                  >
+                    03
+                  </text>
+                </g>
+              </a>
+
+              <!-- STAGE 04 SVG HOTSPOT -->
+              <a
+                href="membership-level.html?journey=career"
+                class="roadmap-svg-hotspot stage-hotspot-4"
+                data-stage="4"
+                role="link"
+                tabindex="0"
+                aria-label="Stage 04: Growing & Advancing — Help me plan my next level"
+              >
+                <polygon
+                  class="hotspot-hit-area"
+                  points="900,210 1180,190 1200,390 920,410"
+                  fill="rgba(29, 78, 216, 0.001)"
+                />
+                <g
+                  class="hotspot-pin-group"
+                  transform="translate(1040, 300)"
+                  filter="url(#pinShadow)"
+                >
+                  <circle
+                    class="pin-pulse-wave"
+                    r="28"
+                    fill="rgba(29, 78, 216, 0.28)"
+                  />
+                  <circle
+                    class="pin-outer-ring"
+                    r="22"
+                    fill="#ffffff"
+                    stroke="#1d4ed8"
+                    stroke-width="3.5"
+                  />
+                  <circle class="pin-inner-bg" r="16" fill="#1d4ed8" />
+                  <path d="M -6 5 L 0 -4 L 6 5 Z" fill="#ffffff" />
+                  <path d="M 0 -4 L 0 -7 L 4 -5.5 L 0 -4" fill="#ffffff" />
+                  <rect
+                    x="8"
+                    y="-27"
+                    width="28"
+                    height="18"
+                    rx="9"
+                    fill="#1d4ed8"
+                  />
+                  <text
+                    x="22"
+                    y="-14"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="10.5"
+                    font-weight="800"
+                    font-family="'Plus Jakarta Sans', sans-serif"
+                  >
+                    04
+                  </text>
+                </g>
+              </a>
+            </svg>
+          </div>
+
+          <!-- Staggered Journey Stage Panels Along the Continuous Road -->
+          <div class="career-stages-grid">
+            <!-- STAGE 01: STARTING YOUR CAREER -->
+            <article
+              class="career-stage-card stage-1"
+              id="careerStageCard1"
+              data-stage="1"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="career-stage-card-header">
+                <div class="career-stage-badge">
+                  <span class="stage-num">STAGE 01</span>
+                </div>
+                <div class="stage-indicator-icon">
+                  <i class="fa-solid fa-compass"></i>
+                </div>
+              </div>
+              <h3 class="career-stage-title">Starting Your Career</h3>
+              <div class="career-stage-tagline">Build your foundation.</div>
+              <p class="career-stage-desc">
+                You are entering the professional world and figuring out where
+                you fit, what you need, and how to prepare.
+              </p>
+
+              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
+              <ul class="career-services-list">
+                <li>
+                  <i class="fa-solid fa-compass"></i>
+                  <span>Career planning</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-briefcase"></i>
+                  <span>Employment readiness</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-file-lines"></i>
+                  <span>Resume & interview preparation</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-lightbulb"></i>
+                  <span>Skill development</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-handshake"></i>
+                  <span>Placement planning</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-user-check"></i>
+                  <span>Personalized guidance</span>
+                </li>
+              </ul>
+
+              <div class="career-stage-footer">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me get started with Starting Your Career"
+                >
+                  <span>Help me get started &rarr;</span>
                 </a>
-              </article>
-            </div>
+              </div>
+            </article>
+
+            <!-- STAGE 02: BUILDING YOUR CAREER -->
+            <article
+              class="career-stage-card stage-2"
+              id="careerStageCard2"
+              data-stage="2"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="career-stage-card-header">
+                <div class="career-stage-badge">
+                  <span class="stage-num">STAGE 02</span>
+                </div>
+                <div class="stage-indicator-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+              </div>
+              <h3 class="career-stage-title">Building Your Career</h3>
+              <div class="career-stage-tagline">
+                Turn experience into opportunity.
+              </div>
+              <p class="career-stage-desc">
+                You have a foundation. Now it's about building experience,
+                expanding your network, and creating your next opportunity.
+              </p>
+
+              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
+              <ul class="career-services-list">
+                <li>
+                  <i class="fa-solid fa-users"></i>
+                  <span>Networking opportunities</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                  <span>Professional development</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-certificate"></i>
+                  <span>Certifications & training guidance</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-handshake"></i>
+                  <span>Placement planning</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span>Financial planning</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-user-group"></i>
+                  <span>Mentorship & guidance</span>
+                </li>
+              </ul>
+
+              <div class="career-stage-footer">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me move forward with Building Your Career"
+                >
+                  <span>Help me move forward &rarr;</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- STAGE 03: CHANGING DIRECTION -->
+            <article
+              class="career-stage-card stage-3"
+              id="careerStageCard3"
+              data-stage="3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="career-stage-card-header">
+                <div class="career-stage-badge">
+                  <span class="stage-num">STAGE 03</span>
+                </div>
+                <div class="stage-indicator-icon">
+                  <i class="fa-solid fa-route"></i>
+                </div>
+              </div>
+              <h3 class="career-stage-title">Changing Direction</h3>
+              <div class="career-stage-tagline">
+                A new direction doesn't mean starting over.
+              </div>
+              <p class="career-stage-desc">
+                Careers change. Circumstances change. Your next chapter may
+                require a new plan. GEMS helps you navigate the transition with
+                clarity and support.
+              </p>
+
+              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
+              <ul class="career-services-list">
+                <li>
+                  <i class="fa-solid fa-route"></i>
+                  <span>Career transition planning</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                  <span>Skill reskilling & upskilling</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-map-location-dot"></i>
+                  <span>Relocation assistance</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-handshake"></i>
+                  <span>Placement opportunities</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span>Financial & legal guidance</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>Trusted connections</span>
+                </li>
+              </ul>
+
+              <div class="career-stage-footer">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me navigate my transition with Changing Direction"
+                >
+                  <span>Help me navigate my transition &rarr;</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- STAGE 04: GROWING & ADVANCING -->
+            <article
+              class="career-stage-card stage-4"
+              id="careerStageCard4"
+              data-stage="4"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="career-stage-card-header">
+                <div class="career-stage-badge">
+                  <span class="stage-num">STAGE 04</span>
+                </div>
+                <div class="stage-indicator-icon">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+              </div>
+              <h3 class="career-stage-title">Growing & Advancing</h3>
+              <div class="career-stage-tagline">Think beyond the next job.</div>
+              <p class="career-stage-desc">
+                Build toward greater responsibility, new opportunities,
+                entrepreneurship, or the long-term career you want.
+              </p>
+
+              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
+              <ul class="career-services-list">
+                <li>
+                  <i class="fa-solid fa-bullseye"></i>
+                  <span>Strategic career planning</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-crown"></i>
+                  <span>Leadership development</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-award"></i>
+                  <span>Advanced certifications</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-rocket"></i>
+                  <span>Entrepreneurship guidance</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-network-wired"></i>
+                  <span>Industry connections</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>Long-term growth planning</span>
+                </li>
+              </ul>
+
+              <div class="career-stage-footer">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me plan my next level with Growing & Advancing"
+                >
+                  <span>Help me plan my next level &rarr;</span>
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -2000,6 +2330,54 @@
           passive: true,
         });
         updateHeaderScroll();
+
+        /* =====================================================
+           CAREER ROADMAP INTERACTIVE SVG & CARD SYNCHRONIZATION
+           ===================================================== */
+        const hotspots = document.querySelectorAll(".roadmap-svg-hotspot");
+        const stageCards = document.querySelectorAll(".career-stage-card");
+
+        hotspots.forEach(function (hotspot) {
+          const stage = hotspot.getAttribute("data-stage");
+          const targetCard = document.getElementById("careerStageCard" + stage);
+
+          hotspot.addEventListener("mouseenter", function () {
+            hotspot.classList.add("hotspot-active");
+            if (targetCard) targetCard.classList.add("panel-highlighted");
+          });
+
+          hotspot.addEventListener("mouseleave", function () {
+            hotspot.classList.remove("hotspot-active");
+            if (targetCard) targetCard.classList.remove("panel-highlighted");
+          });
+
+          hotspot.addEventListener("focus", function () {
+            hotspot.classList.add("hotspot-active");
+            if (targetCard) targetCard.classList.add("panel-highlighted");
+          });
+
+          hotspot.addEventListener("blur", function () {
+            hotspot.classList.remove("hotspot-active");
+            if (targetCard) targetCard.classList.remove("panel-highlighted");
+          });
+        });
+
+        stageCards.forEach(function (card) {
+          const stage = card.getAttribute("data-stage");
+          const targetHotspot = document.querySelector(
+            '.roadmap-svg-hotspot[data-stage="' + stage + '"]',
+          );
+
+          card.addEventListener("mouseenter", function () {
+            card.classList.add("panel-highlighted");
+            if (targetHotspot) targetHotspot.classList.add("hotspot-active");
+          });
+
+          card.addEventListener("mouseleave", function () {
+            card.classList.remove("panel-highlighted");
+            if (targetHotspot) targetHotspot.classList.remove("hotspot-active");
+          });
+        });
       });
     </script>
 

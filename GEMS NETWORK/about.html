@@ -845,6 +845,238 @@
   </head>
 
   <body>
+    <!-- ==========================================================================
+         JOURNEY PROGRESS LINE SCROLL ANIMATION (about.html only)
+         ========================================================================== -->
+    <style>
+      /* Fixed Journey Progress Line Tracker */
+      .gems-journey-progress-indicator {
+        position: fixed !important;
+        left: 20px !important;
+        top: 110px !important;
+        bottom: 50px !important;
+        width: 30px !important;
+        height: auto !important;
+        z-index: 9999 !important;
+        pointer-events: none !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        user-select: none !important;
+      }
+
+      .gems-journey-progress-track {
+        position: relative !important;
+        width: 2px !important;
+        height: 100% !important;
+        background: rgba(244, 185, 66, 0.22) !important;
+        border-radius: 999px !important;
+        box-shadow: 0 0 6px rgba(244, 185, 66, 0.12) !important;
+      }
+
+      .gems-journey-progress-pip {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 6px !important;
+        height: 6px !important;
+        border-radius: 50% !important;
+        background: rgba(244, 185, 66, 0.45) !important;
+        border: 1px solid rgba(244, 185, 66, 0.75) !important;
+        z-index: 2 !important;
+        transition: background 0.3s ease, border-color 0.3s ease,
+          box-shadow 0.3s ease !important;
+      }
+
+      .gems-journey-progress-pip.pip-top {
+        top: 0 !important;
+        background: #f4b942 !important;
+        box-shadow: 0 0 8px rgba(244, 185, 66, 0.65) !important;
+      }
+
+      .gems-journey-progress-pip.pip-bottom {
+        bottom: 0 !important;
+      }
+
+      .gems-journey-progress-pip.pip-bottom.active {
+        background: #f4b942 !important;
+        box-shadow: 0 0 10px rgba(244, 185, 66, 0.85) !important;
+      }
+
+      /* Completed Progress Line in Sunrise Gold (#F4B942) */
+      .gems-journey-progress-fill {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 0% !important;
+        background: linear-gradient(
+          180deg,
+          rgba(244, 185, 66, 0.6) 0%,
+          #f4b942 85%,
+          #d49a29 100%
+        ) !important;
+        border-radius: 999px !important;
+        box-shadow: 0 0 8px rgba(244, 185, 66, 0.65) !important;
+        will-change: height !important;
+      }
+
+      /* Eagle Glider attached to progress tip */
+      .gems-journey-progress-eagle-wrap {
+        position: absolute !important;
+        left: 50% !important;
+        top: 0% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 26px !important;
+        height: 26px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 5 !important;
+        will-change: top !important;
+        filter: drop-shadow(0 2px 5px rgba(7, 27, 53, 0.45))
+          drop-shadow(0 0 6px rgba(244, 185, 66, 0.55)) !important;
+      }
+
+      .gems-journey-progress-eagle-svg {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+      }
+
+      @media (max-width: 1024px) {
+        .gems-journey-progress-indicator {
+          left: 12px !important;
+          top: 105px !important;
+          bottom: 45px !important;
+          width: 24px !important;
+        }
+        .gems-journey-progress-eagle-wrap {
+          width: 22px !important;
+          height: 22px !important;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .gems-journey-progress-indicator {
+          left: 5px !important;
+          top: 90px !important;
+          bottom: 35px !important;
+          width: 20px !important;
+        }
+        .gems-journey-progress-track {
+          width: 1.5px !important;
+        }
+        .gems-journey-progress-pip {
+          width: 5px !important;
+          height: 5px !important;
+        }
+        .gems-journey-progress-eagle-wrap {
+          width: 18px !important;
+          height: 18px !important;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .gems-journey-progress-fill,
+        .gems-journey-progress-eagle-wrap {
+          transition: none !important;
+        }
+      }
+    </style>
+
+    <div
+      class="gems-journey-progress-indicator"
+      id="gemsJourneyProgressIndicator"
+      aria-hidden="true"
+    >
+      <div class="gems-journey-progress-track">
+        <div class="gems-journey-progress-pip pip-top" title="Journey Start"></div>
+        <div
+          class="gems-journey-progress-fill"
+          id="gemsJourneyProgressFill"
+        ></div>
+        <div
+          class="gems-journey-progress-pip pip-bottom"
+          title="End of Our Philosophy"
+        ></div>
+        <div
+          class="gems-journey-progress-eagle-wrap"
+          id="gemsJourneyProgressEagle"
+        >
+          <svg
+            class="gems-journey-progress-eagle-svg"
+            viewBox="0 0 36 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <radialGradient
+                id="gemsProgEagleGlow"
+                cx="50%"
+                cy="50%"
+                r="50%"
+              >
+                <stop offset="0%" stop-color="#F4B942" stop-opacity="0.85" />
+                <stop offset="60%" stop-color="#F4B942" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#F4B942" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient
+                id="gemsProgEagleGold"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stop-color="#FFF2A3" />
+                <stop offset="45%" stop-color="#F4B942" />
+                <stop offset="100%" stop-color="#C98816" />
+              </linearGradient>
+              <linearGradient
+                id="gemsProgEagleNavy"
+                x1="0%"
+                y1="0%"
+                x2="0%"
+                y2="100%"
+              >
+                <stop offset="0%" stop-color="#1B2D5E" />
+                <stop offset="100%" stop-color="#071B35" />
+              </linearGradient>
+            </defs>
+            <circle cx="18" cy="18" r="16" fill="url(#gemsProgEagleGlow)" />
+            <path
+              d="M15.5 8L18 3.5L20.5 8L19.5 12L16.5 12Z"
+              fill="#F4B942"
+              opacity="0.9"
+            />
+            <path
+              d="M16.5 14C12 11 6 7 2 5C3 9 4.5 13 8 16C5.5 17 3.5 19 2.5 21C6 21.5 9 21 12 19.5C10 22 8.5 24 7.5 26C12 25 15 22 17 17Z"
+              fill="url(#gemsProgEagleGold)"
+              stroke="#10264A"
+              stroke-width="0.6"
+            />
+            <path
+              d="M19.5 14C24 11 30 7 34 5C33 9 31.5 13 28 16C30.5 17 32.5 19 33.5 21C30 21.5 27 21 24 19.5C26 22 27.5 24 28.5 26C24 25 21 22 19 17Z"
+              fill="url(#gemsProgEagleGold)"
+              stroke="#10264A"
+              stroke-width="0.6"
+            />
+            <path
+              d="M18 10C16 12 15.5 16 16 20L18 29L20 20C20.5 16 20 12 18 10Z"
+              fill="url(#gemsProgEagleNavy)"
+            />
+            <polygon
+              points="18,33 16.5,27.5 19.5,27.5"
+              fill="#F4B942"
+              stroke="#C98816"
+              stroke-width="0.5"
+            />
+            <ellipse cx="18" cy="24" rx="2.5" ry="3.5" fill="#FFFFFF" />
+            <polygon points="18,30 17,26 19,26" fill="#F4B942" />
+          </svg>
+        </div>
+      </div>
+    </div>
     <nav class="mobile-menu" aria-label="Mobile Navigation">
       <div class="mobile-menu-header">
         <div class="mobile-menu-logo">
@@ -1202,16 +1434,6 @@
          ABOUT PAGE WRAPPER WITH JOURNEY PROGRESS LINE
          ========================================================================== -->
     <div class="about-page-wrapper">
-      <!-- Subtle Journey Progress Line Indicator -->
-      <!-- <div class="about-journey-progress" aria-hidden="true">
-            <div class="about-journey-track">
-                <div class="about-journey-fill"></div>
-                <div class="about-journey-eagle">
-                    <img src="./assets/img/GEMS_Network_Icon.png" alt="GEMS Eagle">
-                </div>
-            </div>
-        </div> -->
-
       <!-- page enter -->
       <div class="aboutus-sectin-home">
         <div class="container-port">
@@ -1490,6 +1712,117 @@
         stroke-linecap: round;
         filter: drop-shadow(0 0 6px rgba(244, 185, 66, 0.5));
         transition: stroke-dashoffset 0.12s linear;
+      }
+
+      /* Subtle Vertical Timeline Spine Guide */
+      #Our\ Philosophy .gems-timeline-vertical-spine {
+        position: absolute;
+        top: 25px;
+        bottom: 25px;
+        left: 50%;
+        width: 1.5px;
+        transform: translateX(-50%);
+        background: linear-gradient(
+          180deg,
+          rgba(15, 22, 129, 0) 0%,
+          rgba(15, 22, 129, 0.1) 12%,
+          rgba(244, 185, 66, 0.16) 50%,
+          rgba(15, 22, 129, 0.1) 88%,
+          rgba(15, 22, 129, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.65;
+      }
+
+      /* Eagle Timeline Navigator Container */
+      #Our\ Philosophy .gems-timeline-eagle-track-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+        overflow: visible;
+      }
+
+      /* Eagle Flyer Element */
+      #Our\ Philosophy .gems-timeline-eagle-flyer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 52px;
+        height: 52px;
+        margin-left: -26px;
+        margin-top: -26px;
+        pointer-events: none;
+        opacity: 0;
+        transform: translate3d(0, 0, 0) scale(0.85);
+        transition:
+          opacity 0.35s ease,
+          transform 0.12s linear;
+        will-change: transform, opacity;
+        filter: drop-shadow(0 4px 16px rgba(244, 185, 66, 0.55))
+          drop-shadow(0 0 8px rgba(15, 22, 129, 0.4));
+      }
+
+      #Our\ Philosophy .gems-timeline-eagle-flyer.is-active {
+        opacity: 1;
+      }
+
+      #Our\ Philosophy .gems-eagle-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: visible;
+      }
+
+      /* Subtle Flying / Wing-Flapping Animations */
+      #Our\ Philosophy .eagle-wing-l {
+        transform-origin: 36px 32px;
+        animation: gemsEagleFlapL 1.5s ease-in-out infinite alternate;
+      }
+
+      #Our\ Philosophy .eagle-wing-r {
+        transform-origin: 36px 32px;
+        animation: gemsEagleFlapR 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes gemsEagleFlapL {
+        0% {
+          transform: rotate(0deg) scaleY(1);
+        }
+        100% {
+          transform: rotate(-8deg) scaleY(0.86) scaleX(0.96);
+        }
+      }
+
+      @keyframes gemsEagleFlapR {
+        0% {
+          transform: rotate(0deg) scaleY(1);
+        }
+        100% {
+          transform: rotate(8deg) scaleY(0.86) scaleX(0.96);
+        }
+      }
+
+      /* Golden Aura Halo Pulse */
+      #Our\ Philosophy .eagle-halo {
+        animation: gemsEagleHaloPulse 2.2s ease-in-out infinite alternate;
+      }
+
+      @keyframes gemsEagleHaloPulse {
+        0% {
+          opacity: 0.35;
+          transform: scale(0.92);
+          transform-origin: 36px 32px;
+        }
+        100% {
+          opacity: 0.8;
+          transform: scale(1.08);
+          transform-origin: 36px 32px;
+        }
       }
 
       /* Timeline Rows */
@@ -1892,6 +2225,15 @@
         #Our\ Philosophy .about-final-staggered .staggered-3 {
           margin-left: 20px !important;
         }
+        #Our\ Philosophy .gems-timeline-vertical-spine {
+          display: none;
+        }
+        #Our\ Philosophy .gems-timeline-eagle-flyer {
+          width: 42px;
+          height: 42px;
+          margin-left: -21px;
+          margin-top: -21px;
+        }
       }
 
       /* Accessibility: Prefers reduced motion */
@@ -1912,6 +2254,15 @@
         }
         #Our\ Philosophy .gems-timeline-active {
           stroke-dashoffset: 0 !important;
+        }
+        #Our\ Philosophy .gems-timeline-eagle-flyer {
+          transition: none !important;
+          animation: none !important;
+        }
+        #Our\ Philosophy .eagle-wing-l,
+        #Our\ Philosophy .eagle-wing-r,
+        #Our\ Philosophy .eagle-halo {
+          animation: none !important;
         }
       }
     </style>
@@ -1957,6 +2308,186 @@
             <!-- Active gradient animated path -->
             <path class="gems-timeline-active" id="gemsTimelineActive" d="" />
           </svg>
+
+          <!-- Thin Vertical Timeline Center Spine -->
+          <div class="gems-timeline-vertical-spine" aria-hidden="true"></div>
+
+          <!-- Flying Eagle Timeline Navigator -->
+          <div
+            class="gems-timeline-eagle-track-wrap"
+            id="gemsTimelineEagleWrap"
+            aria-hidden="true"
+          >
+            <div
+              class="gems-timeline-eagle-flyer"
+              id="gemsTimelineEagle"
+              title="GEMS Guide Eagle"
+            >
+              <svg
+                class="gems-eagle-svg"
+                viewBox="0 0 72 64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <radialGradient
+                    id="gemsEagleAuraGrad"
+                    cx="50%"
+                    cy="50%"
+                    r="50%"
+                  >
+                    <stop offset="0%" stop-color="#F4B942" stop-opacity="0.9" />
+                    <stop
+                      offset="50%"
+                      stop-color="#F4B942"
+                      stop-opacity="0.25"
+                    />
+                    <stop offset="100%" stop-color="#F4B942" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient
+                    id="gemsEagleGoldGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stop-color="#FFF0A0" />
+                    <stop offset="40%" stop-color="#F4B942" />
+                    <stop offset="100%" stop-color="#C8881A" />
+                  </linearGradient>
+                  <linearGradient
+                    id="gemsEagleNavyGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stop-color="#1B2D5E" />
+                    <stop offset="50%" stop-color="#0E1938" />
+                    <stop offset="100%" stop-color="#071124" />
+                  </linearGradient>
+                  <linearGradient
+                    id="gemsEagleTipGold"
+                    x1="0%"
+                    y1="100%"
+                    x2="0%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#D49A29" />
+                    <stop offset="60%" stop-color="#F4B942" />
+                    <stop offset="100%" stop-color="#FFF3C4" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Soft pulsating golden aura -->
+                <circle
+                  cx="36"
+                  cy="32"
+                  r="30"
+                  fill="url(#gemsEagleAuraGrad)"
+                  class="eagle-halo"
+                />
+
+                <!-- Fan Tail Feathers -->
+                <path
+                  d="M 31 16 L 36 6 L 41 16 L 38 24 L 34 24 Z"
+                  fill="#FFFFFF"
+                  stroke="#D49A29"
+                  stroke-width="0.8"
+                />
+                <path
+                  d="M 27 18 L 31 9 L 34 19 Z"
+                  fill="#F4B942"
+                  opacity="0.85"
+                />
+                <path
+                  d="M 45 18 L 41 9 L 38 19 Z"
+                  fill="#F4B942"
+                  opacity="0.85"
+                />
+
+                <!-- Left Wing Group -->
+                <g class="eagle-wing-l">
+                  <path
+                    d="M 33 28 C 25 24, 15 16, 4 8 C 6 14, 8 20, 13 25 C 10 27, 7 30, 6 33 C 11 34, 16 34, 21 32 C 19 35, 17 38, 16 41 C 22 40, 27 37, 32 32 Z"
+                    fill="url(#gemsEagleNavyGrad)"
+                    stroke="#F4B942"
+                    stroke-width="1"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M 5 9 C 11 16, 18 22, 26 26 C 21 24, 15 19, 9 12 Z"
+                    fill="url(#gemsEagleTipGold)"
+                  />
+                  <path
+                    d="M 9 28 C 14 31, 20 32, 26 31 C 21 30, 16 28, 12 25 Z"
+                    fill="url(#gemsEagleGoldGrad)"
+                  />
+                </g>
+
+                <!-- Right Wing Group -->
+                <g class="eagle-wing-r">
+                  <path
+                    d="M 39 28 C 47 24, 57 16, 68 8 C 66 14, 64 20, 59 25 C 62 27, 65 30, 66 33 C 61 34, 56 34, 51 32 C 53 35, 55 38, 56 41 C 50 40, 45 37, 40 32 Z"
+                    fill="url(#gemsEagleNavyGrad)"
+                    stroke="#F4B942"
+                    stroke-width="1"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M 67 9 C 61 16, 54 22, 46 26 C 51 24, 57 19, 63 12 Z"
+                    fill="url(#gemsEagleTipGold)"
+                  />
+                  <path
+                    d="M 63 28 C 58 31, 52 32, 46 31 C 51 30, 56 28, 60 25 Z"
+                    fill="url(#gemsEagleGoldGrad)"
+                  />
+                </g>
+
+                <!-- Torso / Mantle -->
+                <path
+                  d="M 36 22 C 30 25, 30 38, 33 44 C 34.5 46.5, 37.5 46.5, 39 44 C 42 38, 42 25, 36 22 Z"
+                  fill="url(#gemsEagleNavyGrad)"
+                  stroke="#F4B942"
+                  stroke-width="0.9"
+                />
+
+                <!-- Gold Chevron Emblem -->
+                <polygon points="36,29 38.5,33 33.5,33" fill="#F4B942" />
+                <polygon points="36,35 38,38.5 34,38.5" fill="#F4B942" />
+
+                <!-- Head & Crest -->
+                <path
+                  d="M 36 41 C 32.5 41, 31.5 47, 32.5 50 C 33.5 53, 36 55.5, 36 55.5 C 36 55.5, 38.5 53, 39.5 50 C 40.5 47, 39.5 41, 36 41 Z"
+                  fill="#FFFFFF"
+                  stroke="#E2C076"
+                  stroke-width="0.6"
+                />
+
+                <!-- Golden Beak Leading Forward -->
+                <polygon
+                  points="36,60 33,53.5 39,53.5"
+                  fill="#F4B942"
+                  stroke="#C8881A"
+                  stroke-width="0.6"
+                />
+
+                <!-- Eyes -->
+                <circle cx="34" cy="48" r="1.2" fill="#071124" />
+                <circle cx="38" cy="48" r="1.2" fill="#071124" />
+                <circle cx="33.7" cy="47.6" r="0.45" fill="#FFFFFF" />
+                <circle cx="37.7" cy="47.6" r="0.45" fill="#FFFFFF" />
+
+                <!-- Active Flight Beacon (Connecting to timeline stream) -->
+                <circle
+                  cx="36"
+                  cy="60"
+                  r="2.2"
+                  fill="#F4B942"
+                  filter="drop-shadow(0 0 5px #F4B942)"
+                />
+              </svg>
+            </div>
+          </div>
 
           <!-- Timeline Items Container -->
           <div class="gems-timeline-items">
@@ -2208,6 +2739,7 @@
 
             var track = document.getElementById("gemsTimelineTrack");
             var active = document.getElementById("gemsTimelineActive");
+            var eagleFlyer = document.getElementById("gemsTimelineEagle");
             var section = document.getElementById("Our Philosophy");
             var markers = [
               document.getElementById("gemsMilestone1"),
@@ -2231,6 +2763,8 @@
               window.matchMedia &&
               window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+            var markerDocY = [];
+
             function calculatePath() {
               var cRect = container.getBoundingClientRect();
               var isMobile = window.innerWidth <= 767;
@@ -2243,11 +2777,17 @@
                 };
               });
 
+              markerDocY = markers.map(function (m) {
+                return m.getBoundingClientRect().top + window.scrollY;
+              });
+
               var d = "M " + pts[0].x.toFixed(1) + " " + pts[0].y.toFixed(1);
 
               if (isMobile) {
+                var straightX = pts[0].x;
                 for (var i = 1; i < pts.length; i++) {
-                  d += " L " + pts[i].x.toFixed(1) + " " + pts[i].y.toFixed(1);
+                  pts[i].x = straightX;
+                  d += " L " + straightX.toFixed(1) + " " + pts[i].y.toFixed(1);
                 }
               } else {
                 for (var j = 0; j < pts.length - 1; j++) {
@@ -2290,6 +2830,17 @@
                 rows.forEach(function (r) {
                   r.classList.add("is-active");
                 });
+                if (eagleFlyer && active.getPointAtLength) {
+                  var endPt = active.getPointAtLength(totalLength);
+                  eagleFlyer.classList.add("is-active");
+                  eagleFlyer.style.transition = "none";
+                  eagleFlyer.style.transform =
+                    "translate3d(" +
+                    endPt.x.toFixed(1) +
+                    "px, " +
+                    endPt.y.toFixed(1) +
+                    "px, 0)";
+                }
               } else {
                 updateScroll();
               }
@@ -2298,20 +2849,27 @@
             function updateScroll() {
               if (isReducedMotion) return;
 
-              var sRect = section.getBoundingClientRect();
               var winH =
                 window.innerHeight || document.documentElement.clientHeight;
+              var cRect = container.getBoundingClientRect();
+              var inViewport = cRect.bottom > 0 && cRect.top < winH;
               var totalLength = active.getTotalLength
                 ? active.getTotalLength()
                 : 1000;
 
-              // Start filling when section top is at 70% viewport
-              var startTrigger = winH * 0.7;
-              var endTrigger = winH * 0.3;
-              var current = startTrigger - sRect.top;
-              var range = sRect.height + (startTrigger - endTrigger);
+              if (!markerDocY || markerDocY.length < 4) {
+                markerDocY = markers.map(function (m) {
+                  return m.getBoundingClientRect().top + window.scrollY;
+                });
+              }
 
-              var progress = current / range;
+              var startY = markerDocY[0];
+              var endY = markerDocY[3];
+              var travelDist = endY - startY;
+              if (travelDist <= 0) travelDist = 1;
+
+              var focalLine = window.scrollY + winH * 0.6;
+              var progress = (focalLine - startY) / travelDist;
               if (progress < 0) progress = 0;
               if (progress > 1) progress = 1;
 
@@ -2320,12 +2878,44 @@
                 (1 - progress)
               ).toFixed(1);
 
+              // Eagle Flight Positioning Along Timeline Path
+              if (eagleFlyer && active.getPointAtLength) {
+                var currentDist = progress * totalLength;
+                var pt = active.getPointAtLength(currentDist);
+
+                if (inViewport) {
+                  eagleFlyer.classList.add("is-active");
+
+                  // Calculate tangent angle for banking/tilting along the curve
+                  var sampleAhead = Math.min(totalLength, currentDist + 4);
+                  var sampleBehind = Math.max(0, currentDist - 4);
+                  var pAhead = active.getPointAtLength(sampleAhead);
+                  var pBehind = active.getPointAtLength(sampleBehind);
+                  var dx = pAhead.x - pBehind.x;
+                  var dy = pAhead.y - pBehind.y;
+                  var angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+                  // Bank into curves smoothly between -25deg and +25deg
+                  var bankTilt = Math.max(-25, Math.min(25, angle - 90));
+
+                  eagleFlyer.style.transform =
+                    "translate3d(" +
+                    pt.x.toFixed(1) +
+                    "px, " +
+                    pt.y.toFixed(1) +
+                    "px, 0) rotate(" +
+                    bankTilt.toFixed(1) +
+                    "deg)";
+                } else {
+                  eagleFlyer.classList.remove("is-active");
+                }
+              }
+
               // Trigger milestone activations
-              rows.forEach(function (row) {
-                var marker = row.querySelector(".gems-milestone-marker");
-                if (!marker) return;
-                var mRect = marker.getBoundingClientRect();
-                if (mRect.top <= winH * 0.76) {
+              rows.forEach(function (row, idx) {
+                var threshold =
+                  idx === 0 ? 0 : (idx - 0.25) / (rows.length - 1);
+                if (progress >= threshold) {
                   row.classList.add("is-active");
                 } else {
                   row.classList.remove("is-active");
@@ -2364,6 +2954,10 @@
             window.addEventListener("resize", function () {
               clearTimeout(resizeTimer);
               resizeTimer = setTimeout(calculatePath, 100);
+            });
+
+            window.addEventListener("load", function () {
+              calculatePath();
             });
 
             // Initial calculations
@@ -2416,6 +3010,329 @@
       </div>
 
       <!-- Narrative Supporting Content Section -->
+    </section>
+
+    <!-- ==========================================================================
+         NEW: EAGLE PHILOSOPHY SECTION
+         ========================================================================== -->
+    <style>
+      /* ==========================================================================
+         SCOPED: EAGLE PHILOSOPHY SECTION (Corporate White / Two-Column Layout)
+         ========================================================================== */
+      .gems-eagle-philosophy-section {
+        position: relative;
+        background: #ffffff;
+        color: #344054;
+        padding: 95px 0 105px 0;
+        overflow: hidden;
+        border-top: 1px solid #eef2f6;
+        border-bottom: 1px solid #eef2f6;
+        scroll-margin-top: 100px;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px 56px;
+        align-items: center;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-header {
+        text-align: left;
+        margin-bottom: 28px;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-badge {
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #2456a6;
+        background: rgba(36, 86, 166, 0.07);
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(36, 86, 166, 0.16);
+        margin-bottom: 12px;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-title {
+        font-family: "Inter Tight", "Inter", sans-serif;
+        font-size: clamp(32px, 3.5vw, 46px);
+        font-weight: 700;
+        line-height: 1.2;
+        color: #10264a;
+        margin-top: 4px;
+        margin-bottom: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-gold {
+        color: #d99a16;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-body {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-lead {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1.08rem, 1.25vw, 1.18rem);
+        line-height: 1.75;
+        color: #344054;
+        margin: 0;
+      }
+
+      /* Special Emphasis Statement 1 (Quote Panel) */
+      .gems-eagle-philosophy-section .gems-philosophy-callout {
+        position: relative;
+        border-left: 4px solid #d99a16;
+        background: #fbf8f1;
+        padding: 22px 28px 22px 34px;
+        border-radius: 0 14px 14px 0;
+        margin: 4px 0;
+        box-shadow: 0 4px 20px rgba(16, 38, 74, 0.04);
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-callout::before {
+        content: "
+        
+        
+        
+        
+        
+        
+        ";
+        position: absolute;
+        top: 6px;
+        left: 12px;
+        font-family: Georgia, serif;
+        font-size: 2.8rem;
+        line-height: 1;
+        color: #d99a16;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-callout-text {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1.12rem, 1.35vw, 1.26rem);
+        font-weight: 600;
+        line-height: 1.62;
+        color: #10264a;
+        margin: 0;
+        letter-spacing: -0.01em;
+        position: relative;
+        z-index: 1;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-paragraph {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 1.12vw, 1.08rem);
+        line-height: 1.75;
+        color: #344054;
+        margin: 0;
+      }
+
+      /* Special Emphasis Statement 2 (Climactic closing statement) */
+      .gems-eagle-philosophy-section .gems-philosophy-highlight {
+        position: relative;
+        margin-top: 6px;
+        padding-top: 22px;
+        border-top: 1.5px solid rgba(217, 154, 22, 0.3);
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-highlight-text {
+        font-family: "Inter Tight", "Inter", sans-serif;
+        font-size: clamp(1.18rem, 1.4vw, 1.35rem);
+        font-weight: 700;
+        line-height: 1.5;
+        color: #10264a;
+        margin: 0;
+        letter-spacing: -0.015em;
+      }
+
+      /* Right Column Visual / Image Card */
+      .gems-eagle-philosophy-section .gems-philosophy-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-image-card {
+        position: relative;
+        width: 100%;
+        border-radius: 20px;
+        background: #fbf8f1;
+        border: 1px solid rgba(217, 154, 22, 0.25);
+        box-shadow:
+          0 20px 40px -12px rgba(16, 38, 74, 0.09),
+          0 2px 10px rgba(217, 154, 22, 0.06);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Subtle gold decorative corner brackets */
+      .gems-eagle-philosophy-section .gems-philosophy-image-card::after {
+        content: "";
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 42px;
+        height: 42px;
+        border-top: 2.5px solid #d99a16;
+        border-right: 2.5px solid #d99a16;
+        border-top-right-radius: 12px;
+        pointer-events: none;
+        opacity: 0.85;
+        z-index: 2;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-image-card::before {
+        content: "";
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        width: 42px;
+        height: 42px;
+        border-bottom: 2.5px solid #d99a16;
+        border-left: 2.5px solid #d99a16;
+        border-bottom-left-radius: 12px;
+        pointer-events: none;
+        opacity: 0.85;
+        z-index: 2;
+      }
+
+      .gems-eagle-philosophy-section .gems-philosophy-img {
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: contain;
+        display: block;
+        border-radius: 19px;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .gems-eagle-philosophy-section
+        .gems-philosophy-image-card:hover
+        .gems-philosophy-img {
+        transform: scale(1.02);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1024px) {
+        .gems-eagle-philosophy-section {
+          padding: 80px 0 90px 0;
+        }
+        .gems-eagle-philosophy-section .gems-philosophy-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 36px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .gems-eagle-philosophy-section {
+          padding: 60px 0 70px 0;
+        }
+        .gems-eagle-philosophy-section .gems-philosophy-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .gems-eagle-philosophy-section .gems-philosophy-header {
+          margin-bottom: 22px;
+        }
+        .gems-eagle-philosophy-section .gems-philosophy-callout {
+          padding: 18px 20px 18px 24px;
+        }
+        .gems-eagle-philosophy-section .gems-philosophy-visual {
+          order: 2;
+        }
+        .gems-eagle-philosophy-section .gems-philosophy-img {
+          max-height: 380px;
+        }
+      }
+    </style>
+
+    <section class="gems-eagle-philosophy-section" id="eagle-philosophy">
+      <div class="container-port-xl">
+        <div class="gems-philosophy-grid">
+          <!-- Left Column: Content -->
+          <div
+            class="gems-philosophy-content"
+            data-aos="fade-up"
+            data-aos-duration="900"
+          >
+            <div class="gems-philosophy-header">
+              <span class="gems-philosophy-badge">GUIDING PERSPECTIVE</span>
+              <h2 class="gems-philosophy-title">
+                The <span class="gems-philosophy-gold">Eagle</span> Philosophy
+              </h2>
+            </div>
+
+            <div class="gems-philosophy-body">
+              <p class="gems-philosophy-lead">
+                The eagle has long represented vision, wisdom, and perspective.
+                For GEMS, it symbolizes something even deeper.
+              </p>
+
+              <div class="gems-philosophy-callout">
+                <p class="gems-philosophy-callout-text">
+                  The eagle doesn't fly your journey. It doesn't decide your
+                  destination. It doesn't choose your path.
+                </p>
+              </div>
+
+              <p class="gems-philosophy-paragraph">
+                Instead, it sees farther than most can see. It recognizes
+                opportunities beyond the horizon. It anticipates challenges
+                before they appear. It provides perspective when the path
+                becomes uncertain.
+              </p>
+
+              <p class="gems-philosophy-paragraph">
+                Like the eagle, GEMS exists to help people move forward with
+                greater confidence because someone is watching the horizon with
+                them.
+              </p>
+
+              <div class="gems-philosophy-highlight">
+                <p class="gems-philosophy-highlight-text">
+                  Our role is not to lead your life. Our role is to help you see
+                  it more clearly.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual -->
+          <div
+            class="gems-philosophy-visual"
+            data-aos="fade-left"
+            data-aos-duration="900"
+          >
+            <div class="gems-philosophy-image-card">
+              <img
+                src="./assets/img/cta_eagle_sunrise.jpg"
+                alt="Eagle soaring with vision and perspective towards the horizon"
+                class="gems-philosophy-img"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ==========================================================================
@@ -2713,11 +3630,18 @@
                             Because sometimes the most important journey begins
                             with a simple question:
                           </p>
-                          <p class="gems-journey-back-desc">possible?'</p>
                           <p class="gems-journey-back-desc">
-                            We welcome those who are still discovering their
-                            direction and believe every great journey starts
-                            with curiosity.
+                            "What's possible?"
+                          </p>
+                          <p class="gems-journey-back-desc">
+                            Life isn't made up of one defining moment. It's a
+                            collection of journeys. Some begin in classrooms.
+                            Some begin in workplaces. Some begin with an idea.
+                            Some begin after unexpected change.
+                          </p>
+                          <p class="gems-journey-back-desc">
+                            Wherever your path begins, GEMS is designed to
+                            support you through the moments that matter most.
                           </p>
                         </div>
                       </div>
@@ -2879,7 +3803,7 @@
     <div class="about-new-section">
       <div class="container-port-xl">
         <!-- SECTION 2: Our Commitment (Text LHS, Image RHS) -->
-        <div
+        <!-- <div
           class="row about-new-row"
           data-aos="fade-up"
           data-aos-duration="800"
@@ -2921,7 +3845,7 @@
               />
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- SECTION 1: Trusted Network (Image LHS, Text RHS) -->
         <div
           class="row about-new-row"
@@ -4271,42 +5195,97 @@
           });
         }
 
-        const progress = document.querySelector(".about-journey-progress");
-        const fill = document.querySelector(".about-journey-fill");
-        const eagle = document.querySelector(".about-journey-eagle");
+        /* ==========================================================================
+           JOURNEY PROGRESS LINE SCROLL ANIMATION
+           Smoothly extends Sunrise Gold progress line and glides small eagle icon
+           from top of About page until the final "Start with GEMS" section is reached.
+           ========================================================================== */
+        (function initJourneyProgress() {
+          const indicator = document.getElementById(
+            "gemsJourneyProgressIndicator"
+          );
+          const fill = document.getElementById("gemsJourneyProgressFill");
+          const eagle = document.getElementById("gemsJourneyProgressEagle");
+          const bottomPip = indicator
+            ? indicator.querySelector(".pip-bottom")
+            : null;
 
-        if (progress && fill && eagle) {
-          const updateJourneyProgress = function () {
-            const pageTop =
-              progress.getBoundingClientRect().top + window.scrollY;
-            const pageHeight = progress.offsetHeight;
-            const viewportHeight = window.innerHeight;
+          if (!indicator || !fill || !eagle) return;
 
-            const scrollableHeight = pageHeight - viewportHeight;
+          const finalSection =
+            document.querySelector(".about-final-cta-section") ||
+            document.getElementById("our-mission");
 
-            if (scrollableHeight <= 0) {
-              fill.style.height = "0%";
-              eagle.style.top = "0%";
-              return;
+          let ticking = false;
+          let currentProgress = 0;
+          let targetProgress = 0;
+          const prefersReduced = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+          function calculateProgress() {
+            const scrollY =
+              window.pageYOffset || document.documentElement.scrollTop || 0;
+            const winH = window.innerHeight || 800;
+
+            if (scrollY <= 0) return 0;
+
+            let targetDocY;
+            if (finalSection) {
+              const rect = finalSection.getBoundingClientRect();
+              const sectionDocY = rect.top + scrollY;
+              // Destination reached when visitor reaches the Start with GEMS section
+              targetDocY = sectionDocY - winH * 0.45;
+            } else {
+              targetDocY = document.documentElement.scrollHeight - winH;
             }
 
-            const currentScroll = window.scrollY - pageTop;
-            const progressValue = Math.min(
-              100,
-              Math.max(0, (currentScroll / scrollableHeight) * 100),
-            );
+            if (targetDocY <= 0) targetDocY = 1;
+            const p = scrollY / targetDocY;
+            return Math.max(0, Math.min(1, p));
+          }
 
-            fill.style.height = progressValue + "%";
-            eagle.style.top = progressValue + "%";
-          };
+          function render() {
+            if (prefersReduced) {
+              currentProgress = targetProgress;
+            } else {
+              currentProgress += (targetProgress - currentProgress) * 0.22;
+              if (Math.abs(targetProgress - currentProgress) < 0.001) {
+                currentProgress = targetProgress;
+              }
+            }
 
-          window.addEventListener("scroll", updateJourneyProgress, {
-            passive: true,
-          });
+            const percent = (currentProgress * 100).toFixed(2);
+            fill.style.height = percent + "%";
+            eagle.style.top = percent + "%";
 
-          window.addEventListener("resize", updateJourneyProgress);
-          updateJourneyProgress();
-        }
+            if (bottomPip) {
+              if (currentProgress >= 0.98) {
+                bottomPip.classList.add("active");
+              } else {
+                bottomPip.classList.remove("active");
+              }
+            }
+
+            if (Math.abs(targetProgress - currentProgress) > 0.0005) {
+              requestAnimationFrame(render);
+            } else {
+              ticking = false;
+            }
+          }
+
+          function onScroll() {
+            targetProgress = calculateProgress();
+            if (!ticking) {
+              ticking = true;
+              requestAnimationFrame(render);
+            }
+          }
+
+          window.addEventListener("scroll", onScroll, { passive: true });
+          window.addEventListener("resize", onScroll, { passive: true });
+          onScroll();
+        })();
 
         /* =====================================================
                HEADER SCROLL BACKGROUND BEHAVIOR (TRANSPARENT -> WHITE)

@@ -1675,43 +1675,62 @@
       </section>
 
       <!-- ==========================================================================
-             5. FINAL CTA SECTION (EXACT REUSE OF STRUCTURE FROM JOURNEYS)
+             5. FINAL CTA SECTION (SPLIT-LAYOUT REDESIGN)
              ========================================================================== -->
       <section
-        class="journeys-final-cta"
+        class="journeys-final-cta career-final-cta-split"
+        id="career-final-cta"
         aria-label="Start Your Career Journey Call to Action"
       >
-        <div class="journeys-final-bg-wrap" aria-hidden="true">
-          <img
-            class="journeys-final-bg"
-            src="./assets/img/cta_eagle_sunrise.jpg"
-            alt="Sunrise landscape representing bright career future"
-          />
-          <div class="journeys-final-overlay"></div>
-        </div>
         <div class="container-port-xl">
-          <div class="journeys-final-content" data-aos="fade-up">
-            <h2 class="journeys-final-title">
-              Wherever your career is headed, start with a trusted guide.
-            </h2>
-            <p class="journeys-final-desc">
-              You may not know exactly what comes next. You do not have to. GEMS
-              is here to help you understand the journey, prepare for the next
-              step, and connect with the right people along the way.
-            </p>
-            <div class="journeys-final-tagline">
-              No matter what journey you begin... StartWithGEMS
+          <div class="career-final-split-card" data-aos="fade-up">
+            <!-- Left-hand side (LHS): Image -->
+            <div class="career-final-img-col">
+              <div class="career-final-img-wrap">
+                <picture>
+                  <source
+                    srcset="./assets/img/Career_Journey_Trust_n_Confidence.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    class="career-final-img"
+                    src="./assets/img/Career_Journey_Trust_n_Confidence.jpeg"
+                    alt="GEMS Career Journeys - Trust and Confidence"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
             </div>
-            <div class="journeys-final-ctas">
-              <a href="contact.html" class="btn-gems-primary">
-                StartWithGEMS &rarr;
-              </a>
-              <a
-                href="membership-level.html?journey=career"
-                class="btn-gems-secondary"
-              >
-                Explore Membership &rarr;
-              </a>
+
+            <!-- Right-hand side (RHS): Supporting Text & CTA Buttons -->
+            <div class="career-final-content-col">
+              <h2 class="journeys-final-title">
+                Wherever your career is headed, start with a trusted guide.
+              </h2>
+              <p class="journeys-final-desc">
+                You may not know exactly what comes next. You do not have to.
+                GEMS is here to help you understand the journey, prepare for the
+                next step, and connect with the right people along the way.
+              </p>
+              <div class="journeys-final-tagline">
+                No matter what journey you begin... StartWithGEMS
+              </div>
+              <div class="journeys-final-ctas">
+                <a
+                  href="contact.html"
+                  class="btn-gems-primary"
+                  id="careerCtaStartWithGEMS"
+                >
+                  StartWithGEMS &rarr;
+                </a>
+                <a
+                  href="membership-level.html?journey=career"
+                  class="btn-gems-secondary"
+                  id="careerCtaExploreMembership"
+                >
+                  Explore Membership &rarr;
+                </a>
+              </div>
             </div>
           </div>
         </div>

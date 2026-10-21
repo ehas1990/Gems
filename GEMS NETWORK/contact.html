@@ -2103,6 +2103,49 @@
                 });
             });
 
+            /* Auto-activate tab from URL query param or hash (e.g. ?journey=professionals) */
+            (function () {
+                try {
+                    const params = new URLSearchParams(window.location.search);
+                    const rawParam = params.get('journey') || params.get('tab') || params.get('type') || params.get('audience');
+                    const rawHash = window.location.hash ? window.location.hash.replace('#', '') : '';
+                    const key = (rawParam || rawHash).toLowerCase().trim();
+
+                    let targetTab = null;
+                    if (key === 'professionals' || key === 'professional' || key === 'career' || key === 'pro') {
+                        targetTab = 'professionals';
+                    } else if (key === 'students' || key === 'student' || key === 'educational') {
+                        targetTab = 'students';
+                    } else if (key === 'business' || key === 'growth' || key === 'biz') {
+                        targetTab = 'business';
+                    } else if (document.referrer) {
+                        const ref = document.referrer.toLowerCase();
+                        if (ref.includes('career-journeys')) {
+                            targetTab = 'professionals';
+                        } else if (ref.includes('educational-journeys')) {
+                            targetTab = 'students';
+                        } else if (ref.includes('growth-journeys')) {
+                            targetTab = 'business';
+                        }
+                    }
+
+                    if (targetTab) {
+                        switchIntakeTab(targetTab);
+                        const formSection = document.getElementById('contactIntakeSection');
+                        if (formSection) {
+                            setTimeout(function () {
+                                const headerEl = document.querySelector('header');
+                                const headerH = headerEl ? headerEl.offsetHeight : 80;
+                                const topY = formSection.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
+                                window.scrollTo({ top: Math.max(0, topY), behavior: 'smooth' });
+                            }, 120);
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error handling URL tab auto-select:', e);
+                }
+            })();
+
             /* Where We Serve - Location Items Click & Map Switcher */
             const serveLocationItems = document.querySelectorAll('.serve-location-item');
             const mapIframe = document.getElementById('gemsMapIframe');

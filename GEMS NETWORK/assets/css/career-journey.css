@@ -58,7 +58,6 @@
 .career-journey-page .career-stages-section {
     padding: 85px 0 110px 0;
     position: relative;
-    background-color: #071b35;
     overflow: hidden;
     color: #ffffff;
 }
@@ -69,8 +68,8 @@
     inset: 0;
     background-image: url('../img/Golden\ Mountain\ Road\ to\ the\ City.webp');
     background-size: cover;
-    background-position: center top;
-    opacity: 0.15;
+    background-position: bottom;
+   
     pointer-events: none;
 }
 

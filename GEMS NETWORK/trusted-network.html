@@ -447,8 +447,8 @@
           <div class="sbc">
             <p>
               Ready to Get Started?
-              <a href="https://globalenrollment.us/subscription">
-                Subscribe Now
+              <a href="partner-registration.html#partner-application">
+                Register Now
               </a>
             </p>
           </div>
@@ -462,7 +462,8 @@
     <div
       class="loginpage category-register-modal"
       id="categoryRegisterModal"
-      style="display: none"
+      style="display: none !important"
+      aria-hidden="true"
       role="dialog"
       aria-modal="true"
       aria-labelledby="catRegTitle"
@@ -629,19 +630,29 @@
           margin: 0 auto 36px auto;
           max-width: 1100px;
           padding: 0 10px;
+          display: flex;
+          justify-content: center;
         }
 
         .network-categories-section .cat-alphabet-filter {
-          display: flex;
-          flex-wrap: wrap;
+          display: inline-flex;
+          flex-wrap: nowrap;
           align-items: center;
           justify-content: center;
           gap: 8px;
           background: #ffffff;
-          padding: 16px 20px;
-          border-radius: 20px;
+          padding: 12px 18px;
+          border-radius: 50px;
           border: 1px solid rgba(15, 22, 129, 0.08);
           box-shadow: 0 4px 20px rgba(7, 27, 53, 0.04);
+          max-width: 100%;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .network-categories-section .cat-alphabet-filter::-webkit-scrollbar {
+          display: none;
         }
 
         .network-categories-section .cat-letter-btn {
@@ -663,12 +674,14 @@
           outline: none;
           user-select: none;
           line-height: 1;
+          flex-shrink: 0;
         }
 
         .network-categories-section .cat-letter-btn[data-letter="all"] {
           min-width: 58px;
           padding: 0 16px;
           letter-spacing: 0.5px;
+          flex-shrink: 0;
         }
 
         .network-categories-section .cat-letter-btn:hover {
@@ -787,22 +800,26 @@
         @media (max-width: 767px) {
           .network-categories-section .cat-alphabet-filter-wrap {
             margin-bottom: 24px;
-            padding: 0 4px;
+            padding: 0 8px;
+            justify-content: center;
           }
           .network-categories-section .cat-alphabet-filter {
-            gap: 5px;
-            padding: 12px 8px;
-            border-radius: 16px;
+            gap: 6px;
+            padding: 10px 14px;
+            border-radius: 50px;
+            justify-content: flex-start;
           }
           .network-categories-section .cat-letter-btn {
             min-width: 32px;
             height: 32px;
             font-size: 0.8rem;
             padding: 0 4px;
+            flex-shrink: 0;
           }
           .network-categories-section .cat-letter-btn[data-letter="all"] {
             min-width: 48px;
             padding: 0 10px;
+            flex-shrink: 0;
           }
           .network-categories-section .cat-empty-state {
             padding: 38px 18px;
@@ -821,24 +838,11 @@
           cursor: pointer;
         }
 
-        /* Category Register Modal Scoped Styles */
-        #categoryRegisterModal.loginpage {
-          position: fixed !important;
-          inset: 0 !important;
-          width: 100vw !important;
-          height: 100vh !important;
-          display: none;
-          align-items: center !important;
-          justify-content: center !important;
-          z-index: 9999999 !important;
-          padding: 20px !important;
-          box-sizing: border-box !important;
-          overflow-y: auto !important;
-          background: transparent !important;
-        }
-
+        /* Hide Category Register Modal Section */
+        #categoryRegisterModal,
+        #categoryRegisterModal.loginpage,
         #categoryRegisterModal.loginpage.active {
-          display: flex !important;
+          display: none !important;
         }
 
         #categoryRegisterModal .loginbx {
@@ -1075,15 +1079,6 @@
               <button
                 type="button"
                 class="cat-letter-btn"
-                data-letter="A"
-                aria-pressed="false"
-                aria-label="Filter by letter A"
-              >
-                A
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
                 data-letter="B"
                 aria-pressed="false"
                 aria-label="Filter by letter B"
@@ -1098,15 +1093,6 @@
                 aria-label="Filter by letter C"
               >
                 C
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="D"
-                aria-pressed="false"
-                aria-label="Filter by letter D"
-              >
-                D
               </button>
               <button
                 type="button"
@@ -1129,47 +1115,11 @@
               <button
                 type="button"
                 class="cat-letter-btn"
-                data-letter="G"
-                aria-pressed="false"
-                aria-label="Filter by letter G"
-              >
-                G
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
                 data-letter="H"
                 aria-pressed="false"
                 aria-label="Filter by letter H"
               >
                 H
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="I"
-                aria-pressed="false"
-                aria-label="Filter by letter I"
-              >
-                I
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="J"
-                aria-pressed="false"
-                aria-label="Filter by letter J"
-              >
-                J
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="K"
-                aria-pressed="false"
-                aria-label="Filter by letter K"
-              >
-                K
               </button>
               <button
                 type="button"
@@ -1183,33 +1133,6 @@
               <button
                 type="button"
                 class="cat-letter-btn"
-                data-letter="M"
-                aria-pressed="false"
-                aria-label="Filter by letter M"
-              >
-                M
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="N"
-                aria-pressed="false"
-                aria-label="Filter by letter N"
-              >
-                N
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="O"
-                aria-pressed="false"
-                aria-label="Filter by letter O"
-              >
-                O
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
                 data-letter="P"
                 aria-pressed="false"
                 aria-label="Filter by letter P"
@@ -1219,92 +1142,11 @@
               <button
                 type="button"
                 class="cat-letter-btn"
-                data-letter="Q"
-                aria-pressed="false"
-                aria-label="Filter by letter Q"
-              >
-                Q
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
                 data-letter="R"
                 aria-pressed="false"
                 aria-label="Filter by letter R"
               >
                 R
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="S"
-                aria-pressed="false"
-                aria-label="Filter by letter S"
-              >
-                S
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="T"
-                aria-pressed="false"
-                aria-label="Filter by letter T"
-              >
-                T
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="U"
-                aria-pressed="false"
-                aria-label="Filter by letter U"
-              >
-                U
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="V"
-                aria-pressed="false"
-                aria-label="Filter by letter V"
-              >
-                V
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="W"
-                aria-pressed="false"
-                aria-label="Filter by letter W"
-              >
-                W
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="X"
-                aria-pressed="false"
-                aria-label="Filter by letter X"
-              >
-                X
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="Y"
-                aria-pressed="false"
-                aria-label="Filter by letter Y"
-              >
-                Y
-              </button>
-              <button
-                type="button"
-                class="cat-letter-btn"
-                data-letter="Z"
-                aria-pressed="false"
-                aria-label="Filter by letter Z"
-              >
-                Z
               </button>
             </div>
           </div>
@@ -1625,7 +1467,11 @@
             filterBtns.forEach(function (btn) {
               btn.addEventListener("click", function () {
                 const letter = this.getAttribute("data-letter");
-                filterByLetter(letter);
+                if (this.classList.contains("active") && letter !== "all") {
+                  filterByLetter("all");
+                } else {
+                  filterByLetter(letter);
+                }
               });
             });
 
@@ -3469,30 +3315,35 @@
               badgeIconEl.innerHTML = iconHtml;
             }
 
-            // Close login modal if open
-            if (loginModal) {
-              loginModal.style.display = "none";
-              loginModal.classList.remove("active");
+            // Ensure registration modal is hidden
+            if (regModal) {
+              regModal.style.display = "none";
+              regModal.classList.remove("active");
             }
 
+            // Open login popup modal displaying only the login access message
             overlay.style.display = "block";
             overlay.classList.add("active");
-            regModal.style.display = "flex";
-            regModal.classList.add("active");
+            if (loginModal) {
+              loginModal.style.display = "flex";
+              loginModal.classList.add("active");
+            }
             document.body.style.overflow = "hidden";
           }
 
           function closeModal(e) {
             if (e && e.preventDefault) e.preventDefault();
-            regModal.style.display = "none";
-            regModal.classList.remove("active");
-
-            // Only hide overlay if login modal is not active
-            if (!loginModal || !loginModal.classList.contains("active")) {
-              overlay.style.display = "none";
-              overlay.classList.remove("active");
-              document.body.style.overflow = "";
+            if (regModal) {
+              regModal.style.display = "none";
+              regModal.classList.remove("active");
             }
+            if (loginModal) {
+              loginModal.style.display = "none";
+              loginModal.classList.remove("active");
+            }
+            overlay.style.display = "none";
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
           }
 
           // Attach click & enter listeners to all category cards

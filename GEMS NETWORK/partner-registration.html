@@ -2316,6 +2316,22 @@
           selectPartnershipType(queryType.toLowerCase());
         }
 
+        // Ensure proper positioning on load when navigating with #partner-application
+        if (window.location.hash === "#partner-application") {
+          setTimeout(function () {
+            const appSection = $("#partner-application");
+            if (appSection.length) {
+              const headerOffset = $("header").outerHeight() || 80;
+              $("html, body").animate(
+                {
+                  scrollTop: appSection.offset().top - headerOffset,
+                },
+                300,
+              );
+            }
+          }, 150);
+        }
+
         // Smooth scrolling for hero CTA and path buttons
         $('a[href^="#"]').on("click", function (event) {
           const target = $(this.getAttribute("href"));

@@ -216,7 +216,7 @@
     gap: 20px;
     position: relative;
     z-index: 3;
-    align-items: stretch;
+    align-items: start;
 }
 
 .career-journey-page .career-stage-card {
@@ -230,40 +230,89 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.35s ease;
+    height: auto;
+    min-height: 275px;
+    cursor: pointer;
 }
 
 .career-journey-page .career-stage-card:hover,
+.career-journey-page .career-stage-card.is-expanded,
 .career-journey-page .career-stage-card.highlighted,
 .career-journey-page .career-stage-card.panel-highlighted {
     transform: translateY(-8px);
     background: #ffffff;
     box-shadow: 0 24px 50px rgba(7, 27, 53, 0.28);
+    z-index: 5;
 }
 
 .career-journey-page .stage-1:hover,
+.career-journey-page .stage-1.is-expanded,
 .career-journey-page .stage-1.highlighted,
 .career-journey-page .stage-1.panel-highlighted {
     border-color: rgba(225, 29, 72, 0.6);
 }
 
 .career-journey-page .stage-2:hover,
+.career-journey-page .stage-2.is-expanded,
 .career-journey-page .stage-2.highlighted,
 .career-journey-page .stage-2.panel-highlighted {
     border-color: rgba(217, 119, 6, 0.6);
 }
 
 .career-journey-page .stage-3:hover,
+.career-journey-page .stage-3.is-expanded,
 .career-journey-page .stage-3.highlighted,
 .career-journey-page .stage-3.panel-highlighted {
     border-color: rgba(13, 148, 136, 0.6);
 }
 
 .career-journey-page .stage-4:hover,
+.career-journey-page .stage-4.is-expanded,
 .career-journey-page .stage-4.highlighted,
 .career-journey-page .stage-4.panel-highlighted {
     border-color: rgba(29, 78, 216, 0.6);
+}
+
+/* Card Divider (visible in default state right under introductory description) */
+.career-journey-page .career-stage-divider {
+    height: 1px;
+    width: 100%;
+    background: rgba(0, 59, 109, 0.1);
+    margin: 0 0 14px 0;
+    flex-shrink: 0;
+}
+
+/* Smooth expandable reveal container */
+.career-journey-page .career-stage-expandable {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.35s ease,
+                visibility 0.4s ease;
+    will-change: grid-template-rows, opacity;
+}
+
+.career-journey-page .career-stage-expandable-inner {
+    overflow: hidden;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Reveal when hovered, touch expanded, keyboard focused, or SVG roadmap hotspot highlighted */
+.career-journey-page .career-stage-card:hover .career-stage-expandable,
+.career-journey-page .career-stage-card.is-expanded .career-stage-expandable,
+.career-journey-page .career-stage-card.panel-highlighted .career-stage-expandable,
+.career-journey-page .career-stage-card:focus-within .career-stage-expandable {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
 }
 
 .career-journey-page .stage-card-top,
@@ -376,8 +425,6 @@
     letter-spacing: 1.2px;
     color: #64748b;
     margin-bottom: 12px;
-    border-top: 1px solid rgba(0, 59, 109, 0.1);
-    padding-top: 12px;
     text-align: left;
 }
 
@@ -509,6 +556,10 @@
         gap: 20px;
     }
 
+    .career-journey-page .career-stage-card {
+        min-height: auto;
+    }
+
     .career-journey-page .career-roadmap-panorama {
         margin-bottom: 24px;
         max-height: 380px;
@@ -546,6 +597,7 @@
     .career-journey-page .career-stage-card {
         padding: 20px 18px;
         border-radius: 16px;
+        min-height: auto;
     }
 
     .career-journey-page .career-stage-title,

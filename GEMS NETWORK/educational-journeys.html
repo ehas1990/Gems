@@ -750,1162 +750,1070 @@
         id="stages"
         aria-label="Four Stages of the Educational Journey"
       >
-        <!-- Scoped Styles for A5 Interactive Flip Cards -->
-        <style id="a5-flip-cards-style">
-          /* Base Grid & Container Setup */
-          #stages .stages-book-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0px;
+        <!-- Scoped Styles for 3D Interactive Open-Book Page-Turn -->
+        <style id="educational-journey-book-styles">
+          /* Base Book Section Container */
+          div#educational-journey-book,
+          #educational-journey-book {
+            --ej-navy: #173653;
+            --ej-gold: #b58a46;
+            --ej-gold-light: #d1b98f;
+            --ej-paper: #fffaf0;
+            --ej-paper-shadow: #e5ded2;
+            --ej-text: #26394c;
+            --ej-binding: #806947;
+
+            width: 100%;
+            padding: 60px 24px 80px;
+            background: #f7f9fce3;
+            color: var(--ej-text);
+            box-sizing: border-box;
+            overflow: hidden;
             position: relative;
-            z-index: 2;
           }
 
-          /* A5 Flip Card Outer Container */
-          #stages .stage-book-chapter.a5-flip-card,
-          .journeys-page #stages .stage-book-chapter.a5-flip-card,
-          .journeys-page #stages .stage-card.stage-book-chapter.a5-flip-card {
-            position: relative;
-            padding: 0 !important;
-            background: transparent !important;
-            border: none !important;
+          #educational-journey-book *,
+          #educational-journey-book *::before,
+          #educational-journey-book *::after {
+            box-sizing: border-box;
+          }
+
+          #educational-journey-book .ej-container {
+            max-width: 1360px;
+            margin: 0 auto;
+          }
+
+          /* Section Heading (Non-fixed, scrolls naturally with the section) */
+          #educational-journey-book .ej-heading,
+          #educational-journey-book div.ej-heading,
+          #educational-journey-book header.ej-heading {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            bottom: auto !important;
+            transform: none !important;
+            text-align: center;
+            margin-bottom: 36px;
+            width: 100%;
+            z-index: auto !important;
             box-shadow: none !important;
-            border-radius: 18px;
-            cursor: pointer;
-            perspective: 1600px;
-            -webkit-perspective: 1600px;
-            user-select: none;
-            -webkit-user-select: none;
-            outline: none;
-            height: 100%;
-            min-height: 600px;
-            display: block;
-            transform: none;
+            background: transparent !important;
           }
 
-          #stages .stage-book-chapter.a5-flip-card:focus-visible {
-            outline: 2px solid #be9f5c !important;
-            outline-offset: 4px;
+          #educational-journey-book .ej-eyebrow {
+            display: inline-block;
+            color: var(--ej-gold);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
           }
 
-          /* 3D Rotating Inner Card */
-          #stages .a5-flip-card-inner {
+          #educational-journey-book .ej-heading h2 {
+            margin: 0 0 10px 0;
+            color: var(--ej-navy);
+            font-size: clamp(26px, 3.6vw, 40px);
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+          }
+
+          #educational-journey-book .ej-heading p {
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-size: 15px;
+            color: #556987;
+          }
+
+          /* 3D Book Stage */
+          #educational-journey-book .ej-book-stage {
             position: relative;
             width: 100%;
-            height: 100%;
-            min-height: 600px;
-            transform-style: preserve-3d;
-            -webkit-transform-style: preserve-3d;
-            transition:
-              transform 0.75s cubic-bezier(0.2, 0.85, 0.25, 1),
-              box-shadow 0.75s ease;
-            border-radius: 18px;
+            max-width: 1140px;
+            margin: 0 auto;
+            perspective: 2600px;
+            -webkit-perspective: 2600px;
           }
 
-          /* Hover lift on unopened card */
-          #stages
-            .stage-book-chapter.a5-flip-card:not(.is-flipped):hover
-            .a5-flip-card-inner {
-            transform: translateY(-8px) scale(1.015);
+          /* Hardcover Book Shell */
+          #educational-journey-book .ej-book {
+            position: relative;
+            width: 100%;
+            min-height: 630px;
+            background: #e4d7bd;
+            border: 8px solid var(--ej-gold-light);
+            border-radius: 8px 16px 16px 8px;
+            box-shadow:
+              0 28px 65px rgba(23, 54, 83, 0.22),
+              0 8px 0 #ad936b,
+              0 14px 0 var(--ej-binding);
+            display: flex;
+            overflow: visible;
+            perspective: 2600px;
+            -webkit-perspective: 2600px;
           }
 
-          /* 3D Flipped State (Fly-out + rotateY 180deg) */
-          #stages
-            .stage-book-chapter.a5-flip-card.is-flipped
-            .a5-flip-card-inner {
-            transform: rotateY(180deg) translateY(-8px) scale(1.02);
-            z-index: 20;
+          /* Center Spine Crease Binding */
+          #educational-journey-book .ej-book-spine {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 22px;
+            transform: translateX(-50%);
+            background: linear-gradient(
+              90deg,
+              rgba(70, 48, 24, 0.22) 0%,
+              rgba(255, 255, 255, 0.65) 50%,
+              rgba(85, 59, 34, 0.25) 100%
+            );
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+            z-index: 50;
+            pointer-events: none;
           }
 
-          /* Front and Back Faces (Physical A5 Proportion & Detailing) */
-          #stages .a5-flip-card-face {
+          /* Book Wings (Left & Right halves) */
+          #educational-journey-book .ej-book-wing {
+            position: relative;
+            width: 50%;
+            min-height: 614px;
+          }
+
+          #educational-journey-book .ej-wing-left {
+            border-radius: 4px 0 0 4px;
+            background: var(--ej-paper);
+            box-shadow: inset -12px 0 18px -10px rgba(94, 76, 50, 0.35);
+            z-index: 5;
+          }
+
+          #educational-journey-book .ej-wing-right {
+            border-radius: 0 4px 4px 0;
+            perspective: 2600px;
+            -webkit-perspective: 2600px;
+            z-index: 10;
+          }
+
+          /* Base Page Styles */
+          #educational-journey-book .ej-page {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
-            border-radius: 18px;
-            background: #ffffff;
-            border: 1px solid rgba(15, 22, 129, 0.09);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
+            padding: 28px 30px 24px;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(180, 151, 105, 0.1) 0%,
+                transparent 15%,
+                transparent 85%,
+                rgba(180, 151, 105, 0.08) 100%
+              ),
+              var(--ej-paper);
             display: flex;
             flex-direction: column;
-            box-sizing: border-box;
             overflow: hidden;
-            transition:
-              box-shadow 0.4s ease,
-              border-color 0.4s ease;
+            box-sizing: border-box;
           }
 
-          /* Premium Gold Accent Foil Line at Top of Card */
-          #stages .a5-flip-card-face::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(
-              90deg,
-              transparent,
-              #be9f5c,
-              #e2c076,
-              transparent
-            );
-            z-index: 5;
+          #educational-journey-book .ej-page-left {
+            border-radius: 4px 0 0 4px;
+            box-shadow: inset -10px 0 15px -10px rgba(94, 76, 50, 0.3);
           }
 
-          /* ================= FRONT FACE (Cover) ================= */
-          #stages .a5-flip-card-front {
-            transform: rotateY(0deg);
-            padding: 24px 20px 20px 20px;
-            box-shadow:
-              inset 4px 0 0 -1px #be9f5c,
-              0 8px 24px rgba(7, 27, 53, 0.06);
-            z-index: 2;
-            justify-content: space-between;
+          #educational-journey-book .ej-page-right {
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 10px 0 15px -10px rgba(94, 76, 50, 0.3);
           }
 
-          #stages .stage-book-chapter.a5-flip-card:hover .a5-flip-card-front {
-            box-shadow:
-              inset 4px 0 0 -1px #be9f5c,
-              0 20px 42px rgba(15, 22, 129, 0.13);
-            border-color: rgba(190, 159, 92, 0.45);
-          }
-
-          #stages .a5-card-front-top {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-          }
-
-          #stages .a5-flip-card-front .stage-chapter-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
+          /* Page Content Typography */
+          #educational-journey-book .ej-chapter-number {
+            margin: 0 0 8px;
+            color: #80633b;
+            font-size: 11px;
             letter-spacing: 2px;
-            color: #be9f5c;
-            margin-bottom: 6px;
-          }
-
-          #stages .a5-flip-card-front .stage-chapter-title {
-            color: var(--color-navy-deep, #071b35);
-            font-size: 1.25rem;
             font-weight: 800;
-            letter-spacing: -0.2px;
-            line-height: 1.25;
-            margin-bottom: 8px;
+            text-align: center;
+            text-transform: uppercase;
           }
 
-          #stages .a5-flip-card-front .stage-chapter-desc {
-            color: #64748b;
-            font-size: 0.86rem;
-            line-height: 1.45;
-            margin-bottom: 14px;
-            min-height: 56px;
+          #educational-journey-book .ej-page h3 {
+            margin: 0;
+            text-align: center;
+            color: var(--ej-navy);
+            font-family: Georgia, "Times New Roman", serif;
+            text-transform: uppercase;
+            font-size: clamp(20px, 2.2vw, 27px);
+            line-height: 1.15;
+            font-weight: 700;
           }
 
-          #stages .a5-flip-card-front .stage-chapter-img-wrap {
+          #educational-journey-book .ej-gold-line {
+            display: block;
+            width: 50px;
+            height: 2px;
+            margin: 10px auto 10px;
+            background: var(--ej-gold);
+          }
+
+          #educational-journey-book .ej-subtitle {
+            text-align: center;
+            margin: 0 0 14px;
+            font-size: 13.5px;
+            color: #556987;
+            font-weight: 500;
+          }
+
+          #educational-journey-book .ej-image {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 10;
-            border-radius: 12px;
+            height: 175px;
             overflow: hidden;
-            margin-bottom: 14px;
-            box-shadow: 0 4px 14px rgba(7, 27, 53, 0.08);
-            border: 1px solid rgba(15, 22, 129, 0.08);
-            background: #f1f5f9;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #d9e1e4, #b9c8cf);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
           }
 
-          #stages .a5-flip-card-front .stage-chapter-img {
+          #educational-journey-book .ej-image img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            display: block;
+            transition: transform 0.6s ease;
           }
 
-          #stages .stage-book-chapter.a5-flip-card:hover .stage-chapter-img {
-            transform: scale(1.05);
+          #educational-journey-book .ej-page:hover .ej-image img {
+            transform: scale(1.04);
           }
 
-          #stages .a5-card-front-bottom {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          #educational-journey-book .ej-content {
+            flex: 1;
+          }
+
+          #educational-journey-book .ej-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+
+          #educational-journey-book .ej-list li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #334155;
+          }
+
+          #educational-journey-book .ej-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--ej-gold);
+            font-weight: 800;
+            font-size: 12px;
+          }
+
+          #educational-journey-book .ej-page-footer {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(181, 138, 70, 0.4);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #8a7b66;
+          }
+
+          /* 3D Flipping Leaves */
+          #educational-journey-book .ej-flipping-leaf {
+            position: absolute;
+            inset: 0;
             width: 100%;
+            height: 100%;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            transition: transform 0.85s cubic-bezier(0.25, 0.9, 0.35, 1);
+            will-change: transform;
+            pointer-events: auto;
           }
 
-          /* Interactive Open Pill Button on Front */
-          #stages .a5-open-pill {
+          #educational-journey-book .ej-leaf-face {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+          }
+
+          #educational-journey-book .ej-leaf-front {
+            transform: rotateY(0deg);
+            z-index: 2;
+          }
+
+          #educational-journey-book .ej-leaf-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+            border-radius: 4px 0 0 4px;
+          }
+
+          /* Stacking z-indexes */
+          #educational-journey-book #ejLeaf1 { z-index: 8; }
+          #educational-journey-book #ejLeaf1.is-flipped { z-index: 15; }
+          #educational-journey-book #ejLeaf1.is-turning { z-index: 45 !important; }
+
+          #educational-journey-book #ejLeaf2 { z-index: 6; }
+          #educational-journey-book #ejLeaf2.is-flipped { z-index: 20; }
+          #educational-journey-book #ejLeaf2.is-turning { z-index: 45 !important; }
+
+          #educational-journey-book .ej-flipping-leaf.is-flipped {
+            transform: rotateY(-180deg);
+          }
+
+          /* Dynamic Shading during Flip */
+          #educational-journey-book .ej-flipping-leaf::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.18) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+          }
+          #educational-journey-book .ej-flipping-leaf.is-turning::after {
+            opacity: 1;
+          }
+
+          /* Navigation Controls */
+          #educational-journey-book .ej-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 36px;
+          }
+
+          #educational-journey-book .ej-nav-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 100%;
-            padding: 10px 18px;
-            border-radius: 50px;
-            background: linear-gradient(
-              135deg,
-              rgba(15, 22, 129, 0.04) 0%,
-              rgba(190, 159, 92, 0.09) 100%
-            );
-            border: 1.5px solid rgba(190, 159, 92, 0.35);
-            color: var(--color-primary, #0f1681);
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-bottom: 12px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 6px rgba(7, 27, 53, 0.03);
-          }
-
-          #stages .stage-book-chapter.a5-flip-card:hover .a5-open-pill {
-            background: var(--color-primary, #0f1681);
-            color: #ffffff;
-            border-color: var(--color-primary, #0f1681);
-            box-shadow: 0 6px 14px rgba(15, 22, 129, 0.2);
-            transform: translateY(-2px);
-          }
-
-          #stages .a5-open-pill i {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-          }
-
-          #stages .stage-book-chapter.a5-flip-card:hover .a5-open-pill i {
-            transform: translateX(3px);
-          }
-
-          /* ================= BACK FACE (Inside / Continuation) ================= */
-          #stages .a5-flip-card-back {
-            transform: rotateY(180deg);
-            padding: 20px 20px 18px 20px;
-            box-shadow:
-              inset -4px 0 0 -1px #be9f5c,
-              0 8px 24px rgba(7, 27, 53, 0.06);
-            background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
-            z-index: 1;
-            justify-content: space-between;
-          }
-
-          #stages
-            .stage-book-chapter.a5-flip-card.is-flipped
-            .a5-flip-card-back {
-            box-shadow:
-              inset -4px 0 0 -1px #be9f5c,
-              0 24px 50px -10px rgba(7, 27, 53, 0.22);
-            border-color: rgba(190, 159, 92, 0.45);
-          }
-
-          #stages .a5-card-back-header {
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed rgba(190, 159, 92, 0.35);
-          }
-
-          #stages .a5-card-back-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 4px;
-          }
-
-          #stages .a5-card-back-header .stage-chapter-badge {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #be9f5c;
-            margin: 0;
-          }
-
-          #stages .a5-close-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--color-primary, #0f1681);
-            background: rgba(15, 22, 129, 0.06);
-            border: 1px solid rgba(15, 22, 129, 0.12);
-            border-radius: 20px;
-            padding: 3px 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          }
-
-          #stages .a5-close-pill:hover {
-            background: var(--color-primary, #0f1681);
-            color: #ffffff;
-            border-color: var(--color-primary, #0f1681);
-          }
-
-          #stages .a5-card-back-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--color-navy-deep, #071b35);
-            margin: 0;
-            line-height: 1.25;
-            text-align: left;
-          }
-
-          #stages .a5-card-back-body {
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-            padding-right: 2px;
-            margin-bottom: 8px;
-          }
-
-          #stages .a5-card-back-body::-webkit-scrollbar {
-            width: 4px;
-          }
-          #stages .a5-card-back-body::-webkit-scrollbar-thumb {
-            background: rgba(190, 159, 92, 0.35);
-            border-radius: 4px;
-          }
-
-          #stages .a5-flip-card-back .stage-chapter-services-title {
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--color-primary, #0f1681);
-            margin-bottom: 8px;
-            padding-bottom: 4px;
-            border-bottom: 1px solid rgba(15, 22, 129, 0.08);
-            text-align: left;
-          }
-
-          #stages .a5-flip-card-back .stage-chapter-services-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 6px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-          }
-
-          #stages .a5-flip-card-back .stage-chapter-services-list li {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            font-size: 0.83rem;
-            color: #334155;
-            font-weight: 500;
-            line-height: 1.35;
-            margin: 0 !important;
-            padding: 0 !important;
-          }
-
-          #stages .a5-flip-card-back .stage-chapter-services-list li::before {
-            display: none !important;
-          }
-
-          #stages .a5-flip-card-back .stage-chapter-services-list li i {
-            color: #cca352;
-            font-size: 0.72rem;
-            width: 21px;
-            height: 21px;
-            min-width: 21px;
-            min-height: 21px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            border: 1.5px solid #e2c076;
-            border-radius: 50%;
-            background: rgba(226, 192, 118, 0.1);
-            box-sizing: border-box;
-            margin: 0;
-          }
-
-          #stages .a5-card-back-footer {
-            margin-top: auto;
-            padding-top: 2px;
-          }
-
-          #stages .a5-card-back-footer .stage-chapter-cta-wrap {
-            margin-top: 0;
-            margin-bottom: 8px;
-          }
-
-          #stages .a5-card-back-footer .stage-chapter-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 10px 22px;
+            padding: 12px 28px;
             border-radius: 50px;
             background: #ffffff;
-            border: 1.5px solid rgba(15, 22, 129, 0.22);
-            color: var(--color-primary, #0f1681);
-            font-size: 0.82rem;
+            border: 1.5px solid rgba(23, 54, 83, 0.22);
+            color: var(--ej-navy);
+            font-size: 14px;
             font-weight: 700;
-            text-transform: capitalize;
-            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(23, 54, 83, 0.08);
             transition: all 0.25s ease;
-            box-shadow: 0 2px 6px rgba(7, 27, 53, 0.04);
           }
 
-          #stages .a5-card-back-footer .stage-chapter-cta-btn:hover {
-            background: var(--color-primary, #0f1681);
+          #educational-journey-book .ej-nav-btn:hover:not(:disabled) {
+            background: var(--ej-navy);
             color: #ffffff;
-            border-color: var(--color-primary, #0f1681);
+            border-color: var(--ej-navy);
             transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(15, 22, 129, 0.18);
+            box-shadow: 0 6px 20px rgba(23, 54, 83, 0.18);
           }
 
-          #stages .stage-chapter-tagline,
-          .journeys-page #stages .stage-chapter-tagline {
-            font-size: 0.7rem !important;
-            font-weight: 800 !important;
-            letter-spacing: 1.2px !important;
-            text-transform: uppercase !important;
-            color: #94a3b8 !important;
-            text-align: center !important;
-            padding-top: 8px !important;
-            padding-bottom: 2px !important;
-            border-top: 1px dashed rgba(15, 22, 129, 0.12) !important;
-            width: 100% !important;
+          #educational-journey-book .ej-nav-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
           }
 
-          /* ================= RESPONSIVE LAYOUTS ================= */
-          @media (max-width: 1200px) and (min-width: 1025px) {
-            #stages .stage-book-chapter.a5-flip-card,
-            .journeys-page #stages .stage-book-chapter.a5-flip-card,
-            #stages .a5-flip-card-inner {
-              min-height: 590px !important;
-            }
-            #stages .a5-flip-card-front,
-            #stages .a5-flip-card-back {
-              padding: 20px 16px 16px 16px !important;
-            }
-            #stages .a5-flip-card-front .stage-chapter-desc {
-              font-size: 0.82rem;
-              min-height: 60px;
-            }
-            #stages .a5-flip-card-back .stage-chapter-services-list li {
-              font-size: 0.79rem;
-            }
+          #educational-journey-book .ej-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
           }
 
-          @media (max-width: 1024px) and (min-width: 768px) {
-            #stages .stages-book-grid {
-              grid-template-columns: repeat(2, 1fr) !important;
-              gap: 0px !important;
+          #educational-journey-book .ej-dots-mobile {
+            display: none;
+          }
+
+          #educational-journey-book .ej-dots-desktop {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          #educational-journey-book .ej-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+          }
+
+          #educational-journey-book .ej-dot.is-active {
+            width: 28px;
+            border-radius: 12px;
+            background: var(--ej-gold);
+          }
+
+          #educational-journey-book .ej-mobile-chapter {
+            text-align: center;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--ej-navy);
+            margin-top: 14px;
+            letter-spacing: 0.5px;
+          }
+
+          /* RESPONSIVE: TABLET & MOBILE */
+          @media (max-width: 768px) {
+            #educational-journey-book {
+              padding: 40px 14px 60px;
             }
-            #stages .stage-book-chapter.a5-flip-card,
-            .journeys-page #stages .stage-book-chapter.a5-flip-card,
-            #stages .a5-flip-card-inner {
-              min-height: 580px !important;
+
+            #educational-journey-book .ej-heading h2 {
+              font-size: 24px;
             }
-            #stages .a5-flip-card-front,
-            #stages .a5-flip-card-back {
-              padding: 24px 20px 20px 20px !important;
-            }
-            #stages .a5-flip-card-front .stage-chapter-desc {
+
+            #educational-journey-book .ej-book {
+              display: block;
               min-height: auto;
+              height: auto;
+              border-width: 5px;
+              border-radius: 12px;
+              perspective: none;
+              -webkit-perspective: none;
+              box-shadow: 0 16px 36px rgba(23, 54, 83, 0.16);
+              background: var(--ej-paper);
+              padding: 0;
+              overflow: hidden;
             }
-          }
 
-          @media (max-width: 767px) {
-            #stages {
-              overflow-x: hidden;
+            #educational-journey-book .ej-book-spine {
+              display: none;
             }
-            #stages .stages-book-grid {
-              grid-template-columns: 1fr !important;
-              gap: 0px !important;
-            }
-            #stages .stage-book-chapter.a5-flip-card,
-            .journeys-page #stages .stage-book-chapter.a5-flip-card,
-            #stages .a5-flip-card-inner {
-              min-height: 570px !important;
-            }
-            #stages .a5-flip-card-front,
-            #stages .a5-flip-card-back {
-              padding: 22px 18px 18px 18px !important;
-            }
-            #stages .a5-flip-card-front .stage-chapter-desc {
+
+            #educational-journey-book .ej-book-wing {
+              width: 100%;
               min-height: auto;
+              height: auto;
+              position: static;
+              border-radius: 0;
+              box-shadow: none;
             }
-            #stages .a5-flip-card-front .stage-chapter-img-wrap {
-              aspect-ratio: 16 / 9;
-            }
-            #stages
-              .stage-book-chapter.a5-flip-card.is-flipped
-              .a5-flip-card-inner {
-              transform: rotateY(180deg) translateY(-4px) scale(1.01);
-            }
-          }
 
-          /* Reduced Motion Alternative */
-          @media (prefers-reduced-motion: reduce) {
-            #stages .a5-flip-card-inner {
+            #educational-journey-book .ej-wing-left,
+            #educational-journey-book .ej-wing-right {
+              background: transparent;
+              box-shadow: none;
+              perspective: none;
+              -webkit-perspective: none;
+            }
+
+            #educational-journey-book .ej-page {
+              position: relative;
+              inset: auto;
+              width: 100%;
+              height: auto;
+              min-height: 520px;
+              padding: 24px 20px 22px;
+              border-radius: 0;
+              box-shadow: none;
+              display: none;
+            }
+
+            #educational-journey-book .ej-flipping-leaf {
+              position: static;
+              width: 100%;
+              height: auto;
+              transform: none !important;
               transition: none !important;
+              transform-style: flat;
+            }
+
+            #educational-journey-book .ej-leaf-face {
+              position: static;
+              width: 100%;
+              height: auto;
               transform: none !important;
+              backface-visibility: visible;
+              -webkit-backface-visibility: visible;
             }
-            #stages
-              .stage-book-chapter.a5-flip-card.is-flipped
-              .a5-flip-card-inner {
-              transform: none !important;
+
+            #educational-journey-book .ej-leaf-back {
+              display: none !important;
             }
-            #stages
-              .stage-book-chapter.a5-flip-card:not(.is-flipped)
-              .a5-flip-card-front {
-              opacity: 1 !important;
-              visibility: visible !important;
-              pointer-events: auto !important;
+
+            /* Display only 1 chapter at a time on mobile */
+            #educational-journey-book[data-mobile-chapter="0"] #ejPage0 {
+              display: flex;
             }
-            #stages
-              .stage-book-chapter.a5-flip-card:not(.is-flipped)
-              .a5-flip-card-back {
-              opacity: 0 !important;
-              visibility: hidden !important;
-              pointer-events: none !important;
-              transform: none !important;
+            #educational-journey-book[data-mobile-chapter="1"] #ejPage1Front {
+              display: flex;
             }
-            #stages
-              .stage-book-chapter.a5-flip-card.is-flipped
-              .a5-flip-card-front {
-              opacity: 0 !important;
-              visibility: hidden !important;
-              pointer-events: none !important;
+            #educational-journey-book[data-mobile-chapter="2"] #ejPage2Front {
+              display: flex;
             }
-            #stages
-              .stage-book-chapter.a5-flip-card.is-flipped
-              .a5-flip-card-back {
-              opacity: 1 !important;
-              visibility: visible !important;
-              pointer-events: auto !important;
-              transform: none !important;
-              z-index: 10 !important;
+            #educational-journey-book[data-mobile-chapter="3"] #ejPage3 {
+              display: flex;
+            }
+
+            #educational-journey-book .ej-dots-desktop {
+              display: none;
+            }
+            #educational-journey-book .ej-dots-mobile {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+
+            #educational-journey-book .ej-navigation {
+              gap: 16px;
+              margin-top: 24px;
+            }
+
+            #educational-journey-book .ej-nav-btn {
+              padding: 10px 20px;
+              font-size: 13px;
+            }
+          }
+
+          /* REDUCED MOTION */
+          @media (prefers-reduced-motion: reduce) {
+            #educational-journey-book .ej-flipping-leaf {
+              transition: none !important;
             }
           }
         </style>
 
-        <div class="container-port-xl">
-          <div class="stages-timeline-container">
-            <!-- Open Book 4-Chapter Connected Spread -->
-            <div
-              class="stages-book-spread"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div class="stages-book-grid">
-                <!-- CHAPTER 01: BEFORE YOU ARRIVE (A5 Interactive Flip Card) -->
-                <article
-                  class="stage-book-chapter stage-card a5-flip-card"
-                  id="a5Chapter01"
-                  tabindex="0"
-                  role="button"
-                  aria-expanded="false"
-                  aria-label="Chapter 01 — Before You Arrive card. Press Enter or click to open."
-                >
-                  <div class="a5-flip-card-inner">
-                    <!-- FRONT FACE (Cover) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-front"
-                      aria-hidden="false"
-                    >
-                      <div class="a5-card-front-top">
-                        <span class="stage-chapter-badge">Chapter 01</span>
-                        <h3 class="stage-chapter-title">Before You Arrive</h3>
-                        <p class="stage-chapter-desc">
-                          The journey begins before the plane lands. GEMS helps
-                          students prepare with greater clarity and fewer
-                          surprises.
-                        </p>
-                      </div>
-                      <div class="stage-chapter-img-wrap">
-                        <img
-                          src="./assets/img/stage_before_arrive.jpg"
-                          alt="Before You Arrive - Preparation and planning desk"
-                          class="stage-chapter-img"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div class="a5-card-front-bottom">
-                        <div class="a5-open-pill">
-                          <span>Open Chapter</span>
-                          <i
-                            class="fa-solid fa-arrow-turn-down fa-rotate-270"
-                          ></i>
-                        </div>
-                        <div class="stage-chapter-tagline">
-                          FROM ASPIRATION TO ACTION
-                        </div>
-                      </div>
-                    </div>
+        <div id="educational-journey-book" data-mobile-chapter="0">
+          <div class="ej-container">
+            <div class="ej-heading">
+              <span class="ej-eyebrow">Your Journey with GEMS</span>
+              <h2>THE EDUCATIONAL JOURNEY — STUDENTS</h2>
+              <p>
+                From your first plans to your future career, discover the support
+                available at every stage.
+              </p>
+            </div>
 
-                    <!-- BACK FACE (Continuation Panel / Inside) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-back"
-                      aria-hidden="true"
-                    >
-                      <div class="a5-card-back-header">
-                        <div class="a5-card-back-topbar">
-                          <span class="stage-chapter-badge">Chapter 01</span>
-                          <button
-                            type="button"
-                            class="a5-close-pill"
-                            aria-label="Close Chapter 01 card"
-                          >
-                            <i
-                              class="fa-solid fa-arrow-turn-up fa-rotate-270"
-                            ></i>
-                            <span>Close</span>
-                          </button>
+            <div class="ej-book-stage">
+              <div class="ej-book" id="ejBook" role="region" aria-label="Interactive Educational Journey Book">
+                <!-- Center Binding Spine -->
+                <div class="ej-book-spine" aria-hidden="true"></div>
+
+                <!-- Left Wing: BASE CHAPTER 01 (LHS of Spread 0) -->
+                <div class="ej-book-wing ej-wing-left" id="ejWingLeft">
+                  <article class="ej-page ej-page-left" data-chapter="0" id="ejPage0">
+                    <span class="ej-chapter-number">Chapter 01</span>
+                    <h3>Before<br />You Arrive</h3>
+                    <span class="ej-gold-line"></span>
+                    <p class="ej-subtitle">Plan with confidence.</p>
+                    <div class="ej-image">
+                      <img
+                        src="./assets/img/stage_before_arrive.jpg"
+                        alt="Student preparing for an educational journey"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="ej-content">
+                      <ul class="ej-list">
+                        <li>Course &amp; university guidance</li>
+                        <li>Financial planning</li>
+                        <li>Visa guidance</li>
+                        <li>Travel planning</li>
+                        <li>Pre-departure support</li>
+                      </ul>
+                    </div>
+                    <footer class="ej-page-footer">
+                      From Aspiration<br />To Action
+                    </footer>
+                  </article>
+                </div>
+
+                <!-- Right Wing: Base Chapter 04 + Leaf 2 (Ch 03) + Leaf 1 (Ch 02) -->
+                <div class="ej-book-wing ej-wing-right" id="ejWingRight">
+
+                  <!-- Base Layer: CHAPTER 04 (RHS of Spread 2) -->
+                  <article class="ej-page ej-page-right" data-chapter="3" id="ejPage3" style="z-index: 2;">
+                    <span class="ej-chapter-number">Chapter 04</span>
+                    <h3>After<br />Graduation</h3>
+                    <span class="ej-gold-line"></span>
+                    <p class="ej-subtitle">Turn your education into opportunity.</p>
+                    <div class="ej-image">
+                      <img
+                        src="./assets/img/stage_after_graduation.jpg"
+                        alt="Graduate celebrating an academic achievement"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="ej-content">
+                      <ul class="ej-list">
+                        <li>Career planning</li>
+                        <li>Placement support</li>
+                        <li>Work authorization guidance</li>
+                        <li>Higher education pathways</li>
+                        <li>Lifelong GEMS network</li>
+                      </ul>
+                    </div>
+                    <footer class="ej-page-footer">
+                      Opportunities<br />That Last a Lifetime
+                    </footer>
+                  </article>
+
+                  <!-- Leaf 2: CHAPTER 03 (Front = RHS Spread 1; Back = LHS Spread 2) -->
+                  <div class="ej-flipping-leaf" id="ejLeaf2">
+                    <!-- FRONT FACE: Chapter 03 on the Right -->
+                    <div class="ej-leaf-face ej-leaf-front">
+                      <article class="ej-page ej-page-right" data-chapter="2" id="ejPage2Front">
+                        <span class="ej-chapter-number">Chapter 03</span>
+                        <h3>While<br />You Study</h3>
+                        <span class="ej-gold-line"></span>
+                        <p class="ej-subtitle">Stay focused. Go further.</p>
+                        <div class="ej-image">
+                          <img
+                            src="./assets/img/stage_while_study.jpg"
+                            alt="Student studying at a desk"
+                            loading="lazy"
+                          />
                         </div>
-                        <h4 class="a5-card-back-title">Before You Arrive</h4>
-                      </div>
-                      <div class="a5-card-back-body">
-                        <div class="stage-chapter-services-title">
-                          Services & Guidance
+                        <div class="ej-content">
+                          <ul class="ej-list">
+                            <li>Academic guidance</li>
+                            <li>Time &amp; financial planning</li>
+                            <li>Career exploration</li>
+                            <li>Wellness &amp; peer support</li>
+                            <li>Skill development</li>
+                          </ul>
                         </div>
-                        <ul class="stage-chapter-services-list">
-                          <li>
-                            <i class="fa-solid fa-school"></i>
-                            <span>School selection</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-coins"></i>
-                            <span>Financial planning</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-passport"></i>
-                            <span>Visa preparation</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-plane-departure"></i>
-                            <span>Travel planning</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-compass"></i>
-                            <span>What to expect</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="a5-card-back-footer">
-                        <div class="stage-chapter-cta-wrap">
-                          <a
-                            href="https://globalenrollment.us/subscription"
-                            class="stage-chapter-cta-btn"
-                          >
-                            <span>help me prepare</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </a>
+                        <footer class="ej-page-footer">
+                          Learn &nbsp;|&nbsp; Grow &nbsp;|&nbsp; Belong
+                        </footer>
+                      </article>
+                    </div>
+                    <!-- BACK FACE: Chapter 03 on the Left -->
+                    <div class="ej-leaf-face ej-leaf-back">
+                      <article class="ej-page ej-page-left" data-chapter="2" id="ejPage2Back">
+                        <span class="ej-chapter-number">Chapter 03</span>
+                        <h3>While<br />You Study</h3>
+                        <span class="ej-gold-line"></span>
+                        <p class="ej-subtitle">Stay focused. Go further.</p>
+                        <div class="ej-image">
+                          <img
+                            src="./assets/img/stage_while_study.jpg"
+                            alt="Student studying at a desk"
+                            loading="lazy"
+                          />
                         </div>
-                        <div class="stage-chapter-tagline">
-                          FROM ASPIRATION TO ACTION
+                        <div class="ej-content">
+                          <ul class="ej-list">
+                            <li>Academic guidance</li>
+                            <li>Time &amp; financial planning</li>
+                            <li>Career exploration</li>
+                            <li>Wellness &amp; peer support</li>
+                            <li>Skill development</li>
+                          </ul>
                         </div>
-                      </div>
+                        <footer class="ej-page-footer">
+                          Learn &nbsp;|&nbsp; Grow &nbsp;|&nbsp; Belong
+                        </footer>
+                      </article>
                     </div>
                   </div>
-                </article>
 
-                <!-- CHAPTER 02: AFTER YOU ARRIVE (A5 Interactive Flip Card) -->
-                <article
-                  class="stage-book-chapter stage-card a5-flip-card"
-                  id="a5Chapter02"
-                  tabindex="0"
-                  role="button"
-                  aria-expanded="false"
-                  aria-label="Chapter 02 — After You Arrive card. Press Enter or click to open."
-                >
-                  <div class="a5-flip-card-inner">
-                    <!-- FRONT FACE (Cover) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-front"
-                      aria-hidden="false"
-                    >
-                      <div class="a5-card-front-top">
-                        <span class="stage-chapter-badge">Chapter 02</span>
-                        <h3 class="stage-chapter-title">After You Arrive</h3>
-                        <p class="stage-chapter-desc">
-                          The first days and months in a new country can be
-                          overwhelming. GEMS helps students navigate the
-                          practical realities of settling in.
-                        </p>
-                      </div>
-                      <div class="stage-chapter-img-wrap">
-                        <img
-                          src="./assets/img/stage_after_arrive.jpg"
-                          alt="After You Arrive - Student entering university campus"
-                          class="stage-chapter-img"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div class="a5-card-front-bottom">
-                        <div class="a5-open-pill">
-                          <span>Open Chapter</span>
-                          <i
-                            class="fa-solid fa-arrow-turn-down fa-rotate-270"
-                          ></i>
+                  <!-- Leaf 1: CHAPTER 02 (Front = RHS Spread 0; Back = LHS Spread 1) -->
+                  <div class="ej-flipping-leaf" id="ejLeaf1">
+                    <!-- FRONT FACE: Chapter 02 on the Right -->
+                    <div class="ej-leaf-face ej-leaf-front">
+                      <article class="ej-page ej-page-right" data-chapter="1" id="ejPage1Front">
+                        <span class="ej-chapter-number">Chapter 02</span>
+                        <h3>After<br />You Arrive</h3>
+                        <span class="ej-gold-line"></span>
+                        <p class="ej-subtitle">Settle in with support.</p>
+                        <div class="ej-image">
+                          <img
+                            src="./assets/img/stage_after_arrive.jpg"
+                            alt="Student arriving at a university campus"
+                            loading="lazy"
+                          />
                         </div>
-                        <div class="stage-chapter-tagline">
-                          NEW PLACE SAME SUPPORT
+                        <div class="ej-content">
+                          <ul class="ej-list">
+                            <li>Airport assistance</li>
+                            <li>Accommodation support</li>
+                            <li>Local orientation</li>
+                            <li>Banking &amp; SIM setup</li>
+                            <li>Community connections</li>
+                          </ul>
                         </div>
-                      </div>
+                        <footer class="ej-page-footer">
+                          New Place<br />Same Support
+                        </footer>
+                      </article>
                     </div>
-
-                    <!-- BACK FACE (Continuation Panel / Inside) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-back"
-                      aria-hidden="true"
-                    >
-                      <div class="a5-card-back-header">
-                        <div class="a5-card-back-topbar">
-                          <span class="stage-chapter-badge">Chapter 02</span>
-                          <button
-                            type="button"
-                            class="a5-close-pill"
-                            aria-label="Close Chapter 02 card"
-                          >
-                            <i
-                              class="fa-solid fa-arrow-turn-up fa-rotate-270"
-                            ></i>
-                            <span>Close</span>
-                          </button>
+                    <!-- BACK FACE: Chapter 02 on the Left -->
+                    <div class="ej-leaf-face ej-leaf-back">
+                      <article class="ej-page ej-page-left" data-chapter="1" id="ejPage1Back">
+                        <span class="ej-chapter-number">Chapter 02</span>
+                        <h3>After<br />You Arrive</h3>
+                        <span class="ej-gold-line"></span>
+                        <p class="ej-subtitle">Settle in with support.</p>
+                        <div class="ej-image">
+                          <img
+                            src="./assets/img/stage_after_arrive.jpg"
+                            alt="Student arriving at a university campus"
+                            loading="lazy"
+                          />
                         </div>
-                        <h4 class="a5-card-back-title">After You Arrive</h4>
-                      </div>
-                      <div class="a5-card-back-body">
-                        <div class="stage-chapter-services-title">
-                          Services & Guidance
+                        <div class="ej-content">
+                          <ul class="ej-list">
+                            <li>Airport assistance</li>
+                            <li>Accommodation support</li>
+                            <li>Local orientation</li>
+                            <li>Banking &amp; SIM setup</li>
+                            <li>Community connections</li>
+                          </ul>
                         </div>
-                        <ul class="stage-chapter-services-list">
-                          <li>
-                            <i class="fa-solid fa-building-columns"></i>
-                            <span>Banking</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-sim-card"></i>
-                            <span>SIM cards</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-house"></i>
-                            <span>Housing</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-bus"></i>
-                            <span>Transportation</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <span>Insurance</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-id-card"></i>
-                            <span>Driver's license guidance</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>Building credit</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span>Employment readiness</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-user-shield"></i>
-                            <span>Safety awareness</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="a5-card-back-footer">
-                        <div class="stage-chapter-cta-wrap">
-                          <a
-                            href="https://globalenrollment.us/subscription"
-                            class="stage-chapter-cta-btn"
-                          >
-                            <span>Help me settle in</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </a>
-                        </div>
-                        <div class="stage-chapter-tagline">
-                          NEW PLACE SAME SUPPORT
-                        </div>
-                      </div>
+                        <footer class="ej-page-footer">
+                          New Place<br />Same Support
+                        </footer>
+                      </article>
                     </div>
                   </div>
-                </article>
 
-                <!-- CHAPTER 03: WHILE YOU STUDY (A5 Interactive Flip Card) -->
-                <article
-                  class="stage-book-chapter stage-card a5-flip-card"
-                  id="a5Chapter03"
-                  tabindex="0"
-                  role="button"
-                  aria-expanded="false"
-                  aria-label="Chapter 03 — While You Study card. Press Enter or click to open."
-                >
-                  <div class="a5-flip-card-inner">
-                    <!-- FRONT FACE (Cover) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-front"
-                      aria-hidden="false"
-                    >
-                      <div class="a5-card-front-top">
-                        <span class="stage-chapter-badge">Chapter 03</span>
-                        <h3 class="stage-chapter-title">While You Study</h3>
-                        <p class="stage-chapter-desc">
-                          The journey does not stop once classes begin. GEMS
-                          remains relevant as students build experience,
-                          relationships, skills, and their future.
-                        </p>
-                      </div>
-                      <div class="stage-chapter-img-wrap">
-                        <img
-                          src="./assets/img/stage_while_study.jpg"
-                          alt="While You Study - Students studying in university library"
-                          class="stage-chapter-img"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div class="a5-card-front-bottom">
-                        <div class="a5-open-pill">
-                          <span>Open Chapter</span>
-                          <i
-                            class="fa-solid fa-arrow-turn-down fa-rotate-270"
-                          ></i>
-                        </div>
-                        <div class="stage-chapter-tagline">
-                          LEARN | GROW | BELONG
-                        </div>
-                      </div>
-                    </div>
+                </div>
+              </div>
+            </div>
 
-                    <!-- BACK FACE (Continuation Panel / Inside) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-back"
-                      aria-hidden="true"
-                    >
-                      <div class="a5-card-back-header">
-                        <div class="a5-card-back-topbar">
-                          <span class="stage-chapter-badge">Chapter 03</span>
-                          <button
-                            type="button"
-                            class="a5-close-pill"
-                            aria-label="Close Chapter 03 card"
-                          >
-                            <i
-                              class="fa-solid fa-arrow-turn-up fa-rotate-270"
-                            ></i>
-                            <span>Close</span>
-                          </button>
-                        </div>
-                        <h4 class="a5-card-back-title">While You Study</h4>
-                      </div>
-                      <div class="a5-card-back-body">
-                        <div class="stage-chapter-services-title">
-                          Services & Guidance
-                        </div>
-                        <ul class="stage-chapter-services-list">
-                          <li>
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span>Internships</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-bullseye"></i>
-                            <span>Career planning</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-users"></i>
-                            <span>Networking</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-file-invoice-dollar"></i>
-                            <span>Taxes</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-map-location-dot"></i>
-                            <span>Travel</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-certificate"></i>
-                            <span>Certifications</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-arrow-trend-up"></i>
-                            <span>Professional development</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="a5-card-back-footer">
-                        <div class="stage-chapter-cta-wrap">
-                          <a
-                            href="https://globalenrollment.us/subscription"
-                            class="stage-chapter-cta-btn"
-                          >
-                            <span>Help me move forward</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </a>
-                        </div>
-                        <div class="stage-chapter-tagline">
-                          LEARN | GROW | BELONG
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+            <!-- Navigation Controls -->
+            <div class="ej-navigation">
+              <button
+                type="button"
+                class="ej-nav-btn"
+                id="ejPrevious"
+                aria-label="Previous spread"
+                disabled
+              >
+                &larr; Previous
+              </button>
 
-                <!-- CHAPTER 04: AFTER GRADUATION (A5 Interactive Flip Card) -->
-                <article
-                  class="stage-book-chapter stage-card a5-flip-card"
-                  id="a5Chapter04"
-                  tabindex="0"
-                  role="button"
-                  aria-expanded="false"
-                  aria-label="Chapter 04 — After Graduation card. Press Enter or click to open."
-                >
-                  <div class="a5-flip-card-inner">
-                    <!-- FRONT FACE (Cover) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-front"
-                      aria-hidden="false"
-                    >
-                      <div class="a5-card-front-top">
-                        <span class="stage-chapter-badge">Chapter 04</span>
-                        <h3 class="stage-chapter-title">After Graduation</h3>
-                        <p class="stage-chapter-desc">
-                          Graduation is not the end of the journey. It is the
-                          beginning of another chapter. GEMS can continue to
-                          provide guidance and connections as the student's
-                          goals evolve.
-                        </p>
-                      </div>
-                      <div class="stage-chapter-img-wrap">
-                        <img
-                          src="./assets/img/stage_after_graduation.jpg"
-                          alt="After Graduation - Graduate looking toward skyline"
-                          class="stage-chapter-img"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div class="a5-card-front-bottom">
-                        <div class="a5-open-pill">
-                          <span>Open Chapter</span>
-                          <i
-                            class="fa-solid fa-arrow-turn-down fa-rotate-270"
-                          ></i>
-                        </div>
-                        <div class="stage-chapter-tagline">
-                          OPPORTUNITIES THAT LAST A LIFETIME
-                        </div>
-                      </div>
-                    </div>
+              <div class="ej-progress">
+                <!-- Desktop Spread Indicators (3 spreads) -->
+                <div class="ej-dots-desktop" role="tablist" aria-label="Book spreads">
+                  <button
+                    type="button"
+                    class="ej-dot is-active"
+                    data-spread="0"
+                    aria-label="Spread 1: Chapters 01 and 02"
+                    aria-current="step"
+                  ></button>
+                  <button
+                    type="button"
+                    class="ej-dot"
+                    data-spread="1"
+                    aria-label="Spread 2: Chapters 02 and 03"
+                  ></button>
+                  <button
+                    type="button"
+                    class="ej-dot"
+                    data-spread="2"
+                    aria-label="Spread 3: Chapters 03 and 04"
+                  ></button>
+                </div>
 
-                    <!-- BACK FACE (Continuation Panel / Inside) -->
-                    <div
-                      class="a5-flip-card-face a5-flip-card-back"
-                      aria-hidden="true"
-                    >
-                      <div class="a5-card-back-header">
-                        <div class="a5-card-back-topbar">
-                          <span class="stage-chapter-badge">Chapter 04</span>
-                          <button
-                            type="button"
-                            class="a5-close-pill"
-                            aria-label="Close Chapter 04 card"
-                          >
-                            <i
-                              class="fa-solid fa-arrow-turn-up fa-rotate-270"
-                            ></i>
-                            <span>Close</span>
-                          </button>
-                        </div>
-                        <h4 class="a5-card-back-title">After Graduation</h4>
-                      </div>
-                      <div class="a5-card-back-body">
-                        <div class="stage-chapter-services-title">
-                          Services & Guidance
-                        </div>
-                        <ul class="stage-chapter-services-list">
-                          <li>
-                            <i class="fa-solid fa-route"></i>
-                            <span>Career transition</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Relocation</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <span>Further education</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span>Entrepreneurship</span>
-                          </li>
-                          <li>
-                            <i class="fa-solid fa-road"></i>
-                            <span>Long-term planning</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="a5-card-back-footer">
-                        <div class="stage-chapter-cta-wrap">
-                          <a
-                            href="https://globalenrollment.us/subscription"
-                            class="stage-chapter-cta-btn"
-                          >
-                            <span>Plan what's next</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </a>
-                        </div>
-                        <div class="stage-chapter-tagline">
-                          OPPORTUNITIES THAT LAST A LIFETIME
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                <!-- Mobile Chapter Indicators (4 chapters) -->
+                <div class="ej-dots-mobile" role="tablist" aria-label="Chapters">
+                  <button
+                    type="button"
+                    class="ej-dot is-active"
+                    data-mobstep="0"
+                    aria-label="Chapter 01: Before You Arrive"
+                  ></button>
+                  <button
+                    type="button"
+                    class="ej-dot"
+                    data-mobstep="1"
+                    aria-label="Chapter 02: After You Arrive"
+                  ></button>
+                  <button
+                    type="button"
+                    class="ej-dot"
+                    data-mobstep="2"
+                    aria-label="Chapter 03: While You Study"
+                  ></button>
+                  <button
+                    type="button"
+                    class="ej-dot"
+                    data-mobstep="3"
+                    aria-label="Chapter 04: After Graduation"
+                  ></button>
+                </div>
               </div>
 
-              <!-- Open Book Signature Footer Accent -->
+              <button
+                type="button"
+                class="ej-nav-btn"
+                id="ejNext"
+                aria-label="Next spread"
+              >
+                Next &rarr;
+              </button>
             </div>
+
+            <p class="ej-mobile-chapter" id="ejChapterStatus" aria-live="polite">
+              Chapters 01 &amp; 02 of 04
+            </p>
           </div>
         </div>
 
-        <!-- Scoped Interaction Script for A5 Flip Cards -->
-        <script id="a5-flip-cards-script">
+        <!-- Book Interactive Script -->
+        <script>
           (function () {
-            function initA5FlipCards() {
-              const stageSection = document.getElementById("stages");
-              if (!stageSection) return;
+            const root = document.getElementById("educational-journey-book");
+            if (!root) return;
 
-              const cards = stageSection.querySelectorAll(".a5-flip-card");
-              if (!cards.length) return;
+            const leaf1 = document.getElementById("ejLeaf1");
+            const leaf2 = document.getElementById("ejLeaf2");
+            const prevBtn = document.getElementById("ejPrevious");
+            const nextBtn = document.getElementById("ejNext");
+            const desktopDots = root.querySelectorAll(".ej-dots-desktop .ej-dot");
+            const mobileDots = root.querySelectorAll(".ej-dots-mobile .ej-dot");
+            const status = document.getElementById("ejChapterStatus");
+            const bookEl = document.getElementById("ejBook");
 
-              function updateCardAccessibility(card, isFlipped) {
-                card.setAttribute(
-                  "aria-expanded",
-                  isFlipped ? "true" : "false",
-                );
-                const front = card.querySelector(".a5-flip-card-front");
-                const back = card.querySelector(".a5-flip-card-back");
-                if (front)
-                  front.setAttribute(
-                    "aria-hidden",
-                    isFlipped ? "true" : "false",
-                  );
-                if (back)
-                  back.setAttribute(
-                    "aria-hidden",
-                    isFlipped ? "false" : "true",
-                  );
+            // State:
+            // Desktop spread: 0 = [Ch 1 | Ch 2], 1 = [Ch 2 | Ch 3], 2 = [Ch 3 | Ch 4]
+            let currentSpread = 0;
+            const totalSpreads = 3;
 
-                const frontFocusables = front
-                  ? front.querySelectorAll('button, a, [tabindex="0"]')
-                  : [];
-                const backFocusables = back
-                  ? back.querySelectorAll('button, a, [tabindex="0"]')
-                  : [];
+            // Mobile chapter: 0 = Ch 1, 1 = Ch 2, 2 = Ch 3, 3 = Ch 4
+            let currentMobileChapter = 0;
+            const totalMobileChapters = 4;
 
-                frontFocusables.forEach(function (el) {
-                  if (isFlipped) {
-                    el.setAttribute("tabindex", "-1");
+            let isAnimating = false;
+
+            function isMobile() {
+              return window.innerWidth <= 768;
+            }
+
+            function updateUI() {
+              if (isMobile()) {
+                // Mobile View
+                root.setAttribute("data-mobile-chapter", String(currentMobileChapter));
+                prevBtn.disabled = currentMobileChapter === 0;
+                nextBtn.disabled = currentMobileChapter === totalMobileChapters - 1;
+
+                mobileDots.forEach((dot, idx) => {
+                  const active = idx === currentMobileChapter;
+                  dot.classList.toggle("is-active", active);
+                  if (active) {
+                    dot.setAttribute("aria-current", "step");
                   } else {
-                    el.removeAttribute("tabindex");
+                    dot.removeAttribute("aria-current");
                   }
                 });
 
-                backFocusables.forEach(function (el) {
-                  if (isFlipped) {
-                    el.removeAttribute("tabindex");
+                const chapterTitles = [
+                  "Chapter 01 of 04: Before You Arrive",
+                  "Chapter 02 of 04: After You Arrive",
+                  "Chapter 03 of 04: While You Study",
+                  "Chapter 04 of 04: After Graduation"
+                ];
+                status.textContent = chapterTitles[currentMobileChapter];
+              } else {
+                // Desktop View: Two Facing Spreads
+                prevBtn.disabled = currentSpread === 0;
+                nextBtn.disabled = currentSpread === totalSpreads - 1;
+
+                desktopDots.forEach((dot, idx) => {
+                  const active = idx === currentSpread;
+                  dot.classList.toggle("is-active", active);
+                  if (active) {
+                    dot.setAttribute("aria-current", "step");
                   } else {
-                    el.setAttribute("tabindex", "-1");
-                  }
-                });
-              }
-
-              function toggleCard(targetCard) {
-                const isCurrentlyFlipped =
-                  targetCard.classList.contains("is-flipped");
-
-                // Close all cards first (only one active card at a time)
-                cards.forEach(function (card) {
-                  if (
-                    card !== targetCard &&
-                    card.classList.contains("is-flipped")
-                  ) {
-                    card.classList.remove("is-flipped");
-                    updateCardAccessibility(card, false);
+                    dot.removeAttribute("aria-current");
                   }
                 });
 
-                if (isCurrentlyFlipped) {
-                  targetCard.classList.remove("is-flipped");
-                  updateCardAccessibility(targetCard, false);
+                if (currentSpread === 0) {
+                  status.textContent = "Chapters 01 & 02 of 04";
+                } else if (currentSpread === 1) {
+                  status.textContent = "Chapters 02 & 03 of 04";
                 } else {
-                  targetCard.classList.add("is-flipped");
-                  updateCardAccessibility(targetCard, true);
+                  status.textContent = "Chapters 03 & 04 of 04";
+                }
+              }
+            }
+
+            function goToDesktopSpread(targetSpread) {
+              if (targetSpread === currentSpread) return;
+              if (isAnimating) return;
+              isAnimating = true;
+
+              const goingForward = targetSpread > currentSpread;
+
+              if (targetSpread === 0) {
+                // Return to Spread 0 (Ch 1 | Ch 2)
+                if (currentSpread === 2) {
+                  leaf2.classList.add("is-turning");
+                  leaf2.classList.remove("is-flipped");
+                  setTimeout(() => {
+                    leaf2.classList.remove("is-turning");
+                    leaf1.classList.add("is-turning");
+                    leaf1.classList.remove("is-flipped");
+                    setTimeout(() => leaf1.classList.remove("is-turning"), 850);
+                  }, 400);
+                } else {
+                  leaf1.classList.add("is-turning");
+                  leaf1.classList.remove("is-flipped");
+                  setTimeout(() => leaf1.classList.remove("is-turning"), 850);
+                }
+              } else if (targetSpread === 1) {
+                // Spread 1 (Ch 2 | Ch 3)
+                if (goingForward) {
+                  leaf1.classList.add("is-turning");
+                  leaf1.classList.add("is-flipped");
+                  setTimeout(() => leaf1.classList.remove("is-turning"), 850);
+                } else {
+                  leaf2.classList.add("is-turning");
+                  leaf2.classList.remove("is-flipped");
+                  setTimeout(() => leaf2.classList.remove("is-turning"), 850);
+                }
+              } else if (targetSpread === 2) {
+                // Spread 2 (Ch 3 | Ch 4)
+                if (currentSpread === 0) {
+                  leaf1.classList.add("is-flipped");
+                  leaf2.classList.add("is-turning", "is-flipped");
+                  setTimeout(() => leaf2.classList.remove("is-turning"), 850);
+                } else {
+                  leaf2.classList.add("is-turning");
+                  leaf2.classList.add("is-flipped");
+                  setTimeout(() => leaf2.classList.remove("is-turning"), 850);
                 }
               }
 
-              cards.forEach(function (card) {
-                updateCardAccessibility(card, false);
+              currentSpread = targetSpread;
+              // Sync mobile chapter
+              currentMobileChapter = currentSpread === 0 ? 0 : (currentSpread === 1 ? 1 : 3);
 
-                card.addEventListener("click", function (e) {
-                  // Don't flip when clicking the direct CTA link
-                  if (
-                    e.target.closest(".stage-chapter-cta-btn") ||
-                    e.target.closest(".stage-chapter-cta-wrap")
-                  ) {
-                    return;
-                  }
+              updateUI();
+              setTimeout(() => { isAnimating = false; }, 900);
+            }
 
-                  toggleCard(card);
-                });
+            function goToMobileChapter(targetChapter) {
+              if (targetChapter === currentMobileChapter) return;
+              currentMobileChapter = Math.max(0, Math.min(totalMobileChapters - 1, targetChapter));
 
-                card.addEventListener("keydown", function (e) {
-                  if (e.target.closest("a")) return;
+              // Sync desktop spread
+              if (currentMobileChapter === 0) currentSpread = 0;
+              else if (currentMobileChapter === 1 || currentMobileChapter === 2) currentSpread = 1;
+              else currentSpread = 2;
 
-                  if (
-                    e.key === "Enter" ||
-                    e.key === " " ||
-                    e.keyCode === 13 ||
-                    e.keyCode === 32
-                  ) {
-                    e.preventDefault();
-                    toggleCard(card);
-                  } else if (e.key === "Escape" || e.keyCode === 27) {
-                    if (card.classList.contains("is-flipped")) {
-                      e.preventDefault();
-                      toggleCard(card);
-                    }
-                  }
-                });
+              // Ensure leaf flip states match
+              if (currentSpread === 0) {
+                leaf1.classList.remove("is-flipped", "is-turning");
+                leaf2.classList.remove("is-flipped", "is-turning");
+              } else if (currentSpread === 1) {
+                leaf1.classList.add("is-flipped");
+                leaf1.classList.remove("is-turning");
+                leaf2.classList.remove("is-flipped", "is-turning");
+              } else {
+                leaf1.classList.add("is-flipped");
+                leaf2.classList.add("is-flipped");
+                leaf1.classList.remove("is-turning");
+                leaf2.classList.remove("is-turning");
+              }
+
+              updateUI();
+            }
+
+            function handleNext() {
+              if (isMobile()) {
+                if (currentMobileChapter < totalMobileChapters - 1) {
+                  goToMobileChapter(currentMobileChapter + 1);
+                }
+              } else {
+                if (currentSpread < totalSpreads - 1) {
+                  goToDesktopSpread(currentSpread + 1);
+                }
+              }
+            }
+
+            function handlePrevious() {
+              if (isMobile()) {
+                if (currentMobileChapter > 0) {
+                  goToMobileChapter(currentMobileChapter - 1);
+                }
+              } else {
+                if (currentSpread > 0) {
+                  goToDesktopSpread(currentSpread - 1);
+                }
+              }
+            }
+
+            nextBtn.addEventListener("click", handleNext);
+            prevBtn.addEventListener("click", handlePrevious);
+
+            // Desktop Dot Navigation
+            desktopDots.forEach((dot) => {
+              dot.addEventListener("click", function () {
+                const target = parseInt(dot.getAttribute("data-spread"), 10);
+                goToDesktopSpread(target);
               });
+            });
 
-              // Clicking outside any card closes currently open card
-              document.addEventListener("click", function (e) {
-                if (!stageSection.contains(e.target)) {
-                  cards.forEach(function (card) {
-                    if (card.classList.contains("is-flipped")) {
-                      card.classList.remove("is-flipped");
-                      updateCardAccessibility(card, false);
-                    }
-                  });
+            // Mobile Dot Navigation
+            mobileDots.forEach((dot) => {
+              dot.addEventListener("click", function () {
+                const target = parseInt(dot.getAttribute("data-mobstep"), 10);
+                goToMobileChapter(target);
+              });
+            });
+
+            // Direct Click on Book Pages for Natural Turning
+            if (bookEl) {
+              bookEl.addEventListener("click", function (e) {
+                if (e.target.closest("a") || e.target.closest("button")) return;
+                const rect = bookEl.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                if (clickX > rect.width / 2) {
+                  handleNext();
+                } else {
+                  handlePrevious();
                 }
               });
             }
 
-            if (document.readyState === "loading") {
-              document.addEventListener("DOMContentLoaded", initA5FlipCards);
-            } else {
-              initA5FlipCards();
-            }
+            // Keyboard Navigation
+            root.addEventListener("keydown", function (e) {
+              if (e.key === "ArrowRight") {
+                handleNext();
+              } else if (e.key === "ArrowLeft") {
+                handlePrevious();
+              }
+            });
+
+            // Window Resize handling
+            let resizeTimer;
+            window.addEventListener("resize", function () {
+              clearTimeout(resizeTimer);
+              resizeTimer = setTimeout(updateUI, 100);
+            });
+
+            // Initial render
+            updateUI();
           })();
         </script>
+
       </section>
 
     <!-- ==========================================================================

@@ -554,6 +554,15 @@
             align-items: center;
           }
 
+          /* Stage wrapper for Image + Overlay */
+          #growth-glance .growth-glance-stage {
+            position: relative;
+            width: 100%;
+            max-width: 1568px;
+            margin: 0 auto;
+            overflow: visible;
+          }
+
           /* Responsive AT A GLANCE Image Display */
           #growth-glance img,
           #growth-glance img[usemap="#image-map"],
@@ -569,6 +578,241 @@
             vertical-align: middle;
           }
 
+          /* Interactive Hotspots Overlay */
+          #growth-glance .growth-glance-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+          }
+
+          /* Individual Hotspot Links */
+          #growth-glance .growth-hotspot {
+            position: absolute;
+            display: block;
+            pointer-events: auto;
+            cursor: pointer;
+            border-radius: 20px;
+            text-decoration: none !important;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+          }
+
+          /* Subtle Pulsing Halo around each circular badge */
+          #growth-glance .hotspot-badge-pulse {
+            position: absolute;
+            top: var(--badge-top, 28%);
+            left: 50%;
+            width: var(--badge-size, 58px);
+            height: var(--badge-size, 58px);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px solid var(--theme-color, #f4b942);
+            box-shadow: 0 0 16px var(--theme-glow, rgba(244, 185, 66, 0.45));
+            opacity: 0.75;
+            animation: glanceHotspotPulse 2.8s ease-in-out infinite;
+            pointer-events: none;
+            transition: all 0.3s ease;
+          }
+
+          @keyframes glanceHotspotPulse {
+            0%,
+            100% {
+              transform: translate(-50%, -50%) scale(0.96);
+              opacity: 0.6;
+              box-shadow: 0 0 10px var(--theme-glow, rgba(244, 185, 66, 0.3));
+            }
+            50% {
+              transform: translate(-50%, -50%) scale(1.08);
+              opacity: 1;
+              box-shadow: 0 0 22px var(--theme-glow, rgba(244, 185, 66, 0.7));
+            }
+          }
+
+          /* Hover and keyboard focus states */
+          #growth-glance .growth-hotspot:hover,
+          #growth-glance .growth-hotspot:focus-visible,
+          #growth-glance .growth-hotspot.is-active {
+            background: var(--theme-bg, rgba(255, 255, 255, 0.12));
+            box-shadow:
+              0 8px 24px rgba(0, 0, 0, 0.22),
+              0 0 0 2px var(--theme-color);
+          }
+
+          #growth-glance .growth-hotspot:hover .hotspot-badge-pulse,
+          #growth-glance .growth-hotspot:focus-visible .hotspot-badge-pulse {
+            animation: none;
+            transform: translate(-50%, -50%) scale(1.15);
+            border-width: 3px;
+            box-shadow: 0 0 28px var(--theme-glow);
+            opacity: 1;
+          }
+
+          /* Glassmorphic floating tooltip badge */
+          #growth-glance .hotspot-tooltip {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 14px 7px 10px;
+            background: rgba(13, 27, 42, 0.94);
+            color: #ffffff;
+            border: 1px solid rgba(244, 185, 66, 0.4);
+            border-radius: 50px;
+            box-shadow: 0 12px 30px rgba(7, 27, 53, 0.35);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 20;
+          }
+
+          #growth-glance .hotspot-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(13, 27, 42, 0.94);
+          }
+
+          #growth-glance .hotspot-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--theme-color, #f4b942);
+            color: #071b35;
+            font-size: 10px;
+            font-weight: 800;
+          }
+
+          #growth-glance .hotspot-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.2;
+          }
+
+          #growth-glance .hotspot-text strong {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #ffffff;
+          }
+
+          #growth-glance .hotspot-text small {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.72);
+            font-weight: 400;
+          }
+
+          #growth-glance .hotspot-tooltip i {
+            font-size: 10px;
+            color: var(--theme-color, #f4b942);
+            transition: transform 0.2s ease;
+          }
+
+          #growth-glance .growth-hotspot:hover .hotspot-tooltip,
+          #growth-glance .growth-hotspot:focus-visible .hotspot-tooltip,
+          #growth-glance .growth-hotspot.is-active .hotspot-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+
+          #growth-glance .growth-hotspot:hover .hotspot-tooltip i {
+            transform: translateX(3px);
+          }
+
+          /* Exact percentage positioning for all 6 hotspots */
+          /* 1. Personal Development */
+          #growth-glance .hotspot-personal {
+            left: 2.87%;
+            top: 46.86%;
+            width: 12.12%;
+            height: 21.93%;
+            --theme-color: #00a896;
+            --theme-glow: rgba(0, 168, 150, 0.65);
+            --theme-bg: rgba(0, 168, 150, 0.14);
+            --badge-top: 29.5%;
+            --badge-size: clamp(38px, 4.4vw, 68px);
+          }
+
+          /* 2. Professional Growth */
+          #growth-glance .hotspot-professional {
+            left: 14.35%;
+            top: 42.87%;
+            width: 12.12%;
+            height: 20.94%;
+            --theme-color: #1e70bf;
+            --theme-glow: rgba(30, 112, 191, 0.65);
+            --theme-bg: rgba(30, 112, 191, 0.14);
+            --badge-top: 28.6%;
+            --badge-size: clamp(38px, 4.4vw, 68px);
+          }
+
+          /* 3. Financial Readiness */
+          #growth-glance .hotspot-financial {
+            left: 29.97%;
+            top: 50.85%;
+            width: 11.16%;
+            height: 19.94%;
+            --theme-color: #2e9652;
+            --theme-glow: rgba(46, 150, 82, 0.65);
+            --theme-bg: rgba(46, 150, 82, 0.14);
+            --badge-top: 27.5%;
+            --badge-size: clamp(38px, 4.4vw, 68px);
+          }
+
+          /* 4. Network & Relationships */
+          #growth-glance .hotspot-network {
+            left: 57.72%;
+            top: 49.85%;
+            width: 12.12%;
+            height: 20.94%;
+            --theme-color: #c9933b;
+            --theme-glow: rgba(201, 147, 59, 0.65);
+            --theme-bg: rgba(201, 147, 59, 0.14);
+            --badge-top: 26.2%;
+            --badge-size: clamp(38px, 4.4vw, 68px);
+          }
+
+          /* 5. Entrepreneurship */
+          #growth-glance .hotspot-entrepreneurship {
+            left: 75.89%;
+            top: 44.87%;
+            width: 12.12%;
+            height: 20.94%;
+            --theme-color: #7b388b;
+            --theme-glow: rgba(123, 56, 139, 0.65);
+            --theme-bg: rgba(123, 56, 139, 0.14);
+            --badge-top: 28.6%;
+            --badge-size: clamp(38px, 4.4vw, 68px);
+          }
+
+          /* 6. Long-Term Planning */
+          #growth-glance .hotspot-planning {
+            left: 86.73%;
+            top: 38.38%;
+            width: 10.52%;
+            height: 21.44%;
+            --theme-color: #245582;
+            --theme-glow: rgba(36, 85, 130, 0.65);
+            --theme-bg: rgba(36, 85, 130, 0.14);
+            --badge-top: 27.9%;
+            --badge-size: clamp(38px, 4.4vw, 68px);
+          }
+
           /* Responsive adjustments */
           @media (max-width: 991px) {
             #growth-glance .growth-glance-intro-row {
@@ -579,6 +823,19 @@
           @media (max-width: 767px) {
             #growth-glance .growth-glance-intro-row {
               padding: 60px 0 20px 0;
+            }
+            #growth-glance .hotspot-tooltip {
+              padding: 5px 10px;
+              font-size: 10px;
+            }
+            #growth-glance .hotspot-tooltip strong {
+              font-size: 11px;
+            }
+            #growth-glance .hotspot-tooltip small {
+              display: none;
+            }
+            #growth-glance .hotspot-tooltip i {
+              display: none;
             }
           }
         </style>
@@ -607,67 +864,277 @@
         <!-- ROW 2 — BACKGROUND IMAGE + EXISTING ICON CONTENT -->
         <div class="container-port-xl growth-glance-media-row">
           <div class="row">
-            <!-- Image Map Generated by http://www.image-map.net/ -->
-            <img
-              src="assets/img/Growth_Journey_At_a_Glance.webp"
-              usemap="#image-map"
-              alt="Growth Journey At A Glance"
-              class="growth-glance-img"
-              loading="lazy"
-            />
+            <div class="growth-glance-stage">
+              <!-- Image Map Generated by http://www.image-map.net/ -->
+              <img
+                src="assets/img/Growth_Journey_At_a_Glance.webp"
+                usemap="#image-map"
+                alt="Growth Journey At A Glance - Interactive Roadmap"
+                class="growth-glance-img"
+                id="growthGlanceImg"
+                loading="lazy"
+                width="1568"
+                height="1003"
+              />
 
-            <map name="image-map">
-              <area
-                target=""
-                alt="Personal Development"
-                title="Personal Development"
-                href="#"
-                coords=""
-                shape="rect"
-              />
-              <area
-                target=""
-                alt="Personal Growth"
-                title="Personal Growth"
-                href="#"
-                coords=""
-                shape="rect"
-              />
-              <area
-                target=""
-                alt="Financial Readness"
-                title="Financial Readness"
-                href="#"
-                coords=""
-                shape="rect"
-              />
-              <area
-                target=""
-                alt="Network &amp; Relationshio"
-                title="Network &amp; Relationshio"
-                href="#"
-                coords=""
-                shape="rect"
-              />
-              <area
-                target=""
-                alt="Entrepreneurship"
-                title="Entrepreneurship"
-                href="#"
-                coords=""
-                shape="rect"
-              />
-              <area
-                target=""
-                alt="Long-Term-planning"
-                title="Long-Term-planning"
-                href="#"
-                coords=""
-                shape="rect"
-              />
-            </map>
+              <!-- Interactive Visual Hotspots Overlay -->
+              <div
+                class="growth-glance-overlay"
+                aria-label="Interactive Growth Areas"
+              >
+                <!-- 1. Personal Development -->
+                <a
+                  href="#personal-dev"
+                  class="growth-hotspot hotspot-personal"
+                  data-index="1"
+                  title="Personal Development"
+                  aria-label="Personal Development — Be your best self. Click to explore."
+                >
+                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-tooltip" role="tooltip">
+                    <span class="hotspot-num">01</span>
+                    <span class="hotspot-text">
+                      <strong>Personal Development</strong>
+                      <small>Be your best self</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+
+                <!-- 2. Professional Growth -->
+                <a
+                  href="#professional-growth"
+                  class="growth-hotspot hotspot-professional"
+                  data-index="2"
+                  title="Professional Growth"
+                  aria-label="Professional Growth — Build your future. Click to explore."
+                >
+                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-tooltip" role="tooltip">
+                    <span class="hotspot-num">02</span>
+                    <span class="hotspot-text">
+                      <strong>Professional Growth</strong>
+                      <small>Build your future</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+
+                <!-- 3. Financial Readiness -->
+                <a
+                  href="#financial-readiness"
+                  class="growth-hotspot hotspot-financial"
+                  data-index="3"
+                  title="Financial Readiness"
+                  aria-label="Financial Readiness — Create stability. Click to explore."
+                >
+                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-tooltip" role="tooltip">
+                    <span class="hotspot-num">03</span>
+                    <span class="hotspot-text">
+                      <strong>Financial Readiness</strong>
+                      <small>Create stability</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+
+                <!-- 4. Network & Relationships -->
+                <a
+                  href="#network-relationships"
+                  class="growth-hotspot hotspot-network"
+                  data-index="4"
+                  title="Network & Relationships"
+                  aria-label="Network & Relationships — Grow together. Click to explore."
+                >
+                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-tooltip" role="tooltip">
+                    <span class="hotspot-num">04</span>
+                    <span class="hotspot-text">
+                      <strong>Network &amp; Relationships</strong>
+                      <small>Grow together</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+
+                <!-- 5. Entrepreneurship -->
+                <a
+                  href="#entrepreneurship"
+                  class="growth-hotspot hotspot-entrepreneurship"
+                  data-index="5"
+                  title="Entrepreneurship"
+                  aria-label="Entrepreneurship — Turn ideas into impact. Click to explore."
+                >
+                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-tooltip" role="tooltip">
+                    <span class="hotspot-num">05</span>
+                    <span class="hotspot-text">
+                      <strong>Entrepreneurship</strong>
+                      <small>Turn ideas into impact</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+
+                <!-- 6. Long-Term Planning -->
+                <a
+                  href="#long-term-planning"
+                  class="growth-hotspot hotspot-planning"
+                  data-index="6"
+                  title="Long-Term Planning"
+                  aria-label="Long-Term Planning — Design the life you want. Click to explore."
+                >
+                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
+                  <span class="hotspot-tooltip" role="tooltip">
+                    <span class="hotspot-num">06</span>
+                    <span class="hotspot-text">
+                      <strong>Long-Term Planning</strong>
+                      <small>Design the life you want</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+
+              <!-- Standard HTML Map with Calculated Native Coordinates -->
+              <map name="image-map" id="growthImageMap">
+                <area
+                  alt="Personal Development"
+                  title="Personal Development"
+                  href="#personal-dev"
+                  coords="45,470,235,690"
+                  shape="rect"
+                  class="rect1"
+                />
+                <area
+                  alt="Personal Growth"
+                  title="Personal Growth"
+                  href="#professional-growth"
+                  coords="225,430,415,640"
+                  shape="rect"
+                  class="rect2"
+                />
+                <area
+                  alt="Financial Readiness"
+                  title="Financial Readiness"
+                  href="#financial-readiness"
+                  coords="470,510,645,710"
+                  shape="rect"
+                  class="rect3"
+                />
+                <area
+                  alt="Network &amp; Relationships"
+                  title="Network &amp; Relationships"
+                  href="#network-relationships"
+                  coords="905,500,1095,710"
+                  shape="rect"
+                  class="rect4"
+                />
+                <area
+                  alt="Entrepreneurship"
+                  title="Entrepreneurship"
+                  href="#entrepreneurship"
+                  coords="1190,450,1380,660"
+                  shape="rect"
+                  class="rect5"
+                />
+                <area
+                  alt="Long-Term Planning"
+                  title="Long-Term Planning"
+                  href="#long-term-planning"
+                  coords="1360,385,1525,600"
+                  shape="rect"
+                  class="rect6"
+                />
+              </map>
+            </div>
           </div>
         </div>
+
+        <!-- Vanilla JavaScript: Proportional Map Scaler & Smooth Scroll -->
+        <script id="growth-glance-script">
+          (function () {
+            const originalWidth = 1568;
+            const originalHeight = 1003;
+            const originalCoords = [
+              [45, 470, 235, 690],
+              [225, 430, 415, 640],
+              [470, 510, 645, 710],
+              [905, 500, 1095, 710],
+              [1190, 450, 1380, 660],
+              [1360, 385, 1525, 600],
+            ];
+
+            function updateImageMapCoords() {
+              const img = document.getElementById("growthGlanceImg");
+              const map = document.getElementById("growthImageMap");
+              if (!img || !map) return;
+              const currentW = img.clientWidth;
+              const currentH = img.clientHeight;
+              if (!currentW || !currentH) return;
+
+              const scaleX = currentW / originalWidth;
+              const scaleY = currentH / originalHeight;
+
+              const areas = map.querySelectorAll("area");
+              areas.forEach((area, i) => {
+                if (originalCoords[i]) {
+                  const [x1, y1, x2, y2] = originalCoords[i];
+                  const scaled = [
+                    Math.round(x1 * scaleX),
+                    Math.round(y1 * scaleY),
+                    Math.round(x2 * scaleX),
+                    Math.round(y2 * scaleY),
+                  ];
+                  area.coords = scaled.join(",");
+                }
+              });
+            }
+
+            // Smooth scroll handler for both hotspots and areas
+            function setupSmoothScroll() {
+              const links = document.querySelectorAll(
+                "#growth-glance .growth-hotspot, #growth-glance area",
+              );
+              links.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                  const href = this.getAttribute("href");
+                  if (href && href.startsWith("#") && href.length > 1) {
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                      e.preventDefault();
+                      targetEl.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                      try {
+                        history.pushState(null, null, href);
+                      } catch (err) {}
+                    }
+                  }
+                });
+              });
+            }
+
+            window.addEventListener("resize", updateImageMapCoords);
+            window.addEventListener("load", updateImageMapCoords);
+            if (typeof ResizeObserver !== "undefined") {
+              const img = document.getElementById("growthGlanceImg");
+              if (img) new ResizeObserver(updateImageMapCoords).observe(img);
+            }
+
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", () => {
+                updateImageMapCoords();
+                setupSmoothScroll();
+              });
+            } else {
+              updateImageMapCoords();
+              setupSmoothScroll();
+            }
+          })();
+        </script>
       </section>
 
       <!-- ==========================================================================

@@ -601,37 +601,6 @@
             -webkit-tap-highlight-color: transparent;
           }
 
-          /* Subtle Pulsing Halo around each circular badge */
-          #growth-glance .hotspot-badge-pulse {
-            position: absolute;
-            top: var(--badge-top, 28%);
-            left: 50%;
-            width: var(--badge-size, 58px);
-            height: var(--badge-size, 58px);
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 2px solid var(--theme-color, #f4b942);
-            box-shadow: 0 0 16px var(--theme-glow, rgba(244, 185, 66, 0.45));
-            opacity: 0.75;
-            animation: glanceHotspotPulse 2.8s ease-in-out infinite;
-            pointer-events: none;
-            transition: all 0.3s ease;
-          }
-
-          @keyframes glanceHotspotPulse {
-            0%,
-            100% {
-              transform: translate(-50%, -50%) scale(0.96);
-              opacity: 0.6;
-              box-shadow: 0 0 10px var(--theme-glow, rgba(244, 185, 66, 0.3));
-            }
-            50% {
-              transform: translate(-50%, -50%) scale(1.08);
-              opacity: 1;
-              box-shadow: 0 0 22px var(--theme-glow, rgba(244, 185, 66, 0.7));
-            }
-          }
-
           /* Hover and keyboard focus states */
           #growth-glance .growth-hotspot:hover,
           #growth-glance .growth-hotspot:focus-visible,
@@ -640,15 +609,6 @@
             box-shadow:
               0 8px 24px rgba(0, 0, 0, 0.22),
               0 0 0 2px var(--theme-color);
-          }
-
-          #growth-glance .growth-hotspot:hover .hotspot-badge-pulse,
-          #growth-glance .growth-hotspot:focus-visible .hotspot-badge-pulse {
-            animation: none;
-            transform: translate(-50%, -50%) scale(1.15);
-            border-width: 3px;
-            box-shadow: 0 0 28px var(--theme-glow);
-            opacity: 1;
           }
 
           /* Glassmorphic floating tooltip badge */
@@ -744,8 +704,6 @@
             --theme-color: #00a896;
             --theme-glow: rgba(0, 168, 150, 0.65);
             --theme-bg: rgba(0, 168, 150, 0.14);
-            --badge-top: 29.5%;
-            --badge-size: clamp(38px, 4.4vw, 68px);
           }
 
           /* 2. Professional Growth */
@@ -757,8 +715,6 @@
             --theme-color: #1e70bf;
             --theme-glow: rgba(30, 112, 191, 0.65);
             --theme-bg: rgba(30, 112, 191, 0.14);
-            --badge-top: 28.6%;
-            --badge-size: clamp(38px, 4.4vw, 68px);
           }
 
           /* 3. Financial Readiness */
@@ -770,8 +726,6 @@
             --theme-color: #2e9652;
             --theme-glow: rgba(46, 150, 82, 0.65);
             --theme-bg: rgba(46, 150, 82, 0.14);
-            --badge-top: 27.5%;
-            --badge-size: clamp(38px, 4.4vw, 68px);
           }
 
           /* 4. Network & Relationships */
@@ -783,8 +737,6 @@
             --theme-color: #c9933b;
             --theme-glow: rgba(201, 147, 59, 0.65);
             --theme-bg: rgba(201, 147, 59, 0.14);
-            --badge-top: 26.2%;
-            --badge-size: clamp(38px, 4.4vw, 68px);
           }
 
           /* 5. Entrepreneurship */
@@ -796,8 +748,6 @@
             --theme-color: #7b388b;
             --theme-glow: rgba(123, 56, 139, 0.65);
             --theme-bg: rgba(123, 56, 139, 0.14);
-            --badge-top: 28.6%;
-            --badge-size: clamp(38px, 4.4vw, 68px);
           }
 
           /* 6. Long-Term Planning */
@@ -809,8 +759,6 @@
             --theme-color: #245582;
             --theme-glow: rgba(36, 85, 130, 0.65);
             --theme-bg: rgba(36, 85, 130, 0.14);
-            --badge-top: 27.9%;
-            --badge-size: clamp(38px, 4.4vw, 68px);
           }
 
           /* Responsive adjustments */
@@ -890,7 +838,6 @@
                   title="Personal Development"
                   aria-label="Personal Development — Be your best self. Click to explore."
                 >
-                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
                   <span class="hotspot-tooltip" role="tooltip">
                     <span class="hotspot-num">01</span>
                     <span class="hotspot-text">
@@ -909,7 +856,6 @@
                   title="Professional Growth"
                   aria-label="Professional Growth — Build your future. Click to explore."
                 >
-                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
                   <span class="hotspot-tooltip" role="tooltip">
                     <span class="hotspot-num">02</span>
                     <span class="hotspot-text">
@@ -928,7 +874,6 @@
                   title="Financial Readiness"
                   aria-label="Financial Readiness — Create stability. Click to explore."
                 >
-                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
                   <span class="hotspot-tooltip" role="tooltip">
                     <span class="hotspot-num">03</span>
                     <span class="hotspot-text">
@@ -947,7 +892,6 @@
                   title="Network & Relationships"
                   aria-label="Network & Relationships — Grow together. Click to explore."
                 >
-                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
                   <span class="hotspot-tooltip" role="tooltip">
                     <span class="hotspot-num">04</span>
                     <span class="hotspot-text">
@@ -966,7 +910,6 @@
                   title="Entrepreneurship"
                   aria-label="Entrepreneurship — Turn ideas into impact. Click to explore."
                 >
-                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
                   <span class="hotspot-tooltip" role="tooltip">
                     <span class="hotspot-num">05</span>
                     <span class="hotspot-text">
@@ -985,7 +928,6 @@
                   title="Long-Term Planning"
                   aria-label="Long-Term Planning — Design the life you want. Click to explore."
                 >
-                  <span class="hotspot-badge-pulse" aria-hidden="true"></span>
                   <span class="hotspot-tooltip" role="tooltip">
                     <span class="hotspot-num">06</span>
                     <span class="hotspot-text">

@@ -1672,18 +1672,45 @@
               border: 0;
             }
 
-            /* Individual Interactive Hotspot placed over the wheel's embossed number badges */
+            /* Central Center Circle Shape framing "The GEMS Process" */
+            #how-gems-supports .gems-wheel-center-circle {
+              position: absolute;
+              left: 50%;
+              top: 49.7%;
+              transform: translate(-50%, -50%);
+              width: 29.2%;
+              aspect-ratio: 1 / 1;
+              border-radius: 50%;
+              pointer-events: none;
+              z-index: 6;
+              border: 2px solid rgba(212, 160, 41, 0.7);
+              box-shadow:
+                0 0 0 2px rgba(255, 255, 255, 0.45),
+                0 0 0 4px rgba(212, 160, 41, 0.25),
+                0 6px 18px rgba(7, 27, 53, 0.18),
+                inset 0 0 14px rgba(212, 160, 41, 0.15);
+              background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0) 58%,
+                rgba(244, 185, 66, 0.05) 82%,
+                rgba(212, 160, 41, 0.15) 100%
+              );
+              transition: all 0.35s ease;
+            }
+
+            /* Individual Interactive Numbered Circular Pointers (Increased size by ~25%) */
             #how-gems-supports .wheel-hotspot {
               position: absolute;
               transform: translate(-50%, -50%);
               pointer-events: auto;
-              width: 44px;
-              height: 44px;
+              width: 55px;
+              height: 55px;
               aspect-ratio: 1 / 1;
               border-radius: 50%;
-              background: transparent;
-              border: 2px solid transparent;
-              box-shadow: none;
+              border: 2.5px solid #d4a029;
+              box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.35);
               display: flex;
               align-items: center;
               justify-content: center;
@@ -1692,12 +1719,70 @@
               outline: none;
               transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
               z-index: 10;
+              user-select: none;
+            }
+
+            /* Visible Number Typography inside Circular Pointers */
+            #how-gems-supports .wheel-hotspot .hotspot-number {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: var(--font-family-primary, "Dubai", sans-serif);
+              font-size: 1.05rem;
+              font-weight: 800;
+              line-height: 1;
+              color: #ffffff;
+              letter-spacing: -0.3px;
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+              pointer-events: none;
+            }
+
+            /* Distinct Stage Gradient Colors Matching Wheel Infographic */
+            #how-gems-supports .wheel-hotspot[data-stage="1"] {
+              background: radial-gradient(
+                circle at 35% 35%,
+                #a81515 0%,
+                #7d0d0d 65%,
+                #4f0606 100%
+              );
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="2"] {
+              background: radial-gradient(
+                circle at 35% 35%,
+                #185a9d 0%,
+                #0e3b6c 65%,
+                #072242 100%
+              );
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="3"] {
+              background: radial-gradient(
+                circle at 35% 35%,
+                #107780 0%,
+                #0a5259 65%,
+                #043034 100%
+              );
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="4"] {
+              background: radial-gradient(
+                circle at 35% 35%,
+                #934f13 0%,
+                #69370b 65%,
+                #432104 100%
+              );
+            }
+            #how-gems-supports .wheel-hotspot[data-stage="5"] {
+              background: radial-gradient(
+                circle at 35% 35%,
+                #1f6426 0%,
+                #13441a 65%,
+                #0a290f 100%
+              );
             }
 
             /* Pulsing radar ring */
             #how-gems-supports .wheel-hotspot .hotspot-pulse {
               position: absolute;
-              inset: -6px;
+              inset: -8px;
               border-radius: 50%;
               border: 2.5px solid transparent;
               pointer-events: none;
@@ -1707,17 +1792,18 @@
 
             /* Hotspot Hover & Focus */
             #how-gems-supports .wheel-hotspot:hover {
-              transform: translate(-50%, -50%) scale(1.15);
-              border-color: rgba(190, 159, 92, 0.9);
+              transform: translate(-50%, -50%) scale(1.12);
+              border-color: #ffffff;
               box-shadow:
-                0 0 16px rgba(190, 159, 92, 0.55),
-                inset 0 0 10px rgba(190, 159, 92, 0.25);
+                0 0 16px rgba(224, 179, 84, 0.8),
+                0 6px 14px rgba(0, 0, 0, 0.5),
+                inset 0 1px 3px rgba(255, 255, 255, 0.5);
             }
 
             #how-gems-supports .wheel-hotspot:focus-visible {
               outline: 2.5px solid var(--color-primary, #0f1681);
-              outline-offset: 3px;
-              transform: translate(-50%, -50%) scale(1.15);
+              outline-offset: 4px;
+              transform: translate(-50%, -50%) scale(1.12);
             }
 
             /* Active Hotspot State: luminous colored ring and animated wave */
@@ -1750,9 +1836,9 @@
             /* Specific stage accents for active hotspots */
             #how-gems-supports .wheel-hotspot[data-stage="1"].is-active {
               box-shadow:
-                0 0 0 3px #e53935,
-                0 0 22px rgba(229, 57, 53, 0.65),
-                0 8px 20px rgba(0, 0, 0, 0.35);
+                0 0 0 3px #ffffff,
+                0 0 24px rgba(229, 57, 53, 0.85),
+                0 8px 20px rgba(0, 0, 0, 0.45);
             }
             #how-gems-supports
               .wheel-hotspot[data-stage="1"].is-active
@@ -1762,9 +1848,9 @@
 
             #how-gems-supports .wheel-hotspot[data-stage="2"].is-active {
               box-shadow:
-                0 0 0 3px #1e88e5,
-                0 0 22px rgba(30, 136, 229, 0.65),
-                0 8px 20px rgba(0, 0, 0, 0.35);
+                0 0 0 3px #ffffff,
+                0 0 24px rgba(30, 136, 229, 0.85),
+                0 8px 20px rgba(0, 0, 0, 0.45);
             }
             #how-gems-supports
               .wheel-hotspot[data-stage="2"].is-active
@@ -1774,9 +1860,9 @@
 
             #how-gems-supports .wheel-hotspot[data-stage="3"].is-active {
               box-shadow:
-                0 0 0 3px #00897b,
-                0 0 22px rgba(0, 137, 123, 0.65),
-                0 8px 20px rgba(0, 0, 0, 0.35);
+                0 0 0 3px #ffffff,
+                0 0 24px rgba(0, 137, 123, 0.85),
+                0 8px 20px rgba(0, 0, 0, 0.45);
             }
             #how-gems-supports
               .wheel-hotspot[data-stage="3"].is-active
@@ -1786,9 +1872,9 @@
 
             #how-gems-supports .wheel-hotspot[data-stage="4"].is-active {
               box-shadow:
-                0 0 0 3px #fb8c00,
-                0 0 22px rgba(251, 140, 0, 0.65),
-                0 8px 20px rgba(0, 0, 0, 0.35);
+                0 0 0 3px #ffffff,
+                0 0 24px rgba(251, 140, 0, 0.85),
+                0 8px 20px rgba(0, 0, 0, 0.45);
             }
             #how-gems-supports
               .wheel-hotspot[data-stage="4"].is-active
@@ -1798,9 +1884,9 @@
 
             #how-gems-supports .wheel-hotspot[data-stage="5"].is-active {
               box-shadow:
-                0 0 0 3px #43a047,
-                0 0 22px rgba(67, 160, 71, 0.65),
-                0 8px 20px rgba(0, 0, 0, 0.35);
+                0 0 0 3px #ffffff,
+                0 0 24px rgba(67, 160, 71, 0.85),
+                0 8px 20px rgba(0, 0, 0, 0.45);
             }
             #how-gems-supports
               .wheel-hotspot[data-stage="5"].is-active
@@ -2211,8 +2297,12 @@
               }
 
               #how-gems-supports .wheel-hotspot {
-                width: 36px;
-                height: 36px;
+                width: 44px;
+                height: 44px;
+              }
+
+              #how-gems-supports .wheel-hotspot .hotspot-number {
+                font-size: 0.88rem;
               }
 
               #how-gems-supports .stage-nav-tab {
@@ -2269,6 +2359,12 @@
                     height="433"
                   />
 
+                  <!-- Perfectly Centered Circular Shape over "The GEMS Process" -->
+                  <div
+                    class="gems-wheel-center-circle"
+                    aria-hidden="true"
+                  ></div>
+
                   <!-- Interactive Hotspot Buttons directly over the wheel -->
                   <div
                     class="gems-wheel-hotspots"
@@ -2283,7 +2379,8 @@
                       aria-label="Stage 01: Identify — Clarify what you want to improve or accomplish"
                       title="Stage 01: Identify"
                     >
-                      <span class="hotspot-pulse"></span>
+                      <span class="hotspot-pulse" aria-hidden="true"></span>
+                      <span class="hotspot-number" aria-hidden="true">01</span>
                       <span class="sr-only">Stage 01: Identify</span>
                     </button>
 
@@ -2296,7 +2393,8 @@
                       aria-label="Stage 02: Understand — Explore your options, requirements, and important considerations"
                       title="Stage 02: Understand"
                     >
-                      <span class="hotspot-pulse"></span>
+                      <span class="hotspot-pulse" aria-hidden="true"></span>
+                      <span class="hotspot-number" aria-hidden="true">02</span>
                       <span class="sr-only">Stage 02: Understand</span>
                     </button>
 
@@ -2309,7 +2407,8 @@
                       aria-label="Stage 03: Plan — Organize realistic next steps toward your goals"
                       title="Stage 03: Plan"
                     >
-                      <span class="hotspot-pulse"></span>
+                      <span class="hotspot-pulse" aria-hidden="true"></span>
+                      <span class="hotspot-number" aria-hidden="true">03</span>
                       <span class="sr-only">Stage 03: Plan</span>
                     </button>
 
@@ -2322,7 +2421,8 @@
                       aria-label="Stage 04: Connect — Connect with a trusted specialist or relevant professional when needed"
                       title="Stage 04: Connect"
                     >
-                      <span class="hotspot-pulse"></span>
+                      <span class="hotspot-pulse" aria-hidden="true"></span>
+                      <span class="hotspot-number" aria-hidden="true">04</span>
                       <span class="sr-only">Stage 04: Connect</span>
                     </button>
 
@@ -2335,7 +2435,8 @@
                       aria-label="Stage 05: Continue — Maintain momentum through ongoing guidance, appropriate connections, and relevant GEMS support or membership"
                       title="Stage 05: Continue"
                     >
-                      <span class="hotspot-pulse"></span>
+                      <span class="hotspot-pulse" aria-hidden="true"></span>
+                      <span class="hotspot-number" aria-hidden="true">05</span>
                       <span class="sr-only">Stage 05: Continue</span>
                     </button>
                   </div>

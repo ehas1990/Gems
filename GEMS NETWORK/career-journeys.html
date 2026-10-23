@@ -920,10 +920,15 @@
             data-aos="fade-up"
             data-aos-duration="900"
           >
+            <img
+              src="./assets/img/Career_Journey_Your_Career_Journey_Roadmap.png"
+              class="career-roadmap-panorama-bg"
+              alt="GEMS Career Journey Roadmap"
+            />
             <svg
               class="career-roadmap-svg-overlay"
               viewBox="0 0 1376 768"
-              preserveAspectRatio="xMidYMid slice"
+              preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
               role="group"
               aria-label="Interactive Winding Career Journey Roadmap"
@@ -937,13 +942,29 @@
                   y2="0%"
                 >
                   <stop offset="0%" stop-color="#e11d48" />
-                  <stop offset="33%" stop-color="#d97706" />
-                  <stop offset="66%" stop-color="#0d9488" />
-                  <stop offset="100%" stop-color="#1d4ed8" />
+                  <stop offset="25%" stop-color="#d97706" />
+                  <stop offset="55%" stop-color="#0d9488" />
+                  <stop offset="80%" stop-color="#1d4ed8" />
+                  <stop offset="100%" stop-color="#f59e0b" />
                 </linearGradient>
 
                 <filter
                   id="pinShadow"
+                  x="-35%"
+                  y="-35%"
+                  width="170%"
+                  height="170%"
+                >
+                  <feDropShadow
+                    dx="0"
+                    dy="4"
+                    stdDeviation="6"
+                    flood-color="rgba(0,0,0,0.55)"
+                  />
+                </filter>
+
+                <filter
+                  id="arrowShadow"
                   x="-30%"
                   y="-30%"
                   width="160%"
@@ -951,33 +972,129 @@
                 >
                   <feDropShadow
                     dx="0"
-                    dy="4"
-                    stdDeviation="6"
-                    flood-color="rgba(0,0,0,0.45)"
+                    dy="2"
+                    stdDeviation="3"
+                    flood-color="rgba(0,0,0,0.85)"
+                  />
+                </filter>
+
+                <filter
+                  id="destGlow"
+                  x="-30%"
+                  y="-30%"
+                  width="160%"
+                  height="160%"
+                >
+                  <feDropShadow
+                    dx="0"
+                    dy="0"
+                    stdDeviation="8"
+                    flood-color="rgba(245, 158, 11, 0.85)"
                   />
                 </filter>
               </defs>
 
-              <!-- Flowing S-Curve Trail Along the Highway -->
+              <!-- Base road ribbon highlighting the highway curve -->
+              <path
+                class="roadmap-trail-ribbon"
+                d="M 240 768 C 242.5 759.2, 248.3 732.2, 255 715 C 261.7 697.8, 270.0 683.3, 280 665 C 290.0 646.7, 301.7 622.5, 315 605 C 328.3 587.5, 342.5 573.3, 360 560 C 377.5 546.7, 399.2 535.3, 420 525 C 440.8 514.7, 462.5 506.3, 485 498 C 507.5 489.7, 532.5 482.7, 555 475 C 577.5 467.3, 604.2 459.8, 620 452 C 635.8 444.2, 646.7 437.5, 650 428 C 653.3 418.5, 646.7 404.7, 640 395 C 633.3 385.3, 618.3 378.3, 610 370 C 601.7 361.7, 586.7 350.8, 590 345 C 593.3 339.2, 610.0 335.5, 630 335 C 650.0 334.5, 680.0 339.8, 710 342 C 740.0 344.2, 773.3 348.0, 810 348 C 846.7 348.0, 888.3 345.3, 930 342 C 971.7 338.7, 1018.3 332.5, 1060 328 C 1101.7 323.5, 1145.0 318.8, 1180 315 C 1215.0 311.2, 1255.0 306.7, 1270 305"
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.22)"
+                stroke-width="15"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <!-- Outer glowing pulse trail -->
               <path
                 class="roadmap-trail-base"
-                d="M 230 570 C 310 550, 380 530, 490 510 C 600 480, 670 440, 740 410 C 830 370, 930 330, 1040 300"
+                d="M 240 768 C 242.5 759.2, 248.3 732.2, 255 715 C 261.7 697.8, 270.0 683.3, 280 665 C 290.0 646.7, 301.7 622.5, 315 605 C 328.3 587.5, 342.5 573.3, 360 560 C 377.5 546.7, 399.2 535.3, 420 525 C 440.8 514.7, 462.5 506.3, 485 498 C 507.5 489.7, 532.5 482.7, 555 475 C 577.5 467.3, 604.2 459.8, 620 452 C 635.8 444.2, 646.7 437.5, 650 428 C 653.3 418.5, 646.7 404.7, 640 395 C 633.3 385.3, 618.3 378.3, 610 370 C 601.7 361.7, 586.7 350.8, 590 345 C 593.3 339.2, 610.0 335.5, 630 335 C 650.0 334.5, 680.0 339.8, 710 342 C 740.0 344.2, 773.3 348.0, 810 348 C 846.7 348.0, 888.3 345.3, 930 342 C 971.7 338.7, 1018.3 332.5, 1060 328 C 1101.7 323.5, 1145.0 318.8, 1180 315 C 1215.0 311.2, 1255.0 306.7, 1270 305"
                 fill="none"
                 stroke="rgba(255, 255, 255, 0.45)"
                 stroke-width="6"
                 stroke-linecap="round"
               />
+
+              <!-- Animated flowing dashed centerline -->
               <path
                 class="roadmap-trail-animated"
-                d="M 230 570 C 310 550, 380 530, 490 510 C 600 480, 670 440, 740 410 C 830 370, 930 330, 1040 300"
+                d="M 240 768 C 242.5 759.2, 248.3 732.2, 255 715 C 261.7 697.8, 270.0 683.3, 280 665 C 290.0 646.7, 301.7 622.5, 315 605 C 328.3 587.5, 342.5 573.3, 360 560 C 377.5 546.7, 399.2 535.3, 420 525 C 440.8 514.7, 462.5 506.3, 485 498 C 507.5 489.7, 532.5 482.7, 555 475 C 577.5 467.3, 604.2 459.8, 620 452 C 635.8 444.2, 646.7 437.5, 650 428 C 653.3 418.5, 646.7 404.7, 640 395 C 633.3 385.3, 618.3 378.3, 610 370 C 601.7 361.7, 586.7 350.8, 590 345 C 593.3 339.2, 610.0 335.5, 630 335 C 650.0 334.5, 680.0 339.8, 710 342 C 740.0 344.2, 773.3 348.0, 810 348 C 846.7 348.0, 888.3 345.3, 930 342 C 971.7 338.7, 1018.3 332.5, 1060 328 C 1101.7 323.5, 1145.0 318.8, 1180 315 C 1215.0 311.2, 1255.0 306.7, 1270 305"
                 fill="none"
                 stroke="url(#roadmapPathGrad)"
-                stroke-width="3.5"
-                stroke-dasharray="10 8"
+                stroke-width="4"
+                stroke-dasharray="14 10"
                 stroke-linecap="round"
               />
 
-              <!-- STAGE 01 SVG HOTSPOT -->
+              <!-- Directional Arrows along the road curves -->
+              <g class="road-directional-arrows" aria-hidden="true">
+                <g class="road-arrow-item" transform="translate(273.3, 677.2) rotate(-61.4) scale(1.49)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(323.5, 594.4) rotate(-49.6) scale(1.44)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(399.8, 535.3) rotate(-27.9) scale(1.38)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(488.8, 496.6) rotate(-19.7) scale(1.32)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(581.1, 466.5) rotate(-17.9) scale(1.26)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(648.9, 412.1) rotate(-109.0) scale(1.21)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(593.9, 341.6) rotate(-29.6) scale(1.15)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(689.9, 340.1) rotate(6.1) scale(1.09)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(786.7, 347.5) rotate(2.2) scale(1.04)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(883.7, 345.3) rotate(-3.6) scale(0.98)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(980.5, 337.1) rotate(-6.3) scale(0.92)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(1076.9, 326.2) rotate(-6.2) scale(0.86)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+                <g class="road-arrow-item" transform="translate(1173.5, 315.7) rotate(-6.2) scale(0.81)">
+                  <polygon points="-7,-4.5 7,0 -7,4.5 -2.5,0" fill="#ffffff" filter="url(#arrowShadow)" />
+                </g>
+              </g>
+
+              <!-- Starting Point Signpost Badge: Opportunity Starts Here -->
+              <g class="roadmap-start-badge" transform="translate(130, 680)" filter="url(#pinShadow)">
+                <rect x="-75" y="-13" width="150" height="26" rx="13" fill="#071b35" stroke="#f4b942" stroke-width="2" />
+                <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="800" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="0.8">
+                  OPPORTUNITY STARTS HERE
+                </text>
+              </g>
+
+              <!-- Destination Area Banner: Greater Opportunities Ahead -->
+              <g class="roadmap-dest-badge" transform="translate(1225, 235)" filter="url(#destGlow)">
+                <rect x="-105" y="-15" width="210" height="30" rx="15" fill="#071b35" stroke="#f59e0b" stroke-width="2" />
+                <text x="0" y="4" text-anchor="middle" fill="#ffd166" font-size="8.8" font-weight="900" font-family="'Plus Jakarta Sans', sans-serif" letter-spacing="0.8">
+                  GREATER OPPORTUNITIES AHEAD
+                </text>
+              </g>
+
+              <!-- MILESTONE 05 / DESTINATION BEACON -->
+              <g class="destination-beacon-group" transform="translate(1243.0, 308.0)" filter="url(#pinShadow)">
+                <circle class="pin-pulse-wave" r="28" fill="rgba(245, 158, 11, 0.35)" />
+                <circle class="pin-outer-ring" r="20" fill="#ffffff" stroke="#f59e0b" stroke-width="3" />
+                <circle class="pin-inner-bg" r="14" fill="#f59e0b" />
+                <!-- Star Icon -->
+                <polygon points="0,-7 2.1,-2.2 7,-2.2 3.1,1.1 4.6,6 0,3.1 -4.6,6 -3.1,1.1 -7,-2.2 -2.1,-2.2" fill="#ffffff" />
+              </g>
+
+              <!-- STAGE 01 SVG HOTSPOT: STARTING YOUR CAREER -->
               <a
                 href="membership-level.html?journey=career"
                 class="roadmap-svg-hotspot stage-hotspot-1"
@@ -986,44 +1103,47 @@
                 tabindex="0"
                 aria-label="Stage 01: Starting Your Career — Help me get started"
               >
-                <polygon
-                  class="hotspot-hit-area"
-                  points="100,470 340,460 360,660 100,670"
-                  fill="rgba(225, 29, 72, 0.001)"
-                />
+                <circle cx="291.7" cy="643.0" r="38" fill="transparent" class="hotspot-hit-area" />
                 <g
                   class="hotspot-pin-group"
-                  transform="translate(230, 570)"
+                  transform="translate(291.7, 643.0)"
                   filter="url(#pinShadow)"
                 >
+                  <!-- Teardrop Pin Pointer -->
+                  <path d="M 0 0 L -8 -16 C -14 -22, -14 -34, 0 -34 C 14 -34, 14 -22, 8 -16 Z" fill="#e11d48" opacity="0.3" />
                   <circle
                     class="pin-pulse-wave"
-                    r="28"
+                    r="26"
                     fill="rgba(225, 29, 72, 0.28)"
                   />
                   <circle
                     class="pin-outer-ring"
-                    r="22"
+                    r="20"
                     fill="#ffffff"
                     stroke="#e11d48"
-                    stroke-width="3.5"
+                    stroke-width="3"
                   />
-                  <circle class="pin-inner-bg" r="16" fill="#e11d48" />
-                  <path d="M -5 -5 L 5 -2 L 2 5 L -2 2 Z" fill="#ffffff" />
+                  <circle class="pin-inner-bg" r="14" fill="#e11d48" />
+                  <!-- Compass Rose Icon -->
+                  <circle r="7.5" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.7" />
+                  <polygon points="0,-6 1.8,-1.8 6,0 1.8,1.8 0,6 -1.8,1.8 -6,0 -1.8,-1.8" fill="#ffffff" />
+                  <!-- Number Pill Badge on Top -->
                   <rect
-                    x="8"
-                    y="-27"
+                    x="-14"
+                    y="-30"
                     width="28"
-                    height="18"
-                    rx="9"
+                    height="16"
+                    rx="8"
                     fill="#e11d48"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
                   />
                   <text
-                    x="22"
-                    y="-14"
+                    x="0"
+                    y="-18.5"
                     text-anchor="middle"
                     fill="#ffffff"
-                    font-size="10.5"
+                    font-size="9.5"
                     font-weight="800"
                     font-family="'Plus Jakarta Sans', sans-serif"
                   >
@@ -1032,7 +1152,7 @@
                 </g>
               </a>
 
-              <!-- STAGE 02 SVG HOTSPOT -->
+              <!-- STAGE 02 SVG HOTSPOT: BUILDING YOUR CAREER -->
               <a
                 href="membership-level.html?journey=career"
                 class="roadmap-svg-hotspot stage-hotspot-2"
@@ -1041,46 +1161,49 @@
                 tabindex="0"
                 aria-label="Stage 02: Building Your Career — Help me move forward"
               >
-                <polygon
-                  class="hotspot-hit-area"
-                  points="360,420 600,400 620,600 380,620"
-                  fill="rgba(217, 119, 6, 0.001)"
-                />
+                <circle cx="533.1" cy="482.2" r="38" fill="transparent" class="hotspot-hit-area" />
                 <g
                   class="hotspot-pin-group"
-                  transform="translate(490, 510)"
+                  transform="translate(533.1, 482.2)"
                   filter="url(#pinShadow)"
                 >
+                  <!-- Teardrop Pin Pointer -->
+                  <path d="M 0 0 L -8 -16 C -14 -22, -14 -34, 0 -34 C 14 -34, 14 -22, 8 -16 Z" fill="#d97706" opacity="0.3" />
                   <circle
                     class="pin-pulse-wave"
-                    r="28"
+                    r="26"
                     fill="rgba(217, 119, 6, 0.28)"
                   />
                   <circle
                     class="pin-outer-ring"
-                    r="22"
+                    r="20"
                     fill="#ffffff"
                     stroke="#d97706"
-                    stroke-width="3.5"
+                    stroke-width="3"
                   />
-                  <circle class="pin-inner-bg" r="16" fill="#d97706" />
-                  <rect x="-5" y="0" width="2.8" height="5" fill="#ffffff" />
-                  <rect x="-1.4" y="-3" width="2.8" height="8" fill="#ffffff" />
-                  <rect x="2.2" y="-6" width="2.8" height="11" fill="#ffffff" />
+                  <circle class="pin-inner-bg" r="14" fill="#d97706" />
+                  <!-- Rising Bar Chart Icon -->
+                  <rect x="-5" y="1" width="2.5" height="5" fill="#ffffff" />
+                  <rect x="-1.5" y="-2" width="2.5" height="8" fill="#ffffff" />
+                  <rect x="2" y="-5" width="2.5" height="11" fill="#ffffff" />
+                  <path d="M 2 -5 L 5.5 -7 L 2 -9 Z" fill="#ffffff" />
+                  <!-- Number Pill Badge on Top -->
                   <rect
-                    x="8"
-                    y="-27"
+                    x="-14"
+                    y="-30"
                     width="28"
-                    height="18"
-                    rx="9"
+                    height="16"
+                    rx="8"
                     fill="#d97706"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
                   />
                   <text
-                    x="22"
-                    y="-14"
+                    x="0"
+                    y="-18.5"
                     text-anchor="middle"
                     fill="#ffffff"
-                    font-size="10.5"
+                    font-size="9.5"
                     font-weight="800"
                     font-family="'Plus Jakarta Sans', sans-serif"
                   >
@@ -1089,7 +1212,7 @@
                 </g>
               </a>
 
-              <!-- STAGE 03 SVG HOTSPOT -->
+              <!-- STAGE 03 SVG HOTSPOT: CHANGING DIRECTION -->
               <a
                 href="membership-level.html?journey=career"
                 class="roadmap-svg-hotspot stage-hotspot-3"
@@ -1098,51 +1221,53 @@
                 tabindex="0"
                 aria-label="Stage 03: Changing Direction — Help me navigate my transition"
               >
-                <polygon
-                  class="hotspot-hit-area"
-                  points="620,320 860,300 880,500 640,520"
-                  fill="rgba(13, 148, 136, 0.001)"
-                />
+                <circle cx="660.9" cy="336.9" r="38" fill="transparent" class="hotspot-hit-area" />
                 <g
                   class="hotspot-pin-group"
-                  transform="translate(740, 410)"
+                  transform="translate(660.9, 336.9)"
                   filter="url(#pinShadow)"
                 >
+                  <!-- Teardrop Pin Pointer -->
+                  <path d="M 0 0 L -8 -16 C -14 -22, -14 -34, 0 -34 C 14 -34, 14 -22, 8 -16 Z" fill="#0d9488" opacity="0.3" />
                   <circle
                     class="pin-pulse-wave"
-                    r="28"
+                    r="26"
                     fill="rgba(13, 148, 136, 0.28)"
                   />
                   <circle
                     class="pin-outer-ring"
-                    r="22"
+                    r="20"
                     fill="#ffffff"
                     stroke="#0d9488"
-                    stroke-width="3.5"
+                    stroke-width="3"
                   />
-                  <circle class="pin-inner-bg" r="16" fill="#0d9488" />
+                  <circle class="pin-inner-bg" r="14" fill="#0d9488" />
+                  <!-- 3-Way Branching Directional Arrows Icon -->
                   <path
-                    d="M 0 6 L 0 -6 M -4 -2 L 0 -6 L 4 -2 M -4 2 L 0 -1 L 4 2"
+                    d="M 0 5.5 L 0 -4.5 M -4 -1.5 L 0 -5 L 4 -1.5 M -4 2.5 L -6 -0.5 M 4 2.5 L 6 -0.5"
                     stroke="#ffffff"
                     stroke-width="1.8"
                     fill="none"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
+                  <!-- Number Pill Badge on Top -->
                   <rect
-                    x="8"
-                    y="-27"
+                    x="-14"
+                    y="-30"
                     width="28"
-                    height="18"
-                    rx="9"
+                    height="16"
+                    rx="8"
                     fill="#0d9488"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
                   />
                   <text
-                    x="22"
-                    y="-14"
+                    x="0"
+                    y="-18.5"
                     text-anchor="middle"
                     fill="#ffffff"
-                    font-size="10.5"
+                    font-size="9.5"
                     font-weight="800"
                     font-family="'Plus Jakarta Sans', sans-serif"
                   >
@@ -1151,7 +1276,7 @@
                 </g>
               </a>
 
-              <!-- STAGE 04 SVG HOTSPOT -->
+              <!-- STAGE 04 SVG HOTSPOT: GROWING & ADVANCING -->
               <a
                 href="membership-level.html?journey=career"
                 class="roadmap-svg-hotspot stage-hotspot-4"
@@ -1160,45 +1285,47 @@
                 tabindex="0"
                 aria-label="Stage 04: Growing & Advancing — Help me plan my next level"
               >
-                <polygon
-                  class="hotspot-hit-area"
-                  points="900,210 1180,190 1200,390 920,410"
-                  fill="rgba(29, 78, 216, 0.001)"
-                />
+                <circle cx="959.2" cy="339.3" r="38" fill="transparent" class="hotspot-hit-area" />
                 <g
                   class="hotspot-pin-group"
-                  transform="translate(1040, 300)"
+                  transform="translate(959.2, 339.3)"
                   filter="url(#pinShadow)"
                 >
+                  <!-- Teardrop Pin Pointer -->
+                  <path d="M 0 0 L -8 -16 C -14 -22, -14 -34, 0 -34 C 14 -34, 14 -22, 8 -16 Z" fill="#1d4ed8" opacity="0.3" />
                   <circle
                     class="pin-pulse-wave"
-                    r="28"
+                    r="26"
                     fill="rgba(29, 78, 216, 0.28)"
                   />
                   <circle
                     class="pin-outer-ring"
-                    r="22"
+                    r="20"
                     fill="#ffffff"
                     stroke="#1d4ed8"
-                    stroke-width="3.5"
+                    stroke-width="3"
                   />
-                  <circle class="pin-inner-bg" r="16" fill="#1d4ed8" />
-                  <path d="M -6 5 L 0 -4 L 6 5 Z" fill="#ffffff" />
-                  <path d="M 0 -4 L 0 -7 L 4 -5.5 L 0 -4" fill="#ffffff" />
+                  <circle class="pin-inner-bg" r="14" fill="#1d4ed8" />
+                  <!-- Mountain Peak with Flag Icon -->
+                  <path d="M -6 4 L 0 -4 L 6 4 Z" fill="#ffffff" />
+                  <path d="M 0 -4 L 0 -7.5 L 4 -6 L 0 -4" fill="#ffffff" />
+                  <!-- Number Pill Badge on Top -->
                   <rect
-                    x="8"
-                    y="-27"
+                    x="-14"
+                    y="-30"
                     width="28"
-                    height="18"
-                    rx="9"
+                    height="16"
+                    rx="8"
                     fill="#1d4ed8"
+                    stroke="#ffffff"
+                    stroke-width="1.5"
                   />
                   <text
-                    x="22"
-                    y="-14"
+                    x="0"
+                    y="-18.5"
                     text-anchor="middle"
                     fill="#ffffff"
-                    font-size="10.5"
+                    font-size="9.5"
                     font-weight="800"
                     font-family="'Plus Jakarta Sans', sans-serif"
                   >

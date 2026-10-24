@@ -10810,3 +10810,6 @@ div#aboutStaggered span {
     font-style: italic;
     margin-bottom: 40px;
 }
+div#journeyFormModalOverlay .form-tabs-wrap {
+    display: none;
+}

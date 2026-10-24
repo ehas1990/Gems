@@ -119,6 +119,106 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style(2).css" />
     <link rel="stylesheet" href="./assets/css/journeys.css" />
     <link rel="stylesheet" href="./assets/css/membership.css" />
+    <link rel="stylesheet" href="./assets/css/contact.css" />
+    <!-- Scoped Styles for Journey Form Popup Modal -->
+    <style>
+      .journey-modal-overlay {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(7, 27, 53, 0.78);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 99990;
+        display: none;
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 30px 16px;
+        box-sizing: border-box;
+      }
+
+      .journey-modal-overlay.active {
+        display: flex;
+      }
+
+      .journey-modal-container {
+        position: relative;
+        width: 100%;
+        max-width: 820px;
+        margin: 20px auto 40px auto;
+        background: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 25px 60px rgba(7, 27, 53, 0.35);
+        padding: 36px 32px;
+        box-sizing: border-box;
+        animation: journeyModalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes journeyModalFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .journey-modal-close {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        width: 42px;
+        height: 42px;
+        background: #f1f5f9;
+        border: 1px solid rgba(15, 22, 129, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: #475569;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        z-index: 30;
+      }
+
+      .journey-modal-close:hover {
+        background: #e2e8f0;
+        color: #071b35;
+        transform: rotate(90deg);
+      }
+
+      @media (max-width: 768px) {
+        .journey-modal-overlay {
+          padding: 12px 10px;
+        }
+        .journey-modal-container {
+          padding: 24px 16px 20px 16px;
+          margin: 10px auto 24px auto;
+          border-radius: 18px;
+        }
+        .journey-modal-close {
+          top: 14px;
+          right: 14px;
+          width: 36px;
+          height: 36px;
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Modal Tab Form Panes: Ensure only active tab form displays and others are completely hidden */
+      .journey-modal-container .contact-tab-pane {
+        display: none !important;
+      }
+      .journey-modal-container .contact-tab-pane.active {
+        display: block !important;
+      }
+    </style>
     <!-- AOS Animation Library -->
     <link
       rel="stylesheet"
@@ -675,7 +775,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="students"
                     class="btn-plan-action"
                     >Explore For Free</a
                   >
@@ -802,7 +902,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="students"
                     class="btn-plan-action"
                     >Make GEMS Your Companion</a
                   >
@@ -944,7 +1044,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="students"
                     class="btn-plan-action"
                     >Let GEMS Be Your Navigator</a
                   >
@@ -1043,7 +1143,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="professionals"
                     class="btn-plan-action"
                     >Explore For Free</a
                   >
@@ -1163,7 +1263,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="professionals"
                     class="btn-plan-action"
                     >Make GEMS Your Companion</a
                   >
@@ -1293,7 +1393,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="professionals"
                     class="btn-plan-action"
                     >Let GEMS Be Your Navigator</a
                   >
@@ -1388,7 +1488,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="business"
                     class="btn-plan-action"
                     >Explore For Free</a
                   >
@@ -1524,7 +1624,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="business"
                     class="btn-plan-action"
                     >Make GEMS Your Companion</a
                   >
@@ -1654,7 +1754,7 @@
 
                 <div class="plan-card-cta">
                   <a
-                    href="https://globalenrollment.us/contact"
+                    href="javascript:void(0)" data-journey-target="business"
                     class="btn-plan-action"
                     >Let GEMS Be Your Navigator</a
                   >
@@ -2155,6 +2255,768 @@
       </div>
     </footer>
 
+    <!-- ==========================================================================
+         JOURNEY FORM POPUP MODAL (STUDENT, PROFESSIONALS, BUSINESS CLIENTS)
+         ========================================================================== -->
+    <div class="journey-modal-overlay" id="journeyFormModalOverlay" role="dialog" aria-modal="true" aria-labelledby="journeyModalTitle" style="display: none;">
+      <div class="journey-modal-container contact-page">
+        <!-- Close Button -->
+        <button type="button" class="journey-modal-close" id="journeyModalCloseBtn" aria-label="Close form modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Form Header Area -->
+        <div class="form-header-area" style="padding-right: 48px;">
+          <div class="form-eyebrow">GET STARTED</div>
+          <h2 class="form-main-headline" id="journeyModalTitle">Tell Us About Your Journey</h2>
+          <p class="form-main-subtext">Fill out the form below and we'll take it from here. The information you provide helps us understand your needs and connect you with the right support.</p>
+        </div>
+
+        <!-- Step indicator bar -->
+        <div class="form-steps-indicator" aria-hidden="true">
+          <div class="step-item active">
+            <span class="step-num">1</span>
+            <span>Your Information</span>
+          </div>
+          <div class="step-divider"></div>
+          <div class="step-item">
+            <span class="step-num">2</span>
+            <span>Your Journey</span>
+          </div>
+          <div class="step-divider"></div>
+          <div class="step-item">
+            <span class="step-num">3</span>
+            <span>What You Need</span>
+          </div>
+          <div class="step-divider"></div>
+          <div class="step-item">
+            <span class="step-num">4</span>
+            <span>Contact Details</span>
+          </div>
+        </div>
+
+        <!-- Contact Form Card Container -->
+        <div class="contact-form-card" style="border: none; box-shadow: none; padding: 0; background: transparent; overflow: visible;">
+          <!-- Category Tabs Navigation -->
+          <div class="form-tabs-wrap" role="tablist" aria-label="Target Group Selection">
+            <div class="form-tabs-scroll">
+              <button type="button" class="form-tab-btn active" data-tab="students" role="tab" aria-selected="true" id="tab-btn-students">
+                <i class="fa-solid fa-graduation-cap"></i> Students
+              </button>
+              <button type="button" class="form-tab-btn" data-tab="professionals" role="tab" aria-selected="false" id="tab-btn-professionals">
+                <i class="fa-solid fa-briefcase"></i> Professionals
+              </button>
+              <button type="button" class="form-tab-btn" data-tab="business" role="tab" aria-selected="false" id="tab-btn-business">
+                <i class="fa-solid fa-building"></i> Business Clients
+              </button>
+            </div>
+          </div>
+
+          <!-- ==================================================
+               TAB 1: STUDENTS FORM
+               ================================================== -->
+          <div id="studentsTabPane" class="contact-tab-pane active" style="display: block;" aria-hidden="false">
+            <!-- Feedback Notification Box -->
+            <div id="formNotification" class="form-notification"></div>
+
+            <!-- Contact Form -->
+            <form id="gemsContactForm" onsubmit="return handleFormSubmit(event)">
+              <!-- Section 1: Tell Us About You -->
+              <div class="form-section-title">
+                <i class="fa-regular fa-user"></i> Tell Us About You
+              </div>
+
+              <!-- Name Row -->
+              <div class="form-row">
+                <div class="form-group mb-0">
+                  <label class="form-label" for="firstName"><i class="fa-regular fa-user"></i> First Name <span class="req">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="firstName" name="first_name" class="form-control-gems" placeholder="Enter first name" required>
+                  </div>
+                </div>
+                <div class="form-group mb-0">
+                  <label class="form-label" for="lastName"><i class="fa-regular fa-user"></i> Last Name <span class="req">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="lastName" name="last_name" class="form-control-gems" placeholder="Enter last name" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email Address -->
+              <div class="form-group">
+                <label class="form-label" for="emailAddress"><i class="fa-regular fa-envelope"></i> Email Address <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-regular fa-envelope"></i></span>
+                  <input type="email" id="emailAddress" name="email" class="form-control-gems" placeholder="Enter your email" required>
+                </div>
+              </div>
+
+              <!-- Phone Number Row with Country Code -->
+              <div class="form-group">
+                <div class="phone-group-row">
+                  <div>
+                    <label class="form-label" for="countryCode"><i class="fa-solid fa-earth-americas"></i> Country Code <span class="req">*</span></label>
+                    <select id="countryCode" name="country_code" class="form-control-gems country-code-select" required>
+                      <option value="+1">+1 (US/CA)</option>
+                      <option value="+44">+44 (UK)</option>
+                      <option value="+971">+971 (UAE)</option>
+                      <option value="+974">+974 (Qatar)</option>
+                      <option value="+91" selected>+91 (IN)</option>
+                      <option value="+63">+63 (PH)</option>
+                      <option value="+61">+61 (AU)</option>
+                      <option value="+65">+65 (SG)</option>
+                      <option value="+49">+49 (DE)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label" for="phoneNumber"><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+                    <div class="input-with-icon">
+                      <span class="input-icon-prefix"><i class="fa-solid fa-phone"></i></span>
+                      <input type="tel" id="phoneNumber" name="phone" class="form-control-gems" placeholder="Enter phone number" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Country of Residence -->
+              <div class="form-group">
+                <label class="form-label" for="countryResidence"><i class="fa-solid fa-globe"></i> Country of Residence <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-globe"></i></span>
+                  <select id="countryResidence" name="country_residence" class="form-control-gems" required>
+                    <option value="" disabled selected>-- Select country --</option>
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="India">India</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Other">Other Country</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Section 2: Tell Us About Your Journey -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-graduation-cap"></i> Tell Us About Your Journey
+              </div>
+
+              <!-- Current Education -->
+              <div class="form-group">
+                <label class="form-label" for="currentEducation"><i class="fa-solid fa-graduation-cap"></i> Current Education <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-graduation-cap"></i></span>
+                  <select id="currentEducation" name="current_education" class="form-control-gems" required>
+                    <option value="High school" selected>High school</option>
+                    <option value="Undergraduate / Bachelors">Undergraduate / Bachelors</option>
+                    <option value="Graduate / Masters">Graduate / Masters</option>
+                    <option value="Postgraduate / PhD">Postgraduate / PhD</option>
+                    <option value="Working Professional">Working Professional</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Intended Degree (Radios) -->
+              <div class="form-group">
+                <label class="form-label"><i class="fa-solid fa-award"></i> Intended Degree</label>
+                <div class="radio-row">
+                  <label class="custom-radio">
+                    <input type="radio" name="intended_degree" value="Associates" checked>
+                    <span>Associates</span>
+                  </label>
+                  <label class="custom-radio">
+                    <input type="radio" name="intended_degree" value="Bachelors">
+                    <span>Bachelors</span>
+                  </label>
+                  <label class="custom-radio">
+                    <input type="radio" name="intended_degree" value="Masters">
+                    <span>Masters</span>
+                  </label>
+                  <label class="custom-radio">
+                    <input type="radio" name="intended_degree" value="PhD">
+                    <span>PhD</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Admission Year & Season Row -->
+              <div class="form-row">
+                <div class="form-group mb-0">
+                  <label class="form-label" for="admissionYear"><i class="fa-regular fa-calendar"></i> Intended Admission Year</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-calendar"></i></span>
+                    <select id="admissionYear" name="admission_year" class="form-control-gems">
+                      <option value="" disabled selected>-- Select Year --</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                      <option value="2028">2028</option>
+                      <option value="2029">2029</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group mb-0">
+                  <label class="form-label"><i class="fa-solid fa-cloud-sun"></i> Intended Admission Season</label>
+                  <div class="checkbox-row" style="margin-top: 10px;">
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="admission_season[]" value="Spring">
+                      <span>Spring</span>
+                    </label>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="admission_season[]" value="Summer">
+                      <span>Summer</span>
+                    </label>
+                    <label class="custom-checkbox">
+                      <input type="checkbox" name="admission_season[]" value="Fall">
+                      <span>Fall</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3: Tell Us What You Need -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-bullseye"></i> Tell Us What You Need
+              </div>
+
+              <!-- Fields of Interest -->
+              <div class="form-group">
+                <label class="form-label"><i class="fa-solid fa-shapes"></i> Fields of Interest</label>
+                <div class="interests-grid">
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-solid fa-book-open"></i></span>
+                    <input type="text" name="interest_field_1" class="form-control-gems" placeholder="e.g. Computer Science">
+                  </div>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-bookmark"></i></span>
+                    <input type="text" name="interest_field_2" class="form-control-gems" placeholder="e.g. Business Management">
+                  </div>
+                  <div class="input-with-icon full-span">
+                    <span class="input-icon-prefix"><i class="fa-solid fa-heart-pulse"></i></span>
+                    <input type="text" name="interest_field_3" class="form-control-gems" placeholder="e.g. Health Sciences / Other">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 4: How Should We Reach You? -->
+              <div class="form-section-title">
+                <i class="fa-regular fa-comments"></i> How Should We Reach You?
+              </div>
+
+              <!-- Preferred Messaging App -->
+              <div class="form-group">
+                <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i> Preferred Messaging App</label>
+                <div class="messaging-options-wrap">
+                  <label class="msg-app-chip app-whatsapp selected">
+                    <input type="radio" name="messaging_app_student" value="WhatsApp" checked>
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                  </label>
+                  <label class="msg-app-chip app-messenger">
+                    <input type="radio" name="messaging_app_student" value="Messenger">
+                    <i class="fa-brands fa-facebook-messenger"></i> Messenger
+                  </label>
+                  <label class="msg-app-chip app-wechat">
+                    <input type="radio" name="messaging_app_student" value="WeChat">
+                    <i class="fa-brands fa-weixin"></i> WeChat
+                  </label>
+                  <label class="msg-app-chip app-discord">
+                    <input type="radio" name="messaging_app_student" value="Discord">
+                    <i class="fa-brands fa-discord"></i> Discord
+                  </label>
+                  <label class="msg-app-chip app-bard">
+                    <input type="radio" name="messaging_app_student" value="Bard">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Bard
+                  </label>
+                </div>
+              </div>
+
+              <!-- Captcha Verification -->
+              <div class="captcha-block">
+                <label class="captcha-label" for="captchaInput"><i class="fa-solid fa-shield-halved"></i> Enter the code shown below:</label>
+                <div class="captcha-display-flex">
+                  <div id="captchaBox" class="captcha-code-box" aria-label="Captcha security code">b8PMA</div>
+                  <button type="button" class="captcha-refresh-btn" onclick="generateCaptcha()" title="Refresh security code" aria-label="Refresh Captcha">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                  </button>
+                </div>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-shield-halved"></i></span>
+                  <input type="text" id="captchaInput" class="form-control-gems" placeholder="Enter captcha code" required>
+                </div>
+              </div>
+
+              <!-- Bottom Actions -->
+              <div class="form-bottom-actions">
+                <label class="form-terms-text">
+                  <input type="checkbox" required checked>
+                  <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+                </label>
+                <button type="submit" class="btn-gems-submit" id="submitBtn">
+                  <span>Submit</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- ==================================================
+               TAB 2: PROFESSIONALS FORM
+               ================================================== -->
+          <div id="professionalsTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
+            <!-- Feedback Notification Box -->
+            <div id="proFormNotification" class="form-notification"></div>
+
+            <!-- Professional Form -->
+            <form id="gemsProfessionalForm" action="https://globalenrollment.us/contact/pro_submit" method="POST" onsubmit="return handleProFormSubmit(event)">
+              <!-- Hidden Captcha Token -->
+              <input type="hidden" name="captcha_token" id="proCaptchaToken" value="6f8a92cb3e41d5b">
+
+              <!-- Section 1: Tell Us About You -->
+              <div class="form-section-title">
+                <i class="fa-regular fa-user"></i> Tell Us About You
+              </div>
+
+              <!-- 1. First Name & 2. Last Name -->
+              <div class="form-row frmcol">
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="proFirstName"><i class="fa-regular fa-user"></i> First Name <span class="req">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="proFirstName" name="first_name" class="form-control-gems" placeholder="Enter first name" required>
+                  </div>
+                </div>
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="proLastName"><i class="fa-regular fa-user"></i> Last Name <span class="req">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="proLastName" name="last_name" class="form-control-gems" placeholder="Enter last name" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Email Address (Full Width) -->
+              <div class="form-group frmgrp">
+                <label class="form-label" for="proEmail"><i class="fa-regular fa-envelope"></i> Email Address <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-regular fa-envelope"></i></span>
+                  <input type="email" id="proEmail" name="email" class="form-control-gems" placeholder="Enter your email" required>
+                </div>
+              </div>
+
+              <!-- 4. Country Code & 5. Phone Number -->
+              <div class="form-group frmgrp">
+                <div class="phone-group-row">
+                  <div>
+                    <label class="form-label" for="proCountryCode"><i class="fa-solid fa-earth-americas"></i> Country Code <span class="req">*</span></label>
+                    <select id="proCountryCode" name="country_code" class="form-control-gems country-code-select" required>
+                      <option value="+1">+1 (US/CA)</option>
+                      <option value="+44">+44 (UK)</option>
+                      <option value="+971">+971 (UAE)</option>
+                      <option value="+974">+974 (Qatar)</option>
+                      <option value="+91" selected>+91 (IN)</option>
+                      <option value="+63">+63 (PH)</option>
+                      <option value="+61">+61 (AU)</option>
+                      <option value="+65">+65 (SG)</option>
+                      <option value="+49">+49 (DE)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label" for="proPhone"><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+                    <div class="input-with-icon">
+                      <span class="input-icon-prefix"><i class="fa-solid fa-phone"></i></span>
+                      <input type="tel" id="proPhone" name="phone" class="form-control-gems" placeholder="Enter phone number" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Country of Residence -->
+              <div class="form-group frmgrp">
+                <label class="form-label" for="proCountryResidence"><i class="fa-solid fa-globe"></i> Country of Residence <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-globe"></i></span>
+                  <select id="proCountryResidence" name="country_residence" class="form-control-gems" required onchange="handleProCountryChange(this)">
+                    <option value="" disabled selected>-- Select Country --</option>
+                    <option value="India">India</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="United States of America">United States of America</option>
+                    <option value="Other..">Other..</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Country of Residence: If "Other.." is selected -->
+              <div id="proOtherCountryWrap" class="form-group frmgrp" style="display: none;">
+                <label class="form-label" for="proOtherCountry"><i class="fa-solid fa-location-arrow"></i> Please specify your country <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-location-dot"></i></span>
+                  <input type="text" id="proOtherCountry" name="other_country" class="form-control-gems" placeholder="Please specify your country">
+                </div>
+              </div>
+
+              <!-- Section 2: Tell Us About Your Journey -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-briefcase"></i> Tell Us About Your Journey
+              </div>
+
+              <!-- 7. Highest Education Level -->
+              <div class="form-group frmgrp">
+                <label class="form-label" for="proHighestEducation"><i class="fa-solid fa-graduation-cap"></i> Highest Education Level</label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-graduation-cap"></i></span>
+                  <input type="text" id="proHighestEducation" name="highest_education" class="form-control-gems" placeholder="e.g. Master of Science, MBA">
+                </div>
+              </div>
+
+              <!-- 8. Certification / License (1, 2, 3) -->
+              <div class="form-group frmgrp">
+                <label class="form-label"><i class="fa-solid fa-award"></i> Certifications / Licenses</label>
+                <div class="input-with-icon mb-2">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-certificate"></i></span>
+                  <input type="text" name="certification_license_1" id="proCert1" class="form-control-gems" placeholder="Certification / License 1">
+                </div>
+                <div class="input-with-icon mb-2">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-certificate"></i></span>
+                  <input type="text" name="certification_license_2" id="proCert2" class="form-control-gems" placeholder="Certification / License 2">
+                </div>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-certificate"></i></span>
+                  <input type="text" name="certification_license_3" id="proCert3" class="form-control-gems" placeholder="Certification / License 3">
+                </div>
+              </div>
+
+              <!-- 9. Availability Date & 10. Family Size for Relocation -->
+              <div class="form-row frmcol">
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="proAvailabilityDate"><i class="fa-regular fa-calendar"></i> Availability Date</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-calendar"></i></span>
+                    <input type="date" id="proAvailabilityDate" name="availability_date" class="form-control-gems">
+                  </div>
+                </div>
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="proFamilySize"><i class="fa-solid fa-users"></i> Family Size for Relocation</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-solid fa-users"></i></span>
+                    <input type="number" id="proFamilySize" name="family_size" class="form-control-gems" placeholder="e.g. 1, 2, 4" min="0">
+                  </div>
+                </div>
+              </div>
+
+              <!-- 11. Relocation Preference & 12. Current Immigration Status (US) -->
+              <div class="form-row frmcol">
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="proRelocationPref"><i class="fa-solid fa-map-location-dot"></i> Relocation Preference</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-solid fa-compass"></i></span>
+                    <select id="proRelocationPref" name="relocation_preference" class="form-control-gems">
+                      <option value="" disabled selected>-- Select Preference --</option>
+                      <option value="East Coast">East Coast</option>
+                      <option value="West Coast">West Coast</option>
+                      <option value="Mid West">Mid West</option>
+                      <option value="No Preference">No Preference</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="proImmigrationStatus"><i class="fa-solid fa-passport"></i> Current Immigration Status (US)</label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-solid fa-id-card"></i></span>
+                    <input type="text" id="proImmigrationStatus" name="immigration_status" class="form-control-gems" placeholder="e.g. Citizen, Work Visa, Student Visa">
+                  </div>
+                </div>
+              </div>
+
+              <!-- 13. Willingness to Travel & 14. Need Relocation Assistance -->
+              <div class="form-row frmcol">
+                <div class="form-group frmgrp bxgrp mb-0">
+                  <label class="form-label"><i class="fa-solid fa-plane-departure"></i> Willingness to Travel</label>
+                  <div class="radio-row">
+                    <label class="custom-radio">
+                      <input type="radio" name="willingness_to_travel" value="Yes" checked>
+                      <span>Yes</span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="willingness_to_travel" value="No">
+                      <span>No</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group frmgrp bxgrp mb-0">
+                  <label class="form-label"><i class="fa-solid fa-truck-ramp-box"></i> Need Relocation Assistance</label>
+                  <div class="radio-row">
+                    <label class="custom-radio">
+                      <input type="radio" name="relocation_assistance" value="Yes" checked>
+                      <span>Yes</span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="relocation_assistance" value="No">
+                      <span>No</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 4: How Should We Reach You? -->
+              <div class="form-section-title">
+                <i class="fa-regular fa-comments"></i> How Should We Reach You?
+              </div>
+
+              <!-- Preferred messaging app -->
+              <div class="form-group frmgrp prffmsg">
+                <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i> Preferred Messaging App</label>
+                <div class="messaging-options-wrap bxflexgrp">
+                  <label class="msg-app-chip app-whatsapp selected">
+                    <input type="radio" name="messaging_app_pro" value="WhatsApp" checked>
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                  </label>
+                  <label class="msg-app-chip app-messenger">
+                    <input type="radio" name="messaging_app_pro" value="Messenger">
+                    <i class="fa-brands fa-facebook-messenger"></i> Messenger
+                  </label>
+                  <label class="msg-app-chip app-wechat">
+                    <input type="radio" name="messaging_app_pro" value="WeChat">
+                    <i class="fa-brands fa-weixin"></i> WeChat
+                  </label>
+                  <label class="msg-app-chip app-discord">
+                    <input type="radio" name="messaging_app_pro" value="Discord">
+                    <i class="fa-brands fa-discord"></i> Discord
+                  </label>
+                  <label class="msg-app-chip app-band">
+                    <input type="radio" name="messaging_app_pro" value="Band">
+                    <i class="fa-solid fa-people-group"></i> Band
+                  </label>
+                </div>
+              </div>
+
+              <!-- 15. CAPTCHA -->
+              <div class="captcha-block">
+                <label class="captcha-label" for="proCaptchaInput"><i class="fa-solid fa-shield-halved"></i> Enter the code shown below:</label>
+                <div class="captcha-display-flex">
+                  <div id="proCaptchaBox" class="captcha-code-box" aria-label="Captcha security code">7kQ9W</div>
+                  <button type="button" class="captcha-refresh-btn" onclick="generateProCaptcha()" title="Refresh security code" aria-label="Refresh Captcha">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                  </button>
+                </div>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-shield-halved"></i></span>
+                  <input type="text" id="proCaptchaInput" name="captcha" class="form-control-gems" placeholder="Enter captcha code" required>
+                </div>
+                <div id="proCaptchaError" style="color: #dc2626; font-size: 0.85rem; margin-top: 6px; display: none;">
+                  Security code does not match. Please try again.
+                </div>
+              </div>
+
+              <!-- Submit button -->
+              <div class="form-bottom-actions">
+                <label class="form-terms-text">
+                  <input type="checkbox" required checked>
+                  <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+                </label>
+                <button type="submit" class="btn-gems-submit" id="proSubmitBtn">
+                  <span>Submit</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- ==================================================
+               TAB 3: BUSINESS CLIENTS FORM
+               ================================================== -->
+          <div id="businessTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
+            <!-- Feedback Notification Box -->
+            <div id="bizFormNotification" class="form-notification"></div>
+
+            <!-- Business Clients Form -->
+            <form id="gemsBusinessForm" action="https://globalenrollment.us/contact/bus_submit" method="POST" onsubmit="return handleBizFormSubmit(event)">
+              <!-- Hidden Captcha Token -->
+              <input type="hidden" name="captcha_token" id="captcha_token_bus" value="8e3b12dc7f40a9b">
+
+              <!-- Section 1: Tell Us About You -->
+              <div class="form-section-title">
+                <i class="fa-regular fa-user"></i> Tell Us About You
+              </div>
+
+              <!-- ROW 1: First Name & Last Name -->
+              <div class="form-row frmcol">
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="bizFirstName"><i class="fa-regular fa-user"></i> First Name <span class="req">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="bizFirstName" name="first_name" class="form-control-gems" placeholder="Enter first name" required>
+                  </div>
+                </div>
+                <div class="form-group frmgrp mb-0">
+                  <label class="form-label" for="bizLastName"><i class="fa-regular fa-user"></i> Last Name <span class="req">*</span></label>
+                  <div class="input-with-icon">
+                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="bizLastName" name="last_name" class="form-control-gems" placeholder="Enter last name" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ROW 2: Company needing Services (Full width) -->
+              <div class="form-group frmgrp">
+                <label class="form-label" for="bizCompany"><i class="fa-solid fa-building"></i> Company Needing Services <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-building"></i></span>
+                  <input type="text" id="bizCompany" name="company" class="form-control-gems" placeholder="Enter company name" required>
+                </div>
+              </div>
+
+              <!-- ROW 3: Email Address (Full width) -->
+              <div class="form-group frmgrp">
+                <label class="form-label" for="bizEmail"><i class="fa-regular fa-envelope"></i> Work Email Address <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-regular fa-envelope"></i></span>
+                  <input type="email" id="bizEmail" name="email" class="form-control-gems" placeholder="Enter work email" required>
+                </div>
+              </div>
+
+              <!-- ROW 4: Country Code & Phone Number -->
+              <div class="form-group frmgrp">
+                <div class="phone-group-row">
+                  <div>
+                    <label class="form-label" for="bizCountryCode"><i class="fa-solid fa-earth-americas"></i> Country Code <span class="req">*</span></label>
+                    <select id="bizCountryCode" name="country_code" class="form-control-gems country-code-select" required>
+                      <option value="+1" selected>+1 (US/CA)</option>
+                      <option value="+44">+44 (UK)</option>
+                      <option value="+971">+971 (UAE)</option>
+                      <option value="+974">+974 (Qatar)</option>
+                      <option value="+91">+91 (IN)</option>
+                      <option value="+63">+63 (PH)</option>
+                      <option value="+61">+61 (AU)</option>
+                      <option value="+65">+65 (SG)</option>
+                      <option value="+49">+49 (DE)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label" for="bizPhone"><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+                    <div class="input-with-icon">
+                      <span class="input-icon-prefix"><i class="fa-solid fa-phone"></i></span>
+                      <input type="tel" id="bizPhone" name="phone" class="form-control-gems" placeholder="Enter phone number" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 2: Tell Us What You Need -->
+              <div class="form-section-title">
+                <i class="fa-solid fa-briefcase"></i> Tell Us What You Need
+              </div>
+
+              <!-- ROW 5: Services of Interest (Full-width textarea with word count) -->
+              <div class="form-group frmgrp">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label mb-0" for="bizServicesInterest"><i class="fa-solid fa-briefcase"></i> Services of Interest <span class="req">*</span></label>
+                  <span id="bizWordCount" style="font-size: 0.82rem; color: #64748b; font-weight: 500;">0 / 100 words</span>
+                </div>
+                <textarea id="bizServicesInterest" name="services_interest" class="form-control-gems" style="height: 110px; resize: vertical; padding: 12px 14px;" placeholder="Describe your service interest or requirements (max 100 words)" required oninput="handleBizWordCount(this)"></textarea>
+              </div>
+
+              <!-- Section 3: How Should We Reach You? -->
+              <div class="form-section-title">
+                <i class="fa-regular fa-comments"></i> How Should We Reach You?
+              </div>
+
+              <!-- ROW 6: Preferred messaging app -->
+              <div class="form-group frmgrp prffmsg">
+                <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i> Preferred Messaging App</label>
+                <div class="messaging-options-wrap bxflexgrp">
+                  <label class="msg-app-chip app-whatsapp selected">
+                    <input type="radio" name="messaging_app_biz" value="WhatsApp" checked>
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                  </label>
+                  <label class="msg-app-chip app-messenger">
+                    <input type="radio" name="messaging_app_biz" value="Messenger">
+                    <i class="fa-brands fa-facebook-messenger"></i> Messenger
+                  </label>
+                  <label class="msg-app-chip app-wechat">
+                    <input type="radio" name="messaging_app_biz" value="WeChat">
+                    <i class="fa-brands fa-weixin"></i> WeChat
+                  </label>
+                  <label class="msg-app-chip app-discord">
+                    <input type="radio" name="messaging_app_biz" value="Discord">
+                    <i class="fa-brands fa-discord"></i> Discord
+                  </label>
+                  <label class="msg-app-chip app-band">
+                    <input type="radio" name="messaging_app_biz" value="Band">
+                    <i class="fa-solid fa-people-group"></i> Band
+                  </label>
+                </div>
+              </div>
+
+              <!-- CAPTCHA -->
+              <div class="captcha-block">
+                <label class="captcha-label" for="captcha_input_bus"><i class="fa-solid fa-shield-halved"></i> Enter the code shown below:</label>
+                <div class="captcha-display-flex">
+                  <div id="captcha_bus" class="captcha-code-box" aria-label="Captcha security code">m4P9T</div>
+                  <button type="button" id="reload_bus" class="captcha-refresh-btn" onclick="generateBizCaptcha()" title="Refresh security code" aria-label="Refresh Captcha">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                  </button>
+                </div>
+                <div class="input-with-icon">
+                  <span class="input-icon-prefix"><i class="fa-solid fa-shield-halved"></i></span>
+                  <input type="text" id="captcha_input_bus" name="captcha" class="form-control-gems" placeholder="Enter captcha code" required>
+                </div>
+                <div id="captcha_error_bus" style="color: #dc2626; font-size: 0.85rem; margin-top: 6px; display: none;">
+                  Security code does not match. Please try again.
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-bottom-actions">
+                <label class="form-terms-text">
+                  <input type="checkbox" required checked>
+                  <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+                </label>
+                <button type="submit" class="btn-gems-submit" id="bizSubmitBtn">
+                  <span>Submit</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SUBMISSION CONFIRMATION MODAL (DYNAMIC JOURNEY ROUTING)
+         ========================================================================== -->
+    <div class="confirm-modal-overlay contact-page" id="submissionConfirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle" style="display: none;">
+      <div class="confirm-modal-box">
+        <button type="button" class="confirm-close-btn" onclick="closeConfirmationModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="confirm-icon-badge">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 class="confirm-modal-title" id="confirmModalTitle">You’re In. Let’s Take The Next Step Together.</h3>
+        <p class="confirm-modal-text">
+          Thank you for reaching out to GEMS. We’ve received your information and a member of our team will review your request. You don’t need to figure everything out at once. We’ll start with where you are and help you understand what comes next.
+        </p>
+        <div class="confirm-modal-note">
+          <i class="fa-solid fa-envelope-open-text" style="color: #b47d3c; margin-right: 6px;"></i>
+          A member of the GEMS team will review your request and contact you by email within two (2) business days.
+        </div>
+        <a href="educational-journeys.html" class="confirm-modal-cta" id="confirmJourneyCta">
+          <span>Explore GEMS While You Wait</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
     <!-- Back to Top Button -->
     <a href="#" id="gemsBackToTop" aria-label="Back to top">
       <i class="fa-solid fa-arrow-up"></i>
@@ -2271,6 +3133,10 @@
           if (typeof setBillingMode === "function") {
             setBillingMode(currentBillingMode);
           }
+          const journeyTabMap = { educational: "students", career: "professionals", growth: "business" };
+          if (journeyTabMap[journeyKey] && typeof switchIntakeTab === "function") {
+            switchIntakeTab(journeyTabMap[journeyKey]);
+          }
         }
 
         // Event delegation on journey selection section
@@ -2284,13 +3150,15 @@
               const journey = card.getAttribute("data-journey");
               selectJourney(journey);
               if (window.history && window.history.pushState) {
-                const newUrl = new URL(window.location.href);
-                newUrl.searchParams.set("journey", journey);
-                window.history.pushState(
-                  { journey: journey },
-                  "",
-                  newUrl.toString(),
-                );
+                try {
+                  const newUrl = new URL(window.location.href);
+                  newUrl.searchParams.set("journey", journey);
+                  window.history.pushState(
+                    { journey: journey },
+                    "",
+                    newUrl.toString(),
+                  );
+                } catch (err) {}
               }
             }
           });
@@ -2303,13 +3171,15 @@
                 const journey = card.getAttribute("data-journey");
                 selectJourney(journey);
                 if (window.history && window.history.pushState) {
-                  const newUrl = new URL(window.location.href);
-                  newUrl.searchParams.set("journey", journey);
-                  window.history.pushState(
-                    { journey: journey },
-                    "",
-                    newUrl.toString(),
-                  );
+                  try {
+                    const newUrl = new URL(window.location.href);
+                    newUrl.searchParams.set("journey", journey);
+                    window.history.pushState(
+                      { journey: journey },
+                      "",
+                      newUrl.toString(),
+                    );
+                  } catch (err) {}
                 }
               }
             }
@@ -2563,6 +3433,470 @@
         // Initialize journey and billing toggle visibility from URL parameter
         applyJourneyFromUrl();
         window.addEventListener("popstate", applyJourneyFromUrl);
+      });
+    </script>
+
+        <!-- ==========================================================================
+         JOURNEY POPUP FORM MODAL SCRIPTS (FORMS + VALIDATION + CAPTCHAS + MODAL)
+         ========================================================================== -->
+    <script>
+      // Global Captcha Codes and State
+      var studentCaptchaCode = "";
+      var proCaptchaCode = "";
+      var bizCaptchaCode = "";
+      var currentModalJourneyTab = "students";
+
+      function getRandomCode(length) {
+        length = length || 5;
+        var chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+        var code = "";
+        for (var i = 0; i < length; i++) {
+          code += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return code;
+      }
+
+      function generateCaptcha() {
+        studentCaptchaCode = getRandomCode(5);
+        var captchaBox = document.getElementById("captchaBox");
+        if (captchaBox) {
+          captchaBox.textContent = studentCaptchaCode;
+        }
+      }
+
+      function generateProCaptcha() {
+        proCaptchaCode = getRandomCode(5);
+        var captchaBox = document.getElementById("proCaptchaBox");
+        if (captchaBox) {
+          captchaBox.textContent = proCaptchaCode;
+        }
+      }
+
+      function generateBizCaptcha() {
+        bizCaptchaCode = getRandomCode(5);
+        var captchaBox = document.getElementById("captcha_bus");
+        if (captchaBox) {
+          captchaBox.textContent = bizCaptchaCode;
+        }
+      }
+
+      function handleBizWordCount(textarea) {
+        var text = textarea.value.trim();
+        var words = text === "" ? [] : text.split(/\s+/);
+        var countDisplay = document.getElementById("bizWordCount");
+
+        if (words.length > 100) {
+          var trimmed = words.slice(0, 100).join(" ");
+          textarea.value = trimmed;
+          if (countDisplay) {
+            countDisplay.textContent = "100 / 100 words";
+            countDisplay.style.color = "#dc2626";
+          }
+        } else {
+          if (countDisplay) {
+            countDisplay.textContent = words.length + " / 100 words";
+            countDisplay.style.color = "#64748b";
+          }
+        }
+      }
+
+      function handleProCountryChange(selectEl) {
+        var wrap = document.getElementById("proOtherCountryWrap");
+        var input = document.getElementById("proOtherCountry");
+        if (!wrap || !input) return;
+        if (selectEl.value === "Other..") {
+          wrap.style.display = "block";
+          input.required = true;
+          input.focus();
+        } else {
+          wrap.style.display = "none";
+          input.required = false;
+        }
+      }
+
+      function switchIntakeTab(targetTab) {
+        currentModalJourneyTab = targetTab;
+        var tabButtons = document.querySelectorAll(".journey-modal-container .form-tab-btn");
+        var tabPanes = document.querySelectorAll(".journey-modal-container .contact-tab-pane");
+
+        // Update tab buttons active state and aria attributes
+        tabButtons.forEach(function (btn) {
+          if (btn.getAttribute("data-tab") === targetTab) {
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
+          } else {
+            btn.classList.remove("active");
+            btn.setAttribute("aria-selected", "false");
+          }
+        });
+
+        // Display ONLY the active form and completely hide inactive forms while disabling inactive controls
+        tabPanes.forEach(function (pane) {
+          var isCurrent = pane.id === targetTab + "TabPane";
+          if (isCurrent) {
+            pane.classList.add("active");
+            pane.style.setProperty("display", "block", "important");
+            pane.setAttribute("aria-hidden", "false");
+            var controls = pane.querySelectorAll("input, select, textarea, button");
+            controls.forEach(function (ctrl) {
+              ctrl.disabled = false;
+            });
+          } else {
+            pane.classList.remove("active");
+            pane.style.setProperty("display", "none", "important");
+            pane.setAttribute("aria-hidden", "true");
+            var controls = pane.querySelectorAll("input, select, textarea, button");
+            controls.forEach(function (ctrl) {
+              ctrl.disabled = true;
+            });
+          }
+        });
+
+        // Reset modal scroll to top so the selected form starts cleanly at the top
+        var modal = document.getElementById("journeyFormModalOverlay");
+        if (modal) {
+          modal.scrollTop = 0;
+        }
+      }
+
+      // Helper to determine the target tab from URL query parameter or fallback
+      function getActiveJourneyTab(fallbackTarget) {
+        try {
+          var urlParams = new URLSearchParams(window.location.search);
+          var journeyParam = urlParams.get("journey");
+          if (journeyParam) {
+            var jLower = journeyParam.toLowerCase();
+            if (jLower === "educational") return "students";
+            if (jLower === "career") return "professionals";
+            if (jLower === "growth") return "business";
+          }
+        } catch (e) {}
+
+        if (fallbackTarget) return fallbackTarget;
+
+        var activeCard = document.querySelector(".journey-card.active");
+        if (activeCard && activeCard.getAttribute("data-journey")) {
+          var j = activeCard.getAttribute("data-journey").toLowerCase();
+          if (j === "career") return "professionals";
+          if (j === "growth") return "business";
+          return "students";
+        }
+        return "students";
+      }
+
+      function openJourneyFormModal(targetTab) {
+        var modal = document.getElementById("journeyFormModalOverlay");
+        if (!modal) return;
+
+        // Ensure targetTab respects URL query param ?journey= or fallback
+        var resolvedTab = targetTab || getActiveJourneyTab("students");
+        switchIntakeTab(resolvedTab);
+
+        generateCaptcha();
+        generateProCaptcha();
+        generateBizCaptcha();
+
+        modal.style.display = "flex";
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        modal.scrollTop = 0;
+      }
+
+      function closeJourneyFormModal() {
+        var modal = document.getElementById("journeyFormModalOverlay");
+        if (modal) {
+          modal.style.display = "none";
+          modal.classList.remove("active");
+        }
+        var confirmModal = document.getElementById("submissionConfirmModal");
+        if (!confirmModal || confirmModal.style.display === "none") {
+          document.body.style.overflow = "";
+        }
+      }
+
+      function showConfirmationModal(journeyType) {
+        var modal = document.getElementById("submissionConfirmModal");
+        var cta = document.getElementById("confirmJourneyCta");
+
+        if (cta) {
+          if (journeyType === "students") {
+            cta.href = "educational-journeys.html";
+          } else if (journeyType === "professionals") {
+            cta.href = "career-journeys.html";
+          } else if (journeyType === "business") {
+            cta.href = "growth-journeys.html";
+          } else {
+            cta.href = "about.html";
+          }
+        }
+
+        if (modal) {
+          modal.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeConfirmationModal() {
+        var modal = document.getElementById("submissionConfirmModal");
+        if (modal) {
+          modal.style.display = "none";
+        }
+        document.body.style.overflow = "";
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        var capInputEl = document.getElementById("captchaInput");
+        var inputVal = capInputEl ? capInputEl.value.trim() : "";
+        var notification = document.getElementById("formNotification");
+        var submitBtn = document.getElementById("submitBtn");
+
+        if (inputVal.toLowerCase() !== studentCaptchaCode.toLowerCase()) {
+          if (notification) {
+            notification.className = "form-notification error";
+            notification.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Security code does not match. Please try again.';
+          }
+          generateCaptcha();
+          if (capInputEl) {
+            capInputEl.value = "";
+            capInputEl.focus();
+          }
+          return false;
+        }
+
+        if (notification) {
+          notification.className = "form-notification";
+          notification.innerHTML = "";
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+        }
+
+        setTimeout(function () {
+          var form = document.getElementById("gemsContactForm");
+          if (form) form.reset();
+          generateCaptcha();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+          }
+          closeJourneyFormModal();
+          showConfirmationModal("students");
+        }, 800);
+
+        return false;
+      }
+
+      function handleProFormSubmit(e) {
+        e.preventDefault();
+        var capInputEl = document.getElementById("proCaptchaInput");
+        var inputVal = capInputEl ? capInputEl.value.trim() : "";
+        var errorMsg = document.getElementById("proCaptchaError");
+        var submitBtn = document.getElementById("proSubmitBtn");
+
+        if (inputVal.toLowerCase() !== proCaptchaCode.toLowerCase()) {
+          if (errorMsg) errorMsg.style.display = "block";
+          generateProCaptcha();
+          if (capInputEl) {
+            capInputEl.value = "";
+            capInputEl.focus();
+          }
+          return false;
+        } else {
+          if (errorMsg) errorMsg.style.display = "none";
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+        }
+
+        setTimeout(function () {
+          var form = document.getElementById("gemsProfessionalForm");
+          if (form) form.reset();
+          generateProCaptcha();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+          }
+          closeJourneyFormModal();
+          showConfirmationModal("professionals");
+        }, 800);
+
+        return false;
+      }
+
+      function handleBizFormSubmit(e) {
+        e.preventDefault();
+        var capInputEl = document.getElementById("captcha_input_bus");
+        var inputVal = capInputEl ? capInputEl.value.trim() : "";
+        var errorMsg = document.getElementById("captcha_error_bus");
+        var submitBtn = document.getElementById("bizSubmitBtn");
+
+        if (inputVal.toLowerCase() !== bizCaptchaCode.toLowerCase()) {
+          if (errorMsg) errorMsg.style.display = "block";
+          generateBizCaptcha();
+          if (capInputEl) {
+            capInputEl.value = "";
+            capInputEl.focus();
+          }
+          return false;
+        } else {
+          if (errorMsg) errorMsg.style.display = "none";
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+        }
+
+        setTimeout(function () {
+          var form = document.getElementById("gemsBusinessForm");
+          if (form) form.reset();
+          var countDisplay = document.getElementById("bizWordCount");
+          if (countDisplay) {
+            countDisplay.textContent = "0 / 100 words";
+            countDisplay.style.color = "#64748b";
+          }
+          generateBizCaptcha();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+          }
+          closeJourneyFormModal();
+          showConfirmationModal("business");
+        }, 800);
+
+        return false;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize active tab state based on URL query parameter ?journey=
+        var initialTab = getActiveJourneyTab("students");
+        switchIntakeTab(initialTab);
+
+        // Initialize captchas
+        generateCaptcha();
+        generateProCaptcha();
+        generateBizCaptcha();
+
+        // Modal Tab Buttons Click Listeners
+        var tabButtons = document.querySelectorAll(".journey-modal-container .form-tab-btn");
+        tabButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var targetTab = this.getAttribute("data-tab");
+            switchIntakeTab(targetTab);
+          });
+        });
+
+        // Messaging Apps Chip Toggle inside Modal
+        var messagingContainers = document.querySelectorAll(".journey-modal-container .messaging-options-wrap");
+        messagingContainers.forEach(function (container) {
+          var chips = container.querySelectorAll(".msg-app-chip");
+          chips.forEach(function (chip) {
+            var input = chip.querySelector("input");
+            chip.addEventListener("click", function (e) {
+              if (input) {
+                if (e.target !== input) {
+                  input.checked = true;
+                }
+                if (input.type === "radio") {
+                  chips.forEach(function (c) { c.classList.remove("selected"); });
+                  chip.classList.add("selected");
+                } else {
+                  if (input.checked) {
+                    chip.classList.add("selected");
+                  } else {
+                    chip.classList.remove("selected");
+                  }
+                }
+              }
+            });
+          });
+        });
+
+        // Hook up all 9 membership card buttons to open the modal
+        var membershipButtons = document.querySelectorAll(".btn-plan-action");
+        membershipButtons.forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Priority 1: Check URL query parameter ?journey=
+            var targetTab = null;
+            try {
+              var urlParams = new URLSearchParams(window.location.search);
+              var jParam = urlParams.get("journey");
+              if (jParam) {
+                var jLower = jParam.toLowerCase();
+                if (jLower === "educational") targetTab = "students";
+                else if (jLower === "career") targetTab = "professionals";
+                else if (jLower === "growth") targetTab = "business";
+              }
+            } catch (err) {}
+
+            // Priority 2: Button attribute or closest active plan-pane
+            var btnTarget = btn.getAttribute("data-journey-target");
+            if (btnTarget && btn.closest(".plan-pane.active-pane")) {
+              targetTab = btnTarget;
+            } else if (!targetTab) {
+              targetTab = btnTarget;
+            }
+            if (!targetTab) {
+              var pane = btn.closest(".plan-pane");
+              if (pane) {
+                if (pane.id === "pane-career") targetTab = "professionals";
+                else if (pane.id === "pane-growth") targetTab = "business";
+                else targetTab = "students";
+              } else {
+                targetTab = "students";
+              }
+            }
+
+            openJourneyFormModal(targetTab);
+          });
+        });
+
+        // Close button listener
+        var closeBtn = document.getElementById("journeyModalCloseBtn");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closeJourneyFormModal);
+        }
+
+        // Overlay backdrop click to close
+        var modalOverlay = document.getElementById("journeyFormModalOverlay");
+        if (modalOverlay) {
+          modalOverlay.addEventListener("click", function (e) {
+            if (e.target === modalOverlay) {
+              closeJourneyFormModal();
+            }
+          });
+        }
+
+        // Confirmation modal backdrop click to close
+        var confirmModal = document.getElementById("submissionConfirmModal");
+        if (confirmModal) {
+          confirmModal.addEventListener("click", function (e) {
+            if (e.target === confirmModal) {
+              closeConfirmationModal();
+            }
+          });
+        }
+
+        // Escape key to close modals
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" || e.keyCode === 27) {
+            var journeyModal = document.getElementById("journeyFormModalOverlay");
+            if (journeyModal && (journeyModal.style.display === "flex" || journeyModal.classList.contains("active"))) {
+              closeJourneyFormModal();
+            }
+            var confirmM = document.getElementById("submissionConfirmModal");
+            if (confirmM && confirmM.style.display === "flex") {
+              closeConfirmationModal();
+            }
+          }
+        });
       });
     </script>
 

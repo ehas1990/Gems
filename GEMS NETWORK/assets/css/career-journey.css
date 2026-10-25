@@ -53,120 +53,263 @@
 }
 
 /* ==========================================================================
-   2. FOUR CONNECTED CAREER STAGES (CONTINUOUS ROADMAP JOURNEY)
+   2. FOUR CONNECTED CAREER STAGES (GEMS CAREER INFOGRAPHIC REDESIGN)
    ========================================================================== */
-.career-journey-page .career-stages-section {
-    padding: 85px 0 110px 0;
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
+
+.career-journey-page .gems-career-infographic {
     position: relative;
+    width: 100%;
     overflow: hidden;
+    background-color: #071b35;
     color: #ffffff;
+    padding: 0;
 }
 
-.career-journey-page .career-stages-section::before {
-    content: "";
+/* Infographic Top Bar */
+.career-journey-page .gems-info-topbar {
     position: absolute;
-    inset: 0;
-    background-image: url('../img/Golden\ Mountain\ Road\ to\ the\ City.webp');
-    background-size: cover;
-    background-position: bottom;
-   
+    top: 14px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4.5px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
     pointer-events: none;
 }
 
-.career-journey-page .career-roadmap-bg-wrap {
-    display: none !important;
-}
-
-.career-journey-page .career-roadmap-container {
-    position: relative;
-    z-index: 3;
-}
-
-/* Section Header */
-.career-journey-page .career-stages-header {
-    text-align: center;
-    max-width: 880px;
-    margin: 0 auto 36px auto;
-}
-
-.career-journey-page .career-stages-header .career-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #f4b942;
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 50px;
-    margin-bottom: 16px;
-    backdrop-filter: blur(8px);
-}
-
-.career-journey-page .career-stages-header .career-section-title {
-    color: #ffffff;
-    font-size: clamp(1.85rem, 3.2vw, 2.5rem);
-    font-weight: 800;
-    line-height: 1.25;
-    margin-bottom: 16px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
-}
-
-.career-journey-page .career-stages-header .career-section-desc {
-    color: rgba(255, 255, 255, 0.88);
-    font-size: 1.05rem;
-    line-height: 1.65;
-    margin-bottom: 0;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
-}
-
-/* Continuous Roadmap Panorama Box */
-.career-journey-page .career-roadmap-panorama {
+/* Canvas Wrapper */
+.career-journey-page .gems-infographic-canvas {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    max-height: 480px;
-    border-radius: 24px;
+    min-height: 960px;
     overflow: hidden;
-    box-shadow: none;
-    margin-bottom: -50px;
-    z-index: 2;
 }
 
-.career-journey-page .career-roadmap-panorama-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-}
-
-.career-journey-page .career-roadmap-svg-overlay {
+/* Background Landscape Image */
+.career-journey-page .gems-canvas-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    display: block;
+    object-fit: cover;
+    object-position: center bottom;
+    z-index: 1;
 }
 
-/* S-Curve Trail & Pin Animations */
+/* Sky & Atmosphere Overlay */
+.career-journey-page .gems-sky-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 25% 18%, rgba(7, 27, 53, 0.94) 0%, rgba(7, 27, 53, 0.78) 38%, rgba(7, 27, 53, 0.25) 70%, transparent 100%),
+                linear-gradient(to top, rgba(7, 27, 53, 0.75) 0%, rgba(7, 27, 53, 0.3) 120px, transparent 240px);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Top-Left Typography Header Block */
+.career-journey-page .gems-intro-block {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    max-width: 500px;
+    z-index: 10;
+}
+
+.career-journey-page .gems-title-prefix {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: -6px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.career-journey-page .gems-title-main {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 3.6vw, 54px);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin: 0 0 6px 0;
+    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.6);
+}
+
+.career-journey-page .gems-eagle-fly {
+    display: inline-block;
+    width: 38px;
+    height: 24px;
+    transform: translateY(-8px);
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.career-journey-page .gems-title-tagline {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    color: #f59e0b;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.career-journey-page .gems-intro-desc {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.94);
+    margin-bottom: 12px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75);
+}
+
+.career-journey-page .gems-script-quote {
+    font-family: 'Caveat', cursive, italic;
+    color: #ffd166;
+    line-height: 1.25;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.career-journey-page .gems-script-line1 {
+    display: block;
+    font-size: 23px;
+}
+
+.career-journey-page .gems-script-line2 {
+    display: block;
+    font-size: 27px;
+    font-weight: 700;
+    padding-left: 24px;
+}
+
+/* Left Rock Face Carved Emblem */
+.career-journey-page .gems-rock-carving {
+    position: absolute;
+    top: 420px;
+    left: 36px;
+    z-index: 4;
+    text-align: center;
+    max-width: 130px;
+    pointer-events: none;
+    opacity: 0.88;
+}
+
+.career-journey-page .gems-rock-emblem {
+    font-size: 22px;
+    color: #2b1d12;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3), -1px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.career-journey-page .gems-rock-brandname {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #26190f;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.28), -1px -1px 1px rgba(0, 0, 0, 0.45);
+    line-height: 1;
+    margin: 4px 0 6px 0;
+}
+
+.career-journey-page .gems-rock-pillars span {
+    display: block;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    color: #2c1d12;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.25);
+    line-height: 1.35;
+}
+
+/* Left Wooden Signpost: OPPORTUNITY STARTS HERE */
+.career-journey-page .gems-signpost-start {
+    position: absolute;
+    bottom: 95px;
+    left: 20px;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.career-journey-page .gems-signpost-board {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #5c3a21 0%, #3e2614 100%);
+    color: #ffd166;
+    border: 1.5px solid #8b5a2b;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.career-journey-page .gems-signpost-stake {
+    width: 8px;
+    height: 36px;
+    background: #3e2614;
+    border: 1px solid #2b190f;
+    box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Top-Right City Sunrise Beacon */
+.career-journey-page .gems-dest-pill-banner {
+    position: absolute;
+    top: 65px;
+    right: 48px;
+    z-index: 8;
+}
+
+.career-journey-page .gems-dest-pill-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(7, 27, 53, 0.88);
+    border: 2px solid #f59e0b;
+    border-radius: 50px;
+    padding: 8px 22px;
+    color: #ffd166;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 0 24px rgba(245, 158, 11, 0.45), 0 4px 14px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+/* Road SVG Overlay */
+.career-journey-page .gems-road-svg-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* S-Curve Trail Animation */
 @keyframes roadFlow {
     to {
         stroke-dashoffset: -72;
-    }
-}
-
-@keyframes pinPulse {
-    0% {
-        r: 18px;
-        opacity: 0.9;
-    }
-    100% {
-        r: 38px;
-        opacity: 0;
     }
 }
 
@@ -174,328 +317,335 @@
     animation: roadFlow 2.8s linear infinite;
 }
 
-.career-journey-page .pin-pulse,
-.career-journey-page .pin-pulse-wave {
-    animation: pinPulse 2.2s ease-out infinite;
-    transform-origin: center;
-}
-
-.career-journey-page .roadmap-svg-hotspot {
-    cursor: pointer;
-    outline: none;
-}
-
-.career-journey-page .hotspot-pin,
-.career-journey-page .hotspot-pin-group {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-    transform-origin: center;
-}
-
-.career-journey-page .roadmap-svg-hotspot:hover .hotspot-pin,
-.career-journey-page .roadmap-svg-hotspot:focus .hotspot-pin,
-.career-journey-page .roadmap-svg-hotspot.active .hotspot-pin,
-.career-journey-page .roadmap-svg-hotspot.hotspot-active .hotspot-pin,
-.career-journey-page .roadmap-svg-hotspot:hover .hotspot-pin-group,
-.career-journey-page .roadmap-svg-hotspot:focus .hotspot-pin-group,
-.career-journey-page .roadmap-svg-hotspot.active .hotspot-pin-group,
-.career-journey-page .roadmap-svg-hotspot.hotspot-active .hotspot-pin-group {
-    transform: scale(1.18);
-    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
-}
-
-.career-journey-page .roadmap-svg-hotspot:focus-visible .pin-outer-ring {
-    stroke-width: 5px;
-    stroke: #f4b942;
-}
-
-/* Four Career Journey Stage Cards Grid */
-.career-journey-page .career-stages-grid {
+/* Stepped Four Floating Information Panels */
+.career-journey-page .gems-stages-panels-row {
+    position: relative;
+    z-index: 6;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    position: relative;
-    z-index: 3;
+    gap: 16px;
+    padding: 270px 24px 60px 180px;
+    max-width: 1440px;
+    margin: 0 auto;
     align-items: start;
 }
 
+/* Stepped Elevation matching the reference design */
+.career-journey-page .gems-panel-1 {
+    margin-top: 175px;
+}
+
+.career-journey-page .gems-panel-2 {
+    margin-top: 95px;
+}
+
+.career-journey-page .gems-panel-3 {
+    margin-top: 15px;
+}
+
+.career-journey-page .gems-panel-4 {
+    margin-top: -65px;
+}
+
+/* Floating Card Base Styling */
 .career-journey-page .career-stage-card {
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-radius: 20px;
-    padding: 24px 20px 22px 20px;
-    box-shadow: 0 16px 36px rgba(7, 27, 53, 0.16), 0 2px 8px rgba(7, 27, 53, 0.06);
+    border-radius: 18px;
+    padding: 28px 16px 18px 16px;
+    box-shadow: 0 18px 38px rgba(7, 27, 53, 0.22), 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1.5px solid rgba(255, 255, 255, 0.95);
     display: flex;
     flex-direction: column;
     position: relative;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease,
                 background 0.35s ease;
-    height: auto;
-    min-height: 275px;
     cursor: pointer;
 }
 
 .career-journey-page .career-stage-card:hover,
-.career-journey-page .career-stage-card.is-expanded,
-.career-journey-page .career-stage-card.highlighted,
-.career-journey-page .career-stage-card.panel-highlighted {
+.career-journey-page .career-stage-card.panel-highlighted,
+.career-journey-page .career-stage-card.highlighted {
     transform: translateY(-8px);
     background: #ffffff;
-    box-shadow: 0 24px 50px rgba(7, 27, 53, 0.28);
-    z-index: 5;
+    box-shadow: 0 24px 50px rgba(7, 27, 53, 0.35);
+    z-index: 10;
 }
 
 .career-journey-page .stage-1:hover,
-.career-journey-page .stage-1.is-expanded,
-.career-journey-page .stage-1.highlighted,
 .career-journey-page .stage-1.panel-highlighted {
-    border-color: rgba(225, 29, 72, 0.6);
+    border-color: rgba(225, 29, 72, 0.7);
 }
 
 .career-journey-page .stage-2:hover,
-.career-journey-page .stage-2.is-expanded,
-.career-journey-page .stage-2.highlighted,
 .career-journey-page .stage-2.panel-highlighted {
-    border-color: rgba(217, 119, 6, 0.6);
+    border-color: rgba(217, 119, 6, 0.7);
 }
 
 .career-journey-page .stage-3:hover,
-.career-journey-page .stage-3.is-expanded,
-.career-journey-page .stage-3.highlighted,
 .career-journey-page .stage-3.panel-highlighted {
-    border-color: rgba(13, 148, 136, 0.6);
+    border-color: rgba(13, 148, 136, 0.7);
 }
 
 .career-journey-page .stage-4:hover,
-.career-journey-page .stage-4.is-expanded,
-.career-journey-page .stage-4.highlighted,
 .career-journey-page .stage-4.panel-highlighted {
-    border-color: rgba(29, 78, 216, 0.6);
+    border-color: rgba(29, 78, 216, 0.7);
 }
 
-/* Card Divider (visible in default state right under introductory description) */
-.career-journey-page .career-stage-divider {
-    height: 1px;
-    width: 100%;
-    background: rgba(0, 59, 109, 0.1);
-    margin: 0 0 14px 0;
-    flex-shrink: 0;
-}
-
-/* Smooth expandable reveal container */
-.career-journey-page .career-stage-expandable {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    visibility: hidden;
-    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.35s ease,
-                visibility 0.4s ease;
-    will-change: grid-template-rows, opacity;
-}
-
-.career-journey-page .career-stage-expandable-inner {
-    overflow: hidden;
-    min-height: 0;
+/* ==========================================================================
+   MILESTONE PINS (CIRCULAR BADGES DIRECTLY MOUNTED ON CARDS)
+   ========================================================================== */
+.career-journey-page .gems-card-pin {
+    position: absolute;
     display: flex;
     flex-direction: column;
-}
-
-/* Reveal when hovered, touch expanded, keyboard focused, or SVG roadmap hotspot highlighted */
-.career-journey-page .career-stage-card:hover .career-stage-expandable,
-.career-journey-page .career-stage-card.is-expanded .career-stage-expandable,
-.career-journey-page .career-stage-card.panel-highlighted .career-stage-expandable,
-.career-journey-page .career-stage-card:focus-within .career-stage-expandable {
-    grid-template-rows: 1fr;
-    opacity: 1;
-    visibility: visible;
-}
-
-.career-journey-page .stage-card-top,
-.career-journey-page .career-stage-card-header {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
+    text-decoration: none !important;
+    outline: none;
+    z-index: 15;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.career-journey-page .stage-badge,
-.career-journey-page .career-stage-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-size: 0.74rem;
+/* Pin Positions */
+.career-journey-page .pin-stage-1 {
+    left: -32px;
+    top: -24px;
+}
+
+.career-journey-page .pin-stage-2 {
+    left: -30px;
+    top: -30px;
+}
+
+.career-journey-page .pin-stage-3 {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -46px;
+}
+
+.career-journey-page .pin-stage-4 {
+    left: -28px;
+    top: -38px;
+}
+
+/* Hover Elevation on Pin */
+.career-journey-page .gems-card-pin:hover,
+.career-journey-page .gems-card-pin:focus,
+.career-journey-page .career-stage-card:hover .gems-card-pin,
+.career-journey-page .career-stage-card.panel-highlighted .gems-card-pin {
+    transform: scale(1.15);
+}
+
+.career-journey-page .pin-stage-3:hover,
+.career-journey-page .pin-stage-3:focus,
+.career-journey-page .stage-3:hover .pin-stage-3,
+.career-journey-page .stage-3.panel-highlighted .pin-stage-3 {
+    transform: translateX(-50%) scale(1.15);
+}
+
+/* Pin Stage Number Pill Tab */
+.career-journey-page .pin-num-tab {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
     font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: #ffffff;
+    padding: 2px 10px;
+    border-radius: 50px;
+    border: 1.5px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    margin-bottom: -5px;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.career-journey-page .stage-1 .stage-badge,
-.career-journey-page .stage-1 .career-stage-badge {
-    background: rgba(225, 29, 72, 0.10);
-    color: #e11d48;
-    border: 1px solid rgba(225, 29, 72, 0.22);
-}
+.career-journey-page .pin-stage-1 .pin-num-tab { background: #e11d48; }
+.career-journey-page .pin-stage-2 .pin-num-tab { background: #d97706; }
+.career-journey-page .pin-stage-3 .pin-num-tab { background: #0d9488; }
+.career-journey-page .pin-stage-4 .pin-num-tab { background: #1d4ed8; }
 
-.career-journey-page .stage-2 .stage-badge,
-.career-journey-page .stage-2 .career-stage-badge {
-    background: rgba(217, 119, 6, 0.10);
-    color: #d97706;
-    border: 1px solid rgba(217, 119, 6, 0.22);
-}
-
-.career-journey-page .stage-3 .stage-badge,
-.career-journey-page .stage-3 .career-stage-badge {
-    background: rgba(13, 148, 136, 0.10);
-    color: #0d9488;
-    border: 1px solid rgba(13, 148, 136, 0.22);
-}
-
-.career-journey-page .stage-4 .stage-badge,
-.career-journey-page .stage-4 .career-stage-badge {
-    background: rgba(29, 78, 216, 0.10);
-    color: #1d4ed8;
-    border: 1px solid rgba(29, 78, 216, 0.22);
-}
-
-.career-journey-page .stage-indicator-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+/* Pin Circular Disc & Pulse */
+.career-journey-page .pin-disc {
+    position: relative;
+    width: 58px;
+    height: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-size: 0.85rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-.career-journey-page .stage-1 .stage-indicator-icon { background: #e11d48; }
-.career-journey-page .stage-2 .stage-indicator-icon { background: #d97706; }
-.career-journey-page .stage-3 .stage-indicator-icon { background: #0d9488; }
-.career-journey-page .stage-4 .stage-indicator-icon { background: #1d4ed8; }
+@keyframes pinHaloPulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
 
-.career-journey-page .stage-title,
+.career-journey-page .pin-glow-wave {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    animation: pinHaloPulse 2.4s ease-out infinite;
+    pointer-events: none;
+}
+
+.career-journey-page .pin-stage-1 .pin-glow-wave { background: rgba(225, 29, 72, 0.4); }
+.career-journey-page .pin-stage-2 .pin-glow-wave { background: rgba(217, 119, 6, 0.4); }
+.career-journey-page .pin-stage-3 .pin-glow-wave { background: rgba(13, 148, 136, 0.4); }
+.career-journey-page .pin-stage-4 .pin-glow-wave { background: rgba(29, 78, 216, 0.4); }
+
+.career-journey-page .pin-icon-wrap {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.career-journey-page .pin-svg-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Teardrop Pointer on Bottom (Stage 1 & 2) */
+.career-journey-page .pin-pointer {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    margin-top: -3px;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.3));
+}
+
+.career-journey-page .pin-stage-1 .pin-pointer { border-top: 10px solid #e11d48; }
+.career-journey-page .pin-stage-2 .pin-pointer { border-top: 10px solid #d97706; }
+
+/* Card Content Typography */
 .career-journey-page .career-stage-title {
     color: #071b35;
-    font-size: 1.25rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
     font-weight: 800;
-    margin-bottom: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     line-height: 1.25;
     text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.career-journey-page .stage-tagline,
 .career-journey-page .career-stage-tagline {
-    font-size: 0.86rem;
+    font-size: 0.84rem;
     font-weight: 700;
     margin-bottom: 8px;
     text-align: left;
+    line-height: 1.35;
 }
 
-.career-journey-page .stage-1 .stage-tagline,
-.career-journey-page .stage-1 .career-stage-tagline { color: #be123c; }
-.career-journey-page .stage-2 .stage-tagline,
-.career-journey-page .stage-2 .career-stage-tagline { color: #b45309; }
-.career-journey-page .stage-3 .stage-tagline,
-.career-journey-page .stage-3 .career-stage-tagline { color: #0f766e; }
-.career-journey-page .stage-4 .stage-tagline,
+.career-journey-page .stage-1 .career-stage-tagline { color: #e11d48; }
+.career-journey-page .stage-2 .career-stage-tagline { color: #d97706; }
+.career-journey-page .stage-3 .career-stage-tagline { color: #0d9488; }
 .career-journey-page .stage-4 .career-stage-tagline { color: #1d4ed8; }
 
-.career-journey-page .stage-desc,
 .career-journey-page .career-stage-desc {
     color: #475569;
-    font-size: 0.86rem;
+    font-size: 0.82rem;
     line-height: 1.5;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     text-align: left;
 }
 
-.career-journey-page .services-title,
+.career-journey-page .career-stage-divider {
+    height: 1px;
+    width: 100%;
+    background: rgba(0, 59, 109, 0.12);
+    margin: 0 0 12px 0;
+    flex-shrink: 0;
+}
+
 .career-journey-page .career-services-title {
     font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: #64748b;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     text-align: left;
 }
 
-.career-journey-page .services-list,
 .career-journey-page .career-services-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
-    flex-grow: 1;
+    margin: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
-.career-journey-page .services-list li,
 .career-journey-page .career-services-list li {
     display: flex !important;
     align-items: center;
-    gap: 10px;
-    font-size: 0.86rem;
-    color: #334155;
+    gap: 9px;
+    font-size: 0.81rem;
+    color: #1e293b;
     font-weight: 600;
-    line-height: 1.4;
-    margin-bottom: 10px;
+    line-height: 1.35;
 }
 
-.career-journey-page .services-list li::before,
 .career-journey-page .career-services-list li::before {
     display: none !important;
 }
 
-.career-journey-page .services-list li i,
 .career-journey-page .career-services-list li i {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     border-radius: 50%;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
 }
 
-.career-journey-page .stage-1 .services-list li i,
 .career-journey-page .stage-1 .career-services-list li i {
     color: #e11d48;
     background: rgba(225, 29, 72, 0.08);
     border: 1px solid rgba(225, 29, 72, 0.2);
 }
 
-.career-journey-page .stage-2 .services-list li i,
 .career-journey-page .stage-2 .career-services-list li i {
     color: #d97706;
     background: rgba(217, 119, 6, 0.08);
     border: 1px solid rgba(217, 119, 6, 0.2);
 }
 
-.career-journey-page .stage-3 .services-list li i,
 .career-journey-page .stage-3 .career-services-list li i {
     color: #0d9488;
     background: rgba(13, 148, 136, 0.08);
     border: 1px solid rgba(13, 148, 136, 0.2);
 }
 
-.career-journey-page .stage-4 .services-list li i,
 .career-journey-page .stage-4 .career-services-list li i {
     color: #1d4ed8;
     background: rgba(29, 78, 216, 0.08);
     border: 1px solid rgba(29, 78, 216, 0.2);
 }
 
-.career-journey-page .stage-footer,
 .career-journey-page .career-stage-footer {
     margin-top: auto;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 .career-journey-page .career-stage-cta {
@@ -504,16 +654,16 @@
     justify-content: center;
     gap: 8px;
     width: 100%;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-radius: 50px;
     font-family: inherit;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     background: #071b35;
     color: #ffffff !important;
-    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.18);
+    box-shadow: 0 4px 14px rgba(7, 27, 53, 0.2);
 }
 
 .career-journey-page .stage-1 .career-stage-cta:hover,
@@ -548,65 +698,175 @@
     box-shadow: 0 8px 20px rgba(29, 78, 216, 0.35);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .career-journey-page .career-stages-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+/* Right Bottom Multi-Arrow Rustic Wooden Signpost */
+.career-journey-page .gems-signpost-multi {
+    position: absolute;
+    bottom: 48px;
+    right: 28px;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+}
+
+.career-journey-page .gems-multi-plank {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #5a381e 0%, #3a2212 100%);
+    border: 1.5px solid #855326;
+    color: #ffd166;
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    padding: 5px 14px 5px 12px;
+    border-radius: 3px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.career-journey-page .gems-multi-plank::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 8px solid #3a2212;
+}
+
+.career-journey-page .gems-multi-post {
+    position: absolute;
+    right: 48px;
+    top: -10px;
+    bottom: -15px;
+    width: 10px;
+    background: #311c0e;
+    border: 1px solid #201209;
+    z-index: -1;
+}
+
+/* Bottom Footer Bar */
+.career-journey-page .gems-infographic-footer {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1280px) {
+    .career-journey-page .gems-stages-panels-row {
+        gap: 12px;
+        padding: 270px 16px 60px 150px;
     }
 
-    .career-journey-page .career-stage-card {
+    .career-journey-page .gems-intro-block {
+        left: 28px;
+        max-width: 440px;
+    }
+}
+
+@media (max-width: 1099px) {
+    .career-journey-page .gems-infographic-canvas {
         min-height: auto;
     }
 
-    .career-journey-page .career-roadmap-panorama {
-        margin-bottom: 24px;
-        max-height: 380px;
+    .career-journey-page .gems-intro-block {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 50px 24px 20px 24px;
+        max-width: 600px;
+    }
+
+    .career-journey-page .gems-stages-panels-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+        padding: 20px 24px 70px 24px;
+    }
+
+    .career-journey-page .gems-panel-1,
+    .career-journey-page .gems-panel-2,
+    .career-journey-page .gems-panel-3,
+    .career-journey-page .gems-panel-4 {
+        margin-top: 0;
+    }
+
+    .career-journey-page .pin-stage-1,
+    .career-journey-page .pin-stage-2,
+    .career-journey-page .pin-stage-4 {
+        left: 18px;
+        top: -30px;
+    }
+
+    .career-journey-page .pin-stage-3 {
+        left: 18px;
+        transform: none;
+        top: -30px;
+    }
+
+    .career-journey-page .gems-dest-pill-banner {
+        position: absolute;
+        top: 36px;
+        right: 24px;
+    }
+
+    .career-journey-page .gems-rock-carving,
+    .career-journey-page .gems-signpost-start,
+    .career-journey-page .gems-signpost-multi {
+        display: none;
     }
 }
 
 @media (max-width: 767px) {
-    .career-journey-page .career-stages-section {
-        padding: 50px 0 70px 0;
+    .career-journey-page .gems-intro-block {
+        padding: 40px 18px 16px 18px;
     }
 
-    .career-journey-page .career-stages-header {
-        margin-bottom: 25px;
+    .career-journey-page .gems-title-main {
+        font-size: 28px;
     }
 
-    .career-journey-page .career-stages-header .career-section-title {
-        font-size: 1.65rem;
-    }
-
-    .career-journey-page .career-stages-header .career-section-desc {
-        font-size: 0.95rem;
-    }
-
-    .career-journey-page .career-roadmap-panorama {
-        margin-bottom: 20px;
-        max-height: 260px;
-        border-radius: 16px;
-    }
-
-    .career-journey-page .career-stages-grid {
+    .career-journey-page .gems-stages-panels-row {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 36px;
+        padding: 10px 16px 60px 16px;
     }
 
-    .career-journey-page .career-stage-card {
-        padding: 20px 18px;
-        border-radius: 16px;
-        min-height: auto;
+    .career-journey-page .gems-dest-pill-banner {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 10px 18px 20px 18px;
+        display: inline-block;
     }
 
-    .career-journey-page .career-stage-title,
-    .career-journey-page .stage-title {
-        font-size: 1.2rem;
+    .career-journey-page .gems-road-svg-overlay {
+        display: none;
     }
 
-    .career-journey-page .career-stage-cta {
-        padding: 12px 16px;
-        font-size: 0.88rem;
+    .career-journey-page .gems-info-topbar,
+    .career-journey-page .gems-infographic-footer {
+        font-size: 9px;
+        letter-spacing: 2px;
     }
 }
 
@@ -1802,21 +2062,4 @@
         text-align: center;
         justify-content: center;
     }
-}
-article#careerStageCard4 {
-    transform: translateY(-204px);
-}
-article#careerStageCard3 {
-    transform: translateY(-120px);
-}
-article#careerStageCard2 {
-    transform: translateY(-43px);
-}
-article#careerStageCard1 {
-    transform: translateY(10px);
-}
-.career-journey-page .career-stages-grid {
-
-    gap:45px;
-
 }

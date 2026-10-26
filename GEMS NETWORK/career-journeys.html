@@ -140,6 +140,13 @@
         overflow: visible;
       }
 
+      @media (max-width: 767px) {
+        .career-journey-page .career-stages-section.gems-career-infographic {
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+      }
+
       .career-journey-page .career-timeline-container {
         overflow: visible !important;
         position: relative;
@@ -500,7 +507,7 @@
         }
       }
 
-/* ==========================================================================
+      /* ==========================================================================
          CAREER STAGE CARDS: DEFAULT COMPACT STATE & HOVER TOOLTIP
          ========================================================================== */
       .career-journey-page .career-stage-card {
@@ -517,23 +524,34 @@
         color: #ffffff;
         padding: 16px 18px 14px 18px;
         border-radius: 16px;
-        box-shadow: 0 22px 50px -8px rgba(7, 27, 53, 0.6), 0 8px 20px rgba(0, 0, 0, 0.35);
+        box-shadow:
+          0 22px 50px -8px rgba(7, 27, 53, 0.6),
+          0 8px 20px rgba(0, 0, 0, 0.35);
         border: 1.5px solid rgba(255, 255, 255, 0.14);
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                    visibility 0.25s ease;
+        transition:
+          opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+          visibility 0.25s ease;
         z-index: 120;
         box-sizing: border-box;
       }
 
       /* Stage Accent Top Borders */
-      .career-journey-page .stage-1 .career-card-tooltip { border-top: 3.5px solid #e11d48; }
-      .career-journey-page .stage-2 .career-card-tooltip { border-top: 3.5px solid #d97706; }
-      .career-journey-page .stage-3 .career-card-tooltip { border-top: 3.5px solid #0d9488; }
-      .career-journey-page .stage-4 .career-card-tooltip { border-top: 3.5px solid #1d4ed8; }
+      .career-journey-page .stage-1 .career-card-tooltip {
+        border-top: 3.5px solid #e11d48;
+      }
+      .career-journey-page .stage-2 .career-card-tooltip {
+        border-top: 3.5px solid #d97706;
+      }
+      .career-journey-page .stage-3 .career-card-tooltip {
+        border-top: 3.5px solid #0d9488;
+      }
+      .career-journey-page .stage-4 .career-card-tooltip {
+        border-top: 3.5px solid #1d4ed8;
+      }
 
       /* Tooltip Header */
       .career-journey-page .career-tooltip-header {
@@ -622,7 +640,7 @@
         transform: translateX(-50%) translateY(8px);
       }
       .career-journey-page .career-card-tooltip.pos-above::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 100%;
         left: 50%;
@@ -631,8 +649,12 @@
         border-style: solid;
         border-color: #0b1526 transparent transparent transparent;
       }
-      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-above,
-      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-above {
+      .career-journey-page
+        .career-stage-card:hover
+        .career-card-tooltip.pos-above,
+      .career-journey-page
+        .career-stage-card.tooltip-open
+        .career-card-tooltip.pos-above {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
         visibility: visible;
@@ -648,7 +670,7 @@
         transform: translateX(-8px);
       }
       .career-journey-page .career-card-tooltip.pos-right::after {
-        content: '';
+        content: "";
         position: absolute;
         right: 100%;
         top: 32px;
@@ -656,8 +678,12 @@
         border-style: solid;
         border-color: transparent #0b1526 transparent transparent;
       }
-      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-right,
-      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-right {
+      .career-journey-page
+        .career-stage-card:hover
+        .career-card-tooltip.pos-right,
+      .career-journey-page
+        .career-stage-card.tooltip-open
+        .career-card-tooltip.pos-right {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
@@ -673,7 +699,7 @@
         transform: translateX(8px);
       }
       .career-journey-page .career-card-tooltip.pos-left::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 100%;
         top: 32px;
@@ -681,8 +707,12 @@
         border-style: solid;
         border-color: transparent transparent transparent #0b1526;
       }
-      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-left,
-      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-left {
+      .career-journey-page
+        .career-stage-card:hover
+        .career-card-tooltip.pos-left,
+      .career-journey-page
+        .career-stage-card.tooltip-open
+        .career-card-tooltip.pos-left {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
@@ -698,7 +728,7 @@
         transform: translateX(-50%) translateY(-8px);
       }
       .career-journey-page .career-card-tooltip.pos-below::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 100%;
         left: 50%;
@@ -707,8 +737,12 @@
         border-style: solid;
         border-color: transparent transparent #0b1526 transparent;
       }
-      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-below,
-      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-below {
+      .career-journey-page
+        .career-stage-card:hover
+        .career-card-tooltip.pos-below,
+      .career-journey-page
+        .career-stage-card.tooltip-open
+        .career-card-tooltip.pos-below {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
         visibility: visible;
@@ -1114,7 +1148,8 @@
       >
         <!-- Top Sub-Header Tagline -->
         <div class="gems-info-topbar" aria-hidden="true">
-          <span>GUIDANCE</span> &bull; <span>EMPOWERMENT</span> &bull; <span>MENTORSHIP</span> &bull; <span>SERVICE</span>
+          <span>GUIDANCE</span> &bull; <span>EMPOWERMENT</span> &bull;
+          <span>MENTORSHIP</span> &bull; <span>SERVICE</span>
         </div>
 
         <!-- Panoramic Infographic Visual Canvas -->
@@ -1131,20 +1166,29 @@
           <div class="gems-sky-overlay" aria-hidden="true"></div>
 
           <!-- Top-Left Elegant Typography Block -->
-          <div class="gems-intro-block" data-aos="fade-down" data-aos-duration="900">
+          <div
+            class="gems-intro-block"
+            data-aos="fade-down"
+            data-aos-duration="900"
+          >
             <div class="gems-title-prefix">YOUR</div>
             <h2 class="gems-title-main">
               CAREER JOURNEY
-              <svg class="gems-eagle-fly" viewBox="0 0 54 36" aria-hidden="true">
-                <path d="M27,16 C31,11 38,7 50,4 C46,10 41,14 36,17 C42,16 48,17 52,20 C45,20 39,21 34,21 C40,24 43,27 45,32 C38,28 32,25 28,21 C26,26 23,30 20,34 C21,28 22,22 22,19 C18,20 13,22 8,27 C10,22 14,19 19,17 C15,17 10,16 3,19 C7,16 11,12 17,12 C11,10 6,9 0,10 C9,7 18,9 24,14 Z" fill="#ffffff" />
-              </svg>
+              <img src="assets/img/egle-icon.png" width="30px" height="30px" />
             </h2>
-            <div class="gems-title-tagline">DIFFERENT PATHS. A BRIGHTER TOMORROW.</div>
+            <div class="gems-title-tagline">
+              DIFFERENT PATHS. A BRIGHTER TOMORROW.
+            </div>
             <p class="gems-intro-desc">
-              Wherever you are in your career, GEMS can help you understand what comes next. Careers aren't always linear &mdash; and that's okay. At every stage, GEMS provides guidance, resources, and trusted connections to help you move forward with confidence.
+              Wherever you are in your career, GEMS can help you understand what
+              comes next. Careers aren't always linear &mdash; and that's okay.
+              At every stage, GEMS provides guidance, resources, and trusted
+              connections to help you move forward with confidence.
             </p>
             <div class="gems-script-quote">
-              <span class="gems-script-line1">No matter what journey you begin...</span>
+              <span class="gems-script-line1"
+                >No matter what journey you begin...</span
+              >
               <span class="gems-script-line2">Start With GEMS</span>
             </div>
           </div>
@@ -1180,7 +1224,6 @@
             </div>
           </div>
 
-
           <!-- Stepped Four Floating Information Panels -->
           <div class="gems-stages-panels-row">
             <!-- PANEL 01: STARTING YOUR CAREER -->
@@ -1205,10 +1248,32 @@
                 <div class="pin-disc">
                   <div class="pin-glow-wave" aria-hidden="true"></div>
                   <div class="pin-icon-wrap">
-                    <svg viewBox="0 0 32 32" class="pin-svg-icon" aria-hidden="true">
-                      <circle cx="16" cy="16" r="14" fill="#e11d48" stroke="#ffffff" stroke-width="2" />
-                      <circle cx="16" cy="16" r="7" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.6" />
-                      <polygon points="16,6 18.5,13.5 26,16 18.5,18.5 16,26 13.5,18.5 6,16 13.5,13.5" fill="#ffffff" />
+                    <svg
+                      viewBox="0 0 32 32"
+                      class="pin-svg-icon"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="14"
+                        fill="#e11d48"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="7"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="1.2"
+                        opacity="0.6"
+                      />
+                      <polygon
+                        points="16,6 18.5,13.5 26,16 18.5,18.5 16,26 13.5,18.5 6,16 13.5,13.5"
+                        fill="#ffffff"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -1218,26 +1283,59 @@
               <h3 class="career-stage-title">STARTING YOUR CAREER</h3>
               <div class="career-stage-tagline">Build your foundation.</div>
               <p class="career-stage-desc">
-                You are entering the professional world and figuring out where you fit, what you need, and how to prepare.
+                You are entering the professional world and figuring out where
+                you fit, what you need, and how to prepare.
               </p>
 
               <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
-              <div class="career-card-tooltip" id="careerCardTooltip1" role="tooltip" aria-hidden="true">
+              <div
+                class="career-card-tooltip"
+                id="careerCardTooltip1"
+                role="tooltip"
+                aria-hidden="true"
+              >
                 <div class="career-tooltip-header">
-                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                  <span class="career-tooltip-heading"
+                    >GEMS CAN HELP YOU WITH</span
+                  >
                 </div>
                 <ul class="career-tooltip-services">
-                  <li><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Career planning</span></li>
-                  <li><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span>Employment readiness</span></li>
-                  <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i> <span>Resume and profile guidance</span></li>
-                  <li><i class="fa-solid fa-comments" aria-hidden="true"></i> <span>Interview preparation</span></li>
-                  <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span>Professional development</span></li>
-                  <li><i class="fa-solid fa-user-check" aria-hidden="true"></i> <span>Understanding workplace expectations</span></li>
+                  <li>
+                    <i class="fa-solid fa-compass" aria-hidden="true"></i>
+                    <span>Career planning</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                    <span>Employment readiness</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <span>Resume and profile guidance</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-comments" aria-hidden="true"></i>
+                    <span>Interview preparation</span>
+                  </li>
+                  <li>
+                    <i
+                      class="fa-solid fa-graduation-cap"
+                      aria-hidden="true"
+                    ></i>
+                    <span>Professional development</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+                    <span>Understanding workplace expectations</span>
+                  </li>
                 </ul>
               </div>
 
               <div class="career-stage-footer">
-                <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me get started with Starting Your Career">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me get started with Starting Your Career"
+                >
                   <span>Help me get started &rarr;</span>
                 </a>
               </div>
@@ -1265,12 +1363,51 @@
                 <div class="pin-disc">
                   <div class="pin-glow-wave" aria-hidden="true"></div>
                   <div class="pin-icon-wrap">
-                    <svg viewBox="0 0 32 32" class="pin-svg-icon" aria-hidden="true">
-                      <circle cx="16" cy="16" r="14" fill="#d97706" stroke="#ffffff" stroke-width="2" />
-                      <rect x="9" y="17" width="3" height="7" rx="1" fill="#ffffff" />
-                      <rect x="14.5" y="13" width="3" height="11" rx="1" fill="#ffffff" />
-                      <rect x="20" y="9" width="3" height="15" rx="1" fill="#ffffff" />
-                      <path d="M 8 15 L 14 10 L 19 13 L 24 7" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <svg
+                      viewBox="0 0 32 32"
+                      class="pin-svg-icon"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="14"
+                        fill="#d97706"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="9"
+                        y="17"
+                        width="3"
+                        height="7"
+                        rx="1"
+                        fill="#ffffff"
+                      />
+                      <rect
+                        x="14.5"
+                        y="13"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        fill="#ffffff"
+                      />
+                      <rect
+                        x="20"
+                        y="9"
+                        width="3"
+                        height="15"
+                        rx="1"
+                        fill="#ffffff"
+                      />
+                      <path
+                        d="M 8 15 L 14 10 L 19 13 L 24 7"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -1278,28 +1415,63 @@
               </a>
 
               <h3 class="career-stage-title">BUILDING YOUR CAREER</h3>
-              <div class="career-stage-tagline">Turn experience into opportunity.</div>
+              <div class="career-stage-tagline">
+                Turn experience into opportunity.
+              </div>
               <p class="career-stage-desc">
-                You have a foundation. Now it's about building experience, expanding your network, and creating your next opportunity.
+                You have a foundation. Now it's about building experience,
+                expanding your network, and creating your next opportunity.
               </p>
 
               <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
-              <div class="career-card-tooltip" id="careerCardTooltip2" role="tooltip" aria-hidden="true">
+              <div
+                class="career-card-tooltip"
+                id="careerCardTooltip2"
+                role="tooltip"
+                aria-hidden="true"
+              >
                 <div class="career-tooltip-header">
-                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                  <span class="career-tooltip-heading"
+                    >GEMS CAN HELP YOU WITH</span
+                  >
                 </div>
                 <ul class="career-tooltip-services">
-                  <li><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Career planning</span></li>
-                  <li><i class="fa-solid fa-network-wired" aria-hidden="true"></i> <span>Networking</span></li>
-                  <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span>Professional development</span></li>
-                  <li><i class="fa-solid fa-certificate" aria-hidden="true"></i> <span>Certifications</span></li>
-                  <li><i class="fa-solid fa-handshake" aria-hidden="true"></i> <span>Placement planning</span></li>
-                  <li><i class="fa-solid fa-user-group" aria-hidden="true"></i> <span>Personalized guidance</span></li>
+                  <li>
+                    <i class="fa-solid fa-compass" aria-hidden="true"></i>
+                    <span>Career planning</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                    <span>Networking</span>
+                  </li>
+                  <li>
+                    <i
+                      class="fa-solid fa-graduation-cap"
+                      aria-hidden="true"
+                    ></i>
+                    <span>Professional development</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+                    <span>Certifications</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                    <span>Placement planning</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+                    <span>Personalized guidance</span>
+                  </li>
                 </ul>
               </div>
 
               <div class="career-stage-footer">
-                <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me move forward with Building Your Career">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me move forward with Building Your Career"
+                >
                   <span>Help me move forward &rarr;</span>
                 </a>
               </div>
@@ -1327,45 +1499,136 @@
                 <div class="pin-disc">
                   <div class="pin-glow-wave" aria-hidden="true"></div>
                   <div class="pin-icon-wrap">
-                    <svg viewBox="0 0 32 32" class="pin-svg-icon" aria-hidden="true">
-                      <circle cx="16" cy="16" r="14" fill="#0d9488" stroke="#ffffff" stroke-width="2" />
+                    <svg
+                      viewBox="0 0 32 32"
+                      class="pin-svg-icon"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="14"
+                        fill="#0d9488"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                      />
                       <!-- Center upward arrow -->
-                      <line x1="16" y1="24" x2="16" y2="9" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
-                      <polyline points="12,12 16,8 20,12" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                      <line
+                        x1="16"
+                        y1="24"
+                        x2="16"
+                        y2="9"
+                        stroke="#ffffff"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                      />
+                      <polyline
+                        points="12,12 16,8 20,12"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                       <!-- Left branch arrow -->
-                      <path d="M 16 18 Q 12 18 9 14" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
-                      <polyline points="7,16 9,13 12,14" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M 16 18 Q 12 18 9 14"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                      />
+                      <polyline
+                        points="7,16 9,13 12,14"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                       <!-- Right branch arrow -->
-                      <path d="M 16 18 Q 20 18 23 14" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
-                      <polyline points="20,14 23,13 25,16" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M 16 18 Q 20 18 23 14"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                      />
+                      <polyline
+                        points="20,14 23,13 25,16"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </div>
                 </div>
               </a>
 
               <h3 class="career-stage-title">CHANGING DIRECTION</h3>
-              <div class="career-stage-tagline">A new direction doesn't mean starting over.</div>
+              <div class="career-stage-tagline">
+                A new direction doesn't mean starting over.
+              </div>
               <p class="career-stage-desc">
-                Careers change. Circumstances change. Your next chapter may require a new plan. GEMS helps you navigate the transition with clarity and support.
+                Careers change. Circumstances change. Your next chapter may
+                require a new plan. GEMS helps you navigate the transition with
+                clarity and support.
               </p>
 
               <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
-              <div class="career-card-tooltip" id="careerCardTooltip3" role="tooltip" aria-hidden="true">
+              <div
+                class="career-card-tooltip"
+                id="careerCardTooltip3"
+                role="tooltip"
+                aria-hidden="true"
+              >
                 <div class="career-tooltip-header">
-                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                  <span class="career-tooltip-heading"
+                    >GEMS CAN HELP YOU WITH</span
+                  >
                 </div>
                 <ul class="career-tooltip-services">
-                  <li><i class="fa-solid fa-route" aria-hidden="true"></i> <span>Career transition</span></li>
-                  <li><i class="fa-solid fa-plane-departure" aria-hidden="true"></i> <span>Relocation assistance</span></li>
-                  <li><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Personalized guidance</span></li>
-                  <li><i class="fa-solid fa-handshake" aria-hidden="true"></i> <span>Placement planning</span></li>
-                  <li><i class="fa-solid fa-coins" aria-hidden="true"></i> <span>Financial planning</span></li>
-                  <li><i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> <span>Trusted specialist connections</span></li>
+                  <li>
+                    <i class="fa-solid fa-route" aria-hidden="true"></i>
+                    <span>Career transition</span>
+                  </li>
+                  <li>
+                    <i
+                      class="fa-solid fa-plane-departure"
+                      aria-hidden="true"
+                    ></i>
+                    <span>Relocation assistance</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-compass" aria-hidden="true"></i>
+                    <span>Personalized guidance</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                    <span>Placement planning</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-coins" aria-hidden="true"></i>
+                    <span>Financial planning</span>
+                  </li>
+                  <li>
+                    <i
+                      class="fa-solid fa-handshake-simple"
+                      aria-hidden="true"
+                    ></i>
+                    <span>Trusted specialist connections</span>
+                  </li>
                 </ul>
               </div>
 
               <div class="career-stage-footer">
-                <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me navigate my transition with Changing Direction">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me navigate my transition with Changing Direction"
+                >
                   <span>Help me navigate my transition &rarr;</span>
                 </a>
               </div>
@@ -1393,13 +1656,35 @@
                 <div class="pin-disc">
                   <div class="pin-glow-wave" aria-hidden="true"></div>
                   <div class="pin-icon-wrap">
-                    <svg viewBox="0 0 32 32" class="pin-svg-icon" aria-hidden="true">
-                      <circle cx="16" cy="16" r="14" fill="#1d4ed8" stroke="#ffffff" stroke-width="2" />
+                    <svg
+                      viewBox="0 0 32 32"
+                      class="pin-svg-icon"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="14"
+                        fill="#1d4ed8"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                      />
                       <!-- Mountain Peak -->
                       <polygon points="16,10 9,23 23,23" fill="#ffffff" />
-                      <polygon points="16,10 20,23 23,23" fill="#93c5fd" opacity="0.6" />
+                      <polygon
+                        points="16,10 20,23 23,23"
+                        fill="#93c5fd"
+                        opacity="0.6"
+                      />
                       <!-- Summit Flag -->
-                      <line x1="16" y1="10" x2="16" y2="6" stroke="#ffffff" stroke-width="1.6" />
+                      <line
+                        x1="16"
+                        y1="10"
+                        x2="16"
+                        y2="6"
+                        stroke="#ffffff"
+                        stroke-width="1.6"
+                      />
                       <polygon points="16,6 20,7.5 16,9" fill="#ffd166" />
                     </svg>
                   </div>
@@ -1409,26 +1694,59 @@
               <h3 class="career-stage-title">GROWING & ADVANCING</h3>
               <div class="career-stage-tagline">Think beyond the next job.</div>
               <p class="career-stage-desc">
-                Build toward greater responsibility, new opportunities, entrepreneurship, or the long-term career you want.
+                Build toward greater responsibility, new opportunities,
+                entrepreneurship, or the long-term career you want.
               </p>
 
               <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
-              <div class="career-card-tooltip" id="careerCardTooltip4" role="tooltip" aria-hidden="true">
+              <div
+                class="career-card-tooltip"
+                id="careerCardTooltip4"
+                role="tooltip"
+                aria-hidden="true"
+              >
                 <div class="career-tooltip-header">
-                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                  <span class="career-tooltip-heading"
+                    >GEMS CAN HELP YOU WITH</span
+                  >
                 </div>
                 <ul class="career-tooltip-services">
-                  <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span>Professional development</span></li>
-                  <li><i class="fa-solid fa-bullseye" aria-hidden="true"></i> <span>Strategic career planning</span></li>
-                  <li><i class="fa-solid fa-network-wired" aria-hidden="true"></i> <span>Networking</span></li>
-                  <li><i class="fa-solid fa-certificate" aria-hidden="true"></i> <span>Certifications</span></li>
-                  <li><i class="fa-solid fa-rocket" aria-hidden="true"></i> <span>Entrepreneurship guidance</span></li>
-                  <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> <span>Long-term planning</span></li>
+                  <li>
+                    <i
+                      class="fa-solid fa-graduation-cap"
+                      aria-hidden="true"
+                    ></i>
+                    <span>Professional development</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                    <span>Strategic career planning</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                    <span>Networking</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+                    <span>Certifications</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                    <span>Entrepreneurship guidance</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    <span>Long-term planning</span>
+                  </li>
                 </ul>
               </div>
 
               <div class="career-stage-footer">
-                <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me plan my next level with Growing & Advancing">
+                <a
+                  href="membership-level.html?journey=career"
+                  class="career-stage-cta"
+                  aria-label="Help me plan my next level with Growing & Advancing"
+                >
                   <span>Help me plan my next level &rarr;</span>
                 </a>
               </div>
@@ -1438,15 +1756,22 @@
           <!-- Right Bottom Rustic Multi-Arrow Signpost -->
           <div class="gems-signpost-multi" aria-hidden="true">
             <div class="gems-multi-plank plank-skills"><span>SKILLS</span></div>
-            <div class="gems-multi-plank plank-opp"><span>OPPORTUNITY</span></div>
-            <div class="gems-multi-plank plank-conf"><span>CONFIDENCE</span></div>
-            <div class="gems-multi-plank plank-future"><span>A BRIGHTER FUTURE</span></div>
+            <div class="gems-multi-plank plank-opp">
+              <span>OPPORTUNITY</span>
+            </div>
+            <div class="gems-multi-plank plank-conf">
+              <span>CONFIDENCE</span>
+            </div>
+            <div class="gems-multi-plank plank-future">
+              <span>A BRIGHTER FUTURE</span>
+            </div>
             <div class="gems-multi-post"></div>
           </div>
 
           <!-- Bottom Footer Bar -->
           <div class="gems-infographic-footer" aria-hidden="true">
-            <span>PEOPLE</span> &bull; <span>OPPORTUNITIES</span> &bull; <span>A BRIGHTER TOMORROW</span>
+            <span>PEOPLE</span> &bull; <span>OPPORTUNITIES</span> &bull;
+            <span>A BRIGHTER TOMORROW</span>
           </div>
         </div>
       </section>
@@ -2496,7 +2821,12 @@
             const tooltipHeight = 220;
             const headerHeight = 85;
 
-            tooltip.classList.remove("pos-above", "pos-right", "pos-left", "pos-below");
+            tooltip.classList.remove(
+              "pos-above",
+              "pos-right",
+              "pos-left",
+              "pos-below",
+            );
 
             const stage = parseInt(card.getAttribute("data-stage") || "1", 10);
             const isDesktop = window.innerWidth > 991;
@@ -2558,14 +2888,20 @@
             });
 
             card.addEventListener("focusout", function (e) {
-              if (!card.contains(e.relatedTarget) && !card.classList.contains("tooltip-open")) {
+              if (
+                !card.contains(e.relatedTarget) &&
+                !card.classList.contains("tooltip-open")
+              ) {
                 tooltip.setAttribute("aria-hidden", "true");
               }
             });
 
             // Mobile / Touch Tap to toggle
             card.addEventListener("click", function (e) {
-              if (e.target.closest(".career-stage-cta") || e.target.closest("a")) {
+              if (
+                e.target.closest(".career-stage-cta") ||
+                e.target.closest("a")
+              ) {
                 return;
               }
 
@@ -2597,13 +2933,20 @@
           });
 
           // Window resize updates active tooltip position
-          window.addEventListener("resize", function () {
-            cards.forEach(function (c) {
-              if (c.matches(":hover") || c.classList.contains("tooltip-open")) {
-                updateCardTooltipPosition(c);
-              }
-            });
-          }, { passive: true });
+          window.addEventListener(
+            "resize",
+            function () {
+              cards.forEach(function (c) {
+                if (
+                  c.matches(":hover") ||
+                  c.classList.contains("tooltip-open")
+                ) {
+                  updateCardTooltipPosition(c);
+                }
+              });
+            },
+            { passive: true },
+          );
         })();
       });
     </script>

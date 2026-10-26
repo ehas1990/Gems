@@ -324,7 +324,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    padding: 270px 24px 60px 180px;
+    padding:590px 24px 60px 180px;
     max-width: 1440px;
     margin: 0 auto;
     align-items: start;
@@ -775,7 +775,7 @@
 @media (max-width: 1280px) {
     .career-journey-page .gems-stages-panels-row {
         gap: 12px;
-        padding: 270px 16px 60px 150px;
+        padding: 580px 16px 60px 150px;
     }
 
     .career-journey-page .gems-intro-block {

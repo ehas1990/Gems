@@ -499,6 +499,228 @@
           gap: 10px;
         }
       }
+
+/* ==========================================================================
+         CAREER STAGE CARDS: DEFAULT COMPACT STATE & HOVER TOOLTIP
+         ========================================================================== */
+      .career-journey-page .career-stage-card {
+        min-height: 255px;
+        position: relative;
+      }
+
+      /* Card Tooltip Container (Hidden initially) */
+      .career-journey-page .career-card-tooltip {
+        position: absolute;
+        width: 290px;
+        max-width: calc(100vw - 32px);
+        background: #0b1526;
+        color: #ffffff;
+        padding: 16px 18px 14px 18px;
+        border-radius: 16px;
+        box-shadow: 0 22px 50px -8px rgba(7, 27, 53, 0.6), 0 8px 20px rgba(0, 0, 0, 0.35);
+        border: 1.5px solid rgba(255, 255, 255, 0.14);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.25s ease;
+        z-index: 120;
+        box-sizing: border-box;
+      }
+
+      /* Stage Accent Top Borders */
+      .career-journey-page .stage-1 .career-card-tooltip { border-top: 3.5px solid #e11d48; }
+      .career-journey-page .stage-2 .career-card-tooltip { border-top: 3.5px solid #d97706; }
+      .career-journey-page .stage-3 .career-card-tooltip { border-top: 3.5px solid #0d9488; }
+      .career-journey-page .stage-4 .career-card-tooltip { border-top: 3.5px solid #1d4ed8; }
+
+      /* Tooltip Header */
+      .career-journey-page .career-tooltip-header {
+        margin-bottom: 11px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .career-journey-page .career-tooltip-heading {
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: #94a3b8;
+        display: block;
+      }
+
+      /* Tooltip Services List */
+      .career-journey-page .career-tooltip-services {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .career-journey-page .career-tooltip-services li {
+        display: flex !important;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.81rem;
+        color: #f8fafc;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .career-journey-page .career-tooltip-services li::before {
+        display: none !important;
+      }
+
+      .career-journey-page .career-tooltip-services li i {
+        width: 22px;
+        height: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: 50%;
+        font-size: 0.68rem;
+      }
+
+      .career-journey-page .stage-1 .career-tooltip-services li i {
+        color: #e11d48;
+        background: rgba(225, 29, 72, 0.16);
+        border: 1px solid rgba(225, 29, 72, 0.35);
+      }
+
+      .career-journey-page .stage-2 .career-tooltip-services li i {
+        color: #f59e0b;
+        background: rgba(217, 119, 6, 0.16);
+        border: 1px solid rgba(217, 119, 6, 0.35);
+      }
+
+      .career-journey-page .stage-3 .career-tooltip-services li i {
+        color: #14b8a6;
+        background: rgba(13, 148, 136, 0.16);
+        border: 1px solid rgba(13, 148, 136, 0.35);
+      }
+
+      .career-journey-page .stage-4 .career-tooltip-services li i {
+        color: #60a5fa;
+        background: rgba(29, 78, 216, 0.16);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+      }
+
+      /* -------------------------------------------------------------
+         TOOLTIP POSITIONS (ABOVE, BESIDE RIGHT, BESIDE LEFT, BELOW)
+         ------------------------------------------------------------- */
+      /* 1. ABOVE (Default Desktop) */
+      .career-journey-page .career-card-tooltip.pos-above {
+        bottom: calc(100% + 14px);
+        left: 50%;
+        top: auto;
+        right: auto;
+        transform: translateX(-50%) translateY(8px);
+      }
+      .career-journey-page .career-card-tooltip.pos-above::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px 8px 0 8px;
+        border-style: solid;
+        border-color: #0b1526 transparent transparent transparent;
+      }
+      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-above,
+      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-above {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* 2. BESIDE RIGHT (e.g. Card 1 & Card 2 when tight above) */
+      .career-journey-page .career-card-tooltip.pos-right {
+        left: calc(100% + 14px);
+        top: 0;
+        bottom: auto;
+        right: auto;
+        transform: translateX(-8px);
+      }
+      .career-journey-page .career-card-tooltip.pos-right::after {
+        content: '';
+        position: absolute;
+        right: 100%;
+        top: 32px;
+        border-width: 8px 8px 8px 0;
+        border-style: solid;
+        border-color: transparent #0b1526 transparent transparent;
+      }
+      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-right,
+      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-right {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* 3. BESIDE LEFT (e.g. Card 3 & Card 4 when tight above) */
+      .career-journey-page .career-card-tooltip.pos-left {
+        right: calc(100% + 14px);
+        left: auto;
+        top: 0;
+        bottom: auto;
+        transform: translateX(8px);
+      }
+      .career-journey-page .career-card-tooltip.pos-left::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 32px;
+        border-width: 8px 0 8px 8px;
+        border-style: solid;
+        border-color: transparent transparent transparent #0b1526;
+      }
+      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-left,
+      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-left {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* 4. BELOW (Mobile / Fallback) */
+      .career-journey-page .career-card-tooltip.pos-below {
+        top: calc(100% + 14px);
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        transform: translateX(-50%) translateY(-8px);
+      }
+      .career-journey-page .career-card-tooltip.pos-below::after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 8px 8px 8px;
+        border-style: solid;
+        border-color: transparent transparent #0b1526 transparent;
+      }
+      .career-journey-page .career-stage-card:hover .career-card-tooltip.pos-below,
+      .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-below {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Elevate Hovered / Active Card above everything */
+      .career-journey-page .career-stage-card:hover,
+      .career-journey-page .career-stage-card.tooltip-open,
+      .career-journey-page .career-stage-card.panel-highlighted {
+        z-index: 55 !important;
+      }
     </style>
   </head>
 
@@ -958,42 +1180,6 @@
             </div>
           </div>
 
-          <!-- Flowing Animated S-Curve Road Overlay -->
-          <svg
-            class="gems-road-svg-overlay"
-            viewBox="0 0 1376 768"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-            role="presentation"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient id="infographicRoadGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#e11d48" />
-                <stop offset="30%" stop-color="#d97706" />
-                <stop offset="65%" stop-color="#0d9488" />
-                <stop offset="90%" stop-color="#1d4ed8" />
-                <stop offset="100%" stop-color="#f59e0b" />
-              </linearGradient>
-            </defs>
-            <path
-              class="roadmap-trail-ribbon"
-              d="M 120 760 C 180 720, 240 680, 280 630 C 330 570, 420 530, 490 510 C 560 490, 640 450, 680 400 C 720 350, 800 340, 880 320 C 960 300, 1080 270, 1200 240 C 1260 225, 1320 215, 1370 210"
-              fill="none"
-              stroke="rgba(255, 255, 255, 0.2)"
-              stroke-width="10"
-              stroke-linecap="round"
-            />
-            <path
-              class="roadmap-trail-animated"
-              d="M 120 760 C 180 720, 240 680, 280 630 C 330 570, 420 530, 490 510 C 560 490, 640 450, 680 400 C 720 350, 800 340, 880 320 C 960 300, 1080 270, 1200 240 C 1260 225, 1320 215, 1370 210"
-              fill="none"
-              stroke="url(#infographicRoadGrad)"
-              stroke-width="3.5"
-              stroke-dasharray="14 10"
-              stroke-linecap="round"
-            />
-          </svg>
 
           <!-- Stepped Four Floating Information Panels -->
           <div class="gems-stages-panels-row">
@@ -1035,17 +1221,20 @@
                 You are entering the professional world and figuring out where you fit, what you need, and how to prepare.
               </p>
 
-              <div class="career-stage-divider" aria-hidden="true"></div>
-
-              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-              <ul class="career-services-list">
-                <li><i class="fa-solid fa-compass"></i> <span>Career planning</span></li>
-                <li><i class="fa-solid fa-briefcase"></i> <span>Employment readiness</span></li>
-                <li><i class="fa-solid fa-file-lines"></i> <span>Resume and profile guidance</span></li>
-                <li><i class="fa-solid fa-comments"></i> <span>Interview preparation</span></li>
-                <li><i class="fa-solid fa-graduation-cap"></i> <span>Professional development</span></li>
-                <li><i class="fa-solid fa-user-check"></i> <span>Understanding workplace expectations</span></li>
-              </ul>
+              <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
+              <div class="career-card-tooltip" id="careerCardTooltip1" role="tooltip" aria-hidden="true">
+                <div class="career-tooltip-header">
+                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                </div>
+                <ul class="career-tooltip-services">
+                  <li><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Career planning</span></li>
+                  <li><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span>Employment readiness</span></li>
+                  <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i> <span>Resume and profile guidance</span></li>
+                  <li><i class="fa-solid fa-comments" aria-hidden="true"></i> <span>Interview preparation</span></li>
+                  <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span>Professional development</span></li>
+                  <li><i class="fa-solid fa-user-check" aria-hidden="true"></i> <span>Understanding workplace expectations</span></li>
+                </ul>
+              </div>
 
               <div class="career-stage-footer">
                 <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me get started with Starting Your Career">
@@ -1094,17 +1283,20 @@
                 You have a foundation. Now it's about building experience, expanding your network, and creating your next opportunity.
               </p>
 
-              <div class="career-stage-divider" aria-hidden="true"></div>
-
-              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-              <ul class="career-services-list">
-                <li><i class="fa-solid fa-compass"></i> <span>Career planning</span></li>
-                <li><i class="fa-solid fa-network-wired"></i> <span>Networking</span></li>
-                <li><i class="fa-solid fa-graduation-cap"></i> <span>Professional development</span></li>
-                <li><i class="fa-solid fa-certificate"></i> <span>Certifications</span></li>
-                <li><i class="fa-solid fa-handshake"></i> <span>Placement planning</span></li>
-                <li><i class="fa-solid fa-user-group"></i> <span>Personalized guidance</span></li>
-              </ul>
+              <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
+              <div class="career-card-tooltip" id="careerCardTooltip2" role="tooltip" aria-hidden="true">
+                <div class="career-tooltip-header">
+                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                </div>
+                <ul class="career-tooltip-services">
+                  <li><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Career planning</span></li>
+                  <li><i class="fa-solid fa-network-wired" aria-hidden="true"></i> <span>Networking</span></li>
+                  <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span>Professional development</span></li>
+                  <li><i class="fa-solid fa-certificate" aria-hidden="true"></i> <span>Certifications</span></li>
+                  <li><i class="fa-solid fa-handshake" aria-hidden="true"></i> <span>Placement planning</span></li>
+                  <li><i class="fa-solid fa-user-group" aria-hidden="true"></i> <span>Personalized guidance</span></li>
+                </ul>
+              </div>
 
               <div class="career-stage-footer">
                 <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me move forward with Building Your Career">
@@ -1157,17 +1349,20 @@
                 Careers change. Circumstances change. Your next chapter may require a new plan. GEMS helps you navigate the transition with clarity and support.
               </p>
 
-              <div class="career-stage-divider" aria-hidden="true"></div>
-
-              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-              <ul class="career-services-list">
-                <li><i class="fa-solid fa-route"></i> <span>Career transition</span></li>
-                <li><i class="fa-solid fa-plane-departure"></i> <span>Relocation assistance</span></li>
-                <li><i class="fa-solid fa-compass"></i> <span>Personalized guidance</span></li>
-                <li><i class="fa-solid fa-handshake"></i> <span>Placement planning</span></li>
-                <li><i class="fa-solid fa-coins"></i> <span>Financial planning</span></li>
-                <li><i class="fa-solid fa-handshake-simple"></i> <span>Trusted specialist connections</span></li>
-              </ul>
+              <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
+              <div class="career-card-tooltip" id="careerCardTooltip3" role="tooltip" aria-hidden="true">
+                <div class="career-tooltip-header">
+                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                </div>
+                <ul class="career-tooltip-services">
+                  <li><i class="fa-solid fa-route" aria-hidden="true"></i> <span>Career transition</span></li>
+                  <li><i class="fa-solid fa-plane-departure" aria-hidden="true"></i> <span>Relocation assistance</span></li>
+                  <li><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Personalized guidance</span></li>
+                  <li><i class="fa-solid fa-handshake" aria-hidden="true"></i> <span>Placement planning</span></li>
+                  <li><i class="fa-solid fa-coins" aria-hidden="true"></i> <span>Financial planning</span></li>
+                  <li><i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> <span>Trusted specialist connections</span></li>
+                </ul>
+              </div>
 
               <div class="career-stage-footer">
                 <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me navigate my transition with Changing Direction">
@@ -1217,17 +1412,20 @@
                 Build toward greater responsibility, new opportunities, entrepreneurship, or the long-term career you want.
               </p>
 
-              <div class="career-stage-divider" aria-hidden="true"></div>
-
-              <div class="career-services-title">GEMS CAN HELP YOU WITH</div>
-              <ul class="career-services-list">
-                <li><i class="fa-solid fa-graduation-cap"></i> <span>Professional development</span></li>
-                <li><i class="fa-solid fa-bullseye"></i> <span>Strategic career planning</span></li>
-                <li><i class="fa-solid fa-network-wired"></i> <span>Networking</span></li>
-                <li><i class="fa-solid fa-certificate"></i> <span>Certifications</span></li>
-                <li><i class="fa-solid fa-rocket"></i> <span>Entrepreneurship guidance</span></li>
-                <li><i class="fa-solid fa-chart-line"></i> <span>Long-term planning</span></li>
-              </ul>
+              <!-- Career Card Tooltip (Revealed on hover / mobile tap) -->
+              <div class="career-card-tooltip" id="careerCardTooltip4" role="tooltip" aria-hidden="true">
+                <div class="career-tooltip-header">
+                  <span class="career-tooltip-heading">GEMS CAN HELP YOU WITH</span>
+                </div>
+                <ul class="career-tooltip-services">
+                  <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span>Professional development</span></li>
+                  <li><i class="fa-solid fa-bullseye" aria-hidden="true"></i> <span>Strategic career planning</span></li>
+                  <li><i class="fa-solid fa-network-wired" aria-hidden="true"></i> <span>Networking</span></li>
+                  <li><i class="fa-solid fa-certificate" aria-hidden="true"></i> <span>Certifications</span></li>
+                  <li><i class="fa-solid fa-rocket" aria-hidden="true"></i> <span>Entrepreneurship guidance</span></li>
+                  <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> <span>Long-term planning</span></li>
+                </ul>
+              </div>
 
               <div class="career-stage-footer">
                 <a href="membership-level.html?journey=career" class="career-stage-cta" aria-label="Help me plan my next level with Growing & Advancing">
@@ -2264,7 +2462,8 @@
             if (
               (e.key === "Enter" || e.key === " ") &&
               !e.target.closest(".career-stage-cta") &&
-              !e.target.closest("a")
+              !e.target.closest("a") &&
+              !e.target.closest(".career-tooltip-trigger")
             ) {
               e.preventDefault();
               card.click();
@@ -2281,6 +2480,131 @@
             closeAllCards(null);
           }
         });
+
+        /* =====================================================
+           CAREER STAGE CARDS: HOVER & TAP TOOLTIP POSITIONING
+           ===================================================== */
+        (function initCareerCardTooltips() {
+          const cards = document.querySelectorAll(".career-stage-card");
+          if (!cards.length) return;
+
+          function updateCardTooltipPosition(card) {
+            const tooltip = card.querySelector(".career-card-tooltip");
+            if (!tooltip) return;
+
+            const cardRect = card.getBoundingClientRect();
+            const tooltipHeight = 220;
+            const headerHeight = 85;
+
+            tooltip.classList.remove("pos-above", "pos-right", "pos-left", "pos-below");
+
+            const stage = parseInt(card.getAttribute("data-stage") || "1", 10);
+            const isDesktop = window.innerWidth > 991;
+
+            if (isDesktop) {
+              const spaceAbove = cardRect.top - headerHeight;
+              if (spaceAbove >= tooltipHeight + 16) {
+                tooltip.classList.add("pos-above");
+              } else {
+                if (stage <= 2) {
+                  tooltip.classList.add("pos-right");
+                } else {
+                  tooltip.classList.add("pos-left");
+                }
+              }
+            } else {
+              const spaceBelow = window.innerHeight - cardRect.bottom;
+              if (spaceBelow >= tooltipHeight + 16) {
+                tooltip.classList.add("pos-below");
+              } else {
+                tooltip.classList.add("pos-above");
+              }
+            }
+          }
+
+          function closeAllTooltips(exceptCard) {
+            cards.forEach(function (c) {
+              if (c !== exceptCard) {
+                c.classList.remove("tooltip-open");
+                const tt = c.querySelector(".career-card-tooltip");
+                if (tt) tt.setAttribute("aria-hidden", "true");
+              }
+            });
+          }
+
+          cards.forEach(function (card) {
+            const tooltip = card.querySelector(".career-card-tooltip");
+            if (!tooltip) return;
+
+            // Set initial position class
+            updateCardTooltipPosition(card);
+
+            // Desktop Hover
+            card.addEventListener("mouseenter", function () {
+              updateCardTooltipPosition(card);
+              tooltip.setAttribute("aria-hidden", "false");
+            });
+
+            card.addEventListener("mouseleave", function () {
+              if (!card.classList.contains("tooltip-open")) {
+                tooltip.setAttribute("aria-hidden", "true");
+              }
+            });
+
+            // Keyboard Focus
+            card.addEventListener("focusin", function () {
+              updateCardTooltipPosition(card);
+              tooltip.setAttribute("aria-hidden", "false");
+            });
+
+            card.addEventListener("focusout", function (e) {
+              if (!card.contains(e.relatedTarget) && !card.classList.contains("tooltip-open")) {
+                tooltip.setAttribute("aria-hidden", "true");
+              }
+            });
+
+            // Mobile / Touch Tap to toggle
+            card.addEventListener("click", function (e) {
+              if (e.target.closest(".career-stage-cta") || e.target.closest("a")) {
+                return;
+              }
+
+              const isOpen = card.classList.contains("tooltip-open");
+              if (isOpen) {
+                card.classList.remove("tooltip-open");
+                tooltip.setAttribute("aria-hidden", "true");
+              } else {
+                closeAllTooltips(card);
+                updateCardTooltipPosition(card);
+                card.classList.add("tooltip-open");
+                tooltip.setAttribute("aria-hidden", "false");
+              }
+            });
+          });
+
+          // Document click outside closes any open tooltip
+          document.addEventListener("click", function (e) {
+            if (!e.target.closest(".career-stage-card")) {
+              closeAllTooltips(null);
+            }
+          });
+
+          // Escape key dismisses open tooltip
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" || e.keyCode === 27) {
+              closeAllTooltips(null);
+            }
+          });
+
+          // Window resize updates active tooltip position
+          window.addEventListener("resize", function () {
+            cards.forEach(function (c) {
+              if (c.matches(":hover") || c.classList.contains("tooltip-open")) {
+                updateCardTooltipPosition(c);
+              }
+            });
+          }, { passive: true });
+        })();
       });
     </script>
 

@@ -169,14 +169,13 @@
       }
 
       /* Scoped Spacing for Career Journeys Section Only */
-      .career-journey-page #career-stages,
+
       .career-journey-page .career-stages-section.gems-career-infographic {
         padding-top: 100px;
         padding-bottom: 100px;
       }
 
       @media (max-width: 1199px) {
-        .career-journey-page #career-stages,
         .career-journey-page .career-stages-section.gems-career-infographic {
           padding-top: 80px;
           padding-bottom: 80px;
@@ -184,7 +183,6 @@
       }
 
       @media (max-width: 991px) {
-        .career-journey-page #career-stages,
         .career-journey-page .career-stages-section.gems-career-infographic {
           padding-top: 60px;
           padding-bottom: 60px;
@@ -192,7 +190,6 @@
       }
 
       @media (max-width: 767px) {
-        .career-journey-page #career-stages,
         .career-journey-page .career-stages-section.gems-career-infographic {
           padding-top: 50px;
           padding-bottom: 50px;
@@ -768,21 +765,26 @@
           border: 1.5px solid rgba(255, 255, 255, 0.22);
         }
 
-        .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip {
+        .career-journey-page
+          .career-stage-card.tooltip-open
+          .career-card-tooltip {
           opacity: 1 !important;
           visibility: visible !important;
           pointer-events: auto !important;
         }
 
-        .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-above {
+        .career-journey-page
+          .career-stage-card.tooltip-open
+          .career-card-tooltip.pos-above {
           transform: translateX(-50%) translateY(0) !important;
         }
 
-        .career-journey-page .career-stage-card.tooltip-open .career-card-tooltip.pos-below {
+        .career-journey-page
+          .career-stage-card.tooltip-open
+          .career-card-tooltip.pos-below {
           transform: translateX(-50%) translateY(0) !important;
         }
       }
-
     </style>
   </head>
 
@@ -2847,7 +2849,9 @@
 
             const cardRect = card.getBoundingClientRect();
             const tooltipHeight = tooltip.offsetHeight || 225;
-            const headerEl = document.querySelector(".header-section") || document.querySelector("header");
+            const headerEl =
+              document.querySelector(".header-section") ||
+              document.querySelector("header");
             const headerHeight = headerEl ? headerEl.offsetHeight : 85;
 
             tooltip.classList.remove(

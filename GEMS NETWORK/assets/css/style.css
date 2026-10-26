@@ -66,6 +66,9 @@ section.about-page-banner.about-banner {
 }
 
 @media (min-width: 480px) {
+  .hero-content-box {
+    padding: 30px 30px;
+}
   .glrycontainer {
     min-height: 320px;
   }

@@ -92,6 +92,19 @@
     <link rel="stylesheet" href="./assets/css/contact.css">
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        /* Form Panels Visibility Guarantee */
+        .contact-page .contact-tab-pane {
+            display: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-page .contact-tab-pane.active {
+            display: block;
+            animation: fadeInPane 0.3s ease;
+        }
+    </style>
 </head>
 
 <body>
@@ -415,7 +428,7 @@
                             </div>
                             <h3 class="journey-card-title">I'm A Student</h3>
                             <p class="journey-card-desc">Help me navigate my educational journey.</p>
-                            <button type="button" class="journey-card-btn" tabindex="-1">
+                            <button type="button" class="journey-card-btn" data-target-tab="students" tabindex="-1">
                                 <span>Start My Conversation</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -430,7 +443,7 @@
                             </div>
                             <h3 class="journey-card-title">I'm A Professional</h3>
                             <p class="journey-card-desc">Help me navigate my career or professional journey.</p>
-                            <button type="button" class="journey-card-btn" tabindex="-1">
+                            <button type="button" class="journey-card-btn" data-target-tab="professionals" tabindex="-1">
                                 <span>Start My Conversation</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -445,7 +458,7 @@
                             </div>
                             <h3 class="journey-card-title">I'm A Business</h3>
                             <p class="journey-card-desc">Help me find the resources and support my business needs.</p>
-                            <button type="button" class="journey-card-btn" tabindex="-1">
+                            <button type="button" class="journey-card-btn" data-target-tab="business" tabindex="-1">
                                 <span>Start My Conversation</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -463,7 +476,7 @@
                             <p class="journey-card-desc">That’s okay. You don’t have to know exactly what you need
                                 before you reach out to GEMS. Tell us a little about your situation, and we’ll help
                                 point you in the right direction.</p>
-                            <button type="button" class="journey-card-btn" tabindex="-1">
+                            <button type="button" class="journey-card-btn" data-target-tab="students" data-journey-note="Not Sure" tabindex="-1">
                                 <span>Talk To GEMS</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -523,16 +536,16 @@
                             <!-- Category Tabs Navigation -->
                             <div class="form-tabs-wrap" role="tablist" aria-label="Target Group Selection">
                                 <div class="form-tabs-scroll">
-                                    <button type="button" class="form-tab-btn active" data-tab="students" role="tab"
-                                        aria-selected="true" id="tab-btn-students">
+                                    <button type="button" class="form-tab-btn active" data-tab="students" data-target-tab="students" role="tab"
+                                        aria-selected="true" id="tab-btn-students" style="display: inline-flex;">
                                         <i class="fa-solid fa-graduation-cap"></i> Students
                                     </button>
-                                    <button type="button" class="form-tab-btn" data-tab="professionals" role="tab"
-                                        aria-selected="false" id="tab-btn-professionals">
+                                    <button type="button" class="form-tab-btn" data-tab="professionals" data-target-tab="professionals" role="tab"
+                                        aria-selected="false" id="tab-btn-professionals" style="display: none;" aria-hidden="true">
                                         <i class="fa-solid fa-briefcase"></i> Professionals
                                     </button>
-                                    <button type="button" class="form-tab-btn" data-tab="business" role="tab"
-                                        aria-selected="false" id="tab-btn-business">
+                                    <button type="button" class="form-tab-btn" data-tab="business" data-target-tab="business" role="tab"
+                                        aria-selected="false" id="tab-btn-business" style="display: none;" aria-hidden="true">
                                         <i class="fa-solid fa-building"></i> Business Clients
                                     </button>
                                 </div>
@@ -541,7 +554,7 @@
                             <!-- ==================================================
                                  TAB 1: STUDENTS FORM
                                  ================================================== -->
-                            <div id="studentsTabPane" class="contact-tab-pane active">
+                            <div id="studentsTabPane" class="contact-tab-pane active" style="display: block;" aria-hidden="false">
                                 <!-- Feedback Notification Box -->
                                 <div id="formNotification" class="form-notification"></div>
 
@@ -848,7 +861,7 @@
                             <!-- ==================================================
                                  TAB 2: PROFESSIONALS FORM
                                  ================================================== -->
-                            <div id="professionalsTabPane" class="contact-tab-pane">
+                            <div id="professionalsTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
                                 <!-- Feedback Notification Box -->
                                 <div id="proFormNotification" class="form-notification"></div>
 
@@ -1185,7 +1198,7 @@
                             <!-- ==================================================
                                  TAB 3: BUSINESS CLIENTS FORM
                                  ================================================== -->
-                            <div id="businessTabPane" class="contact-tab-pane">
+                            <div id="businessTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
                                 <!-- Feedback Notification Box -->
                                 <div id="bizFormNotification" class="form-notification"></div>
 
@@ -2019,35 +2032,65 @@
         }
 
         // Function to activate a specific tab and sync journey cards
-        function switchIntakeTab(targetTab) {
-            currentSelectedJourney = targetTab;
-            const tabButtons = document.querySelectorAll('.form-tab-btn');
-            const tabPanes = document.querySelectorAll('.contact-tab-pane');
-            const journeyCards = document.querySelectorAll('.journey-card');
+        function switchIntakeTab(targetTab, note) {
+            if (!targetTab) return;
 
+            let normalized = targetTab.toLowerCase().trim();
+            if (normalized === 'student') normalized = 'students';
+            if (normalized === 'professional' || normalized === 'pro' || normalized === 'career') normalized = 'professionals';
+            if (normalized === 'biz' || normalized === 'growth' || normalized === 'business-clients') normalized = 'business';
+
+            currentSelectedJourney = normalized;
+
+            // 1. Sync category tab buttons: show ONLY the corresponding tab, hide the other two
+            const tabButtons = document.querySelectorAll('.form-tab-btn');
             tabButtons.forEach(b => {
-                if (b.getAttribute('data-tab') === targetTab) {
+                const bTab = b.getAttribute('data-tab') || b.getAttribute('data-target-tab');
+                if (bTab === normalized) {
                     b.classList.add('active');
+                    b.style.display = 'inline-flex';
                     b.setAttribute('aria-selected', 'true');
+                    b.setAttribute('aria-hidden', 'false');
                 } else {
                     b.classList.remove('active');
+                    b.style.display = 'none';
                     b.setAttribute('aria-selected', 'false');
+                    b.setAttribute('aria-hidden', 'true');
                 }
             });
 
+            // 2. Display ONLY the corresponding form pane, hide the other two
+            const tabPanes = document.querySelectorAll('.contact-tab-pane');
             tabPanes.forEach(pane => {
-                if (pane.id === targetTab + 'TabPane') {
+                if (pane.id === normalized + 'TabPane') {
                     pane.classList.add('active');
                     pane.style.display = 'block';
+                    pane.setAttribute('aria-hidden', 'false');
                 } else {
                     pane.classList.remove('active');
                     pane.style.display = 'none';
+                    pane.setAttribute('aria-hidden', 'true');
                 }
             });
 
+            // 3. Sync journey selection cards active state
+            const journeyCards = document.querySelectorAll('.journey-card');
             journeyCards.forEach(card => {
-                if (card.getAttribute('data-target-tab') === targetTab) {
-                    card.classList.add('active-selected');
+                const cardTab = card.getAttribute('data-target-tab');
+                const isNotSure = card.classList.contains('card-notsure');
+
+                if (isNotSure) {
+                    if (note === 'Not Sure') {
+                        card.classList.add('active-selected');
+                    } else {
+                        card.classList.remove('active-selected');
+                    }
+                } else if (cardTab === normalized) {
+                    if (note !== 'Not Sure') {
+                        card.classList.add('active-selected');
+                    } else {
+                        card.classList.remove('active-selected');
+                    }
                 } else {
                     card.classList.remove('active-selected');
                 }
@@ -2075,32 +2118,40 @@
             const tabButtons = document.querySelectorAll('.form-tab-btn');
             tabButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
-                    const targetTab = this.getAttribute('data-tab');
+                    const targetTab = this.getAttribute('data-tab') || this.getAttribute('data-target-tab');
                     switchIntakeTab(targetTab);
                 });
             });
 
-            /* Journey Selection Cards Click & Keyboard Accessible Navigation */
-            const journeyCards = document.querySelectorAll('.journey-card');
-            journeyCards.forEach(card => {
-                const handleCardAction = function () {
-                    const targetTab = card.getAttribute('data-target-tab');
+            /* Journey Selection Cards & Buttons with data-target-tab */
+            const targetTabElements = document.querySelectorAll('[data-target-tab]');
+            targetTabElements.forEach(el => {
+                const handleAction = function (e) {
+                    const targetTab = el.getAttribute('data-target-tab');
+                    const note = el.getAttribute('data-journey-note') || (el.closest('.journey-card') && el.closest('.journey-card').getAttribute('data-journey-note'));
                     if (targetTab) {
-                        switchIntakeTab(targetTab);
-                        const formSection = document.getElementById('contactIntakeSection');
-                        if (formSection) {
-                            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        switchIntakeTab(targetTab, note);
+                        if (el.classList.contains('journey-card') || el.closest('.journey-card')) {
+                            const formSection = document.getElementById('contactIntakeSection');
+                            if (formSection) {
+                                const headerEl = document.querySelector('header');
+                                const headerH = headerEl ? headerEl.offsetHeight : 80;
+                                const topY = formSection.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
+                                window.scrollTo({ top: Math.max(0, topY), behavior: 'smooth' });
+                            }
                         }
                     }
                 };
 
-                card.addEventListener('click', handleCardAction);
-                card.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        handleCardAction();
-                    }
-                });
+                el.addEventListener('click', handleAction);
+                if (el.classList.contains('journey-card')) {
+                    el.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleAction(e);
+                        }
+                    });
+                }
             });
 
             /* Auto-activate tab from URL query param or hash (e.g. ?journey=professionals) */

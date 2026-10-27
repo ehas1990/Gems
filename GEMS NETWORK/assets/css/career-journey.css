@@ -184,8 +184,15 @@
 }
 
 .career-journey-page .gems-script-line1 {
-    display: block;
-    font-size: 23px;
+     display: inline-block;
+    color: var(--color-gold, #f4b942);
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 36px;
+    position: relative;
+    padding: 0 16px;
+
 }
 
 .career-journey-page .gems-script-line2 {

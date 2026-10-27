@@ -331,12 +331,15 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    padding:590px 24px 60px 180px;
+    padding:480px 24px 60px 180px;
     max-width: 1440px;
     margin: 0 auto;
     align-items: start;
 }
-
+article#careerStageCard4 {
+    position: relative;
+    top: -192px;
+}
 /* Stepped Elevation matching the reference design */
 .career-journey-page .gems-panel-1 {
     margin-top: 175px;

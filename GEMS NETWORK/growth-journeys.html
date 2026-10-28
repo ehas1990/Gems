@@ -776,7 +776,7 @@
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             column-gap: 28px;
-            row-gap: 65px;
+            row-gap: 85px;
             width: 100%;
             max-width: 1360px;
             margin: 45px auto 0 auto;
@@ -817,7 +817,7 @@
             border-color: var(--card-accent, #0f62fe) !important;
             box-shadow:
               0 20px 45px rgba(15, 22, 129, 0.16),
-              0 0 0 3px var(--card-accent, #0f62fe) !important;
+              0 0 0 0px var(--card-accent, #0f62fe) !important;
           }
 
           .growth-areas-section .card-personal {
@@ -1858,6 +1858,36 @@
               transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             }
 
+            /* Full Cycle Piece Clickable SVG Layer */
+            #how-gems-supports .gems-wheel-pieces-svg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 8;
+              pointer-events: none;
+            }
+
+            #how-gems-supports .wheel-stage-piece {
+              pointer-events: auto;
+              fill: rgba(0, 0, 0, 0.001);
+              cursor: pointer;
+              outline: none;
+              transition: fill 0.25s ease;
+            }
+
+            #how-gems-supports .wheel-stage-piece:hover {
+              fill: rgba(255, 255, 255, 0.06);
+            }
+
+            #how-gems-supports .wheel-stage-piece:focus-visible {
+              stroke: #d4a029;
+              stroke-width: 2.5px;
+              stroke-dasharray: 6 4;
+              fill: rgba(255, 255, 255, 0.08);
+            }
+
             /* Hotspots Overlay Container */
             #how-gems-supports .gems-wheel-hotspots {
               position: absolute;
@@ -1999,7 +2029,8 @@
             }
 
             /* Hotspot Hover & Focus */
-            #how-gems-supports .wheel-hotspot:hover {
+            #how-gems-supports .wheel-hotspot:hover,
+            #how-gems-supports .wheel-hotspot.is-hovered {
               transform: translate(-50%, -50%) scale(1.12);
               border-color: #ffffff;
               box-shadow:
@@ -2568,6 +2599,74 @@
                   />
 
                   <!-- Perfectly Centered Circular Shape over "The GEMS Process" -->
+                  <!-- Interactive SVG Clickable Overlay Covering Each Complete Cycle Piece -->
+                  <svg
+                    class="gems-wheel-pieces-svg"
+                    viewBox="0 0 577 433"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-label="Interactive process wheel stages"
+                  >
+                    <!-- Stage 01 Piece: Identify -->
+                    <path
+                      class="wheel-stage-piece is-active"
+                      data-stage="1"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Stage 01: Identify — Clarify what you want to improve or accomplish"
+                      d="M 246.76 153.61 L 160.72 30.73 A 228 228 0 0 1 452.72 56.28 L 346.65 162.35 A 78 78 0 0 0 246.76 153.61 Z"
+                    >
+                      <title>Stage 01: Identify — Clarify what you want to improve or accomplish</title>
+                    </path>
+
+                    <!-- Stage 02 Piece: Understand -->
+                    <path
+                      class="wheel-stage-piece"
+                      data-stage="2"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Stage 02: Understand — Explore your options, requirements, and important considerations"
+                      d="M 346.65 162.35 L 452.72 56.28 A 228 228 0 0 1 505.75 295.48 L 364.8 244.18 A 78 78 0 0 0 346.65 162.35 Z"
+                    >
+                      <title>Stage 02: Understand — Explore your options, requirements, and important considerations</title>
+                    </path>
+
+                    <!-- Stage 03 Piece: Plan -->
+                    <path
+                      class="wheel-stage-piece"
+                      data-stage="3"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Stage 03: Plan — Organize realistic next steps toward your goals"
+                      d="M 364.8 244.18 L 505.75 295.48 A 228 228 0 0 1 291.5 445.5 L 291.5 295.5 A 78 78 0 0 0 364.8 244.18 Z"
+                    >
+                      <title>Stage 03: Plan — Organize realistic next steps toward your goals</title>
+                    </path>
+
+                    <!-- Stage 04 Piece: Connect -->
+                    <path
+                      class="wheel-stage-piece"
+                      data-stage="4"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Stage 04: Connect — Connect with a trusted specialist or relevant professional when needed"
+                      d="M 291.5 295.5 L 291.5 445.5 A 228 228 0 0 1 71.27 276.51 L 216.16 237.69 A 78 78 0 0 0 291.5 295.5 Z"
+                    >
+                      <title>Stage 04: Connect — Connect with a trusted specialist or relevant professional when needed</title>
+                    </path>
+
+                    <!-- Stage 05 Piece: Continue -->
+                    <path
+                      class="wheel-stage-piece"
+                      data-stage="5"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Stage 05: Continue — Maintain momentum through ongoing guidance, appropriate connections, and relevant GEMS support or membership"
+                      d="M 216.16 237.69 L 71.27 276.51 A 228 228 0 0 1 160.72 30.73 L 246.76 153.61 A 78 78 0 0 0 216.16 237.69 Z"
+                    >
+                      <title>Stage 05: Continue — Maintain momentum through ongoing guidance, appropriate connections, and relevant GEMS support or membership</title>
+                    </path>
+                  </svg>
+
                   <div
                     class="gems-wheel-center-circle"
                     aria-hidden="true"
@@ -3108,6 +3207,7 @@
                 if (!section) return;
 
                 var hotspots = section.querySelectorAll(".wheel-hotspot");
+                var pieces = section.querySelectorAll(".wheel-stage-piece");
                 var tabs = section.querySelectorAll(".stage-nav-tab");
                 var panels = section.querySelectorAll(".gems-stage-panel");
                 var cardWrap = section.querySelector("#gemsStageCardWrap");
@@ -3121,6 +3221,18 @@
                   if (isNaN(stageNum) || stageNum < 1 || stageNum > totalStages)
                     return;
                   currentStage = stageNum;
+
+                  // Update Stage Pieces
+                  pieces.forEach(function (p) {
+                    var s = parseInt(p.getAttribute("data-stage"), 10);
+                    if (s === currentStage) {
+                      p.classList.add("is-active");
+                      p.setAttribute("aria-current", "true");
+                    } else {
+                      p.classList.remove("is-active");
+                      p.removeAttribute("aria-current");
+                    }
+                  });
 
                   // Update Hotspots
                   hotspots.forEach(function (h) {
@@ -3165,6 +3277,38 @@
                     cardWrap.setAttribute("data-active-stage", currentStage);
                   }
                 }
+
+                // Stage Pieces (Complete Cycle Piece) Click, Hover & Keyboard Listeners
+                pieces.forEach(function (piece) {
+                  var stage = piece.getAttribute("data-stage");
+                  var matchingHotspot = section.querySelector('.wheel-hotspot[data-stage="' + stage + '"]');
+
+                  piece.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    setStage(stage);
+                  });
+
+                  piece.addEventListener("keydown", function (e) {
+                    if (
+                      e.key === "Enter" ||
+                      e.key === " " ||
+                      e.keyCode === 13 ||
+                      e.keyCode === 32
+                    ) {
+                      e.preventDefault();
+                      setStage(stage);
+                    }
+                  });
+
+                  if (matchingHotspot) {
+                    piece.addEventListener("mouseenter", function () {
+                      matchingHotspot.classList.add("is-hovered");
+                    });
+                    piece.addEventListener("mouseleave", function () {
+                      matchingHotspot.classList.remove("is-hovered");
+                    });
+                  }
+                });
 
                 // Hotspot Click & Hover Listeners
                 hotspots.forEach(function (hotspot) {

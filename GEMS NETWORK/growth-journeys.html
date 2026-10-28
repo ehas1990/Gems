@@ -500,7 +500,6 @@
               </a>
             </div>
           </div>
-        </div>
       </section>
 
       <!-- ==========================================================================
@@ -762,29 +761,30 @@
           }
 
           /* --------------------------------------------------------------------------
-             3-Column Grid Showcase directly below the Roadmap Image (Matches Pic 2)
+             FOCUS AREAS: Responsive 6-Card Grid
+             - Desktop & Laptop: 3 columns × 2 rows
+             - Tablet: 2 columns × 3 rows
+             - Mobile: 1 column × 6 rows
              -------------------------------------------------------------------------- */
-          #growth-glance .growth-glance-card-row {
-            width: 100%;
+          .growth-areas-section {
+            padding: 90px 0 100px 0;
             background-color: #ffffff;
-            padding:120px 0 120px 0;
             position: relative;
-            z-index: 6;
           }
 
-          #growth-glance .growth-glance-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+          .growth-areas-section .growth-areas-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
             column-gap: 28px;
-            row-gap:160px;
+            row-gap: 65px;
             width: 100%;
             max-width: 1360px;
-            margin: 0 auto;
-            padding: 38px 24px 0 24px; /* Essential clearance so top floating circular icon (-30px margin) is 100% visible */
+            margin: 45px auto 0 auto;
+            padding:65px 0 0 0; /* Essential clearance for floating circle icon (-30px margin) */
             box-sizing: border-box;
           }
 
-          #growth-glance .glance-active-card {
+          .growth-areas-section .growth-area-card {
             display: flex;
             flex-direction: column;
             background: #ffffff;
@@ -798,62 +798,65 @@
             overflow: visible;
             scroll-margin-top: 110px;
             cursor: pointer;
+            box-sizing: border-box;
           }
 
-          #growth-glance .glance-active-card:hover {
+          .growth-areas-section .growth-area-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(15, 22, 129, 0.12);
             border-color: rgba(15, 22, 129, 0.2);
           }
 
-          #growth-glance .glance-active-card:hover .growth-card-icon,
-          #growth-glance .glance-active-card.is-card-highlighted .growth-card-icon {
+          .growth-areas-section .growth-area-card:hover .growth-card-icon,
+          .growth-areas-section .growth-area-card.is-card-highlighted .growth-card-icon {
             transform: scale(1.1);
           }
 
-          #growth-glance .glance-active-card.is-card-highlighted {
+          .growth-areas-section .growth-area-card.is-card-highlighted {
             transform: translateY(-8px);
-            border-color: var(--card-accent, #0f62fe);
+            border-color: var(--card-accent, #0f62fe) !important;
             box-shadow:
               0 20px 45px rgba(15, 22, 129, 0.16),
-              0 0 0 0px var(--card-accent, #0f62fe);
+              0 0 0 3px var(--card-accent, #0f62fe) !important;
           }
 
-          #growth-glance .card-personal {
+          .growth-areas-section .card-personal {
             --card-accent: #0f62fe;
           }
-          #growth-glance .card-professional {
+          .growth-areas-section .card-professional {
             --card-accent: #0d9488;
           }
-          #growth-glance .card-financial {
+          .growth-areas-section .card-financial {
             --card-accent: #d97706;
           }
-          #growth-glance .card-network {
+          .growth-areas-section .card-network {
             --card-accent: #db2777;
           }
-          #growth-glance .card-entrepreneurship {
+          .growth-areas-section .card-entrepreneurship {
             --card-accent: #7c3aed;
           }
-          #growth-glance .card-planning {
+          .growth-areas-section .card-planning {
             --card-accent: #0891b2;
           }
 
+          /* Tablet Responsive: 2 Columns × 3 Rows (<= 991px) */
           @media (max-width: 991px) {
-            #growth-glance .growth-glance-grid {
-              grid-template-columns: repeat(2, 1fr);
+            .growth-areas-section .growth-areas-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
               column-gap: 22px;
-              row-gap: 45px;
-              padding: 34px 18px 0 18px;
+              row-gap: 52px;
+              padding: 34px 0 0 0;
             }
           }
 
-          @media (max-width: 640px) {
-            #growth-glance .growth-glance-grid {
-              grid-template-columns: 1fr;
-              row-gap: 45px;
-              padding: 32px 14px 0 14px;
+          /* Mobile Responsive: 1 Column × 6 Rows (<= 767px) */
+          @media (max-width: 767px) {
+            .growth-areas-section .growth-areas-grid {
+              grid-template-columns: 1fr !important;
+              row-gap: 46px;
+              padding: 32px 0 0 0;
             }
-            #growth-glance .glance-active-card {
+            .growth-areas-section .growth-area-card {
               padding: 0 18px 24px 18px;
             }
           }
@@ -1047,8 +1050,8 @@
                   class="rect1"
                 />
                 <area
-                  alt="Personal Growth"
-                  title="Personal Growth"
+                  alt="Professional Growth"
+                  title="Professional Growth"
                   href="#professional-growth"
                   coords="225,430,415,640"
                   shape="rect"
@@ -1168,7 +1171,7 @@
 
               // 2. Highlight matching card in the 3-column grid
               const cards = document.querySelectorAll(
-                "#growth-glance .glance-active-card",
+                "#growth-areas .growth-area-card, .growth-area-card",
               );
               let targetCard = null;
               cards.forEach((card) => {
@@ -1183,9 +1186,12 @@
 
               // 3. Smooth scroll to target card so it is completely visible in the viewport
               if (shouldScroll && targetCard) {
-                targetCard.scrollIntoView({
+                const navOffset = 100;
+                const rect = targetCard.getBoundingClientRect();
+                const targetY = window.pageYOffset + rect.top - navOffset;
+                window.scrollTo({
+                  top: targetY,
                   behavior: "smooth",
-                  block: "center",
                 });
               }
             }
@@ -1212,7 +1218,7 @@
 
               // Clicking directly on a card in the grid also synchronizes hotspot
               const cards = document.querySelectorAll(
-                "#growth-glance .glance-active-card",
+                "#growth-areas .growth-area-card, .growth-area-card",
               );
               cards.forEach((card) => {
                 card.addEventListener("click", function (e) {
@@ -1297,14 +1303,19 @@
               needed.
             </p>
           </div>
-   <div class="growth-glance-card-row" id="growthGlanceCardRow">
-          <div class="container-port-xl">
-            <div class="growth-glance-grid" id="growthGlanceGrid" role="region" aria-label="Six Growth Areas Grid">
+
+          <!-- SIX FOCUS AREAS RESPONSIVE GRID (3x2 Desktop, 2x3 Tablet, 1x6 Mobile) -->
+          <div
+            class="growth-areas-grid"
+            id="growth-areas-grid"
+            role="region"
+            aria-label="Six Growth Areas Grid"
+          >
 
               <!-- CARD 1: PERSONAL DEVELOPMENT -->
               <article
                 class="growth-area-card card-personal glance-active-card"
-                id="glance-card-personal-dev"
+                id="personal-dev"
                 data-glance-target="personal-dev"
                 data-glance-index="1"
                 aria-label="Personal Development Card"
@@ -1343,7 +1354,7 @@
               <!-- CARD 2: PROFESSIONAL GROWTH -->
               <article
                 class="growth-area-card card-professional glance-active-card"
-                id="glance-card-professional-growth"
+                id="professional-growth"
                 data-glance-target="professional-growth"
                 data-glance-index="2"
                 aria-label="Professional Growth Card"
@@ -1382,7 +1393,7 @@
               <!-- CARD 3: FINANCIAL READINESS -->
               <article
                 class="growth-area-card card-financial glance-active-card"
-                id="glance-card-financial-readiness"
+                id="financial-readiness"
                 data-glance-target="financial-readiness"
                 data-glance-index="3"
                 aria-label="Financial Readiness Card"
@@ -1424,7 +1435,7 @@
               <!-- CARD 4: NETWORK & RELATIONSHIPS -->
               <article
                 class="growth-area-card card-network glance-active-card"
-                id="glance-card-network-relationships"
+                id="network-relationships"
                 data-glance-target="network-relationships"
                 data-glance-index="4"
                 aria-label="Network & Relationships Card"
@@ -1466,7 +1477,7 @@
               <!-- CARD 5: ENTREPRENEURSHIP & BUSINESS GROWTH -->
               <article
                 class="growth-area-card card-entrepreneurship glance-active-card"
-                id="glance-card-entrepreneurship"
+                id="entrepreneurship"
                 data-glance-target="entrepreneurship"
                 data-glance-index="5"
                 aria-label="Entrepreneurship & Business Growth Card"
@@ -1512,7 +1523,7 @@
               <!-- CARD 6: LONG-TERM PLANNING -->
               <article
                 class="growth-area-card card-planning glance-active-card"
-                id="glance-card-long-term-planning"
+                id="long-term-planning"
                 data-glance-target="long-term-planning"
                 data-glance-index="6"
                 aria-label="Long-Term Planning Card"
@@ -1550,11 +1561,7 @@
                   </a>
                 </div>
               </article>
-
-            </div>
           </div>
-        </div>
-          
         </div>
       </section>
 

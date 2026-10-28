@@ -816,7 +816,7 @@
             border-color: var(--card-accent, #0f62fe);
             box-shadow:
               0 20px 45px rgba(15, 22, 129, 0.16),
-              0 0 0 3px var(--card-accent, #0f62fe);
+              0 0 0 0px var(--card-accent, #0f62fe);
           }
 
           #growth-glance .card-personal {
@@ -1092,7 +1092,212 @@
         </div>
 
         <!-- ROW 3 — ACTIVE GROWTH CARD SHOWCASE (MATCHING REFERENCE IMAGE 2) -->
-        <div class="growth-glance-card-row" id="growthGlanceCardRow">
+     
+
+        <!-- Vanilla JavaScript: Proportional Map Scaler & Smooth Scroll -->
+        <script id="growth-glance-script">
+          (function () {
+            const originalWidth = 1568;
+            const originalHeight = 1003;
+            const originalCoords = [
+              [45, 470, 235, 690],
+              [225, 430, 415, 640],
+              [470, 510, 645, 710],
+              [905, 500, 1095, 710],
+              [1190, 450, 1380, 660],
+              [1360, 385, 1525, 600],
+            ];
+
+            const targetKeys = [
+              "personal-dev",
+              "professional-growth",
+              "financial-readiness",
+              "network-relationships",
+              "entrepreneurship",
+              "long-term-planning",
+            ];
+
+            function updateImageMapCoords() {
+              const img = document.getElementById("growthGlanceImg");
+              const map = document.getElementById("growthImageMap");
+              if (!img || !map) return;
+              const currentW = img.clientWidth;
+              const currentH = img.clientHeight;
+              if (!currentW || !currentH) return;
+
+              const scaleX = currentW / originalWidth;
+              const scaleY = currentH / originalHeight;
+
+              const areas = map.querySelectorAll("area");
+              areas.forEach((area, i) => {
+                if (originalCoords[i]) {
+                  const [x1, y1, x2, y2] = originalCoords[i];
+                  const scaled = [
+                    Math.round(x1 * scaleX),
+                    Math.round(y1 * scaleY),
+                    Math.round(x2 * scaleX),
+                    Math.round(y2 * scaleY),
+                  ];
+                  area.coords = scaled.join(",");
+                }
+              });
+            }
+
+            // Function to highlight target card in the 3-column grid and activate hotspot
+            function setActiveGlanceCard(targetKey, shouldScroll) {
+              if (!targetKey) return;
+              const key = targetKey.replace(/^#/, "");
+              const index = targetKeys.indexOf(key);
+              if (index === -1) return;
+
+              // 1. Update hotspot active states on the roadmap image
+              const hotspots = document.querySelectorAll(
+                "#growth-glance .growth-hotspot",
+              );
+              hotspots.forEach((h) => {
+                const hTarget = (h.getAttribute("href") || "").replace(/^#/, "");
+                const hIndex = parseInt(h.getAttribute("data-index"), 10);
+                if (hTarget === key || hIndex === index + 1) {
+                  h.classList.add("is-active");
+                  h.setAttribute("aria-selected", "true");
+                } else {
+                  h.classList.remove("is-active");
+                  h.setAttribute("aria-selected", "false");
+                }
+              });
+
+              // 2. Highlight matching card in the 3-column grid
+              const cards = document.querySelectorAll(
+                "#growth-glance .glance-active-card",
+              );
+              let targetCard = null;
+              cards.forEach((card) => {
+                const cardTarget = card.getAttribute("data-glance-target");
+                if (cardTarget === key) {
+                  card.classList.add("is-card-highlighted");
+                  targetCard = card;
+                } else {
+                  card.classList.remove("is-card-highlighted");
+                }
+              });
+
+              // 3. Smooth scroll to target card so it is completely visible in the viewport
+              if (shouldScroll && targetCard) {
+                targetCard.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }
+            }
+
+            // Interactive click listeners on hotspots, map areas, and cards
+            function setupInteractions() {
+              const links = document.querySelectorAll(
+                "#growth-glance .growth-hotspot, #growth-glance area",
+              );
+
+              links.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                  const href = this.getAttribute("href");
+                  if (href && href.startsWith("#") && href.length > 1) {
+                    e.preventDefault();
+                    const key = href.replace(/^#/, "");
+                    setActiveGlanceCard(key, true);
+                    try {
+                      history.pushState(null, null, href);
+                    } catch (err) {}
+                  }
+                });
+              });
+
+              // Clicking directly on a card in the grid also synchronizes hotspot
+              const cards = document.querySelectorAll(
+                "#growth-glance .glance-active-card",
+              );
+              cards.forEach((card) => {
+                card.addEventListener("click", function (e) {
+                  if (e.target.closest("a")) return; // Preserve CTA button links
+                  const key = card.getAttribute("data-glance-target");
+                  if (key) {
+                    setActiveGlanceCard(key, false);
+                    try {
+                      history.pushState(null, null, "#" + key);
+                    } catch (err) {}
+                  }
+                });
+              });
+            }
+
+            // Initial selection based on URL hash or default to first card (or Card 3 if hash)
+            function initCardSelection() {
+              let initialKey = "personal-dev";
+              if (window.location.hash) {
+                const hashKey = window.location.hash.replace(/^#/, "");
+                if (targetKeys.includes(hashKey)) {
+                  initialKey = hashKey;
+                }
+              }
+              setActiveGlanceCard(initialKey, false);
+            }
+
+            window.addEventListener("resize", updateImageMapCoords);
+            window.addEventListener("load", updateImageMapCoords);
+            window.addEventListener("hashchange", function () {
+              if (window.location.hash) {
+                const hashKey = window.location.hash.replace(/^#/, "");
+                if (targetKeys.includes(hashKey)) {
+                  setActiveGlanceCard(hashKey, false);
+                }
+              }
+            });
+
+            if (typeof ResizeObserver !== "undefined") {
+              const img = document.getElementById("growthGlanceImg");
+              if (img) new ResizeObserver(updateImageMapCoords).observe(img);
+            }
+
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", () => {
+                updateImageMapCoords();
+                setupInteractions();
+                initCardSelection();
+              });
+            } else {
+              updateImageMapCoords();
+              setupInteractions();
+              initCardSelection();
+            }
+          })();
+        </script>
+      </section>
+
+      <!-- ==========================================================================
+             3. SIX GROWTH AREAS (DETAILED CARDS)
+             ========================================================================== -->
+      <section
+        class="growth-areas-section"
+        id="growth-areas"
+        aria-label="Six Growth Areas"
+      >
+        <div class="container-port-xl">
+          <div
+            class="growth-section-header"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <div class="growth-eyebrow">
+              <i class="fa-solid fa-layer-group"></i> FOCUS AREAS
+            </div>
+            <h2 class="growth-section-title">
+              Build capability across every dimension of your growth.
+            </h2>
+            <p class="growth-section-desc">
+              Each area of the Growth Journey provides structured guidance,
+              actionable focus, and connection to trusted specialists when
+              needed.
+            </p>
+          </div>
+   <div class="growth-glance-card-row" id="growthGlanceCardRow">
           <div class="container-port-xl">
             <div class="growth-glance-grid" id="growthGlanceGrid" role="region" aria-label="Six Growth Areas Grid">
 
@@ -1349,459 +1554,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Vanilla JavaScript: Proportional Map Scaler & Smooth Scroll -->
-        <script id="growth-glance-script">
-          (function () {
-            const originalWidth = 1568;
-            const originalHeight = 1003;
-            const originalCoords = [
-              [45, 470, 235, 690],
-              [225, 430, 415, 640],
-              [470, 510, 645, 710],
-              [905, 500, 1095, 710],
-              [1190, 450, 1380, 660],
-              [1360, 385, 1525, 600],
-            ];
-
-            const targetKeys = [
-              "personal-dev",
-              "professional-growth",
-              "financial-readiness",
-              "network-relationships",
-              "entrepreneurship",
-              "long-term-planning",
-            ];
-
-            function updateImageMapCoords() {
-              const img = document.getElementById("growthGlanceImg");
-              const map = document.getElementById("growthImageMap");
-              if (!img || !map) return;
-              const currentW = img.clientWidth;
-              const currentH = img.clientHeight;
-              if (!currentW || !currentH) return;
-
-              const scaleX = currentW / originalWidth;
-              const scaleY = currentH / originalHeight;
-
-              const areas = map.querySelectorAll("area");
-              areas.forEach((area, i) => {
-                if (originalCoords[i]) {
-                  const [x1, y1, x2, y2] = originalCoords[i];
-                  const scaled = [
-                    Math.round(x1 * scaleX),
-                    Math.round(y1 * scaleY),
-                    Math.round(x2 * scaleX),
-                    Math.round(y2 * scaleY),
-                  ];
-                  area.coords = scaled.join(",");
-                }
-              });
-            }
-
-            // Function to highlight target card in the 3-column grid and activate hotspot
-            function setActiveGlanceCard(targetKey, shouldScroll) {
-              if (!targetKey) return;
-              const key = targetKey.replace(/^#/, "");
-              const index = targetKeys.indexOf(key);
-              if (index === -1) return;
-
-              // 1. Update hotspot active states on the roadmap image
-              const hotspots = document.querySelectorAll(
-                "#growth-glance .growth-hotspot",
-              );
-              hotspots.forEach((h) => {
-                const hTarget = (h.getAttribute("href") || "").replace(/^#/, "");
-                const hIndex = parseInt(h.getAttribute("data-index"), 10);
-                if (hTarget === key || hIndex === index + 1) {
-                  h.classList.add("is-active");
-                  h.setAttribute("aria-selected", "true");
-                } else {
-                  h.classList.remove("is-active");
-                  h.setAttribute("aria-selected", "false");
-                }
-              });
-
-              // 2. Highlight matching card in the 3-column grid
-              const cards = document.querySelectorAll(
-                "#growth-glance .glance-active-card",
-              );
-              let targetCard = null;
-              cards.forEach((card) => {
-                const cardTarget = card.getAttribute("data-glance-target");
-                if (cardTarget === key) {
-                  card.classList.add("is-card-highlighted");
-                  targetCard = card;
-                } else {
-                  card.classList.remove("is-card-highlighted");
-                }
-              });
-
-              // 3. Smooth scroll to target card so it is completely visible in the viewport
-              if (shouldScroll && targetCard) {
-                targetCard.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }
-            }
-
-            // Interactive click listeners on hotspots, map areas, and cards
-            function setupInteractions() {
-              const links = document.querySelectorAll(
-                "#growth-glance .growth-hotspot, #growth-glance area",
-              );
-
-              links.forEach((link) => {
-                link.addEventListener("click", function (e) {
-                  const href = this.getAttribute("href");
-                  if (href && href.startsWith("#") && href.length > 1) {
-                    e.preventDefault();
-                    const key = href.replace(/^#/, "");
-                    setActiveGlanceCard(key, true);
-                    try {
-                      history.pushState(null, null, href);
-                    } catch (err) {}
-                  }
-                });
-              });
-
-              // Clicking directly on a card in the grid also synchronizes hotspot
-              const cards = document.querySelectorAll(
-                "#growth-glance .glance-active-card",
-              );
-              cards.forEach((card) => {
-                card.addEventListener("click", function (e) {
-                  if (e.target.closest("a")) return; // Preserve CTA button links
-                  const key = card.getAttribute("data-glance-target");
-                  if (key) {
-                    setActiveGlanceCard(key, false);
-                    try {
-                      history.pushState(null, null, "#" + key);
-                    } catch (err) {}
-                  }
-                });
-              });
-            }
-
-            // Initial selection based on URL hash or default to first card (or Card 3 if hash)
-            function initCardSelection() {
-              let initialKey = "personal-dev";
-              if (window.location.hash) {
-                const hashKey = window.location.hash.replace(/^#/, "");
-                if (targetKeys.includes(hashKey)) {
-                  initialKey = hashKey;
-                }
-              }
-              setActiveGlanceCard(initialKey, false);
-            }
-
-            window.addEventListener("resize", updateImageMapCoords);
-            window.addEventListener("load", updateImageMapCoords);
-            window.addEventListener("hashchange", function () {
-              if (window.location.hash) {
-                const hashKey = window.location.hash.replace(/^#/, "");
-                if (targetKeys.includes(hashKey)) {
-                  setActiveGlanceCard(hashKey, false);
-                }
-              }
-            });
-
-            if (typeof ResizeObserver !== "undefined") {
-              const img = document.getElementById("growthGlanceImg");
-              if (img) new ResizeObserver(updateImageMapCoords).observe(img);
-            }
-
-            if (document.readyState === "loading") {
-              document.addEventListener("DOMContentLoaded", () => {
-                updateImageMapCoords();
-                setupInteractions();
-                initCardSelection();
-              });
-            } else {
-              updateImageMapCoords();
-              setupInteractions();
-              initCardSelection();
-            }
-          })();
-        </script>
-      </section>
-
-      <!-- ==========================================================================
-             3. SIX GROWTH AREAS (DETAILED CARDS)
-             ========================================================================== -->
-      <section
-        class="growth-areas-section"
-        id="growth-areas"
-        aria-label="Six Growth Areas"
-      >
-        <div class="container-port-xl">
-          <div
-            class="growth-section-header"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <div class="growth-eyebrow">
-              <i class="fa-solid fa-layer-group"></i> FOCUS AREAS
-            </div>
-            <h2 class="growth-section-title">
-              Build capability across every dimension of your growth.
-            </h2>
-            <p class="growth-section-desc">
-              Each area of the Growth Journey provides structured guidance,
-              actionable focus, and connection to trusted specialists when
-              needed.
-            </p>
-          </div>
-
-          <div class="growth-areas-grid">
-            <!-- AREA 1: PERSONAL DEVELOPMENT -->
-            <article
-              class="growth-area-card card-personal"
-              id="personal-dev"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="growth-card-node">
-                <div class="growth-card-icon">
-                  <i class="fa-solid fa-seedling"></i>
-                </div>
-              </div>
-              <h3 class="growth-card-title">Personal Development</h3>
-              <p class="growth-card-desc">
-                Strengthen practical capabilities that make other parts of the
-                journey easier.
-              </p>
-              <div class="growth-services-title">Potential topics</div>
-              <ul class="growth-services-list">
-                <li>Communication</li>
-                <li>confidence in unfamiliar environments</li>
-                <li>Organization</li>
-                <li>Time management</li>
-                <li>Decision-making</li>
-                <li>Adapting to change</li>
-                <li>Professional presence</li>
-              </ul>
-
-              <div class="growth-card-cta">
-                <a
-                  href="membership-level.html?journey=growth"
-                  class="tier-btn tier-btn-outline"
-                >
-                  <span>Explore Personal Development</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- AREA 2: PROFESSIONAL GROWTH -->
-            <article
-              class="growth-area-card card-professional"
-              id="professional-growth"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="growth-card-node">
-                <div class="growth-card-icon">
-                  <i class="fa-solid fa-chart-line"></i>
-                </div>
-              </div>
-              <h3 class="growth-card-title">Professional Growth</h3>
-              <p class="growth-card-desc">
-                Extend Career Journey into advancement, leadership,
-                specialization, and professional positioning.
-              </p>
-              <div class="growth-services-title">Potential topics</div>
-              <ul class="growth-services-list">
-                <li>Leadership development</li>
-                <li>Professional development</li>
-                <li>Certifications</li>
-                <li>Networking</li>
-                <li>Industry connections</li>
-                <li>Personal brand</li>
-                <li>Strategic career planning</li>
-              </ul>
-              <div class="growth-card-cta">
-                <a
-                  href="membership-level.html?journey=growth"
-                  class="tier-btn tier-btn-outline"
-                >
-                  <span>Grow Professionally</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- AREA 3: FINANCIAL READINESS -->
-            <article
-              class="growth-area-card card-financial"
-              id="financial-readiness"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="growth-card-node">
-                <div class="growth-card-icon">
-                  <i class="fa-solid fa-coins"></i>
-                </div>
-              </div>
-              <h3 class="growth-card-title">Financial Readiness</h3>
-              <p class="growth-card-desc">
-                Help you think intentionally about the financial side of growth
-                and major life decisions.
-              </p>
-              <div class="growth-services-title">Potential topics</div>
-              <ul class="growth-services-list">
-                <li>Financial organization</li>
-                <li>Budgeting for major transitions</li>
-
-                <li>Planning for education or relocation</li>
-                <li>Understanding financial-service needs</li>
-                <li>Long-term financial awareness</li>
-              </ul>
-              <p class="growth-card-desc">
-                GEMS may provide general guidance within its competence and
-                connect visitors with qualified financial professionals when
-                specialized advice is required.
-              </p>
-              <div class="growth-card-cta">
-                <a
-                  href="membership-level.html?journey=growth"
-                  class="tier-btn tier-btn-outline"
-                >
-                  <span>Plan My Financial Next Step</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- AREA 4: NETWORK & RELATIONSHIPS -->
-            <article
-              class="growth-area-card card-network"
-              id="network-relationships"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <div class="growth-card-node">
-                <div class="growth-card-icon">
-                  <i class="fa-solid fa-users"></i>
-                </div>
-              </div>
-              <h3 class="growth-card-title">Network &amp; Relationships</h3>
-              <p class="growth-card-desc">
-                Recognize that growth often depends on access to the right
-                people, not simply more information.
-              </p>
-              <div class="growth-services-title">Potential topics</div>
-              <ul class="growth-services-list">
-                <li>Professional networking</li>
-
-                <li>Community connections</li>
-                <li>Mentors</li>
-                <li>Business relationships</li>
-                <li>Industry introductions</li>
-                <li>Trusted service providers</li>
-              </ul>
-              <p class="growth-card-desc">
-                GEMS can curate and facilitate appropriate connections through
-                the Trusted Network.
-              </p>
-              <div class="growth-card-cta">
-                <a
-                  href="membership-level.html?journey=growth"
-                  class="tier-btn tier-btn-outline"
-                >
-                  <span>Expand My Network</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- AREA 5: ENTREPRENEURSHIP & BUSINESS GROWTH -->
-            <article
-              class="growth-area-card card-entrepreneurship"
-              id="entrepreneurship"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="growth-card-node">
-                <div class="growth-card-icon">
-                  <i class="fa-solid fa-lightbulb"></i>
-                </div>
-              </div>
-              <h3 class="growth-card-title">
-                Entrepreneurship &amp; Business Growth
-              </h3>
-              <p class="growth-card-desc">
-                Serve people exploring entrepreneurship, strengthening a small
-                business, or turning an idea into a structured opportunity.
-              </p>
-              <div class="growth-services-title">Potential topics</div>
-              <ul class="growth-services-list">
-                <li>Business planning</li>
-                <li>Setup Guidance</li>
-                <li>Service-provider connections</li>
-                <li>Administrative Support</li>
-                <li>Professional Services</li>
-                <li>Staffing / Facilitation needs</li>
-                <li>Growth planning</li>
-              </ul>
-              <p class="growth-card-desc">
-                GEMS helps identify what the business owner needs and connects
-                them with appropriate specialists rather than claiming expertise
-                in every discipline.
-              </p>
-              <div class="growth-card-cta">
-                <a
-                  href="membership-level.html?journey=growth"
-                  class="tier-btn tier-btn-outline"
-                >
-                  <span>Explore Business Growth</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- AREA 6: LONG-TERM PLANNING -->
-            <article
-              class="growth-area-card card-planning"
-              id="long-term-planning"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              <div class="growth-card-node">
-                <div class="growth-card-icon">
-                  <i class="fa-solid fa-bullseye"></i>
-                </div>
-              </div>
-              <h3 class="growth-card-title">Long-Term Planning</h3>
-              <p class="growth-card-desc">
-                Give You a place to think beyond the immediate next step.
-              </p>
-              <div class="growth-services-title">Potential topics</div>
-              <ul class="growth-services-list">
-                <li>Multi-year career direction</li>
-                <li>Relocation Planning</li>
-                <li>Further Education</li>
-                <li>Entrepreneurship</li>
-                <li>Professional Independence</li>
-                <li>Major Transitions</li>
-                <li>Building a Trusted support network</li>
-              </ul>
-              <p class="growth-card-desc">
-                Make long-term planning approachable: visitors do not need to
-                know the entire destination before beginning.
-              </p>
-              <div class="growth-card-cta">
-                <a
-                  href="membership-level.html?journey=growth"
-                  class="tier-btn tier-btn-outline"
-                >
-                  <span>Start Planning Ahead</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
+          
         </div>
       </section>
 

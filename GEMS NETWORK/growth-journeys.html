@@ -1882,9 +1882,8 @@
             }
 
             #how-gems-supports .wheel-stage-piece:focus-visible {
-              stroke: #d4a029;
-              stroke-width: 2.5px;
-              stroke-dasharray: 6 4;
+              stroke: none !important;
+              outline: none !important;
               fill: rgba(255, 255, 255, 0.08);
             }
 
@@ -1937,25 +1936,27 @@
             }
 
             /* Individual Interactive Numbered Circular Pointers (Increased size by ~25%) */
+            /* Individual Interactive Numbered Circular Pointers */
             #how-gems-supports .wheel-hotspot {
               position: absolute;
-              transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%) scale(1);
               pointer-events: auto;
               width: 55px;
               height: 55px;
               aspect-ratio: 1 / 1;
               border-radius: 50%;
-              border: 2.5px solid #d4a029;
+              border: none !important;
+              outline: none !important;
               box-shadow:
-                0 4px 10px rgba(0, 0, 0, 0.4),
-                inset 0 1px 2px rgba(255, 255, 255, 0.35);
+                0 4px 10px rgba(0, 0, 0, 0.35),
+                inset 0 1px 2px rgba(255, 255, 255, 0.25);
               display: flex;
               align-items: center;
               justify-content: center;
               cursor: pointer;
               padding: 0;
-              outline: none;
-              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                          box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
               z-index: 10;
               user-select: none;
             }
@@ -1973,6 +1974,7 @@
               letter-spacing: -0.3px;
               text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
               pointer-events: none;
+              transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             }
 
             /* Distinct Stage Gradient Colors Matching Wheel Infographic */
@@ -2017,120 +2019,61 @@
               );
             }
 
-            /* Pulsing radar ring */
+            /* No bordered active indicator: pulse hidden */
             #how-gems-supports .wheel-hotspot .hotspot-pulse {
-              position: absolute;
-              inset: -8px;
-              border-radius: 50%;
-              border: 2.5px solid transparent;
-              pointer-events: none;
-              opacity: 0;
-              transition: all 0.3s ease;
+              display: none !important;
             }
 
-            /* Hotspot Hover & Focus */
-            #how-gems-supports .wheel-hotspot:hover,
-            #how-gems-supports .wheel-hotspot.is-hovered {
-              transform: translate(-50%, -50%) scale(1.12);
-              border-color: #ffffff;
+            /* Hotspot Hover */
+            #how-gems-supports .wheel-hotspot:hover:not(.is-active),
+            #how-gems-supports .wheel-hotspot.is-hovered:not(.is-active) {
+              transform: translate(-50%, -50%) scale(1.08);
               box-shadow:
-                0 0 16px rgba(224, 179, 84, 0.8),
+                0 0 16px rgba(224, 179, 84, 0.6),
                 0 6px 14px rgba(0, 0, 0, 0.5),
-                inset 0 1px 3px rgba(255, 255, 255, 0.5);
+                inset 0 1px 3px rgba(255, 255, 255, 0.4);
+              border: none !important;
+              outline: none !important;
             }
 
             #how-gems-supports .wheel-hotspot:focus-visible {
-              outline: 2.5px solid var(--color-primary, #0f1681);
-              outline-offset: 4px;
-              transform: translate(-50%, -50%) scale(1.12);
+              outline: none !important;
+              border: none !important;
             }
 
-            /* Active Hotspot State: luminous colored ring and animated wave */
+            /* Active Hotspot State: Smooth Zoom-In Effect (Scale), No Borders */
             #how-gems-supports .wheel-hotspot.is-active {
-              transform: translate(-50%, -50%) scale(1.16);
-              border-color: #ffffff;
+              transform: translate(-50%, -50%) scale(1.22) !important;
+              border: none !important;
+              border-color: transparent !important;
+              outline: none !important;
               z-index: 15;
             }
-
-            #how-gems-supports .wheel-hotspot.is-active .hotspot-pulse {
-              opacity: 1;
-              animation: gemsHotspotWave 2.2s infinite ease-out;
-            }
-
-            @keyframes gemsHotspotWave {
-              0% {
-                transform: scale(0.92);
-                opacity: 0.95;
-              }
-              70% {
-                transform: scale(1.68);
-                opacity: 0;
-              }
-              100% {
-                transform: scale(1.88);
-                opacity: 0;
-              }
-            }
-
-            /* Specific stage accents for active hotspots */
+                       /* Specific stage accents for active hotspots: soft glow, no borders */
             #how-gems-supports .wheel-hotspot[data-stage="1"].is-active {
               box-shadow:
-                0 0 0 3px #ffffff,
                 0 0 24px rgba(229, 57, 53, 0.85),
-                0 8px 20px rgba(0, 0, 0, 0.45);
+                0 8px 20px rgba(0, 0, 0, 0.45) !important;
             }
-            #how-gems-supports
-              .wheel-hotspot[data-stage="1"].is-active
-              .hotspot-pulse {
-              border-color: #e53935;
-            }
-
             #how-gems-supports .wheel-hotspot[data-stage="2"].is-active {
               box-shadow:
-                0 0 0 3px #ffffff,
                 0 0 24px rgba(30, 136, 229, 0.85),
-                0 8px 20px rgba(0, 0, 0, 0.45);
+                0 8px 20px rgba(0, 0, 0, 0.45) !important;
             }
-            #how-gems-supports
-              .wheel-hotspot[data-stage="2"].is-active
-              .hotspot-pulse {
-              border-color: #1e88e5;
-            }
-
             #how-gems-supports .wheel-hotspot[data-stage="3"].is-active {
               box-shadow:
-                0 0 0 3px #ffffff,
                 0 0 24px rgba(0, 137, 123, 0.85),
-                0 8px 20px rgba(0, 0, 0, 0.45);
+                0 8px 20px rgba(0, 0, 0, 0.45) !important;
             }
-            #how-gems-supports
-              .wheel-hotspot[data-stage="3"].is-active
-              .hotspot-pulse {
-              border-color: #00897b;
-            }
-
             #how-gems-supports .wheel-hotspot[data-stage="4"].is-active {
               box-shadow:
-                0 0 0 3px #ffffff,
                 0 0 24px rgba(251, 140, 0, 0.85),
-                0 8px 20px rgba(0, 0, 0, 0.45);
+                0 8px 20px rgba(0, 0, 0, 0.45) !important;
             }
-            #how-gems-supports
-              .wheel-hotspot[data-stage="4"].is-active
-              .hotspot-pulse {
-              border-color: #fb8c00;
-            }
-
             #how-gems-supports .wheel-hotspot[data-stage="5"].is-active {
               box-shadow:
-                0 0 0 3px #ffffff,
                 0 0 24px rgba(67, 160, 71, 0.85),
-                0 8px 20px rgba(0, 0, 0, 0.45);
-            }
-            #how-gems-supports
-              .wheel-hotspot[data-stage="5"].is-active
-              .hotspot-pulse {
-              border-color: #43a047;
+                0 8px 20px rgba(0, 0, 0, 0.45) !important;
             }
 
             /* Wheel Interactive Hint */
@@ -2161,14 +2104,16 @@
               flex-wrap: wrap;
               gap: 8px;
               background: rgba(15, 22, 129, 0.04);
-              padding: 6px;
+              padding: 8px;
               border-radius: 14px;
               border: 1px solid rgba(15, 22, 129, 0.08);
+              overflow: visible;
             }
 
             #how-gems-supports .stage-nav-tab {
               flex: 1 1 calc(20% - 8px);
               min-width: 88px;
+              position: relative;
               display: inline-flex;
               align-items: center;
               justify-content: center;
@@ -2176,13 +2121,20 @@
               padding: 9px 10px;
               border-radius: 10px;
               background: transparent;
-              border: 1px solid transparent;
+              border: none !important;
+              outline: none !important;
               font-size: 0.82rem;
               font-weight: 700;
               color: #5a6a80;
               cursor: pointer;
-              transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+              transform: scale(1);
+              transform-origin: center center;
+              transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                          background 0.25s ease,
+                          color 0.25s ease,
+                          box-shadow 0.35s ease;
               white-space: nowrap;
+              z-index: 1;
             }
 
             #how-gems-supports .stage-nav-tab .tab-badge {
@@ -2193,30 +2145,39 @@
               border-radius: 4px;
               background: rgba(7, 27, 53, 0.08);
               color: var(--color-navy-deep, #071b35);
-              transition: all 0.25s ease;
+              transition: background-color 0.25s ease,
+                          color 0.25s ease;
+              border: none !important;
+              outline: none !important;
             }
 
             #how-gems-supports .stage-nav-tab:hover {
               background: rgba(255, 255, 255, 0.85);
               color: var(--color-navy-deep, #071b35);
-              border-color: rgba(190, 159, 92, 0.35);
+              border: none !important;
+              outline: none !important;
             }
 
             #how-gems-supports .stage-nav-tab:focus-visible {
-              outline: 2px solid var(--color-primary, #0f1681);
-              outline-offset: 2px;
+              outline: none !important;
+              border: none !important;
             }
 
             #how-gems-supports .stage-nav-tab.is-active {
               background: #ffffff;
               color: var(--color-navy-deep, #071b35);
-              border-color: #be9f5c;
-              box-shadow: 0 4px 14px rgba(7, 27, 53, 0.08);
+              border: none !important;
+              outline: none !important;
+              box-shadow: 0 6px 18px rgba(7, 27, 53, 0.12);
+              transform: scale(1.08) !important;
+              z-index: 2;
             }
 
             #how-gems-supports .stage-nav-tab.is-active .tab-badge {
               background: var(--color-navy-deep, #071b35);
               color: #ffffff;
+              border: none !important;
+              outline: none !important;
             }
 
             /* Individual tab active accents */

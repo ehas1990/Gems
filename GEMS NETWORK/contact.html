@@ -465,7 +465,7 @@
                         </div>
 
                         <!-- 4. I'M NOT SURE WHERE I FIT -->
-                        <div class="journey-card card-notsure" data-target-tab="students" data-journey-note="Not Sure"
+                        <div class="journey-card card-notsure" data-target-tab="needhelp"
                             role="button" tabindex="0"
                             aria-label="I'm not sure where I fit - Help point me in the right direction"
                             data-aos="fade-up" data-aos-delay="340">
@@ -476,7 +476,7 @@
                             <p class="journey-card-desc">That’s okay. You don’t have to know exactly what you need
                                 before you reach out to GEMS. Tell us a little about your situation, and we’ll help
                                 point you in the right direction.</p>
-                            <button type="button" class="journey-card-btn" data-target-tab="students" data-journey-note="Not Sure" tabindex="-1">
+                            <button type="button" class="journey-card-btn" data-target-tab="needhelp" tabindex="-1">
                                 <span>Talk To GEMS</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -538,15 +538,19 @@
                                 <div class="form-tabs-scroll">
                                     <button type="button" class="form-tab-btn active" data-tab="students" data-target-tab="students" role="tab"
                                         aria-selected="true" id="tab-btn-students" style="display: inline-flex;">
-                                        <i class="fa-solid fa-graduation-cap"></i> Students
+                                        <i class="fa-solid fa-graduation-cap"></i> Student
                                     </button>
                                     <button type="button" class="form-tab-btn" data-tab="professionals" data-target-tab="professionals" role="tab"
                                         aria-selected="false" id="tab-btn-professionals" style="display: none;" aria-hidden="true">
-                                        <i class="fa-solid fa-briefcase"></i> Professionals
+                                        <i class="fa-solid fa-briefcase"></i> Profession
                                     </button>
                                     <button type="button" class="form-tab-btn" data-tab="business" data-target-tab="business" role="tab"
                                         aria-selected="false" id="tab-btn-business" style="display: none;" aria-hidden="true">
-                                        <i class="fa-solid fa-building"></i> Business Clients
+                                        <i class="fa-solid fa-building"></i> Business
+                                    </button>
+                                    <button type="button" class="form-tab-btn" data-tab="needhelp" data-target-tab="needhelp" role="tab"
+                                        aria-selected="false" id="tab-btn-needhelp" style="display: none;" aria-hidden="true">
+                                        <i class="fa-solid fa-compass"></i> GEMS I Need Help
                                     </button>
                                 </div>
                             </div>
@@ -1398,6 +1402,221 @@
                                 </form>
                             </div>
 
+                            <!-- ==================================================
+                                 TAB 4: GEMS I NEED HELP FORM
+                                 ================================================== -->
+                            <div id="needhelpTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
+                                <!-- Feedback Notification Box -->
+                                <div id="helpFormNotification" class="form-notification"></div>
+
+                                <!-- Need Help Form -->
+                                <form id="gemsNeedHelpForm" action="https://globalenrollment.us/contact/help_submit"
+                                    method="POST" onsubmit="return handleHelpFormSubmit(event)">
+
+                                    <!-- Hidden Captcha Token -->
+                                    <input type="hidden" name="captcha_token" id="helpCaptchaToken"
+                                        value="9f2c14ab6d30e8c">
+
+                                    <!-- Section 1: Tell Us About You -->
+                                    <div class="form-section-title">
+                                        <i class="fa-regular fa-user"></i> Tell Us About You
+                                    </div>
+
+                                    <!-- 1. First Name & 2. Last Name -->
+                                    <div class="form-row frmcol">
+                                        <div class="form-group frmgrp mb-0">
+                                            <label class="form-label" for="helpFirstName"><i
+                                                    class="fa-regular fa-user"></i>
+                                                First Name <span class="req">*</span></label>
+                                            <div class="input-with-icon">
+                                                <span class="input-icon-prefix"><i
+                                                        class="fa-regular fa-user"></i></span>
+                                                <input type="text" id="helpFirstName" name="first_name"
+                                                    class="form-control-gems" placeholder="Enter first name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group frmgrp mb-0">
+                                            <label class="form-label" for="helpLastName"><i
+                                                    class="fa-regular fa-user"></i>
+                                                Last Name <span class="req">*</span></label>
+                                            <div class="input-with-icon">
+                                                <span class="input-icon-prefix"><i
+                                                        class="fa-regular fa-user"></i></span>
+                                                <input type="text" id="helpLastName" name="last_name"
+                                                    class="form-control-gems" placeholder="Enter last name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 3. Email Address (Full Width) -->
+                                    <div class="form-group frmgrp">
+                                        <label class="form-label" for="helpEmail"><i class="fa-regular fa-envelope"></i>
+                                            Email Address <span class="req">*</span></label>
+                                        <div class="input-with-icon">
+                                            <span class="input-icon-prefix"><i
+                                                    class="fa-regular fa-envelope"></i></span>
+                                            <input type="email" id="helpEmail" name="email" class="form-control-gems"
+                                                placeholder="Enter your email" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- 4. Country Code & 5. Phone Number -->
+                                    <div class="form-group frmgrp">
+                                        <div class="phone-group-row">
+                                            <div>
+                                                <label class="form-label" for="helpCountryCode"><i
+                                                        class="fa-solid fa-earth-americas"></i> Country Code <span
+                                                        class="req">*</span></label>
+                                                <select id="helpCountryCode" name="country_code"
+                                                    class="form-control-gems country-code-select" required>
+                                                    <option value="+1">+1 (US/CA)</option>
+                                                    <option value="+44">+44 (UK)</option>
+                                                    <option value="+971">+971 (UAE)</option>
+                                                    <option value="+974">+974 (Qatar)</option>
+                                                    <option value="+91" selected>+91 (IN)</option>
+                                                    <option value="+63">+63 (PH)</option>
+                                                    <option value="+61">+61 (AU)</option>
+                                                    <option value="+65">+65 (SG)</option>
+                                                    <option value="+49">+49 (DE)</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="form-label" for="helpPhone"><i
+                                                        class="fa-solid fa-phone"></i>
+                                                    Phone Number <span class="req">*</span></label>
+                                                <div class="input-with-icon">
+                                                    <span class="input-icon-prefix"><i
+                                                            class="fa-solid fa-phone"></i></span>
+                                                    <input type="tel" id="helpPhone" name="phone"
+                                                        class="form-control-gems" placeholder="Enter phone number"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 6. Country of Residence -->
+                                    <div class="form-group frmgrp">
+                                        <label class="form-label" for="helpCountryResidence"><i
+                                                class="fa-solid fa-globe"></i> Country of Residence <span
+                                                class="req">*</span></label>
+                                        <div class="input-with-icon">
+                                            <span class="input-icon-prefix"><i class="fa-solid fa-globe"></i></span>
+                                            <select id="helpCountryResidence" name="country_residence"
+                                                class="form-control-gems" required>
+                                                <option value="" disabled selected>-- Select Country --</option>
+                                                <option value="India">India</option>
+                                                <option value="Philippines">Philippines</option>
+                                                <option value="Qatar">Qatar</option>
+                                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                                <option value="United States of America">United States of America</option>
+                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Singapore">Singapore</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Section 2: Tell Us What You Need -->
+                                    <div class="form-section-title">
+                                        <i class="fa-solid fa-compass"></i> Tell Us About Your Situation
+                                    </div>
+
+                                    <!-- Situation Description (Textarea with word count) -->
+                                    <div class="form-group frmgrp">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <label class="form-label mb-0" for="helpSituationText"><i
+                                                    class="fa-solid fa-pen-to-square"></i> Your Situation or Questions <span
+                                                    class="req">*</span></label>
+                                            <span id="helpWordCount"
+                                                style="font-size: 0.82rem; color: #64748b; font-weight: 500;">0 / 100
+                                                words</span>
+                                        </div>
+                                        <textarea id="helpSituationText" name="situation_description"
+                                            class="form-control-gems"
+                                            style="height: 110px; resize: vertical; padding: 12px 14px;"
+                                            placeholder="Tell us a little about your situation, goals, or what kind of guidance you need (max 100 words)"
+                                            required oninput="handleHelpWordCount(this)"></textarea>
+                                    </div>
+
+                                    <!-- Section 3: How Should We Reach You? -->
+                                    <div class="form-section-title">
+                                        <i class="fa-regular fa-comments"></i> How Should We Reach You?
+                                    </div>
+
+                                    <!-- Preferred messaging app -->
+                                    <div class="form-group frmgrp prffmsg">
+                                        <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i>
+                                            Preferred Messaging App</label>
+                                        <div class="messaging-options-wrap bxflexgrp">
+                                            <label class="msg-app-chip app-whatsapp selected">
+                                                <input type="radio" name="messaging_app_help" value="WhatsApp" checked>
+                                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                                            </label>
+                                            <label class="msg-app-chip app-messenger">
+                                                <input type="radio" name="messaging_app_help" value="Messenger">
+                                                <i class="fa-brands fa-facebook-messenger"></i> Messenger
+                                            </label>
+                                            <label class="msg-app-chip app-wechat">
+                                                <input type="radio" name="messaging_app_help" value="WeChat">
+                                                <i class="fa-brands fa-weixin"></i> WeChat
+                                            </label>
+                                            <label class="msg-app-chip app-discord">
+                                                <input type="radio" name="messaging_app_help" value="Discord">
+                                                <i class="fa-brands fa-discord"></i> Discord
+                                            </label>
+                                            <label class="msg-app-chip app-band">
+                                                <input type="radio" name="messaging_app_help" value="Band">
+                                                <i class="fa-solid fa-people-group"></i> Band
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- CAPTCHA -->
+                                    <div class="captcha-block">
+                                        <label class="captcha-label" for="helpCaptchaInput"><i
+                                                class="fa-solid fa-shield-halved"></i> Enter the code shown
+                                            below:</label>
+                                        <div class="captcha-display-flex">
+                                            <div id="helpCaptchaBox" class="captcha-code-box"
+                                                aria-label="Captcha security code"></div>
+                                            <button type="button" id="reloadHelpCaptcha" class="captcha-refresh-btn"
+                                                onclick="generateHelpCaptcha()" title="Refresh security code"
+                                                aria-label="Refresh Captcha">
+                                                <i class="fa-solid fa-arrows-rotate"></i>
+                                            </button>
+                                        </div>
+                                        <div class="input-with-icon">
+                                            <span class="input-icon-prefix"><i
+                                                    class="fa-solid fa-shield-halved"></i></span>
+                                            <input type="text" id="helpCaptchaInput" name="captcha"
+                                                class="form-control-gems" placeholder="Enter captcha code" required>
+                                        </div>
+                                        <div id="helpCaptchaError"
+                                            style="color: #dc2626; font-size: 0.85rem; margin-top: 6px; display: none;">
+                                            Security code does not match. Please try again.
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <div class="form-bottom-actions">
+                                        <label class="form-terms-text">
+                                            <input type="checkbox" required checked>
+                                            <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms &
+                                                    Conditions</a> and <a href="privacy-policy.html"
+                                                    target="_blank">Privacy Policy</a></span>
+                                        </label>
+                                        <button type="submit" class="btn-gems-submit" id="helpSubmitBtn">
+                                            <span>Submit</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+
                         </div>
                     </div>
 
@@ -1833,6 +2052,7 @@
         let studentCaptchaCode = '';
         let proCaptchaCode = '';
         let bizCaptchaCode = '';
+        let helpCaptchaCode = '';
         let currentSelectedJourney = 'students';
 
         function getRandomCode(length = 5) {
@@ -1866,6 +2086,71 @@
             if (captchaBox) {
                 captchaBox.textContent = bizCaptchaCode;
             }
+        }
+
+        function generateHelpCaptcha() {
+            helpCaptchaCode = getRandomCode(5);
+            const captchaBox = document.getElementById('helpCaptchaBox');
+            if (captchaBox) {
+                captchaBox.textContent = helpCaptchaCode;
+            }
+        }
+
+        function handleHelpWordCount(textarea) {
+            const text = textarea.value.trim();
+            const words = text === '' ? [] : text.split(/\s+/);
+            const countDisplay = document.getElementById('helpWordCount');
+
+            if (words.length > 100) {
+                const trimmed = words.slice(0, 100).join(' ');
+                textarea.value = trimmed;
+                if (countDisplay) {
+                    countDisplay.textContent = '100 / 100 words';
+                    countDisplay.style.color = '#dc2626';
+                }
+            } else {
+                if (countDisplay) {
+                    countDisplay.textContent = words.length + ' / 100 words';
+                    countDisplay.style.color = '#64748b';
+                }
+            }
+        }
+
+        // Need Help Form Submit Handler
+        function handleHelpFormSubmit(e) {
+            const inputVal = document.getElementById('helpCaptchaInput').value.trim();
+            const errorMsg = document.getElementById('helpCaptchaError');
+            const submitBtn = document.getElementById('helpSubmitBtn');
+
+            if (inputVal.toLowerCase() !== helpCaptchaCode.toLowerCase()) {
+                e.preventDefault();
+                if (errorMsg) errorMsg.style.display = 'block';
+                generateHelpCaptcha();
+                document.getElementById('helpCaptchaInput').value = '';
+                document.getElementById('helpCaptchaInput').focus();
+                return false;
+            } else {
+                if (errorMsg) errorMsg.style.display = 'none';
+            }
+
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+
+            setTimeout(() => {
+                document.getElementById('gemsNeedHelpForm').reset();
+                const countDisplay = document.getElementById('helpWordCount');
+                if (countDisplay) {
+                    countDisplay.textContent = '0 / 100 words';
+                    countDisplay.style.color = '#64748b';
+                }
+                generateHelpCaptcha();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+                showConfirmationModal('needhelp');
+            }, 800);
+
+            return false;
         }
 
         // Word count functionality for Business Clients textarea (max 100 words)
@@ -2036,13 +2321,14 @@
             if (!targetTab) return;
 
             let normalized = targetTab.toLowerCase().trim();
-            if (normalized === 'student') normalized = 'students';
-            if (normalized === 'professional' || normalized === 'pro' || normalized === 'career') normalized = 'professionals';
-            if (normalized === 'biz' || normalized === 'growth' || normalized === 'business-clients') normalized = 'business';
+            if (normalized === 'student' || normalized === 'students' || normalized === 'educational') normalized = 'students';
+            if (normalized === 'professional' || normalized === 'professionals' || normalized === 'profession' || normalized === 'pro' || normalized === 'career') normalized = 'professionals';
+            if (normalized === 'business' || normalized === 'biz' || normalized === 'growth' || normalized === 'business-clients') normalized = 'business';
+            if (normalized === 'needhelp' || normalized === 'need-help' || normalized === 'help' || normalized === 'gems-need-help' || normalized === 'gems-i-need-help' || normalized === 'not-sure' || normalized === 'notsure') normalized = 'needhelp';
 
             currentSelectedJourney = normalized;
 
-            // 1. Sync category tab buttons: show ONLY the corresponding tab, hide the other two
+            // 1. Sync category tab buttons: show ONLY the corresponding tab, hide the other three
             const tabButtons = document.querySelectorAll('.form-tab-btn');
             tabButtons.forEach(b => {
                 const bTab = b.getAttribute('data-tab') || b.getAttribute('data-target-tab');
@@ -2059,7 +2345,7 @@
                 }
             });
 
-            // 2. Display ONLY the corresponding form pane, hide the other two
+            // 2. Display ONLY the corresponding form pane, hide the other three
             const tabPanes = document.querySelectorAll('.contact-tab-pane');
             tabPanes.forEach(pane => {
                 if (pane.id === normalized + 'TabPane') {
@@ -2080,13 +2366,13 @@
                 const isNotSure = card.classList.contains('card-notsure');
 
                 if (isNotSure) {
-                    if (note === 'Not Sure') {
+                    if (normalized === 'needhelp' || note === 'Not Sure') {
                         card.classList.add('active-selected');
                     } else {
                         card.classList.remove('active-selected');
                     }
                 } else if (cardTab === normalized) {
-                    if (note !== 'Not Sure') {
+                    if (normalized !== 'needhelp' && note !== 'Not Sure') {
                         card.classList.add('active-selected');
                     } else {
                         card.classList.remove('active-selected');
@@ -2113,6 +2399,7 @@
             generateCaptcha();
             generateProCaptcha();
             generateBizCaptcha();
+            generateHelpCaptcha();
 
             /* Tab Buttons Click Listeners */
             const tabButtons = document.querySelectorAll('.form-tab-btn');
@@ -2163,12 +2450,14 @@
                     const key = (rawParam || rawHash).toLowerCase().trim();
 
                     let targetTab = null;
-                    if (key === 'professionals' || key === 'professional' || key === 'career' || key === 'pro') {
+                    if (key === 'professionals' || key === 'professional' || key === 'profession' || key === 'career' || key === 'pro') {
                         targetTab = 'professionals';
                     } else if (key === 'students' || key === 'student' || key === 'educational') {
                         targetTab = 'students';
                     } else if (key === 'business' || key === 'growth' || key === 'biz') {
                         targetTab = 'business';
+                    } else if (key === 'needhelp' || key === 'need-help' || key === 'help' || key === 'notsure' || key === 'not-sure' || key === 'gems-need-help' || key === 'gems-i-need-help') {
+                        targetTab = 'needhelp';
                     } else if (document.referrer) {
                         const ref = document.referrer.toLowerCase();
                         if (ref.includes('career-journeys')) {

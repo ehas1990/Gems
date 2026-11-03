@@ -9401,13 +9401,12 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #003b6d;
+    color: #e2c076;
     background: rgba(0, 59, 109, 0.08);
     padding: 6px 18px;
     border-radius: 50px;
     margin-bottom: 16px;
 }
-
 .membership-main-headline {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 44px;

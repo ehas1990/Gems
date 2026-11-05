@@ -1360,14 +1360,20 @@ header.headerbg .list_nav_a::after {
 
 /* Member Sign In Button -> Black outline & text */
 header.header-scrolled #loginBtn,
-header.headerbg #loginBtn {
+header.headerbg #loginBtn,
+header.header-scrolled .signin-dropdown-btn,
+header.headerbg .signin-dropdown-btn {
     color: #000000 !important;
     border-color: #000000 !important;
     background: transparent !important;
 }
 
 header.header-scrolled #loginBtn:hover,
-header.headerbg #loginBtn:hover {
+header.headerbg #loginBtn:hover,
+header.header-scrolled .signin-dropdown-btn:hover,
+header.headerbg .signin-dropdown-btn:hover,
+header.header-scrolled .signin-dropdown-wrap.open .signin-dropdown-btn,
+header.headerbg .signin-dropdown-wrap.open .signin-dropdown-btn {
     background: #000000 !important;
     color: #ffffff !important;
     border-color: #000000 !important;

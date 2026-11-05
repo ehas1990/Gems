@@ -299,16 +299,22 @@
         </ul>
 
         <div class="mob-actions">
-          <button
-            type="button"
-            class="mob-login-btn"
-            onclick="
-              $('.mobile-menu').removeClass('showmbmenu');
-              $('#loginBtn').trigger('click');
-            "
-          >
-            Member Sign In
-          </button>
+          <div class="mob-signin-dropdown">
+            <button type="button" class="mob-login-btn mob-signin-toggle" aria-expanded="false">
+              <span>Sign In</span>
+              <i class="fa-solid fa-chevron-down mob-signin-caret"></i>
+            </button>
+            <div class="mob-signin-menu" style="display: none;">
+              <button type="button" class="mob-signin-item member-signin-trigger" id="mobMemberLoginBtn">
+                <i class="fa-solid fa-user"></i>
+                <span>Member Sign In</span>
+              </button>
+              <button type="button" class="mob-signin-item partner-signin-trigger" id="mobPartnerLoginBtn">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Partner Sign In</span>
+              </button>
+            </div>
+          </div>
           <a href="contact.html" class="mob-cta-btn"> Start Here </a>
         </div>
       </div>
@@ -431,10 +437,29 @@
               </div>
             </div>
 
-            <!-- LOGIN BUTTON (MEMBER SIGN IN) -->
-            <button id="loginBtn" type="button" style="display: block">
-              Member Sign In
-            </button>
+            <!-- SIGN IN DROPDOWN (MEMBER & PARTNER) -->
+                    <div class="signin-dropdown-wrap drparent">
+                        <button id="signInDropdownBtn" class="signin-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false">
+                            <span>Sign In</span>
+                            <i class="fa-solid fa-chevron-down nav-caret"></i>
+                        </button>
+                        <div class="signin-dropdown-menu">
+                            <ul>
+                                <li>
+                                    <button type="button" id="loginBtn" class="signin-dropdown-item member-signin-trigger">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span>Member Sign In</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" id="partnerLoginBtn" class="signin-dropdown-item partner-signin-trigger">
+                                        <i class="fa-solid fa-handshake"></i>
+                                        <span>Partner Sign In</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
             <!-- START HERE BUTTON -->
             <a href="contact.html" class="chat_box">Start Here</a>
@@ -554,6 +579,80 @@
         </form>
       </div>
     </div>
+
+    <!-- ==========================================================================
+         PARTNER LOGIN POPUP MODAL
+         ========================================================================== -->
+    <div class="loginpage partner-loginpage" id="partnerLoginModal" style="display: none;">
+        <div class="loginbx">
+            <!-- CLOSE -->
+            <span class="close-popup close-partner-popup" role="button" tabindex="0" aria-label="Close partner login modal">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+
+            <!-- HEADER -->
+            <div class="headerlg">
+                <h3>Welcome Partner</h3>
+                <p>Login to access your partner dashboard.</p>
+            </div>
+
+            <!-- AJAX MESSAGE -->
+            <div class="ajax-message partner-ajax-message"></div>
+
+            <!-- PARTNER LOGIN FORM -->
+            <form id="partnerLoginForm" method="post" action="https://globalenrollment.us/partner-login">
+                <!-- EMAIL -->
+                <div class="frmgrplg">
+                    <label for="partner_modal_email">Email Address</label>
+                    <div class="rlbx">
+                        <div class="iniicon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <input type="email" id="partner_modal_email" name="email" placeholder="Enter your partner email" required="" autocomplete="email">
+                    </div>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="frmgrplg">
+                    <label for="partner_modal_password">Password</label>
+                    <div class="password-box">
+                        <div class="rlbx">
+                            <div class="iniicon">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input type="password" id="partner_modal_password" name="password" placeholder="Enter password" required="" autocomplete="current-password">
+                        </div>
+                        <!-- TOGGLE PASSWORD -->
+                        <span class="toggle-password toggle-partner-password" role="button" tabindex="0" aria-label="Toggle password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </span>
+                    </div>
+                    <!-- FORGOT PASSWORD -->
+                    <a href="https://globalenrollment.us/forgot-password" class="forgot-link">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <!-- BUTTON -->
+                <div class="frmgrplg">
+                    <button type="submit">
+                        Login
+                    </button>
+                </div>
+
+                <!-- REGISTER AS PARTNER -->
+                <div class="sbc">
+                    <p>
+                        Interested in Becoming a Partner?
+                        <a href="partner-registration.html">
+                            Register as a Partner
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <!-- ==========================================================================
          MAIN CONTENT: MEMBERSHIP LEVELS
@@ -4666,92 +4765,150 @@
       });
     </script>
 
-    <!-- Scoped Header Member Sign In Modal Handler -->
+    <!-- Scoped Header Sign In Modals & Dropdown Handler -->
     <script>
       (function () {
-        function setupLoginModal() {
-          const loginBtn = document.getElementById("loginBtn");
-          const mobLoginBtn = document.querySelector(".mob-login-btn");
-          const overlay = document.querySelector(".popup-overlay");
-          const modal = document.querySelector(".loginpage");
-          const closeBtn = document.querySelector(".loginpage .close-popup");
+        function setupSignInHandlers() {
+          const dropdownWrap = document.querySelector(".signin-dropdown-wrap");
+          const dropdownBtn = document.getElementById("signInDropdownBtn");
+          const mobDropdown = document.querySelector(".mob-signin-dropdown");
+          const mobToggle = document.querySelector(".mob-signin-toggle");
 
-          function openModal(e) {
-            if (e) e.preventDefault();
-            const mobileMenu = document.querySelector(".mobile-menu");
-            if (mobileMenu) mobileMenu.classList.remove("showmbmenu");
-            if (overlay) {
-              overlay.style.display = "block";
-              overlay.classList.add("active");
-            }
-            if (modal) {
-              modal.style.display = "flex";
-              modal.classList.add("active");
-            }
-            document.body.style.overflow = "hidden";
+          const memberModal = document.querySelector(".loginpage:not(#partnerLoginModal):not(#categoryRegisterModal)");
+          const partnerModal = document.getElementById("partnerLoginModal");
+          const overlay = document.querySelector(".popup-overlay");
+
+          // Dropdown Desktop Click Toggle
+          if (dropdownBtn && dropdownWrap) {
+            dropdownBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              dropdownWrap.classList.toggle("open");
+              dropdownBtn.setAttribute("aria-expanded", dropdownWrap.classList.contains("open"));
+            });
           }
 
-          function closeModal(e) {
-            if (e) e.preventDefault();
+          // Dropdown Mobile Toggle
+          if (mobToggle && mobDropdown) {
+            mobToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              mobDropdown.classList.toggle("open");
+              mobToggle.setAttribute("aria-expanded", mobDropdown.classList.contains("open"));
+            });
+          }
+
+          // Close dropdown on outside click
+          document.addEventListener("click", function (e) {
+            if (dropdownWrap && !dropdownWrap.contains(e.target)) {
+              dropdownWrap.classList.remove("open");
+              if (dropdownBtn) dropdownBtn.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          function closeAllModals() {
             if (overlay) {
               overlay.style.display = "none";
               overlay.classList.remove("active");
             }
-            if (modal) {
-              modal.style.display = "none";
-              modal.classList.remove("active");
+            if (memberModal) {
+              memberModal.style.display = "none";
+              memberModal.classList.remove("active");
+            }
+            if (partnerModal) {
+              partnerModal.style.display = "none";
+              partnerModal.classList.remove("active");
+            }
+            if (dropdownWrap) {
+              dropdownWrap.classList.remove("open");
+              if (dropdownBtn) dropdownBtn.setAttribute("aria-expanded", "false");
             }
             document.body.style.overflow = "";
           }
 
-          if (loginBtn) loginBtn.addEventListener("click", openModal);
-          if (mobLoginBtn) mobLoginBtn.addEventListener("click", openModal);
-          if (closeBtn) closeBtn.addEventListener("click", closeModal);
-          if (overlay) overlay.addEventListener("click", closeModal);
-          if (modal) {
-            modal.addEventListener("click", function (e) {
-              if (e.target === modal) closeModal(e);
-            });
+          function openModal(modalEl) {
+            if (!modalEl) return;
+            const mobileMenu = document.querySelector(".mobile-menu");
+            if (mobileMenu) mobileMenu.classList.remove("showmbmenu");
+            if (dropdownWrap) dropdownWrap.classList.remove("open");
+            if (mobDropdown) mobDropdown.classList.remove("open");
+
+            if (overlay) {
+              overlay.style.display = "block";
+              overlay.classList.add("active");
+            }
+            modalEl.style.display = "flex";
+            modalEl.classList.add("active");
+            document.body.style.overflow = "hidden";
           }
 
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape" || e.keyCode === 27) {
-              if (
-                modal &&
-                (modal.style.display === "flex" ||
-                  modal.classList.contains("active"))
-              ) {
-                closeModal(e);
-              }
+          // Member Sign In Triggers
+          document.querySelectorAll("#loginBtn, #mobMemberLoginBtn, .member-signin-trigger").forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+              e.preventDefault();
+              openModal(memberModal);
+            });
+          });
+
+          // Partner Sign In Triggers
+          document.querySelectorAll("#partnerLoginBtn, #mobPartnerLoginBtn, .partner-signin-trigger").forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+              e.preventDefault();
+              openModal(partnerModal);
+            });
+          });
+
+          // Close buttons
+          document.querySelectorAll(".close-popup, .popup-overlay").forEach(function (el) {
+            el.addEventListener("click", function (e) {
+              e.preventDefault();
+              closeAllModals();
+            });
+          });
+
+          // Backdrop click
+          [memberModal, partnerModal].forEach(function (m) {
+            if (m) {
+              m.addEventListener("click", function (e) {
+                if (e.target === m) closeAllModals();
+              });
             }
           });
 
-          const togglePassword = document.querySelector(
-            ".loginpage .toggle-password",
-          );
-          if (togglePassword) {
-            togglePassword.addEventListener("click", function () {
-              const passInput = document.querySelector(
-                '.loginpage input[type="password"], .loginpage input[type="text"]',
-              );
-              if (passInput) {
-                if (passInput.type === "password") {
-                  passInput.type = "text";
-                  togglePassword.innerHTML =
-                    '<i class="fa-solid fa-eye-slash"></i>';
-                } else {
-                  passInput.type = "password";
-                  togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+          // Escape key
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" || e.keyCode === 27) {
+              closeAllModals();
+            }
+          });
+
+          // Password visibility toggles
+          function wirePasswordToggle(toggleSelector, inputSelector) {
+            const toggle = document.querySelector(toggleSelector);
+            if (toggle) {
+              toggle.addEventListener("click", function () {
+                const passInput = document.querySelector(inputSelector);
+                if (passInput) {
+                  if (passInput.type === "password") {
+                    passInput.type = "text";
+                    toggle.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+                  } else {
+                    passInput.type = "password";
+                    toggle.innerHTML = '<i class="fa-solid fa-eye"></i>';
+                  }
                 }
-              }
-            });
+              });
+            }
           }
+
+          wirePasswordToggle(".loginpage:not(#partnerLoginModal) .toggle-password", '.loginpage:not(#partnerLoginModal) input[type="password"], .loginpage:not(#partnerLoginModal) input[type="text"]');
+          wirePasswordToggle(".toggle-partner-password", '#partner_modal_password');
         }
 
         if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", setupLoginModal);
+          document.addEventListener("DOMContentLoaded", setupSignInHandlers);
         } else {
-          setupLoginModal();
+          setupSignInHandlers();
         }
       })();
     </script>

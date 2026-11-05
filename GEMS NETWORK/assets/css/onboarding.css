@@ -57,13 +57,19 @@ body.onboarding-page main {
 }
 
 .onboarding-page header.headerbg #loginBtn,
-.onboarding-page header.header-scrolled #loginBtn {
+.onboarding-page header.header-scrolled #loginBtn,
+.onboarding-page header.headerbg .signin-dropdown-btn,
+.onboarding-page header.header-scrolled .signin-dropdown-btn {
     color: #0d1b2a !important;
     border-color: #0d1b2a !important;
 }
 
 .onboarding-page header.headerbg #loginBtn:hover,
-.onboarding-page header.header-scrolled #loginBtn:hover {
+.onboarding-page header.header-scrolled #loginBtn:hover,
+.onboarding-page header.headerbg .signin-dropdown-btn:hover,
+.onboarding-page header.header-scrolled .signin-dropdown-btn:hover,
+.onboarding-page header.headerbg .signin-dropdown-wrap.open .signin-dropdown-btn,
+.onboarding-page header.header-scrolled .signin-dropdown-wrap.open .signin-dropdown-btn {
     background: #0d1b2a !important;
     color: #ffffff !important;
     border-color: #0d1b2a !important;

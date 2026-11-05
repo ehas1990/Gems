@@ -749,7 +749,8 @@ body.faq-page.filter-drawer-open header .ham span {
     background-color: #071b35 !important;
 }
 
-body.faq-page.filter-drawer-open header #loginBtn {
+body.faq-page.filter-drawer-open header #loginBtn,
+body.faq-page.filter-drawer-open header .signin-dropdown-btn {
     background: #0f1681 !important;
     color: #ffffff !important;
 }

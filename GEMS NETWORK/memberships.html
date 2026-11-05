@@ -300,16 +300,28 @@
 
         <div class="mob-actions">
           <div class="mob-signin-dropdown">
-            <button type="button" class="mob-login-btn mob-signin-toggle" aria-expanded="false">
+            <button
+              type="button"
+              class="mob-login-btn mob-signin-toggle"
+              aria-expanded="false"
+            >
               <span>Sign In</span>
               <i class="fa-solid fa-chevron-down mob-signin-caret"></i>
             </button>
-            <div class="mob-signin-menu" style="display: none;">
-              <button type="button" class="mob-signin-item member-signin-trigger" id="mobMemberLoginBtn">
+            <div class="mob-signin-menu" style="display: none">
+              <button
+                type="button"
+                class="mob-signin-item member-signin-trigger"
+                id="mobMemberLoginBtn"
+              >
                 <i class="fa-solid fa-user"></i>
                 <span>Member Sign In</span>
               </button>
-              <button type="button" class="mob-signin-item partner-signin-trigger" id="mobPartnerLoginBtn">
+              <button
+                type="button"
+                class="mob-signin-item partner-signin-trigger"
+                id="mobPartnerLoginBtn"
+              >
                 <i class="fa-solid fa-handshake"></i>
                 <span>Partner Sign In</span>
               </button>
@@ -438,28 +450,42 @@
             </div>
 
             <!-- SIGN IN DROPDOWN (MEMBER & PARTNER) -->
-                    <div class="signin-dropdown-wrap drparent">
-                        <button id="signInDropdownBtn" class="signin-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false">
-                            <span>Sign In</span>
-                            <i class="fa-solid fa-chevron-down nav-caret"></i>
-                        </button>
-                        <div class="signin-dropdown-menu">
-                            <ul>
-                                <li>
-                                    <button type="button" id="loginBtn" class="signin-dropdown-item member-signin-trigger">
-                                        <i class="fa-solid fa-user"></i>
-                                        <span>Member Sign In</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" id="partnerLoginBtn" class="signin-dropdown-item partner-signin-trigger">
-                                        <i class="fa-solid fa-handshake"></i>
-                                        <span>Partner Sign In</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="signin-dropdown-wrap drparent">
+              <button
+                id="signInDropdownBtn"
+                class="signin-dropdown-btn"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span>Sign In</span>
+                <i class="fa-solid fa-chevron-down nav-caret"></i>
+              </button>
+              <div class="signin-dropdown-menu">
+                <ul>
+                  <li>
+                    <button
+                      type="button"
+                      id="loginBtn"
+                      class="signin-dropdown-item member-signin-trigger"
+                    >
+                      <i class="fa-solid fa-user"></i>
+                      <span>Member Sign In</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      id="partnerLoginBtn"
+                      class="signin-dropdown-item partner-signin-trigger"
+                    >
+                      <i class="fa-solid fa-handshake"></i>
+                      <span>Partner Sign In</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
             <!-- START HERE BUTTON -->
             <a href="contact.html" class="chat_box">Start Here</a>
@@ -583,76 +609,106 @@
     <!-- ==========================================================================
          PARTNER LOGIN POPUP MODAL
          ========================================================================== -->
-    <div class="loginpage partner-loginpage" id="partnerLoginModal" style="display: none;">
-        <div class="loginbx">
-            <!-- CLOSE -->
-            <span class="close-popup close-partner-popup" role="button" tabindex="0" aria-label="Close partner login modal">
-                <i class="fa-solid fa-xmark"></i>
-            </span>
+    <div
+      class="loginpage partner-loginpage"
+      id="partnerLoginModal"
+      style="display: none"
+    >
+      <div class="loginbx">
+        <!-- CLOSE -->
+        <span
+          class="close-popup close-partner-popup"
+          role="button"
+          tabindex="0"
+          aria-label="Close partner login modal"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </span>
 
-            <!-- HEADER -->
-            <div class="headerlg">
-                <h3>Welcome Partner</h3>
-                <p>Login to access your partner dashboard.</p>
-            </div>
-
-            <!-- AJAX MESSAGE -->
-            <div class="ajax-message partner-ajax-message"></div>
-
-            <!-- PARTNER LOGIN FORM -->
-            <form id="partnerLoginForm" method="post" action="https://globalenrollment.us/partner-login">
-                <!-- EMAIL -->
-                <div class="frmgrplg">
-                    <label for="partner_modal_email">Email Address</label>
-                    <div class="rlbx">
-                        <div class="iniicon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <input type="email" id="partner_modal_email" name="email" placeholder="Enter your partner email" required="" autocomplete="email">
-                    </div>
-                </div>
-
-                <!-- PASSWORD -->
-                <div class="frmgrplg">
-                    <label for="partner_modal_password">Password</label>
-                    <div class="password-box">
-                        <div class="rlbx">
-                            <div class="iniicon">
-                                <i class="fa-solid fa-lock"></i>
-                            </div>
-                            <input type="password" id="partner_modal_password" name="password" placeholder="Enter password" required="" autocomplete="current-password">
-                        </div>
-                        <!-- TOGGLE PASSWORD -->
-                        <span class="toggle-password toggle-partner-password" role="button" tabindex="0" aria-label="Toggle password visibility">
-                            <i class="fa-solid fa-eye"></i>
-                        </span>
-                    </div>
-                    <!-- FORGOT PASSWORD -->
-                    <a href="https://globalenrollment.us/forgot-password" class="forgot-link">
-                        Forgot Password?
-                    </a>
-                </div>
-
-                <!-- BUTTON -->
-                <div class="frmgrplg">
-                    <button type="submit">
-                        Login
-                    </button>
-                </div>
-
-                <!-- REGISTER AS PARTNER -->
-                <div class="sbc">
-                    <p>
-                        Interested in Becoming a Partner?
-                        <a href="partner-registration.html">
-                            Register as a Partner
-                        </a>
-                    </p>
-                </div>
-            </form>
+        <!-- HEADER -->
+        <div class="headerlg">
+          <h3>Welcome Partner</h3>
+          <p>Login to access your partner dashboard.</p>
         </div>
-    </div>
 
+        <!-- AJAX MESSAGE -->
+        <div class="ajax-message partner-ajax-message"></div>
+
+        <!-- PARTNER LOGIN FORM -->
+        <form
+          id="partnerLoginForm"
+          method="post"
+          action="https://globalenrollment.us/partner-login"
+        >
+          <!-- EMAIL -->
+          <div class="frmgrplg">
+            <label for="partner_modal_email">Email Address</label>
+            <div class="rlbx">
+              <div class="iniicon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <input
+                type="email"
+                id="partner_modal_email"
+                name="email"
+                placeholder="Enter your partner email"
+                required=""
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="frmgrplg">
+            <label for="partner_modal_password">Password</label>
+            <div class="password-box">
+              <div class="rlbx">
+                <div class="iniicon">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <input
+                  type="password"
+                  id="partner_modal_password"
+                  name="password"
+                  placeholder="Enter password"
+                  required=""
+                  autocomplete="current-password"
+                />
+              </div>
+              <!-- TOGGLE PASSWORD -->
+              <span
+                class="toggle-password toggle-partner-password"
+                role="button"
+                tabindex="0"
+                aria-label="Toggle password visibility"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </span>
+            </div>
+            <!-- FORGOT PASSWORD -->
+            <a
+              href="https://globalenrollment.us/forgot-password"
+              class="forgot-link"
+            >
+              Forgot Password?
+            </a>
+          </div>
+
+          <!-- BUTTON -->
+          <div class="frmgrplg">
+            <button type="submit">Login</button>
+          </div>
+
+          <!-- REGISTER AS PARTNER -->
+          <div class="sbc">
+            <p>
+              Interested in Becoming a Partner?
+              <a href="partner-registration.html"> Register as a Partner </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- ==========================================================================
          MAIN CONTENT: MEMBERSHIP LEVELS
@@ -2181,7 +2237,7 @@
             <!-- BLOCK 1: Explorer -->
             <div
               class="positioning-card"
-              style="position: relative;"
+              style="position: relative"
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -2225,7 +2281,7 @@
             <!-- BLOCK 2: Companion -->
             <div
               class="positioning-card"
-              style="position: relative;"
+              style="position: relative"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -2276,7 +2332,7 @@
             <!-- BLOCK 3: Navigator -->
             <div
               class="positioning-card"
-              style="position: relative;"
+              style="position: relative"
               data-aos="fade-up"
               data-aos-delay="300"
             >
@@ -2412,10 +2468,7 @@
               No matter what journey you begin... StartWithGEMS
             </div>
             <div class="membership-final-ctas">
-              <a
-                href="https://globalenrollment.us/contact"
-                class="btn-gems-primary"
-              >
+              <a href="contact.html" class="btn-gems-primary">
                 StartWithGEMS &rarr;
               </a>
               <a href="#choose-journey" class="btn-gems-secondary">
@@ -2597,18 +2650,36 @@
     <!-- ==========================================================================
          JOURNEY FORM POPUP MODAL (STUDENT, PROFESSIONALS, BUSINESS CLIENTS)
          ========================================================================== -->
-    <div class="journey-modal-overlay" id="journeyFormModalOverlay" role="dialog" aria-modal="true" aria-labelledby="journeyModalTitle" style="display: none;">
+    <div
+      class="journey-modal-overlay"
+      id="journeyFormModalOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="journeyModalTitle"
+      style="display: none"
+    >
       <div class="journey-modal-container contact-page">
         <!-- Close Button -->
-        <button type="button" class="journey-modal-close" id="journeyModalCloseBtn" aria-label="Close form modal">
+        <button
+          type="button"
+          class="journey-modal-close"
+          id="journeyModalCloseBtn"
+          aria-label="Close form modal"
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
 
         <!-- Form Header Area -->
-        <div class="form-header-area" style="padding-right: 48px;">
+        <div class="form-header-area" style="padding-right: 48px">
           <div class="form-eyebrow">GET STARTED</div>
-          <h2 class="form-main-headline" id="journeyModalTitle">Tell Us About Your Journey</h2>
-          <p class="form-main-subtext">Fill out the form below and we'll take it from here. The information you provide helps us understand your needs and connect you with the right support.</p>
+          <h2 class="form-main-headline" id="journeyModalTitle">
+            Tell Us About Your Journey
+          </h2>
+          <p class="form-main-subtext">
+            Fill out the form below and we'll take it from here. The information
+            you provide helps us understand your needs and connect you with the
+            right support.
+          </p>
         </div>
 
         <!-- Step indicator bar -->
@@ -2635,17 +2706,51 @@
         </div>
 
         <!-- Contact Form Card Container -->
-        <div class="contact-form-card" style="border: none; box-shadow: none; padding: 0; background: transparent; overflow: visible;">
+        <div
+          class="contact-form-card"
+          style="
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            background: transparent;
+            overflow: visible;
+          "
+        >
           <!-- Category Tabs Navigation -->
-          <div class="form-tabs-wrap" role="tablist" aria-label="Target Group Selection">
+          <div
+            class="form-tabs-wrap"
+            role="tablist"
+            aria-label="Target Group Selection"
+          >
             <div class="form-tabs-scroll">
-              <button type="button" class="form-tab-btn active" data-tab="students" role="tab" aria-selected="true" id="tab-btn-students">
+              <button
+                type="button"
+                class="form-tab-btn active"
+                data-tab="students"
+                role="tab"
+                aria-selected="true"
+                id="tab-btn-students"
+              >
                 <i class="fa-solid fa-graduation-cap"></i> Students
               </button>
-              <button type="button" class="form-tab-btn" data-tab="professionals" role="tab" aria-selected="false" id="tab-btn-professionals">
+              <button
+                type="button"
+                class="form-tab-btn"
+                data-tab="professionals"
+                role="tab"
+                aria-selected="false"
+                id="tab-btn-professionals"
+              >
                 <i class="fa-solid fa-briefcase"></i> Professionals
               </button>
-              <button type="button" class="form-tab-btn" data-tab="business" role="tab" aria-selected="false" id="tab-btn-business">
+              <button
+                type="button"
+                class="form-tab-btn"
+                data-tab="business"
+                role="tab"
+                aria-selected="false"
+                id="tab-btn-business"
+              >
                 <i class="fa-solid fa-building"></i> Business Clients
               </button>
             </div>
@@ -2654,12 +2759,20 @@
           <!-- ==================================================
                TAB 1: STUDENTS FORM
                ================================================== -->
-          <div id="studentsTabPane" class="contact-tab-pane active" style="display: block;" aria-hidden="false">
+          <div
+            id="studentsTabPane"
+            class="contact-tab-pane active"
+            style="display: block"
+            aria-hidden="false"
+          >
             <!-- Feedback Notification Box -->
             <div id="formNotification" class="form-notification"></div>
 
             <!-- Contact Form -->
-            <form id="gemsContactForm" onsubmit="return handleFormSubmit(event)">
+            <form
+              id="gemsContactForm"
+              onsubmit="return handleFormSubmit(event);"
+            >
               <!-- Section 1: Tell Us About You -->
               <div class="form-section-title">
                 <i class="fa-regular fa-user"></i> Tell Us About You
@@ -2668,27 +2781,63 @@
               <!-- Name Row -->
               <div class="form-row">
                 <div class="form-group mb-0">
-                  <label class="form-label" for="firstName"><i class="fa-regular fa-user"></i> First Name <span class="req">*</span></label>
+                  <label class="form-label" for="firstName"
+                    ><i class="fa-regular fa-user"></i> First Name
+                    <span class="req">*</span></label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
-                    <input type="text" id="firstName" name="first_name" class="form-control-gems" placeholder="Enter first name" required>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-user"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="first_name"
+                      class="form-control-gems"
+                      placeholder="Enter first name"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="form-group mb-0">
-                  <label class="form-label" for="lastName"><i class="fa-regular fa-user"></i> Last Name <span class="req">*</span></label>
+                  <label class="form-label" for="lastName"
+                    ><i class="fa-regular fa-user"></i> Last Name
+                    <span class="req">*</span></label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
-                    <input type="text" id="lastName" name="last_name" class="form-control-gems" placeholder="Enter last name" required>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-user"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="last_name"
+                      class="form-control-gems"
+                      placeholder="Enter last name"
+                      required
+                    />
                   </div>
                 </div>
               </div>
 
               <!-- Email Address -->
               <div class="form-group">
-                <label class="form-label" for="emailAddress"><i class="fa-regular fa-envelope"></i> Email Address <span class="req">*</span></label>
+                <label class="form-label" for="emailAddress"
+                  ><i class="fa-regular fa-envelope"></i> Email Address
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-regular fa-envelope"></i></span>
-                  <input type="email" id="emailAddress" name="email" class="form-control-gems" placeholder="Enter your email" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-regular fa-envelope"></i
+                  ></span>
+                  <input
+                    type="email"
+                    id="emailAddress"
+                    name="email"
+                    class="form-control-gems"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
               </div>
 
@@ -2696,8 +2845,16 @@
               <div class="form-group">
                 <div class="phone-group-row">
                   <div>
-                    <label class="form-label" for="countryCode"><i class="fa-solid fa-earth-americas"></i> Country Code <span class="req">*</span></label>
-                    <select id="countryCode" name="country_code" class="form-control-gems country-code-select" required>
+                    <label class="form-label" for="countryCode"
+                      ><i class="fa-solid fa-earth-americas"></i> Country Code
+                      <span class="req">*</span></label
+                    >
+                    <select
+                      id="countryCode"
+                      name="country_code"
+                      class="form-control-gems country-code-select"
+                      required
+                    >
                       <option value="+1">+1 (US/CA)</option>
                       <option value="+44">+44 (UK)</option>
                       <option value="+971">+971 (UAE)</option>
@@ -2710,10 +2867,22 @@
                     </select>
                   </div>
                   <div>
-                    <label class="form-label" for="phoneNumber"><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+                    <label class="form-label" for="phoneNumber"
+                      ><i class="fa-solid fa-phone"></i> Phone Number
+                      <span class="req">*</span></label
+                    >
                     <div class="input-with-icon">
-                      <span class="input-icon-prefix"><i class="fa-solid fa-phone"></i></span>
-                      <input type="tel" id="phoneNumber" name="phone" class="form-control-gems" placeholder="Enter phone number" required>
+                      <span class="input-icon-prefix"
+                        ><i class="fa-solid fa-phone"></i
+                      ></span>
+                      <input
+                        type="tel"
+                        id="phoneNumber"
+                        name="phone"
+                        class="form-control-gems"
+                        placeholder="Enter phone number"
+                        required
+                      />
                     </div>
                   </div>
                 </div>
@@ -2721,15 +2890,29 @@
 
               <!-- Country of Residence -->
               <div class="form-group">
-                <label class="form-label" for="countryResidence"><i class="fa-solid fa-globe"></i> Country of Residence <span class="req">*</span></label>
+                <label class="form-label" for="countryResidence"
+                  ><i class="fa-solid fa-globe"></i> Country of Residence
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-globe"></i></span>
-                  <select id="countryResidence" name="country_residence" class="form-control-gems" required>
-                    <option value="" disabled selected>-- Select country --</option>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-globe"></i
+                  ></span>
+                  <select
+                    id="countryResidence"
+                    name="country_residence"
+                    class="form-control-gems"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      -- Select country --
+                    </option>
                     <option value="United States">United States</option>
                     <option value="Canada">Canada</option>
                     <option value="United Kingdom">United Kingdom</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="United Arab Emirates">
+                      United Arab Emirates
+                    </option>
                     <option value="Qatar">Qatar</option>
                     <option value="Philippines">Philippines</option>
                     <option value="India">India</option>
@@ -2743,20 +2926,39 @@
 
               <!-- Section 2: Tell Us About Your Journey -->
               <div class="form-section-title">
-                <i class="fa-solid fa-graduation-cap"></i> Tell Us About Your Journey
+                <i class="fa-solid fa-graduation-cap"></i> Tell Us About Your
+                Journey
               </div>
 
               <!-- Current Education -->
               <div class="form-group">
-                <label class="form-label" for="currentEducation"><i class="fa-solid fa-graduation-cap"></i> Current Education <span class="req">*</span></label>
+                <label class="form-label" for="currentEducation"
+                  ><i class="fa-solid fa-graduation-cap"></i> Current Education
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-graduation-cap"></i></span>
-                  <select id="currentEducation" name="current_education" class="form-control-gems" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-graduation-cap"></i
+                  ></span>
+                  <select
+                    id="currentEducation"
+                    name="current_education"
+                    class="form-control-gems"
+                    required
+                  >
                     <option value="High school" selected>High school</option>
-                    <option value="Undergraduate / Bachelors">Undergraduate / Bachelors</option>
-                    <option value="Graduate / Masters">Graduate / Masters</option>
-                    <option value="Postgraduate / PhD">Postgraduate / PhD</option>
-                    <option value="Working Professional">Working Professional</option>
+                    <option value="Undergraduate / Bachelors">
+                      Undergraduate / Bachelors
+                    </option>
+                    <option value="Graduate / Masters">
+                      Graduate / Masters
+                    </option>
+                    <option value="Postgraduate / PhD">
+                      Postgraduate / PhD
+                    </option>
+                    <option value="Working Professional">
+                      Working Professional
+                    </option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -2764,22 +2966,37 @@
 
               <!-- Intended Degree (Radios) -->
               <div class="form-group">
-                <label class="form-label"><i class="fa-solid fa-award"></i> Intended Degree</label>
+                <label class="form-label"
+                  ><i class="fa-solid fa-award"></i> Intended Degree</label
+                >
                 <div class="radio-row">
                   <label class="custom-radio">
-                    <input type="radio" name="intended_degree" value="Associates" checked>
+                    <input
+                      type="radio"
+                      name="intended_degree"
+                      value="Associates"
+                      checked
+                    />
                     <span>Associates</span>
                   </label>
                   <label class="custom-radio">
-                    <input type="radio" name="intended_degree" value="Bachelors">
+                    <input
+                      type="radio"
+                      name="intended_degree"
+                      value="Bachelors"
+                    />
                     <span>Bachelors</span>
                   </label>
                   <label class="custom-radio">
-                    <input type="radio" name="intended_degree" value="Masters">
+                    <input
+                      type="radio"
+                      name="intended_degree"
+                      value="Masters"
+                    />
                     <span>Masters</span>
                   </label>
                   <label class="custom-radio">
-                    <input type="radio" name="intended_degree" value="PhD">
+                    <input type="radio" name="intended_degree" value="PhD" />
                     <span>PhD</span>
                   </label>
                 </div>
@@ -2788,11 +3005,22 @@
               <!-- Admission Year & Season Row -->
               <div class="form-row">
                 <div class="form-group mb-0">
-                  <label class="form-label" for="admissionYear"><i class="fa-regular fa-calendar"></i> Intended Admission Year</label>
+                  <label class="form-label" for="admissionYear"
+                    ><i class="fa-regular fa-calendar"></i> Intended Admission
+                    Year</label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-calendar"></i></span>
-                    <select id="admissionYear" name="admission_year" class="form-control-gems">
-                      <option value="" disabled selected>-- Select Year --</option>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-calendar"></i
+                    ></span>
+                    <select
+                      id="admissionYear"
+                      name="admission_year"
+                      class="form-control-gems"
+                    >
+                      <option value="" disabled selected>
+                        -- Select Year --
+                      </option>
                       <option value="2026">2026</option>
                       <option value="2027">2027</option>
                       <option value="2028">2028</option>
@@ -2802,18 +3030,33 @@
                 </div>
 
                 <div class="form-group mb-0">
-                  <label class="form-label"><i class="fa-solid fa-cloud-sun"></i> Intended Admission Season</label>
-                  <div class="checkbox-row" style="margin-top: 10px;">
+                  <label class="form-label"
+                    ><i class="fa-solid fa-cloud-sun"></i> Intended Admission
+                    Season</label
+                  >
+                  <div class="checkbox-row" style="margin-top: 10px">
                     <label class="custom-checkbox">
-                      <input type="checkbox" name="admission_season[]" value="Spring">
+                      <input
+                        type="checkbox"
+                        name="admission_season[]"
+                        value="Spring"
+                      />
                       <span>Spring</span>
                     </label>
                     <label class="custom-checkbox">
-                      <input type="checkbox" name="admission_season[]" value="Summer">
+                      <input
+                        type="checkbox"
+                        name="admission_season[]"
+                        value="Summer"
+                      />
                       <span>Summer</span>
                     </label>
                     <label class="custom-checkbox">
-                      <input type="checkbox" name="admission_season[]" value="Fall">
+                      <input
+                        type="checkbox"
+                        name="admission_season[]"
+                        value="Fall"
+                      />
                       <span>Fall</span>
                     </label>
                   </div>
@@ -2827,19 +3070,42 @@
 
               <!-- Fields of Interest -->
               <div class="form-group">
-                <label class="form-label"><i class="fa-solid fa-shapes"></i> Fields of Interest</label>
+                <label class="form-label"
+                  ><i class="fa-solid fa-shapes"></i> Fields of Interest</label
+                >
                 <div class="interests-grid">
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-solid fa-book-open"></i></span>
-                    <input type="text" name="interest_field_1" class="form-control-gems" placeholder="e.g. Computer Science">
+                    <span class="input-icon-prefix"
+                      ><i class="fa-solid fa-book-open"></i
+                    ></span>
+                    <input
+                      type="text"
+                      name="interest_field_1"
+                      class="form-control-gems"
+                      placeholder="e.g. Computer Science"
+                    />
                   </div>
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-bookmark"></i></span>
-                    <input type="text" name="interest_field_2" class="form-control-gems" placeholder="e.g. Business Management">
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-bookmark"></i
+                    ></span>
+                    <input
+                      type="text"
+                      name="interest_field_2"
+                      class="form-control-gems"
+                      placeholder="e.g. Business Management"
+                    />
                   </div>
                   <div class="input-with-icon full-span">
-                    <span class="input-icon-prefix"><i class="fa-solid fa-heart-pulse"></i></span>
-                    <input type="text" name="interest_field_3" class="form-control-gems" placeholder="e.g. Health Sciences / Other">
+                    <span class="input-icon-prefix"
+                      ><i class="fa-solid fa-heart-pulse"></i
+                    ></span>
+                    <input
+                      type="text"
+                      name="interest_field_3"
+                      class="form-control-gems"
+                      placeholder="e.g. Health Sciences / Other"
+                    />
                   </div>
                 </div>
               </div>
@@ -2851,26 +3117,50 @@
 
               <!-- Preferred Messaging App -->
               <div class="form-group">
-                <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i> Preferred Messaging App</label>
+                <label class="messaging-apps-title"
+                  ><i class="fa-regular fa-comments"></i> Preferred Messaging
+                  App</label
+                >
                 <div class="messaging-options-wrap">
                   <label class="msg-app-chip app-whatsapp selected">
-                    <input type="radio" name="messaging_app_student" value="WhatsApp" checked>
+                    <input
+                      type="radio"
+                      name="messaging_app_student"
+                      value="WhatsApp"
+                      checked
+                    />
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                   </label>
                   <label class="msg-app-chip app-messenger">
-                    <input type="radio" name="messaging_app_student" value="Messenger">
+                    <input
+                      type="radio"
+                      name="messaging_app_student"
+                      value="Messenger"
+                    />
                     <i class="fa-brands fa-facebook-messenger"></i> Messenger
                   </label>
                   <label class="msg-app-chip app-wechat">
-                    <input type="radio" name="messaging_app_student" value="WeChat">
+                    <input
+                      type="radio"
+                      name="messaging_app_student"
+                      value="WeChat"
+                    />
                     <i class="fa-brands fa-weixin"></i> WeChat
                   </label>
                   <label class="msg-app-chip app-discord">
-                    <input type="radio" name="messaging_app_student" value="Discord">
+                    <input
+                      type="radio"
+                      name="messaging_app_student"
+                      value="Discord"
+                    />
                     <i class="fa-brands fa-discord"></i> Discord
                   </label>
                   <label class="msg-app-chip app-bard">
-                    <input type="radio" name="messaging_app_student" value="Bard">
+                    <input
+                      type="radio"
+                      name="messaging_app_student"
+                      value="Bard"
+                    />
                     <i class="fa-solid fa-wand-magic-sparkles"></i> Bard
                   </label>
                 </div>
@@ -2878,24 +3168,56 @@
 
               <!-- Captcha Verification -->
               <div class="captcha-block">
-                <label class="captcha-label" for="captchaInput"><i class="fa-solid fa-shield-halved"></i> Enter the code shown below:</label>
+                <label class="captcha-label" for="captchaInput"
+                  ><i class="fa-solid fa-shield-halved"></i> Enter the code
+                  shown below:</label
+                >
                 <div class="captcha-display-flex">
-                  <div id="captchaBox" class="captcha-code-box" aria-label="Captcha security code">b8PMA</div>
-                  <button type="button" class="captcha-refresh-btn" onclick="generateCaptcha()" title="Refresh security code" aria-label="Refresh Captcha">
+                  <div
+                    id="captchaBox"
+                    class="captcha-code-box"
+                    aria-label="Captcha security code"
+                  >
+                    b8PMA
+                  </div>
+                  <button
+                    type="button"
+                    class="captcha-refresh-btn"
+                    onclick="generateCaptcha()"
+                    title="Refresh security code"
+                    aria-label="Refresh Captcha"
+                  >
                     <i class="fa-solid fa-arrows-rotate"></i>
                   </button>
                 </div>
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-shield-halved"></i></span>
-                  <input type="text" id="captchaInput" class="form-control-gems" placeholder="Enter captcha code" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-shield-halved"></i
+                  ></span>
+                  <input
+                    type="text"
+                    id="captchaInput"
+                    class="form-control-gems"
+                    placeholder="Enter captcha code"
+                    required
+                  />
                 </div>
               </div>
 
               <!-- Bottom Actions -->
               <div class="form-bottom-actions">
                 <label class="form-terms-text">
-                  <input type="checkbox" required checked>
-                  <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+                  <input type="checkbox" required checked />
+                  <span
+                    >I agree to the
+                    <a href="terms-of-use.html" target="_blank"
+                      >Terms & Conditions</a
+                    >
+                    and
+                    <a href="privacy-policy.html" target="_blank"
+                      >Privacy Policy</a
+                    ></span
+                  >
                 </label>
                 <button type="submit" class="btn-gems-submit" id="submitBtn">
                   <span>Submit</span>
@@ -2908,14 +3230,29 @@
           <!-- ==================================================
                TAB 2: PROFESSIONALS FORM
                ================================================== -->
-          <div id="professionalsTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
+          <div
+            id="professionalsTabPane"
+            class="contact-tab-pane"
+            style="display: none"
+            aria-hidden="true"
+          >
             <!-- Feedback Notification Box -->
             <div id="proFormNotification" class="form-notification"></div>
 
             <!-- Professional Form -->
-            <form id="gemsProfessionalForm" action="https://globalenrollment.us/contact/pro_submit" method="POST" onsubmit="return handleProFormSubmit(event)">
+            <form
+              id="gemsProfessionalForm"
+              action="https://globalenrollment.us/contact/pro_submit"
+              method="POST"
+              onsubmit="return handleProFormSubmit(event);"
+            >
               <!-- Hidden Captcha Token -->
-              <input type="hidden" name="captcha_token" id="proCaptchaToken" value="6f8a92cb3e41d5b">
+              <input
+                type="hidden"
+                name="captcha_token"
+                id="proCaptchaToken"
+                value="6f8a92cb3e41d5b"
+              />
 
               <!-- Section 1: Tell Us About You -->
               <div class="form-section-title">
@@ -2925,27 +3262,63 @@
               <!-- 1. First Name & 2. Last Name -->
               <div class="form-row frmcol">
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="proFirstName"><i class="fa-regular fa-user"></i> First Name <span class="req">*</span></label>
+                  <label class="form-label" for="proFirstName"
+                    ><i class="fa-regular fa-user"></i> First Name
+                    <span class="req">*</span></label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
-                    <input type="text" id="proFirstName" name="first_name" class="form-control-gems" placeholder="Enter first name" required>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-user"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="proFirstName"
+                      name="first_name"
+                      class="form-control-gems"
+                      placeholder="Enter first name"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="proLastName"><i class="fa-regular fa-user"></i> Last Name <span class="req">*</span></label>
+                  <label class="form-label" for="proLastName"
+                    ><i class="fa-regular fa-user"></i> Last Name
+                    <span class="req">*</span></label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
-                    <input type="text" id="proLastName" name="last_name" class="form-control-gems" placeholder="Enter last name" required>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-user"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="proLastName"
+                      name="last_name"
+                      class="form-control-gems"
+                      placeholder="Enter last name"
+                      required
+                    />
                   </div>
                 </div>
               </div>
 
               <!-- 3. Email Address (Full Width) -->
               <div class="form-group frmgrp">
-                <label class="form-label" for="proEmail"><i class="fa-regular fa-envelope"></i> Email Address <span class="req">*</span></label>
+                <label class="form-label" for="proEmail"
+                  ><i class="fa-regular fa-envelope"></i> Email Address
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-regular fa-envelope"></i></span>
-                  <input type="email" id="proEmail" name="email" class="form-control-gems" placeholder="Enter your email" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-regular fa-envelope"></i
+                  ></span>
+                  <input
+                    type="email"
+                    id="proEmail"
+                    name="email"
+                    class="form-control-gems"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
               </div>
 
@@ -2953,8 +3326,16 @@
               <div class="form-group frmgrp">
                 <div class="phone-group-row">
                   <div>
-                    <label class="form-label" for="proCountryCode"><i class="fa-solid fa-earth-americas"></i> Country Code <span class="req">*</span></label>
-                    <select id="proCountryCode" name="country_code" class="form-control-gems country-code-select" required>
+                    <label class="form-label" for="proCountryCode"
+                      ><i class="fa-solid fa-earth-americas"></i> Country Code
+                      <span class="req">*</span></label
+                    >
+                    <select
+                      id="proCountryCode"
+                      name="country_code"
+                      class="form-control-gems country-code-select"
+                      required
+                    >
                       <option value="+1">+1 (US/CA)</option>
                       <option value="+44">+44 (UK)</option>
                       <option value="+971">+971 (UAE)</option>
@@ -2967,10 +3348,22 @@
                     </select>
                   </div>
                   <div>
-                    <label class="form-label" for="proPhone"><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+                    <label class="form-label" for="proPhone"
+                      ><i class="fa-solid fa-phone"></i> Phone Number
+                      <span class="req">*</span></label
+                    >
                     <div class="input-with-icon">
-                      <span class="input-icon-prefix"><i class="fa-solid fa-phone"></i></span>
-                      <input type="tel" id="proPhone" name="phone" class="form-control-gems" placeholder="Enter phone number" required>
+                      <span class="input-icon-prefix"
+                        ><i class="fa-solid fa-phone"></i
+                      ></span>
+                      <input
+                        type="tel"
+                        id="proPhone"
+                        name="phone"
+                        class="form-control-gems"
+                        placeholder="Enter phone number"
+                        required
+                      />
                     </div>
                   </div>
                 </div>
@@ -2978,27 +3371,59 @@
 
               <!-- 6. Country of Residence -->
               <div class="form-group frmgrp">
-                <label class="form-label" for="proCountryResidence"><i class="fa-solid fa-globe"></i> Country of Residence <span class="req">*</span></label>
+                <label class="form-label" for="proCountryResidence"
+                  ><i class="fa-solid fa-globe"></i> Country of Residence
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-globe"></i></span>
-                  <select id="proCountryResidence" name="country_residence" class="form-control-gems" required onchange="handleProCountryChange(this)">
-                    <option value="" disabled selected>-- Select Country --</option>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-globe"></i
+                  ></span>
+                  <select
+                    id="proCountryResidence"
+                    name="country_residence"
+                    class="form-control-gems"
+                    required
+                    onchange="handleProCountryChange(this)"
+                  >
+                    <option value="" disabled selected>
+                      -- Select Country --
+                    </option>
                     <option value="India">India</option>
                     <option value="Philippines">Philippines</option>
                     <option value="Qatar">Qatar</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
-                    <option value="United States of America">United States of America</option>
+                    <option value="United Arab Emirates">
+                      United Arab Emirates
+                    </option>
+                    <option value="United States of America">
+                      United States of America
+                    </option>
                     <option value="Other..">Other..</option>
                   </select>
                 </div>
               </div>
 
               <!-- Country of Residence: If "Other.." is selected -->
-              <div id="proOtherCountryWrap" class="form-group frmgrp" style="display: none;">
-                <label class="form-label" for="proOtherCountry"><i class="fa-solid fa-location-arrow"></i> Please specify your country <span class="req">*</span></label>
+              <div
+                id="proOtherCountryWrap"
+                class="form-group frmgrp"
+                style="display: none"
+              >
+                <label class="form-label" for="proOtherCountry"
+                  ><i class="fa-solid fa-location-arrow"></i> Please specify
+                  your country <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-location-dot"></i></span>
-                  <input type="text" id="proOtherCountry" name="other_country" class="form-control-gems" placeholder="Please specify your country">
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-location-dot"></i
+                  ></span>
+                  <input
+                    type="text"
+                    id="proOtherCountry"
+                    name="other_country"
+                    class="form-control-gems"
+                    placeholder="Please specify your country"
+                  />
                 </div>
               </div>
 
@@ -3009,44 +3434,104 @@
 
               <!-- 7. Highest Education Level -->
               <div class="form-group frmgrp">
-                <label class="form-label" for="proHighestEducation"><i class="fa-solid fa-graduation-cap"></i> Highest Education Level</label>
+                <label class="form-label" for="proHighestEducation"
+                  ><i class="fa-solid fa-graduation-cap"></i> Highest Education
+                  Level</label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-graduation-cap"></i></span>
-                  <input type="text" id="proHighestEducation" name="highest_education" class="form-control-gems" placeholder="e.g. Master of Science, MBA">
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-graduation-cap"></i
+                  ></span>
+                  <input
+                    type="text"
+                    id="proHighestEducation"
+                    name="highest_education"
+                    class="form-control-gems"
+                    placeholder="e.g. Master of Science, MBA"
+                  />
                 </div>
               </div>
 
               <!-- 8. Certification / License (1, 2, 3) -->
               <div class="form-group frmgrp">
-                <label class="form-label"><i class="fa-solid fa-award"></i> Certifications / Licenses</label>
+                <label class="form-label"
+                  ><i class="fa-solid fa-award"></i> Certifications /
+                  Licenses</label
+                >
                 <div class="input-with-icon mb-2">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-certificate"></i></span>
-                  <input type="text" name="certification_license_1" id="proCert1" class="form-control-gems" placeholder="Certification / License 1">
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-certificate"></i
+                  ></span>
+                  <input
+                    type="text"
+                    name="certification_license_1"
+                    id="proCert1"
+                    class="form-control-gems"
+                    placeholder="Certification / License 1"
+                  />
                 </div>
                 <div class="input-with-icon mb-2">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-certificate"></i></span>
-                  <input type="text" name="certification_license_2" id="proCert2" class="form-control-gems" placeholder="Certification / License 2">
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-certificate"></i
+                  ></span>
+                  <input
+                    type="text"
+                    name="certification_license_2"
+                    id="proCert2"
+                    class="form-control-gems"
+                    placeholder="Certification / License 2"
+                  />
                 </div>
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-certificate"></i></span>
-                  <input type="text" name="certification_license_3" id="proCert3" class="form-control-gems" placeholder="Certification / License 3">
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-certificate"></i
+                  ></span>
+                  <input
+                    type="text"
+                    name="certification_license_3"
+                    id="proCert3"
+                    class="form-control-gems"
+                    placeholder="Certification / License 3"
+                  />
                 </div>
               </div>
 
               <!-- 9. Availability Date & 10. Family Size for Relocation -->
               <div class="form-row frmcol">
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="proAvailabilityDate"><i class="fa-regular fa-calendar"></i> Availability Date</label>
+                  <label class="form-label" for="proAvailabilityDate"
+                    ><i class="fa-regular fa-calendar"></i> Availability
+                    Date</label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-calendar"></i></span>
-                    <input type="date" id="proAvailabilityDate" name="availability_date" class="form-control-gems">
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-calendar"></i
+                    ></span>
+                    <input
+                      type="date"
+                      id="proAvailabilityDate"
+                      name="availability_date"
+                      class="form-control-gems"
+                    />
                   </div>
                 </div>
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="proFamilySize"><i class="fa-solid fa-users"></i> Family Size for Relocation</label>
+                  <label class="form-label" for="proFamilySize"
+                    ><i class="fa-solid fa-users"></i> Family Size for
+                    Relocation</label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-solid fa-users"></i></span>
-                    <input type="number" id="proFamilySize" name="family_size" class="form-control-gems" placeholder="e.g. 1, 2, 4" min="0">
+                    <span class="input-icon-prefix"
+                      ><i class="fa-solid fa-users"></i
+                    ></span>
+                    <input
+                      type="number"
+                      id="proFamilySize"
+                      name="family_size"
+                      class="form-control-gems"
+                      placeholder="e.g. 1, 2, 4"
+                      min="0"
+                    />
                   </div>
                 </div>
               </div>
@@ -3054,11 +3539,22 @@
               <!-- 11. Relocation Preference & 12. Current Immigration Status (US) -->
               <div class="form-row frmcol">
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="proRelocationPref"><i class="fa-solid fa-map-location-dot"></i> Relocation Preference</label>
+                  <label class="form-label" for="proRelocationPref"
+                    ><i class="fa-solid fa-map-location-dot"></i> Relocation
+                    Preference</label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-solid fa-compass"></i></span>
-                    <select id="proRelocationPref" name="relocation_preference" class="form-control-gems">
-                      <option value="" disabled selected>-- Select Preference --</option>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-solid fa-compass"></i
+                    ></span>
+                    <select
+                      id="proRelocationPref"
+                      name="relocation_preference"
+                      class="form-control-gems"
+                    >
+                      <option value="" disabled selected>
+                        -- Select Preference --
+                      </option>
                       <option value="East Coast">East Coast</option>
                       <option value="West Coast">West Coast</option>
                       <option value="Mid West">Mid West</option>
@@ -3067,10 +3563,21 @@
                   </div>
                 </div>
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="proImmigrationStatus"><i class="fa-solid fa-passport"></i> Current Immigration Status (US)</label>
+                  <label class="form-label" for="proImmigrationStatus"
+                    ><i class="fa-solid fa-passport"></i> Current Immigration
+                    Status (US)</label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-solid fa-id-card"></i></span>
-                    <input type="text" id="proImmigrationStatus" name="immigration_status" class="form-control-gems" placeholder="e.g. Citizen, Work Visa, Student Visa">
+                    <span class="input-icon-prefix"
+                      ><i class="fa-solid fa-id-card"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="proImmigrationStatus"
+                      name="immigration_status"
+                      class="form-control-gems"
+                      placeholder="e.g. Citizen, Work Visa, Student Visa"
+                    />
                   </div>
                 </div>
               </div>
@@ -3078,27 +3585,51 @@
               <!-- 13. Willingness to Travel & 14. Need Relocation Assistance -->
               <div class="form-row frmcol">
                 <div class="form-group frmgrp bxgrp mb-0">
-                  <label class="form-label"><i class="fa-solid fa-plane-departure"></i> Willingness to Travel</label>
+                  <label class="form-label"
+                    ><i class="fa-solid fa-plane-departure"></i> Willingness to
+                    Travel</label
+                  >
                   <div class="radio-row">
                     <label class="custom-radio">
-                      <input type="radio" name="willingness_to_travel" value="Yes" checked>
+                      <input
+                        type="radio"
+                        name="willingness_to_travel"
+                        value="Yes"
+                        checked
+                      />
                       <span>Yes</span>
                     </label>
                     <label class="custom-radio">
-                      <input type="radio" name="willingness_to_travel" value="No">
+                      <input
+                        type="radio"
+                        name="willingness_to_travel"
+                        value="No"
+                      />
                       <span>No</span>
                     </label>
                   </div>
                 </div>
                 <div class="form-group frmgrp bxgrp mb-0">
-                  <label class="form-label"><i class="fa-solid fa-truck-ramp-box"></i> Need Relocation Assistance</label>
+                  <label class="form-label"
+                    ><i class="fa-solid fa-truck-ramp-box"></i> Need Relocation
+                    Assistance</label
+                  >
                   <div class="radio-row">
                     <label class="custom-radio">
-                      <input type="radio" name="relocation_assistance" value="Yes" checked>
+                      <input
+                        type="radio"
+                        name="relocation_assistance"
+                        value="Yes"
+                        checked
+                      />
                       <span>Yes</span>
                     </label>
                     <label class="custom-radio">
-                      <input type="radio" name="relocation_assistance" value="No">
+                      <input
+                        type="radio"
+                        name="relocation_assistance"
+                        value="No"
+                      />
                       <span>No</span>
                     </label>
                   </div>
@@ -3112,26 +3643,46 @@
 
               <!-- Preferred messaging app -->
               <div class="form-group frmgrp prffmsg">
-                <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i> Preferred Messaging App</label>
+                <label class="messaging-apps-title"
+                  ><i class="fa-regular fa-comments"></i> Preferred Messaging
+                  App</label
+                >
                 <div class="messaging-options-wrap bxflexgrp">
                   <label class="msg-app-chip app-whatsapp selected">
-                    <input type="radio" name="messaging_app_pro" value="WhatsApp" checked>
+                    <input
+                      type="radio"
+                      name="messaging_app_pro"
+                      value="WhatsApp"
+                      checked
+                    />
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                   </label>
                   <label class="msg-app-chip app-messenger">
-                    <input type="radio" name="messaging_app_pro" value="Messenger">
+                    <input
+                      type="radio"
+                      name="messaging_app_pro"
+                      value="Messenger"
+                    />
                     <i class="fa-brands fa-facebook-messenger"></i> Messenger
                   </label>
                   <label class="msg-app-chip app-wechat">
-                    <input type="radio" name="messaging_app_pro" value="WeChat">
+                    <input
+                      type="radio"
+                      name="messaging_app_pro"
+                      value="WeChat"
+                    />
                     <i class="fa-brands fa-weixin"></i> WeChat
                   </label>
                   <label class="msg-app-chip app-discord">
-                    <input type="radio" name="messaging_app_pro" value="Discord">
+                    <input
+                      type="radio"
+                      name="messaging_app_pro"
+                      value="Discord"
+                    />
                     <i class="fa-brands fa-discord"></i> Discord
                   </label>
                   <label class="msg-app-chip app-band">
-                    <input type="radio" name="messaging_app_pro" value="Band">
+                    <input type="radio" name="messaging_app_pro" value="Band" />
                     <i class="fa-solid fa-people-group"></i> Band
                   </label>
                 </div>
@@ -3139,18 +3690,50 @@
 
               <!-- 15. CAPTCHA -->
               <div class="captcha-block">
-                <label class="captcha-label" for="proCaptchaInput"><i class="fa-solid fa-shield-halved"></i> Enter the code shown below:</label>
+                <label class="captcha-label" for="proCaptchaInput"
+                  ><i class="fa-solid fa-shield-halved"></i> Enter the code
+                  shown below:</label
+                >
                 <div class="captcha-display-flex">
-                  <div id="proCaptchaBox" class="captcha-code-box" aria-label="Captcha security code">7kQ9W</div>
-                  <button type="button" class="captcha-refresh-btn" onclick="generateProCaptcha()" title="Refresh security code" aria-label="Refresh Captcha">
+                  <div
+                    id="proCaptchaBox"
+                    class="captcha-code-box"
+                    aria-label="Captcha security code"
+                  >
+                    7kQ9W
+                  </div>
+                  <button
+                    type="button"
+                    class="captcha-refresh-btn"
+                    onclick="generateProCaptcha()"
+                    title="Refresh security code"
+                    aria-label="Refresh Captcha"
+                  >
                     <i class="fa-solid fa-arrows-rotate"></i>
                   </button>
                 </div>
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-shield-halved"></i></span>
-                  <input type="text" id="proCaptchaInput" name="captcha" class="form-control-gems" placeholder="Enter captcha code" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-shield-halved"></i
+                  ></span>
+                  <input
+                    type="text"
+                    id="proCaptchaInput"
+                    name="captcha"
+                    class="form-control-gems"
+                    placeholder="Enter captcha code"
+                    required
+                  />
                 </div>
-                <div id="proCaptchaError" style="color: #dc2626; font-size: 0.85rem; margin-top: 6px; display: none;">
+                <div
+                  id="proCaptchaError"
+                  style="
+                    color: #dc2626;
+                    font-size: 0.85rem;
+                    margin-top: 6px;
+                    display: none;
+                  "
+                >
                   Security code does not match. Please try again.
                 </div>
               </div>
@@ -3158,8 +3741,17 @@
               <!-- Submit button -->
               <div class="form-bottom-actions">
                 <label class="form-terms-text">
-                  <input type="checkbox" required checked>
-                  <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+                  <input type="checkbox" required checked />
+                  <span
+                    >I agree to the
+                    <a href="terms-of-use.html" target="_blank"
+                      >Terms & Conditions</a
+                    >
+                    and
+                    <a href="privacy-policy.html" target="_blank"
+                      >Privacy Policy</a
+                    ></span
+                  >
                 </label>
                 <button type="submit" class="btn-gems-submit" id="proSubmitBtn">
                   <span>Submit</span>
@@ -3172,14 +3764,29 @@
           <!-- ==================================================
                TAB 3: BUSINESS CLIENTS FORM
                ================================================== -->
-          <div id="businessTabPane" class="contact-tab-pane" style="display: none;" aria-hidden="true">
+          <div
+            id="businessTabPane"
+            class="contact-tab-pane"
+            style="display: none"
+            aria-hidden="true"
+          >
             <!-- Feedback Notification Box -->
             <div id="bizFormNotification" class="form-notification"></div>
 
             <!-- Business Clients Form -->
-            <form id="gemsBusinessForm" action="https://globalenrollment.us/contact/bus_submit" method="POST" onsubmit="return handleBizFormSubmit(event)">
+            <form
+              id="gemsBusinessForm"
+              action="https://globalenrollment.us/contact/bus_submit"
+              method="POST"
+              onsubmit="return handleBizFormSubmit(event);"
+            >
               <!-- Hidden Captcha Token -->
-              <input type="hidden" name="captcha_token" id="captcha_token_bus" value="8e3b12dc7f40a9b">
+              <input
+                type="hidden"
+                name="captcha_token"
+                id="captcha_token_bus"
+                value="8e3b12dc7f40a9b"
+              />
 
               <!-- Section 1: Tell Us About You -->
               <div class="form-section-title">
@@ -3189,36 +3796,84 @@
               <!-- ROW 1: First Name & Last Name -->
               <div class="form-row frmcol">
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="bizFirstName"><i class="fa-regular fa-user"></i> First Name <span class="req">*</span></label>
+                  <label class="form-label" for="bizFirstName"
+                    ><i class="fa-regular fa-user"></i> First Name
+                    <span class="req">*</span></label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
-                    <input type="text" id="bizFirstName" name="first_name" class="form-control-gems" placeholder="Enter first name" required>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-user"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="bizFirstName"
+                      name="first_name"
+                      class="form-control-gems"
+                      placeholder="Enter first name"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="form-group frmgrp mb-0">
-                  <label class="form-label" for="bizLastName"><i class="fa-regular fa-user"></i> Last Name <span class="req">*</span></label>
+                  <label class="form-label" for="bizLastName"
+                    ><i class="fa-regular fa-user"></i> Last Name
+                    <span class="req">*</span></label
+                  >
                   <div class="input-with-icon">
-                    <span class="input-icon-prefix"><i class="fa-regular fa-user"></i></span>
-                    <input type="text" id="bizLastName" name="last_name" class="form-control-gems" placeholder="Enter last name" required>
+                    <span class="input-icon-prefix"
+                      ><i class="fa-regular fa-user"></i
+                    ></span>
+                    <input
+                      type="text"
+                      id="bizLastName"
+                      name="last_name"
+                      class="form-control-gems"
+                      placeholder="Enter last name"
+                      required
+                    />
                   </div>
                 </div>
               </div>
 
               <!-- ROW 2: Company needing Services (Full width) -->
               <div class="form-group frmgrp">
-                <label class="form-label" for="bizCompany"><i class="fa-solid fa-building"></i> Company Needing Services <span class="req">*</span></label>
+                <label class="form-label" for="bizCompany"
+                  ><i class="fa-solid fa-building"></i> Company Needing Services
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-building"></i></span>
-                  <input type="text" id="bizCompany" name="company" class="form-control-gems" placeholder="Enter company name" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-building"></i
+                  ></span>
+                  <input
+                    type="text"
+                    id="bizCompany"
+                    name="company"
+                    class="form-control-gems"
+                    placeholder="Enter company name"
+                    required
+                  />
                 </div>
               </div>
 
               <!-- ROW 3: Email Address (Full width) -->
               <div class="form-group frmgrp">
-                <label class="form-label" for="bizEmail"><i class="fa-regular fa-envelope"></i> Work Email Address <span class="req">*</span></label>
+                <label class="form-label" for="bizEmail"
+                  ><i class="fa-regular fa-envelope"></i> Work Email Address
+                  <span class="req">*</span></label
+                >
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-regular fa-envelope"></i></span>
-                  <input type="email" id="bizEmail" name="email" class="form-control-gems" placeholder="Enter work email" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-regular fa-envelope"></i
+                  ></span>
+                  <input
+                    type="email"
+                    id="bizEmail"
+                    name="email"
+                    class="form-control-gems"
+                    placeholder="Enter work email"
+                    required
+                  />
                 </div>
               </div>
 
@@ -3226,8 +3881,16 @@
               <div class="form-group frmgrp">
                 <div class="phone-group-row">
                   <div>
-                    <label class="form-label" for="bizCountryCode"><i class="fa-solid fa-earth-americas"></i> Country Code <span class="req">*</span></label>
-                    <select id="bizCountryCode" name="country_code" class="form-control-gems country-code-select" required>
+                    <label class="form-label" for="bizCountryCode"
+                      ><i class="fa-solid fa-earth-americas"></i> Country Code
+                      <span class="req">*</span></label
+                    >
+                    <select
+                      id="bizCountryCode"
+                      name="country_code"
+                      class="form-control-gems country-code-select"
+                      required
+                    >
                       <option value="+1" selected>+1 (US/CA)</option>
                       <option value="+44">+44 (UK)</option>
                       <option value="+971">+971 (UAE)</option>
@@ -3240,10 +3903,22 @@
                     </select>
                   </div>
                   <div>
-                    <label class="form-label" for="bizPhone"><i class="fa-solid fa-phone"></i> Phone Number <span class="req">*</span></label>
+                    <label class="form-label" for="bizPhone"
+                      ><i class="fa-solid fa-phone"></i> Phone Number
+                      <span class="req">*</span></label
+                    >
                     <div class="input-with-icon">
-                      <span class="input-icon-prefix"><i class="fa-solid fa-phone"></i></span>
-                      <input type="tel" id="bizPhone" name="phone" class="form-control-gems" placeholder="Enter phone number" required>
+                      <span class="input-icon-prefix"
+                        ><i class="fa-solid fa-phone"></i
+                      ></span>
+                      <input
+                        type="tel"
+                        id="bizPhone"
+                        name="phone"
+                        class="form-control-gems"
+                        placeholder="Enter phone number"
+                        required
+                      />
                     </div>
                   </div>
                 </div>
@@ -3256,11 +3931,28 @@
 
               <!-- ROW 5: Services of Interest (Full-width textarea with word count) -->
               <div class="form-group frmgrp">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <label class="form-label mb-0" for="bizServicesInterest"><i class="fa-solid fa-briefcase"></i> Services of Interest <span class="req">*</span></label>
-                  <span id="bizWordCount" style="font-size: 0.82rem; color: #64748b; font-weight: 500;">0 / 100 words</span>
+                <div
+                  class="d-flex justify-content-between align-items-center mb-1"
+                >
+                  <label class="form-label mb-0" for="bizServicesInterest"
+                    ><i class="fa-solid fa-briefcase"></i> Services of Interest
+                    <span class="req">*</span></label
+                  >
+                  <span
+                    id="bizWordCount"
+                    style="font-size: 0.82rem; color: #64748b; font-weight: 500"
+                    >0 / 100 words</span
+                  >
                 </div>
-                <textarea id="bizServicesInterest" name="services_interest" class="form-control-gems" style="height: 110px; resize: vertical; padding: 12px 14px;" placeholder="Describe your service interest or requirements (max 100 words)" required oninput="handleBizWordCount(this)"></textarea>
+                <textarea
+                  id="bizServicesInterest"
+                  name="services_interest"
+                  class="form-control-gems"
+                  style="height: 110px; resize: vertical; padding: 12px 14px"
+                  placeholder="Describe your service interest or requirements (max 100 words)"
+                  required
+                  oninput="handleBizWordCount(this)"
+                ></textarea>
               </div>
 
               <!-- Section 3: How Should We Reach You? -->
@@ -3270,26 +3962,46 @@
 
               <!-- ROW 6: Preferred messaging app -->
               <div class="form-group frmgrp prffmsg">
-                <label class="messaging-apps-title"><i class="fa-regular fa-comments"></i> Preferred Messaging App</label>
+                <label class="messaging-apps-title"
+                  ><i class="fa-regular fa-comments"></i> Preferred Messaging
+                  App</label
+                >
                 <div class="messaging-options-wrap bxflexgrp">
                   <label class="msg-app-chip app-whatsapp selected">
-                    <input type="radio" name="messaging_app_biz" value="WhatsApp" checked>
+                    <input
+                      type="radio"
+                      name="messaging_app_biz"
+                      value="WhatsApp"
+                      checked
+                    />
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                   </label>
                   <label class="msg-app-chip app-messenger">
-                    <input type="radio" name="messaging_app_biz" value="Messenger">
+                    <input
+                      type="radio"
+                      name="messaging_app_biz"
+                      value="Messenger"
+                    />
                     <i class="fa-brands fa-facebook-messenger"></i> Messenger
                   </label>
                   <label class="msg-app-chip app-wechat">
-                    <input type="radio" name="messaging_app_biz" value="WeChat">
+                    <input
+                      type="radio"
+                      name="messaging_app_biz"
+                      value="WeChat"
+                    />
                     <i class="fa-brands fa-weixin"></i> WeChat
                   </label>
                   <label class="msg-app-chip app-discord">
-                    <input type="radio" name="messaging_app_biz" value="Discord">
+                    <input
+                      type="radio"
+                      name="messaging_app_biz"
+                      value="Discord"
+                    />
                     <i class="fa-brands fa-discord"></i> Discord
                   </label>
                   <label class="msg-app-chip app-band">
-                    <input type="radio" name="messaging_app_biz" value="Band">
+                    <input type="radio" name="messaging_app_biz" value="Band" />
                     <i class="fa-solid fa-people-group"></i> Band
                   </label>
                 </div>
@@ -3297,18 +4009,51 @@
 
               <!-- CAPTCHA -->
               <div class="captcha-block">
-                <label class="captcha-label" for="captcha_input_bus"><i class="fa-solid fa-shield-halved"></i> Enter the code shown below:</label>
+                <label class="captcha-label" for="captcha_input_bus"
+                  ><i class="fa-solid fa-shield-halved"></i> Enter the code
+                  shown below:</label
+                >
                 <div class="captcha-display-flex">
-                  <div id="captcha_bus" class="captcha-code-box" aria-label="Captcha security code">m4P9T</div>
-                  <button type="button" id="reload_bus" class="captcha-refresh-btn" onclick="generateBizCaptcha()" title="Refresh security code" aria-label="Refresh Captcha">
+                  <div
+                    id="captcha_bus"
+                    class="captcha-code-box"
+                    aria-label="Captcha security code"
+                  >
+                    m4P9T
+                  </div>
+                  <button
+                    type="button"
+                    id="reload_bus"
+                    class="captcha-refresh-btn"
+                    onclick="generateBizCaptcha()"
+                    title="Refresh security code"
+                    aria-label="Refresh Captcha"
+                  >
                     <i class="fa-solid fa-arrows-rotate"></i>
                   </button>
                 </div>
                 <div class="input-with-icon">
-                  <span class="input-icon-prefix"><i class="fa-solid fa-shield-halved"></i></span>
-                  <input type="text" id="captcha_input_bus" name="captcha" class="form-control-gems" placeholder="Enter captcha code" required>
+                  <span class="input-icon-prefix"
+                    ><i class="fa-solid fa-shield-halved"></i
+                  ></span>
+                  <input
+                    type="text"
+                    id="captcha_input_bus"
+                    name="captcha"
+                    class="form-control-gems"
+                    placeholder="Enter captcha code"
+                    required
+                  />
                 </div>
-                <div id="captcha_error_bus" style="color: #dc2626; font-size: 0.85rem; margin-top: 6px; display: none;">
+                <div
+                  id="captcha_error_bus"
+                  style="
+                    color: #dc2626;
+                    font-size: 0.85rem;
+                    margin-top: 6px;
+                    display: none;
+                  "
+                >
                   Security code does not match. Please try again.
                 </div>
               </div>
@@ -3316,8 +4061,17 @@
               <!-- Submit Button -->
               <div class="form-bottom-actions">
                 <label class="form-terms-text">
-                  <input type="checkbox" required checked>
-                  <span>I agree to the <a href="terms-of-use.html" target="_blank">Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+                  <input type="checkbox" required checked />
+                  <span
+                    >I agree to the
+                    <a href="terms-of-use.html" target="_blank"
+                      >Terms & Conditions</a
+                    >
+                    and
+                    <a href="privacy-policy.html" target="_blank"
+                      >Privacy Policy</a
+                    ></span
+                  >
                 </label>
                 <button type="submit" class="btn-gems-submit" id="bizSubmitBtn">
                   <span>Submit</span>
@@ -3333,23 +4087,48 @@
     <!-- ==========================================================================
          SUBMISSION CONFIRMATION MODAL (DYNAMIC JOURNEY ROUTING)
          ========================================================================== -->
-    <div class="confirm-modal-overlay contact-page" id="submissionConfirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle" style="display: none;">
+    <div
+      class="confirm-modal-overlay contact-page"
+      id="submissionConfirmModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirmModalTitle"
+      style="display: none"
+    >
       <div class="confirm-modal-box">
-        <button type="button" class="confirm-close-btn" onclick="closeConfirmationModal()" aria-label="Close modal">
+        <button
+          type="button"
+          class="confirm-close-btn"
+          onclick="closeConfirmationModal()"
+          aria-label="Close modal"
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="confirm-icon-badge">
           <i class="fa-solid fa-circle-check"></i>
         </div>
-        <h3 class="confirm-modal-title" id="confirmModalTitle">You’re In. Let’s Take The Next Step Together.</h3>
+        <h3 class="confirm-modal-title" id="confirmModalTitle">
+          You’re In. Let’s Take The Next Step Together.
+        </h3>
         <p class="confirm-modal-text">
-          Thank you for reaching out to GEMS. We’ve received your information and a member of our team will review your request. You don’t need to figure everything out at once. We’ll start with where you are and help you understand what comes next.
+          Thank you for reaching out to GEMS. We’ve received your information
+          and a member of our team will review your request. You don’t need to
+          figure everything out at once. We’ll start with where you are and help
+          you understand what comes next.
         </p>
         <div class="confirm-modal-note">
-          <i class="fa-solid fa-envelope-open-text" style="color: #b47d3c; margin-right: 6px;"></i>
-          A member of the GEMS team will review your request and contact you by email within two (2) business days.
+          <i
+            class="fa-solid fa-envelope-open-text"
+            style="color: #b47d3c; margin-right: 6px"
+          ></i>
+          A member of the GEMS team will review your request and contact you by
+          email within two (2) business days.
         </div>
-        <a href="educational-journeys.html" class="confirm-modal-cta" id="confirmJourneyCta">
+        <a
+          href="educational-journeys.html"
+          class="confirm-modal-cta"
+          id="confirmJourneyCta"
+        >
           <span>Explore GEMS While You Wait</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -3769,8 +4548,12 @@
 
       function switchIntakeTab(targetTab) {
         currentModalJourneyTab = targetTab;
-        var tabButtons = document.querySelectorAll(".journey-modal-container .form-tab-btn");
-        var tabPanes = document.querySelectorAll(".journey-modal-container .contact-tab-pane");
+        var tabButtons = document.querySelectorAll(
+          ".journey-modal-container .form-tab-btn",
+        );
+        var tabPanes = document.querySelectorAll(
+          ".journey-modal-container .contact-tab-pane",
+        );
 
         // Update tab buttons active state and aria attributes
         tabButtons.forEach(function (btn) {
@@ -3790,7 +4573,9 @@
             pane.classList.add("active");
             pane.style.setProperty("display", "block", "important");
             pane.setAttribute("aria-hidden", "false");
-            var controls = pane.querySelectorAll("input, select, textarea, button");
+            var controls = pane.querySelectorAll(
+              "input, select, textarea, button",
+            );
             controls.forEach(function (ctrl) {
               ctrl.disabled = false;
             });
@@ -3798,7 +4583,9 @@
             pane.classList.remove("active");
             pane.style.setProperty("display", "none", "important");
             pane.setAttribute("aria-hidden", "true");
-            var controls = pane.querySelectorAll("input, select, textarea, button");
+            var controls = pane.querySelectorAll(
+              "input, select, textarea, button",
+            );
             controls.forEach(function (ctrl) {
               ctrl.disabled = true;
             });
@@ -3880,7 +4667,8 @@
         if (inputVal.toLowerCase() !== studentCaptchaCode.toLowerCase()) {
           if (notification) {
             notification.className = "form-notification error";
-            notification.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Security code does not match. Please try again.';
+            notification.innerHTML =
+              '<i class="fa-solid fa-triangle-exclamation"></i> Security code does not match. Please try again.';
           }
           generateCaptcha();
           if (capInputEl) {
@@ -3897,7 +4685,8 @@
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+          submitBtn.innerHTML =
+            '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
         }
 
         setTimeout(function () {
@@ -3906,7 +4695,8 @@
           generateCaptcha();
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+            submitBtn.innerHTML =
+              '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
           }
           closeJourneyFormModal();
           showConfirmationModal("students");
@@ -3936,7 +4726,8 @@
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+          submitBtn.innerHTML =
+            '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
         }
 
         setTimeout(function () {
@@ -3945,7 +4736,8 @@
           generateProCaptcha();
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+            submitBtn.innerHTML =
+              '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
           }
           closeJourneyFormModal();
           showConfirmationModal("professionals");
@@ -3975,7 +4767,8 @@
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+          submitBtn.innerHTML =
+            '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
         }
 
         setTimeout(function () {
@@ -3989,7 +4782,8 @@
           generateBizCaptcha();
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
+            submitBtn.innerHTML =
+              '<span>Submit</span> <i class="fa-solid fa-arrow-right"></i>';
           }
           closeJourneyFormModal();
           showConfirmationModal("business");
@@ -4008,7 +4802,9 @@
         generateBizCaptcha();
 
         // Modal Tab Buttons Click Listeners
-        var tabButtons = document.querySelectorAll(".journey-modal-container .form-tab-btn");
+        var tabButtons = document.querySelectorAll(
+          ".journey-modal-container .form-tab-btn",
+        );
         tabButtons.forEach(function (btn) {
           btn.addEventListener("click", function () {
             var targetTab = this.getAttribute("data-tab");
@@ -4017,7 +4813,9 @@
         });
 
         // Messaging Apps Chip Toggle inside Modal
-        var messagingContainers = document.querySelectorAll(".journey-modal-container .messaging-options-wrap");
+        var messagingContainers = document.querySelectorAll(
+          ".journey-modal-container .messaging-options-wrap",
+        );
         messagingContainers.forEach(function (container) {
           var chips = container.querySelectorAll(".msg-app-chip");
           chips.forEach(function (chip) {
@@ -4028,7 +4826,9 @@
                   input.checked = true;
                 }
                 if (input.type === "radio") {
-                  chips.forEach(function (c) { c.classList.remove("selected"); });
+                  chips.forEach(function (c) {
+                    c.classList.remove("selected");
+                  });
                   chip.classList.add("selected");
                 } else {
                   if (input.checked) {
@@ -4091,8 +4891,14 @@
         // Escape key to close modals
         document.addEventListener("keydown", function (e) {
           if (e.key === "Escape" || e.keyCode === 27) {
-            var journeyModal = document.getElementById("journeyFormModalOverlay");
-            if (journeyModal && (journeyModal.style.display === "flex" || journeyModal.classList.contains("active"))) {
+            var journeyModal = document.getElementById(
+              "journeyFormModalOverlay",
+            );
+            if (
+              journeyModal &&
+              (journeyModal.style.display === "flex" ||
+                journeyModal.classList.contains("active"))
+            ) {
               closeJourneyFormModal();
             }
             var confirmM = document.getElementById("submissionConfirmModal");
@@ -4113,7 +4919,9 @@
           const mobDropdown = document.querySelector(".mob-signin-dropdown");
           const mobToggle = document.querySelector(".mob-signin-toggle");
 
-          const memberModal = document.querySelector(".loginpage:not(#partnerLoginModal):not(#categoryRegisterModal)");
+          const memberModal = document.querySelector(
+            ".loginpage:not(#partnerLoginModal):not(#categoryRegisterModal)",
+          );
           const partnerModal = document.getElementById("partnerLoginModal");
           const overlay = document.querySelector(".popup-overlay");
 
@@ -4123,7 +4931,10 @@
               e.preventDefault();
               e.stopPropagation();
               dropdownWrap.classList.toggle("open");
-              dropdownBtn.setAttribute("aria-expanded", dropdownWrap.classList.contains("open"));
+              dropdownBtn.setAttribute(
+                "aria-expanded",
+                dropdownWrap.classList.contains("open"),
+              );
             });
           }
 
@@ -4133,7 +4944,10 @@
               e.preventDefault();
               e.stopPropagation();
               mobDropdown.classList.toggle("open");
-              mobToggle.setAttribute("aria-expanded", mobDropdown.classList.contains("open"));
+              mobToggle.setAttribute(
+                "aria-expanded",
+                mobDropdown.classList.contains("open"),
+              );
             });
           }
 
@@ -4141,7 +4955,8 @@
           document.addEventListener("click", function (e) {
             if (dropdownWrap && !dropdownWrap.contains(e.target)) {
               dropdownWrap.classList.remove("open");
-              if (dropdownBtn) dropdownBtn.setAttribute("aria-expanded", "false");
+              if (dropdownBtn)
+                dropdownBtn.setAttribute("aria-expanded", "false");
             }
           });
 
@@ -4160,7 +4975,8 @@
             }
             if (dropdownWrap) {
               dropdownWrap.classList.remove("open");
-              if (dropdownBtn) dropdownBtn.setAttribute("aria-expanded", "false");
+              if (dropdownBtn)
+                dropdownBtn.setAttribute("aria-expanded", "false");
             }
             document.body.style.overflow = "";
           }
@@ -4182,28 +4998,38 @@
           }
 
           // Member Sign In Triggers
-          document.querySelectorAll("#loginBtn, #mobMemberLoginBtn, .member-signin-trigger").forEach(function (btn) {
-            btn.addEventListener("click", function (e) {
-              e.preventDefault();
-              openModal(memberModal);
+          document
+            .querySelectorAll(
+              "#loginBtn, #mobMemberLoginBtn, .member-signin-trigger",
+            )
+            .forEach(function (btn) {
+              btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                openModal(memberModal);
+              });
             });
-          });
 
           // Partner Sign In Triggers
-          document.querySelectorAll("#partnerLoginBtn, #mobPartnerLoginBtn, .partner-signin-trigger").forEach(function (btn) {
-            btn.addEventListener("click", function (e) {
-              e.preventDefault();
-              openModal(partnerModal);
+          document
+            .querySelectorAll(
+              "#partnerLoginBtn, #mobPartnerLoginBtn, .partner-signin-trigger",
+            )
+            .forEach(function (btn) {
+              btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                openModal(partnerModal);
+              });
             });
-          });
 
           // Close buttons
-          document.querySelectorAll(".close-popup, .popup-overlay").forEach(function (el) {
-            el.addEventListener("click", function (e) {
-              e.preventDefault();
-              closeAllModals();
+          document
+            .querySelectorAll(".close-popup, .popup-overlay")
+            .forEach(function (el) {
+              el.addEventListener("click", function (e) {
+                e.preventDefault();
+                closeAllModals();
+              });
             });
-          });
 
           // Backdrop click
           [memberModal, partnerModal].forEach(function (m) {
@@ -4240,8 +5066,14 @@
             }
           }
 
-          wirePasswordToggle(".loginpage:not(#partnerLoginModal) .toggle-password", '.loginpage:not(#partnerLoginModal) input[type="password"], .loginpage:not(#partnerLoginModal) input[type="text"]');
-          wirePasswordToggle(".toggle-partner-password", '#partner_modal_password');
+          wirePasswordToggle(
+            ".loginpage:not(#partnerLoginModal) .toggle-password",
+            '.loginpage:not(#partnerLoginModal) input[type="password"], .loginpage:not(#partnerLoginModal) input[type="text"]',
+          );
+          wirePasswordToggle(
+            ".toggle-partner-password",
+            "#partner_modal_password",
+          );
         }
 
         if (document.readyState === "loading") {
